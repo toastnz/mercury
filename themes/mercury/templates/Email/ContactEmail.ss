@@ -1,200 +1,171 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>{$Subject}</title>
-    <!-- Designed by https://github.com/kaytcat -->
-    <!-- Robot header image designed by Freepik.com -->
+    <title>$Subject</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <style type="text/css">
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
 
-    <style type="text/css">
-        @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
-
-        /* Take care of image borders and formatting */
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
 
         img {
-            max-width: 600px;
-            outline: none;
-            text-decoration: none;
             -ms-interpolation-mode: bicubic;
         }
 
-        a {
-            text-decoration: none;
+        /* RESET STYLES */
+        img {
             border: 0;
+            height: auto;
+            line-height: 100%;
             outline: none;
-            color: #bbbbbb;
-        }
-
-        a img {
-            border: none;
-        }
-
-        /* General styling */
-
-        td, h1, h2, h3 {
-            font-family: "Trebuchet MS", Helvetica, sans-serif;
-            font-weight: 400;
-        }
-
-        td {
-            text-align: center;
-        }
-
-        body {
-            -webkit-font-smoothing: antialiased;
-            -webkit-text-size-adjust: none;
-            width: 100%;
-            height: 100%;
-            color: #37302d;
-            background: #ffffff;
-            font-size: 16px;
+            text-decoration: none;
         }
 
         table {
             border-collapse: collapse !important;
         }
 
-        .headline {
-            color: #ffffff;
-            font-size: 36px;
-        }
-
-        .force-full-width {
+        body {
+            height: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
             width: 100% !important;
         }
 
+        /* iOS BLUE LINKS */
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
 
-    </style>
+        /* GMAIL BLUE LINKS */
+        u+#body a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
 
-    <style type="text/css" media="screen">
-        @media screen {
-            /*Thanks Outlook 2013! http://goo.gl/XLxpyl*/
-            td, h1, h2, h3 {
-                font-family: 'Droid Sans', 'Helvetica Neue', 'Arial', 'sans-serif' !important;
+        /* SAMSUNG MAIL BLUE LINKS */
+        #MessageViewBody a {
+            color: inherit;
+            text-decoration: none;
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: inherit;
+            line-height: inherit;
+        }
+
+        /* These rules set the link and hover states, making it clear that links are, in fact, links. */
+        /* Embrace established conventions like underlines on links to keep emails accessible. */
+        a {
+            color: #B200FD;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: #000000 !important;
+            text-decoration: none !important;
+        }
+
+        /* These rules adjust styles for desktop devices, keeping the email responsive for users. */
+        /* Some email clients don't properly apply media query-based styles, which is why we go mobile-first. */
+        @media screen and (min-width:600px) {
+            h1 {
+                font-size: 48px !important;
+                line-height: 48px !important;
+            }
+
+            .intro {
+                font-size: 24px !important;
+                line-height: 36px !important;
             }
         }
     </style>
-
-    <style type="text/css" media="only screen and (max-width: 480px)">
-        /* Mobile styles */
-        @media only screen and (max-width: 480px) {
-
-            table[class="w320"] {
-                width: 320px !important;
-            }
-
-        }
-    </style>
+     
 </head>
-<body class="body" style="padding:0; margin:0; display:block; background:#ffffff; -webkit-text-size-adjust:none" bgcolor="#ffffff">
-<table align="center" cellpadding="0" cellspacing="0" width="100%" height="100%">
-    <tr>
-        <td align="center" valign="top" bgcolor="#ffffff" width="100%">
-            <center>
-                <table style="margin: 0 auto;" cellpadding="0" cellspacing="0" width="600" class="w320">
-                    <tr>
-                        <td align="center" valign="top">
+ 
+
+<body style="margin: 0 !important; padding: 0 !important;">
+    <!-- This ghost table is used to constrain the width in Outlook. The role attribute is set to presentation to prevent it from being read by screenreaders. -->
+    <!--[if (gte mso 9)|(IE)]>
+    <table cellspacing="0" cellpadding="0" border="0" width="720" align="center" role="presentation"><tr><td>
+    <![endif]-->
+    <!-- The role and aria-label attributes are added to wrap the email content as an article for screen readers. Some of them will read out the aria-label as the title of the document, so use something like "An email from Your Brand Name" to make it recognizable. -->
+    <!-- Default styling of text is applied to the wrapper div. Be sure to use text that is large enough and has a high contrast with the background color for people with visual impairments. -->
+    <div role="article" aria-label="An email from Your Brand Name" lang="en" style="background-color: white; color: #2b2b2b; font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 18px; font-weight: 400; line-height: 28px; margin: 0 auto; max-width: 720px; padding: 40px 20px 40px 20px;">
+
+        <header>
+            <a href="https://litmus.com/community">
+                <center><img src="https://storage.pardot.com/31032/208017/logo_2x.png" alt="" height="50" width="50"></center>
+            </a>
+            <h1 style="color: #000000; font-size: 32px; font-weight: 800; line-height: 32px; margin: 48px 0; text-align: center;">
+                New Message for
+            </h1>
+        </header>
+
+        <main>
+            <div style="background-color: ghostwhite; border-radius: 4px; padding: 24px 48px;">
+                <!--[if (gte mso 9)|(IE)]>
+                <table cellspacing="0" cellpadding="0" border="0" width="720" align="center" role="presentation"><tr><td style="background-color: ghostwhite; padding: 24px 48px 24px 48px;">
+                <![endif]-->
+
+                <p>
+                    To keep your account secure, you need to update your password. Use the link below to reset your password, after which you can log in as usual.
+                </p>
+
+                <p><strong>Name:&nbsp;&nbsp;&nbsp;</strong>$Title</p>
+                <p><strong>Phone:&nbsp;&nbsp;</strong>$Phone</p>
+                <p><strong>Email:&nbsp;&nbsp;&nbsp;&nbsp;</strong><a href="mailto:$Email" style="color: #377cff; text-decoration: underline;">$Email</a></p>
+
+                <p>
+                    <strong>Message: </strong>
+                    <br>
+                    $Message
+                </p>
+                <!--[if (gte mso 9)|(IE)]>
+                </td></tr></table>
+                <![endif]-->
+            </div>
+        </main>
+
+        <!-- Footer information. Footer is a useful landmark element. -->
+        <footer>
+            <!-- Since this is a transactional email, you aren't required to include opt-out language. -->
+            <p style="font-size: 14px; font-weight: 400; font-style:italic;line-height: 24px; margin-top: 48px;color:#666">
+                This message (including any attachments) may contain confidential, proprietary, privileged and/or private information. The information is intended to be for the use of the individual or entity designated above. If you are not the intended recipient of this message, please notify the sender immediately, and delete the message and any attachments. Any disclosure, reproduction, distribution or other use of this message or any attachments by an individual or entity other than the intended recipient is prohibited.
+            </p>
 
 
-                            <table style="padding-top:20px;margin: 0 auto;text-align:center;" cellpadding="0" cellspacing="0" width="100%" bgcolor="#414141">
-                                <tr>
-                                    <td>
-                                        <br>
-                                        <img src="http://assets.toast.co.nz/toast/logo.png" width="231" height="80" alt="Quicksilver">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="headline" style="color:white;font-size:22px;padding:0 10px;">
-                                        <br>
-                                        New Message for {$SiteConfig.Title}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
+        </footer>
 
-                                        <center>
-                                            <table style="margin: 0 auto;" cellpadding="0" cellspacing="0" width="60%">
-                                                <tr>
-                                                    <td style="color:white;">
-                                                        <br>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </center>
-
-                                    </td>
-                                </tr>
-
-                            </table>
-
-                            <table style="margin: 0 auto;text-align:center" cellpadding="0" cellspacing="0" width="100%" bgcolor="#f1f1f1">
-                                <tr>
-                                    <td style="background-color:#f1f1f1;color:#231f20;font-size:22px;" class="headline">
-                                        <br>
-                                        $Title
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        $Phone<br>
-                                        $Email
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-
-                                        <center>
-                                            <table style="margin: 0 auto;font-size:16px;padding:0 10px;" cellpadding="0" cellspacing="0" width="60%">
-                                                <tr>
-                                                    <td>
-                                                        <br>
-                                                        $Message
-                                                        <br><br>
-                                                        <br><br>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </center>
-
-                                    </td>
-
-                                </tr>
-
-
-                            </table>
-
-                            <table style="margin: 0 auto;" cellpadding="0" cellspacing="0" class="force-full-width" bgcolor="#414141" style="margin: 0 auto">
-                                <tr>
-                                    <td style="background-color:#414141;">
-                                        <br>
-
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="color:#bbbbbb; font-size:8px;padding:20px;">
-                                        This message (including any attachments) may contain confidential, proprietary, privileged and/or private
-                                        information. The information is intended to be for the use of the individual or entity designated above. If
-                                        you are not the intended recipient of this message, please notify the sender immediately, and delete the
-                                        message and any attachments. Any disclosure, reproduction, distribution or other use of this message or
-                                        any attachments by an individual or entity other than the intended recipient is prohibited.
-                                        <br><br>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="color:#bbbbbb; font-size:12px;text-align:center;">
-                                        © $Now.format('Y') All Rights Reserved
-                                        <br>
-                                        <br>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </center>
-        </td>
-    </tr>
-</table>
+    </div>
+    <!--[if (gte mso 9)|(IE)]>
+    </td></tr></table>
+    <![endif]-->
+     
 </body>
+
 </html>
