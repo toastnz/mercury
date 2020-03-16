@@ -1,0 +1,59 @@
+//------------------------------------------------------------------
+// Login Page
+//------------------------------------------------------------------
+
+.loginWrap {
+  @include full;
+  position: fixed;
+  background: radial-gradient(circle, darken($white, 20%), darken($white, 50%));
+
+  &:after {
+    @include pseudo;
+    @include full;
+    @include cover;
+    background-image: url('~images/login.jpg');
+    z-index: 1;
+    opacity: 0.15;
+    filter: blur(4px);
+  }
+
+  &__content {
+    @include vertical-center;
+    background: $white;
+    width: 90%;
+    max-width: 40rem;
+    padding: 2rem 4rem 4rem;
+    box-shadow: $z5;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    z-index: 2;
+
+    &__header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .action {
+      width: 100%;
+    }
+
+    #BackToLogin,
+    #ForgotPassword {
+      background: darken($white, 5%);
+      margin: 2rem -4rem -4rem;
+      width: calc(100% + 8rem);
+      padding: 1rem 1.5rem 1.5rem;
+      text-align: center;
+
+      a {
+        color: $text;
+      }
+    }
+  }
+}
+
+#MemberLoginForm_LoginForm_Password_Holder,
+#MemberLoginForm_LoginForm_Email_Holder {
+  margin-bottom: 1rem;
+  position: relative;
+}

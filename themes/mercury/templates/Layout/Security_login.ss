@@ -1,10 +1,8 @@
-<div class="login-wrap">
-    <div class="login-wrap__content">
-        <div class="logo-wrapper">
-            $SVG('logo')
+<div class="loginWrap">
+    <div class="loginWrap__content">
+        <div class="loginWrap__content__header">
+            <h4>Sign in to your account</h4>
         </div>
-        <h5>Login to your account</h5>
-        <br>
         $Form
     </div>
 </div>

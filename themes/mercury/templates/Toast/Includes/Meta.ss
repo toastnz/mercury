@@ -1,12 +1,38 @@
-<meta charset="utf-8">
+<%----------------------------------------------------------------
+Meta
+----------------------------------------------------------------%>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+<%----------------------------------------------------------------
+Base Tag
+----------------------------------------------------------------%>
+
 <% base_tag %>
 
+<%----------------------------------------------------------------
+Meta tags
+----------------------------------------------------------------%>
+
 $MetaTags('false')
+
+<%----------------------------------------------------------------
+Page Title
+----------------------------------------------------------------%>
+
 <title>{$Title} | {$SiteConfig.Title}</title>
 
+<%----------------------------------------------------------------
+Favicons Template
+----------------------------------------------------------------%>
+
 <% include Toast\Favicons %>
+
+<%----------------------------------------------------------------
+Google Tag manager
+----------------------------------------------------------------%>
 
 <% if $SiteConfig.GoogleTagManagerID %>
     <script>(function (w, d, s, l, i) {
@@ -23,6 +49,9 @@ $MetaTags('false')
     })(window, document, 'script', 'dataLayer', '{$SiteConfig.GoogleTagManagerID}');</script>
 <% end_if %>
 
+<%----------------------------------------------------------------
+Bugherd
+----------------------------------------------------------------%>
 
 <% with $SiteConfig %>
     <% if $BHProjectKey %>
@@ -35,24 +64,32 @@ $MetaTags('false')
             })(document, 'script');
         </script>
     <% end_if %>
-
-    <% if $GoogleTrackingID %>
-        <script>
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                            (i[r].q = i[r].q || []).push(arguments)
-                        }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src   = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-            ga('create', '{$GoogleTrackingID}', 'auto');
-            ga('send', 'pageview');
-        </script>
-    <% end_if %>
 <% end_with %>
 
-<% require themedCSS("dist/styles/style") %>
+<%----------------------------------------------------------------
+Google tracking
+----------------------------------------------------------------%>
+
+<% if $SiteConfig.GoogleTrackingID %>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src   = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', '{$SiteConfig.GoogleTrackingID}', 'auto');
+        ga('send', 'pageview');
+    </script>
+<% end_if %>
+
+<%----------------------------------------------------------------
+Styles
+----------------------------------------------------------------%>
+
+<% require themedCSS("dist/styles/main.css") %>
