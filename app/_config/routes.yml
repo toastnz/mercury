@@ -1,0 +1,9 @@
+---
+Name: siteroutes
+After:
+  - "#rootroutes"
+  - "#coreroutes"
+---
+SilverStripe\Control\Director:
+  rules:
+    "api//$Method": "ApiController"
