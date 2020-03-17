@@ -5,3 +5,6 @@ Name: extensions
 SilverStripe\Admin\LeftAndMain:
   extensions:
     - Toast\Extensions\LeftAndMainExtension
+
+StevieMayhew\SilverStripeSVG\SVGTemplate:
+  base_path: 'themes/mercury/dist/images/svg/'

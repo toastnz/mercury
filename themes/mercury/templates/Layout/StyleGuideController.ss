@@ -1,4 +1,18 @@
 <div class="styleguide type">
+
+
+    $TextBlock
+
+    $VideoBlock
+
+    $AccordionBlock
+
+    $ImageBlock
+
+    $TestimonialBlock
+
+    $DownloadBlock
+
     <div class="styleguide__aside">
         <h6>COMPONENTS</h6>
         <a href="#Buttons">Buttons</a>
@@ -140,62 +154,6 @@
             </div>
         </div>
 
-        <div class="styleguide__content__section" id="Text">
-            <h3 class="styleguide__content__section__heading">Text Block</h3>
-            <%----------------------------------------------------------------
-            <h5 class="styleguide__content__section__subtitle">Demonstration</h5>
-             ----------------------------------------------------------------%>
-            <div class="styleguide__content__section__sandbox">
-                <div class="contentBlock">
-                    <%-- $fauxQuickBlock --%>
-                </div>
-            </div>
-        </div>
-
-        <div class="styleguide__content__section" id="Video">
-            <h3 class="styleguide__content__section__heading">Video Block</h3>
-            <div class="styleguide__content__section__sandbox">
-                <div class="contentBlock">
-                    <%-- $fauxVideoBlock --%>
-                </div>
-            </div>
-        </div>
-
-        <div class="styleguide__content__section" id="Testimonial">
-            <h3 class="styleguide__content__section__heading">Testimonial Block</h3>
-            <div class="styleguide__content__section__sandbox">
-                <div class="contentBlock">
-                    <%-- $fauxTestimonialBlock --%>
-                </div>
-            </div>
-        </div>
-
-        <div class="styleguide__content__section" id="Image">
-            <h3 class="styleguide__content__section__heading">Image Block</h3>
-            <div class="styleguide__content__section__sandbox">
-                <div class="contentBlock">
-                    <%-- $fauxImageBlock --%>
-                </div>
-            </div>
-        </div>
-
-        <div class="styleguide__content__section" id="Download">
-            <h3 class="styleguide__content__section__heading">Download Block</h3>
-            <div class="styleguide__content__section__sandbox">
-                <div class="contentBlock">
-                    <%-- $fauxDownloadBlock --%>
-                </div>
-            </div>
-        </div>
-
-        <div class="styleguide__content__section" id="Download">
-            <h3 class="styleguide__content__section__heading">Accordion Block</h3>
-            <div class="styleguide__content__section__sandbox">
-                <div class="contentBlock">
-                    <%-- $fauxAccordionBlock --%>
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>

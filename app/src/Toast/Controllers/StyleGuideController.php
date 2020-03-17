@@ -25,11 +25,11 @@ class StyleGuideController extends Controller
     public function init()
     {
 
-        $image = File::find('placeholder.jpg');
+        $image = File::find('Placeholder.jpg');
 
         if (!$image) {
             $file = Image::create();
-            $file->setFromLocalFile('themes/mercury/dist/images/standard/placeholder.jpg', 'placeholder.jpg');
+            $file->setFromLocalFile('themes/mercury/dist/images/standard/Placeholder.jpg', 'Placeholder.jpg');
             $file->write();
             if (class_exists(Versioned::class)) {
                 $file->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
@@ -38,6 +38,15 @@ class StyleGuideController extends Controller
 
         parent::init();
     }
+
+    public function TextBlock()
+    {
+        $arrayData = new ArrayData([
+            'Content' => DBField::create_field(DBHTMLText::class, '<h5 class="colour--primary"><b>ALIQUAM TINCIDUNT</b></h5><h1 class="h2">Morbi in sem quis dui placerat ornare</h1><h6>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.</h6><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
+        ]);
+        return $arrayData->renderWith('Toast\Blocks\Block');
+    }
+
 
     public function index()
     {
@@ -49,7 +58,7 @@ class StyleGuideController extends Controller
     }
 
 
-    public function fauxTestimonialBlock()
+    public function TestimonialBlock()
     {
         $accordionItems = new ArrayList([
             new ArrayData([
@@ -71,30 +80,30 @@ class StyleGuideController extends Controller
         ]);
 
 
-        return $arrayData->renderWith('Toast\QuickBlocks\TestimonialBlock');
+        return $arrayData->renderWith('Toast\Blocks\TestimonialBlock');
     }
 
-    public function fauxVideoBlock()
+    public function VideoBlock()
     {
         $arrayData = new ArrayData([
             'VideoType' => 'youtube',
             'Video'     => 'ScMzIvxBSi4',
             'Caption'   => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
-            'Thumbnail' => Image::find('placeholder.jpg')
+            'Thumbnail' => Image::find('Placeholder.jpg')
         ]);
-        return $arrayData->renderWith('Toast\QuickBlocks\VideoBlock');
+        return $arrayData->renderWith('Toast\Blocks\VideoBlock');
     }
 
-    public function fauxImageBlock()
+    public function ImageBlock()
     {
         $arrayData = new ArrayData([
-            'Image'   => Image::find('placeholder.jpg'),
+            'Image'   => Image::find('Placeholder.jpg'),
             'Caption' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
         ]);
-        return $arrayData->renderWith('Toast\QuickBlocks\ImageBlock');
+        return $arrayData->renderWith('Toast\Blocks\ImageBlock');
     }
 
-    public function fauxAccordionBlock()
+    public function AccordionBlock()
     {
 
         $accordionItems = new ArrayList([
@@ -116,31 +125,31 @@ class StyleGuideController extends Controller
             'Items' => $accordionItems
         ]);
 
-        return $arrayData->renderWith('Toast\QuickBlocks\AccordionBlock');
+        return $arrayData->renderWith('Toast\Blocks\AccordionBlock');
     }
 
-    public function fauxQuickBlock()
-    {
-        $arrayData = new ArrayData([
-            'Content' => DBField::create_field(DBHTMLText::class, '<h5 class="colour--primary"><b>ALIQUAM TINCIDUNT</b></h5><h1 class="h2">Morbi in sem quis dui placerat ornare</h1><h6>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.</h6><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
-        ]);
-        return $arrayData->renderWith('Toast\QuickBlocks\QuickBlock');
-    }
 
-    public function fauxDownloadBlock()
+
+    public function DownloadBlock()
     {
         $files     = new ArrayList([
-            Image::find('placeholder.jpg'),
-            Image::find('placeholder.jpg'),
-            Image::find('placeholder.jpg'),
+            new ArrayData([
+                'File' => Image::find('Placeholder.jpg'),
+            ]),
+            new ArrayData([
+                'File' => Image::find('Placeholder.jpg'),
+            ]),
+            new ArrayData([
+                'File' => Image::find('Placeholder.jpg'),
+            ])
         ]);
         $arrayData = new ArrayData([
             'Items' => $files
         ]);
-        return $arrayData->renderWith('Toast\QuickBlocks\DownloadBlock');
+        return $arrayData->renderWith('Toast\Blocks\DownloadBlock');
     }
 
-    public function fauxSplitBlock()
+    public function SplitBlock()
     {
         $arrayData = new ArrayData([
             'LeftContent'  => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
@@ -148,6 +157,6 @@ class StyleGuideController extends Controller
             'LeftWidth'    => '200px',
             'RightWidth'   => '200px'
         ]);
-        return $arrayData->renderWith('Toast\QuickBlocks\SplitBlock');
+        return $arrayData->renderWith('Toast\Blocks\SplitBlock');
     }
 }

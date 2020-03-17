@@ -5,6 +5,7 @@ After: toastblocks
 
 Toast\Blocks\Extensions\PageExtension:
   available_blocks:
+    - Toast\Blocks\TextBlock
     - Toast\Blocks\AccordionBlock
     - Toast\Blocks\ChildLinkBlock
     - Toast\Blocks\ColumnBlock
@@ -18,6 +19,5 @@ Toast\Blocks\Extensions\PageExtension:
     - Toast\Blocks\SplitBlock
     - Toast\Blocks\TabbedContentBlock
     - Toast\Blocks\TestimonialBlock
-    - Toast\Blocks\TextBlock
     - Toast\Blocks\VideoBlock
     

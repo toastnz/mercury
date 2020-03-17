@@ -13,6 +13,10 @@ $black: #000;
 // Base Colurs
 //------------------------------------------------------------------
 
+:root {
+  --primary-colour: #008bd1;
+}
+
 $primary: #008bd1 !default;
 $primary: var(--primary-colour);
 $secondary: #0f1b25 !default;

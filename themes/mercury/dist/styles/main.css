@@ -157,6 +157,9 @@ video {
   font: inherit;
   vertical-align: baseline; }
 
+:root {
+  --primary-colour: #008bd1; }
+
 .clearfix:before,
 .clearfix:after {
   content: '';
@@ -739,6 +742,49 @@ table {
   margin: 0 auto;
   max-width: 1280px;
   padding: 10rem 2rem; }
+
+.block {
+  margin: 5rem auto; }
+
+.downloadBlock__wrap__list__item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  color: inherit;
+  padding: 1.75rem 2rem 1.75rem;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none; }
+  .downloadBlock__wrap__list__item:first-of-type {
+    border-top: 1px solid #ddd; }
+  .downloadBlock__wrap__list__item__details__summary, .downloadBlock__wrap__list__item__details__info, .downloadBlock__wrap__list__item__details__title {
+    width: 100%;
+    -webkit-transition: all 222ms ease;
+    -o-transition: all 222ms ease;
+    transition: all 222ms ease; }
+  .downloadBlock__wrap__list__item__icon {
+    margin-right: 2rem; }
+    .downloadBlock__wrap__list__item__icon svg {
+      overflow: visible; }
+      .downloadBlock__wrap__list__item__icon svg path {
+        -webkit-transition: all 222ms ease;
+        -o-transition: all 222ms ease;
+        transition: all 222ms ease; }
+  .downloadBlock__wrap__list__item:hover .downloadBlock__wrap__list__item__details__summary,
+  .downloadBlock__wrap__list__item:hover .downloadBlock__wrap__list__item__details__info,
+  .downloadBlock__wrap__list__item:hover .downloadBlock__wrap__list__item__details__title {
+    color: var(--primary-colour); }
+  .downloadBlock__wrap__list__item:hover path {
+    fill: var(--primary-colour); }
+    .downloadBlock__wrap__list__item:hover path:last-of-type {
+      -webkit-transform: translateY(3px);
+          -ms-transform: translateY(3px);
+              transform: translateY(3px); }
 
 
 /*# sourceMappingURL=main.css.map*/
