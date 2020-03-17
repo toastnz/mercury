@@ -6,4 +6,5 @@ After:
 ---
 SilverStripe\Control\Director:
   rules:
-    "api//$Method": "ApiController"
+    "api//$Method": "Toast\\Controllers\\ApiController"
+    "_styleguide": "Toast\\Controllers\\StyleGuideController"

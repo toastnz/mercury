@@ -1,0 +1,54 @@
+//------------------------------------------------------------------
+// Tables
+//------------------------------------------------------------------
+
+table {
+  line-height: 1.5;
+  border: 0 solid #d2d6dc;
+  border-collapse: collapse;
+  min-width: 100%;
+
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+
+  thead {
+    box-sizing: border-box;
+    border: 0 solid #d2d6dc;
+
+    tr {
+      border-collapse: collapse;
+      box-sizing: border-box;
+      border: 0 solid #d2d6dc;
+
+      th {
+        border: 0 solid #d2d6dc;
+        background-color: #f9fafb;
+        border-color: #e5e7eb;
+        border-bottom-width: 1px;
+        line-height: 1rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        text-align: left;
+        color: #6b7280;
+        text-transform: uppercase;
+        font-size: 75%;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        border: 0 solid #d2d6dc;
+        border-color: #e5e7eb;
+        border-bottom-width: 1px;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        white-space: nowrap;
+      }
+    }
+  }
+}
