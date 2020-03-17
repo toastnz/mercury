@@ -2,3 +2,6 @@
 Name: extensions
 ---
 
+SilverStripe\Admin\LeftAndMain:
+  extensions:
+    - Toast\Extensions\LeftAndMainExtension
