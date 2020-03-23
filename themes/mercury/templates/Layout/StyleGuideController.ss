@@ -1,6 +1,5 @@
 <div class="styleguide type">
 
-
     $TextBlock
 
     $VideoBlock

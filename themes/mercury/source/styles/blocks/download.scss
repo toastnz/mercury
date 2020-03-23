@@ -22,8 +22,12 @@
           &__summary,
           &__info,
           &__title {
-            width: 100%;
+            width: 100%; 
             transition: all 222ms ease;
+          }
+
+          &__extension {
+            margin-bottom: 0 !important;
           }
         }
 
@@ -41,7 +45,6 @@
 
         &:hover {
           .downloadBlock__wrap__list__item__details__summary,
-          .downloadBlock__wrap__list__item__details__info,
           .downloadBlock__wrap__list__item__details__title {
             color: $primary;
           }

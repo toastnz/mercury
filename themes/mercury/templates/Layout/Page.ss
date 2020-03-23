@@ -11,5 +11,4 @@
         $ForTemplate
         <hr />
     <% end_loop %>
-
 </div>

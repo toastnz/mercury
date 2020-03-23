@@ -7,6 +7,7 @@ use SilverStripe\Control\Controller;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\Security\Security;
 use SilverStripe\View\ArrayData;
+use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\View\Requirements;
 use SilverStripe\Assets\Image;
 use SilverStripe\Versioned\Versioned;
@@ -89,6 +90,7 @@ class StyleGuideController extends Controller
             'VideoType' => 'youtube',
             'Video'     => 'ScMzIvxBSi4',
             'Caption'   => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
+            'ThumbnailID' => 12,
             'Thumbnail' => Image::find('Placeholder.jpg')
         ]);
         return $arrayData->renderWith('Toast\Blocks\VideoBlock');
@@ -108,15 +110,15 @@ class StyleGuideController extends Controller
 
         $accordionItems = new ArrayList([
             new ArrayData([
-                'Heading' => 'Accordion Heading 1',
+                'Title' => 'Accordion Heading 1',
                 'Content'      => DBField::create_field(DBHTMLText::class, '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
             ]),
             new ArrayData([
-                'Heading' => 'Accordion Heading 2',
+                'Title' => 'Accordion Heading 2',
                 'Content'      => DBField::create_field(DBHTMLText::class, '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
             ]),
             new ArrayData([
-                'Heading' => 'Accordion Heading 3',
+                'Title' => 'Accordion Heading 3',
                 'Content'      => DBField::create_field(DBHTMLText::class, '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
             ]),
         ]);
@@ -158,5 +160,28 @@ class StyleGuideController extends Controller
             'RightWidth'   => '200px'
         ]);
         return $arrayData->renderWith('Toast\Blocks\SplitBlock');
+    }
+
+    public function getTags()
+    {
+        return  new ArrayList([
+            new ArrayData(['Selector' => 'h1', 'Name' => 'Heading 1']),
+            new ArrayData(['Selector' => 'h2', 'Name' => 'Heading 2']),
+            new ArrayData(['Selector' => 'h3', 'Name' => 'Heading 3']),
+            new ArrayData(['Selector' => 'h4', 'Name' => 'Heading 4']),
+            new ArrayData(['Selector' => 'h5', 'Name' => 'Heading 5']),
+            new ArrayData(['Selector' => 'h6', 'Name' => 'Heading 6']),
+            new ArrayData(['Selector' => 'p', 'Name' => 'Paragraph'])
+        ]);
+    }
+    public function appendSizeVariants($sValue)
+    {
+        return  $sValue . ':100,300,400,500,600,700,800,900';
+    }
+
+    public function decodedFonts()
+    {
+        $config = SiteConfig::current_site_config();
+        return json_encode(array_map(array($this, 'appendSizeVariants'), array_values(array_unique(json_decode($config->typeFonts)))));
     }
 }

@@ -1,0 +1,66 @@
+//------------------------------------------------------------------
+// Input Styling
+//------------------------------------------------------------------
+
+button,
+input,
+select, 
+textarea {
+  -webkit-appearance: none;
+}
+
+%input {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  width: 100%;
+  height: 3.6rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.65);
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 0.4rem;
+  transition: all 0.3s;
+
+  @include placeholder {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    border-color: $primary;
+  }
+
+  &:focus {
+    border-color: $primary;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
+  }
+}
+
+form {
+  %field,
+  .field {
+    position: relative;
+    display: block;
+    float: left;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    label {
+      margin: 1rem 0 0.5rem;
+      display: block;
+    }
+
+    &.text {
+      @extend %field;
+
+      textarea,
+      input {
+        @extend %input;
+      }
+    }
+  }
+}

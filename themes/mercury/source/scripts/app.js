@@ -4,5 +4,13 @@ Import styles
 
 import './../styles/style.scss';
 
+/*------------------------------------------------------------------
+Import modules
+------------------------------------------------------------------*/
+
+import './components/videoModal';
+import './components/accordionBlock';
+
+
 console.log('Hello World');
 

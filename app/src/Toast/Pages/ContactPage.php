@@ -17,11 +17,11 @@ use Toast\Forms\ContactForm;
 class ContactPage extends \Page
 {
     private static $singular_name = 'Contact Page';
-    
+
     private static $plural_name = 'Contact Pages';
-    
+
     private static $description = 'Displays a contact form which receives enquiries from the end user';
-    
+
     private static $table_name = 'ContactPage';
 
     private static $db = [
