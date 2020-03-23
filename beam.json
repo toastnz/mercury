@@ -50,7 +50,7 @@
             "branch": "remotes/origin/master",
             "syncPermissions": false
         },
-		"staging":{
+		"uat":{
 			"user": "server_user",
             "host": "server_hostname_or_ip",
             "webroot": "path/to/public",
