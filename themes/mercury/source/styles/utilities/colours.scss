@@ -29,3 +29,7 @@ $secondary: var(--secondary-colour);
 
 $text: $black;
 $text-light: $grey-mid;
+
+.colour--white { 
+  color: $white !important;
+}

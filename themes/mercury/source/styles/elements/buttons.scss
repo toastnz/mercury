@@ -24,6 +24,11 @@
     }
   }
 
+  &--white {
+    color: $primary !important;
+    background: $white;
+  }
+
   &--outline {
     background: transparent;
     outline: 2px solid $primary;

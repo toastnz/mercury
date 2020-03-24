@@ -5,10 +5,9 @@
 .styleguide {
   margin: 0 auto;
   max-width: $xl;
-  padding: 10rem 2rem;
+  padding: 10rem 0;
 
   &__content {
-
     &__section {
       padding-bottom: 4rem;
 
@@ -16,10 +15,11 @@
         margin-bottom: 5rem !important;
         position: relative;
         text-transform: uppercase;
+        padding: 0 2rem;
 
         &:after {
           @include pseudo;
-          left: 0;
+          left: 2rem;
           top: 120%;
           height: 0.4rem;
           width: 5rem;

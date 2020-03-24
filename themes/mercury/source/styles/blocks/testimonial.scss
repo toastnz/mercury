@@ -5,9 +5,10 @@
 .testimonialBlock {
   &__wrap {
     margin: 0 auto;
+    max-width: $xl;
+    padding: 0 2rem;
 
-    &__item{
-      
+    &__item {
     }
   }
 }

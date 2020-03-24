@@ -8,7 +8,7 @@
   }
 
   &__wrap {
-    padding: 0;
+    padding: 0 2rem;
     position: relative;
     max-width: $xl;
     margin: 10rem auto;
@@ -109,7 +109,7 @@ $animation: 1.1s;
 
   &__colour {
     @include pseudo;
-    position: absolute; 
+    position: absolute;
     width: calc(100% + 2px);
     height: calc(100% + 2px);
     left: -1px;

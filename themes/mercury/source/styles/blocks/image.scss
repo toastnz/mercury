@@ -5,7 +5,9 @@
 .imageBlock {
   &__wrap {
     margin: 0 auto;
- 
+    max-width: $xl;
+    padding: 0 2rem;
+
     img {
       width: 100%;
       height: auto;

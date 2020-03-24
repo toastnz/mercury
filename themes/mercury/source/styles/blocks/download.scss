@@ -4,6 +4,10 @@
 
 .downloadBlock {
   &__wrap {
+    margin: 0 auto;
+    max-width: $xl;
+    padding: 0 2rem;
+
     &__list {
       &__item {
         display: flex;
@@ -36,7 +40,7 @@
         }
 
         &__icon {
-          margin-right: 2rem; 
+          margin-right: 2rem;
           position: relative;
           top: 0.4rem;
 
