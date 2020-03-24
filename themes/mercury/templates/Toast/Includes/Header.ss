@@ -33,7 +33,9 @@
                         <% if $Children %>
                         <div class="header__wrap__nav__link__subnav__item__third">
                             <% loop $Children %>
-                            <a href="{$Link}" class="header__wrap__nav__link__subnav__item__third__item">{$MenuTitle}</a>
+                            <a href="{$Link}" class="header__wrap__nav__link__subnav__item__third__item">
+                                <p>{$MenuTitle}</p>
+                            </a>
                             <% end_loop %>
                         </div>
                         <% end_if %>

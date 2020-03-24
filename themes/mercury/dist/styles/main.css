@@ -1739,6 +1739,11 @@ a:not([class]) {
   max-width: 1280px;
   padding: 0 2rem; }
 
+.textBlock__wrap {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 2rem; }
+
 .videoBlock__wrap {
   margin: 0 auto;
   max-width: 1280px;
