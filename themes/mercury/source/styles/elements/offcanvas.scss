@@ -1,0 +1,203 @@
+//------------------------------------------------------------------
+// Off Canvas Navigation
+// ------------------------------------------------------------------
+
+.menuActive {
+  width: 100%;
+
+  .blur {
+    filter: blur(25px);
+    transform: scale(0.8);
+  }
+
+  .header__logo path {
+    fill: $white;
+  }
+
+  .header__wrap__navburger__ring--1 {
+    transform: rotate(45deg) translateX(0.7rem) translateY(0.7rem);
+  }
+
+  .header__wrap__navburger__ring--2 {
+    background: transparent !important;
+  }
+
+  .header__wrap__navburger__ring--3 {
+    transform: rotate(-45deg) translateX(0.7rem) translateY(-0.7rem);
+  }
+
+  .offCanvas {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .offCanvas__menu__item {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+
+  .header__background {
+    opacity: 0 !important;
+  }
+}
+
+.blur {
+  will-change: auto;
+  transition: all 666ms ease;
+}
+
+.offCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba($white, 0.4);
+  transform-origin: 100% 0;
+  opacity: 0;
+  will-change: all;
+  transition: all 333ms ease;
+  z-index: 998;
+  overflow: auto;
+  visibility: hidden;
+  padding-top: 10rem;
+
+  > svg {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    height: 30px;
+    width: 126.25px;
+  }
+
+  &__menu {
+    margin-top: 8rem;
+    padding: 2rem 0;
+
+    &__item {
+      position: relative;
+      margin: 0;
+
+      @for $i from 0 through 10 {
+        &:nth-child(#{$i}) {
+          opacity: 0.5;
+          transition: all 888ms ease !important;
+          transition-delay: #{($i * 220)}ms;
+          transform: translateY(-#{($i * 10)}px);
+          display: block;
+        }
+      }
+
+      &:after {
+        @include pseudo;
+        left: 0;
+        right: 0;
+        bottom: -1px;
+        height: 1px;
+        background: rgba($off-white, 0.2);
+      }
+
+      &__link {
+        display: block;
+        padding: 2rem 2rem;
+        text-decoration: none;
+        position: relative;
+
+        &:hover {
+          color: $primary;
+        }
+
+        &.current {
+          padding: 1.8rem 3rem 1.8rem 5rem !important;
+
+          &:after {
+            @include pseudo;
+            @include vertical-align;
+            left: 0;
+            width: 4rem;
+            height: 1px;
+            background: $primary;
+          }
+        }
+
+        b {
+          font-size: 3rem;
+          position: relative;
+          z-index: 2;
+
+          @include media($xxs, max) {
+            font-size: 2rem;
+          }
+        }
+
+        span {
+          width: 6rem;
+          position: absolute;
+          right: 1.8rem;
+          top: 0;
+          bottom: 0;
+          text-align: center;
+
+          svg {
+            margin-top: 1.5rem;
+            transition: all 333ms ease;
+            transform: rotate(90deg);
+          }
+        }
+
+        &.current,
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .open {
+    svg {
+      transform: rotate(-90deg);
+    }
+
+    .offCanvas__submenu {
+      padding: 1rem 0 0.5rem;
+      max-height: 30rem;
+    }
+  }
+
+  &__submenu {
+    background: $primary;
+    padding: 0;
+    display: none;
+
+    &__item {
+      &__link {
+        @include semi;
+        display: block;
+        padding: 1.8rem 3rem;
+        color: $white;
+        text-decoration: none;
+        position: relative;
+        font-size: 2.4rem;
+
+        span {
+          width: 3.5rem;
+          position: absolute;
+          right: 1.8rem;
+          top: 0;
+          bottom: 0;
+          background: $grey-light;
+          text-align: center;
+
+          svg {
+            margin: 0.8rem auto;
+          }
+        }
+
+        &:hover {
+          color: $secondary;
+        }
+      }
+    }
+  }
+}

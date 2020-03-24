@@ -1,0 +1,193 @@
+//------------------------------------------------------------------
+// Image Text Block
+//------------------------------------------------------------------
+
+.imageText {
+  + .imageText {
+    margin-top: 20rem !important;
+  }
+
+  &__wrap {
+    padding: 0;
+    position: relative;
+    max-width: $xl;
+    margin: 10rem auto;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+
+    @include media($md, max) {
+      margin: 10rem auto;
+    }
+
+    &__image {
+      width: 50%;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      text-align: center;
+      justify-content: space-around;
+      padding: 0;
+      z-index: 4;
+      box-shadow: $z6;
+
+      @include media($md, max) {
+        width: 100%;
+        transform: none !important;
+        order: 1 !important;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      &__text {
+        @include full;
+        background: rgba($text, 0.4);
+        z-index: 333;
+        align-items: center;
+        align-content: center;
+
+        h4 {
+          @include vertical-align;
+          padding: 4rem;
+        }
+      }
+    }
+
+    &__text {
+      background: $off-white;
+      width: 50%;
+      padding: 6rem 5rem;
+      position: relative;
+
+      @include media($md, max) {
+        width: 100%;
+        order: 2 !important;
+        transform: none !important;
+      }
+
+      &:after {
+        @include pseudo;
+        top: 0;
+        bottom: 0;
+        width: 10%;
+        background: $off-white;
+        right: 99%;
+
+        @include media($md, max) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.imageText--reversed {
+  .imageText__wrap__image {
+    order: 2;
+  }
+
+  .imageText__wrap__text {
+    order: 1;
+
+    &:after {
+      left: 99%;
+      right: auto;
+    }
+  }
+}
+
+$animation: 1.1s;
+
+.animatedPanel {
+  @include full;
+  z-index: 9;
+
+  &__colour {
+    @include pseudo;
+    position: absolute; 
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    left: -1px;
+    top: -1px;
+    background: $primary;
+    transform: scaleX(0);
+    transform-origin: 0% 0%;
+  }
+
+  &:before {
+    @include pseudo;
+    position: absolute;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    left: -1px;
+    top: -1px;
+    background: $off-white;
+    transform: scaleX(1);
+    transform-origin: 0% 0%;
+  }
+
+  @keyframes overPanelImage {
+    0% {
+      transform: scaleX(0);
+    }
+    38% {
+      transform: scaleX(1);
+    }
+    40% {
+      transform-origin: 0% 0%;
+      transform: scaleX(1);
+    }
+    41% {
+      transform-origin: 100% 100%;
+      transform: scaleX(1);
+    }
+    100% {
+      transform-origin: 100% 100%;
+      transform: scaleX(0);
+    }
+  }
+
+  @keyframes underPanelImage {
+    0% {
+      transform: scaleX(1);
+    }
+    38% {
+      transform: scaleX(1);
+    }
+    40% {
+      transform-origin: 0% 0%;
+      transform: scaleX(1);
+    }
+    41% {
+      transform-origin: 100% 100%;
+      transform: scaleX(1);
+    }
+    100% {
+      transform-origin: 100% 100%;
+      transform: scaleX(0);
+    }
+  }
+
+  &.inView {
+    &:before {
+      animation-name: underPanelImage;
+      animation-duration: $animation;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .animatedPanel__colour {
+      animation-name: overPanelImage;
+      animation-duration: $animation;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+}

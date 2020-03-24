@@ -22,8 +22,12 @@
           &__summary,
           &__info,
           &__title {
-            width: 100%; 
+            width: 100%;
             transition: all 222ms ease;
+          }
+
+          &__title {
+            margin-bottom: 0.5rem !important;
           }
 
           &__extension {
@@ -32,7 +36,9 @@
         }
 
         &__icon {
-          margin-right: 2rem;
+          margin-right: 2rem; 
+          position: relative;
+          top: 0.4rem;
 
           svg {
             overflow: visible;

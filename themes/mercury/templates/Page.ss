@@ -13,8 +13,10 @@
 
         <div class="type">
             <% include Toast\Header %>
-            $Layout
-            <% include Toast\Footer %>
+            <div class="blur">
+                $Layout
+                <% include Toast\Footer %>
+            </div>
         </div>
 
         <% if $SiteConfig.GoogleTagManagerID %>
