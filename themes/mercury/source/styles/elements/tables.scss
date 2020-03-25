@@ -12,7 +12,7 @@ table {
   border-radius: 0.5rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 15px 35px rgba($black, 0.2), 0 5px 15px rgba($black, 0.14);
+  box-shadow: $shadow;
   min-width: $md;
   border: 2px solid $white;
 

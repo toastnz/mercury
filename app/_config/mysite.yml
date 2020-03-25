@@ -7,3 +7,6 @@ SilverStripe\Core\Manifest\ModuleManifest:
 SilverStripe\Assets\File:
   allowed_extensions:
     - 'svg'
+    - 'jpg'
+    - 'png'
+    - 'jpeg'

@@ -7,21 +7,24 @@
   margin: 0 auto;
 
   &__wrap {
-    padding: 0 2rem;
+    padding: 4rem 2rem;
     margin: 0 -2rem;
     position: relative;
-
     display: flex;
     width: 100%;
     flex-wrap: wrap;
 
+    @include media($md, max) {
+      margin: 0 auto;
+    }
+
     &__item {
-      width: calc(33.3333% - 4rem);
-      box-shadow: $z7;
+      box-shadow: $shadow;
       margin: 2rem;
       background: $white;
-      padding: 3rem;
-      border-top: 3px solid $secondary;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      position: relative;
 
       @for $i from 0 through 12 {
         &:nth-child(#{$i}) {
@@ -29,6 +32,16 @@
           transition: all 666ms ease;
           transition-delay: #{($i * 20)}ms;
           transform: translateY(#{($i * 30)}px);
+        }
+      }
+
+      &.bordered {
+        &:after {
+          @include pseudo;
+          top: 0;
+          left: 0;
+          right: 0;
+          border-top: 4px solid $primary;
         }
       }
 
@@ -43,30 +56,31 @@
         }
       }
 
+      &__image {
+        @include cover;
+        @include aspect(600, 300);
+        width: 100%;
+      }
+
       &__icon {
         text-align: center;
         display: block;
 
         img {
-          margin: 0 auto 2rem;
+          margin: 2rem auto 0;
           display: inline-block;
           max-width: 100%;
           height: auto;
         }
       }
 
-      &__heading {
-        position: relative;
-        padding-bottom: 0.1rem;
-        margin-bottom: 1rem;
+      &__content {
+        padding: 1rem 3rem 2rem;
 
-        &:after {
-          @include pseudo;
-          left: 0;
-          bottom: 0;
-          height: 3px;
-          background: $grey-light;
-          width: 3rem;
+        &__heading {
+          position: relative;
+          margin: 2rem auto 1rem;
+          text-align: center;
         }
       }
 
@@ -84,5 +98,36 @@
         }
       }
     }
+  }
+}
+
+//------------------------------------------------------------------
+// Variations
+//------------------------------------------------------------------
+
+.linkBlock__wrap--2 .linkBlock__wrap__item {
+  width: calc(50% - 4rem);
+
+  @include media($md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}
+
+.linkBlock__wrap--3 .linkBlock__wrap__item {
+  width: calc(33.333% - 4rem);
+
+  @include media($md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}
+
+.linkBlock__wrap--4 .linkBlock__wrap__item {
+  width: calc(25% - 4rem);
+
+  @include media($md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
   }
 }
