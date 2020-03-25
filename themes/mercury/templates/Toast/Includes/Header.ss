@@ -5,19 +5,13 @@
             $SVG('logo')
         </a>
 
-
         <%----------------------------------------------------------------
         Menu
         ----------------------------------------------------------------%>
         <div class="header__wrap__menu">
 
-            <%-------------------------------------------------------%>
-            <div class="header__wrap__menu__indicator [ js-indicator ]"></div>
-            <%-------------------------------------------------------%>
-
             <% loop Menu(1) %>
-            <% if $Title != 'Contact' %>
-            <div class="header__wrap__menu__item [ js-mega-menu-toggle ]">
+            <div class="header__wrap__menu__item [ js-indicator-hover ]">
                 <a href="$Link" class="header__wrap__menu__item__link {$LinkingMode}">
                     <p>$Title</p>
                 </a>
@@ -46,7 +40,6 @@
 
             </div>
 
-            <% end_if %>
             <% end_loop %>
 
 
@@ -55,14 +48,6 @@
                 <div class="header__wrap__navburger__ring header__wrap__navburger__ring--2"></div>
                 <div class="header__wrap__navburger__ring header__wrap__navburger__ring--3"></div>
             </div>
-
-
-            <%----------------------------------------------------------------
-         Book
-         ----------------------------------------------------------------%>
-            <a href="{$BaseHref}contact" class="header__wrap__menu__item header__wrap__menu__item--contact">
-                <p>Contact</p>
-            </a>
 
 </header>
 

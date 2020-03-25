@@ -2,6 +2,49 @@
 
     <div class="styleguide__content">
 
+
+        <div class="styleguide__content__section" id="Buttons">
+            <h3 class="styleguide__content__section__heading">Text Block</h3>
+            $TextBlock
+        </div>
+
+        <div class="styleguide__content__section" id="Buttons">
+            <h3 class="styleguide__content__section__heading">Video Block</h3>
+            $VideoBlock
+        </div>
+
+        <div class="styleguide__content__section" id="Buttons">
+            <h3 class="styleguide__content__section__heading">Accordion Block</h3>
+            $AccordionBlock
+        </div>
+
+        <div class="styleguide__content__section" id="Buttons">
+            <h3 class="styleguide__content__section__heading">Link Block</h3>
+            $LinkBlock
+        </div>
+
+        <div class="styleguide__content__section" id="Buttons">
+            <h3 class="styleguide__content__section__heading">Image Block</h3>
+            $ImageBlock
+        </div>
+
+        <div class="styleguide__content__section" id="Buttons">
+            <h3 class="styleguide__content__section__heading">Download Block</h3>
+            $DownloadBlock
+        </div>
+
+        <div class="styleguide__content__section" id="Buttons">
+            <h3 class="styleguide__content__section__heading">Image Text Block</h3>
+            $ImageTextBlock
+            $ImageTextBlockReversed
+        </div>
+
+        <div class="styleguide__content__section" id="Buttons">
+            <h3 class="styleguide__content__section__heading">Testimonial Block</h3>
+            $TestimonialBlock
+        </div>
+
+
         <%----------------------------------------------------------------
         Section
         ----------------------------------------------------------------%>
@@ -118,42 +161,7 @@
 
 
 
-        <div class="styleguide__content__section" id="Buttons">
-            <h3 class="styleguide__content__section__heading">Text Block</h3>
-            $TextBlock
-        </div>
 
-        <div class="styleguide__content__section" id="Buttons">
-            <h3 class="styleguide__content__section__heading">Video Block</h3>
-            $VideoBlock
-        </div>
-
-        <div class="styleguide__content__section" id="Buttons">
-            <h3 class="styleguide__content__section__heading">Accordion Block</h3>
-            $AccordionBlock
-        </div>
-
-        <div class="styleguide__content__section" id="Buttons">
-            <h3 class="styleguide__content__section__heading">Image Block</h3>
-            $ImageBlock
-        </div>
-
-        <div class="styleguide__content__section" id="Buttons">
-            <h3 class="styleguide__content__section__heading">Download Block</h3>
-            $DownloadBlock
-        </div>
-
-        <div class="styleguide__content__section" id="Buttons">
-            <h3 class="styleguide__content__section__heading">Image Text Block</h3>
-            $ImageTextBlock
-            $ImageTextBlockReversed
-        </div>
-
-
-        <div class="styleguide__content__section" id="Buttons">
-            <h3 class="styleguide__content__section__heading">Testimonial Block</h3>
-            $TestimonialBlock
-        </div>
 
 
     </div>

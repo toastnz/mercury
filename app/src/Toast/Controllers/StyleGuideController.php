@@ -43,9 +43,46 @@ class StyleGuideController extends Controller
     public function TextBlock()
     {
         $arrayData = new ArrayData([
-            'Content' => DBField::create_field(DBHTMLText::class, '<h5 class="colour--primary"><b>ALIQUAM TINCIDUNT</b></h5><h1 class="h2">Morbi in sem quis dui placerat ornare</h1><h6>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.</h6><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
+            'Content' => DBField::create_field(DBHTMLText::class, '<h5 class="colour--primary"><b>ALIQUAM TINCIDUNT</b></h5><h1 class="h2">Morbi in sem quis dui placerat ornare</h1><h6>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.</h6><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, <a href="">feugiat vitae</a>, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
         ]);
         return $arrayData->renderWith('Toast\Blocks\Block');
+    }
+
+    public function LinkBlock()
+    {
+        $Items = new ArrayList([
+            new ArrayData([
+                'Title' => 'Dolor sit dolor',
+                'Summary' => 'Esse officia consectetur sit proident ipsum mollit fugiat amet veniam ipsum velit.'
+            ]),
+            new ArrayData([
+                'Title' => 'Adipisicing sunt',
+                'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut fugiat non in nisi occaecat ut aliquip.'
+            ]),
+            new ArrayData([
+                'Title' => 'Occaecat eiusmod qui',
+                'Summary' => 'Adipisicing sunt fugiat tempor elit Lorem ullamco mollit sit veniam.'
+            ]),
+            new ArrayData([
+                'Title' => 'Dolor sit dolor',
+                'Summary' => 'Esse officia consectetur sit proident ipsum mollit fugiat amet veniam ipsum velit.'
+            ]),
+            new ArrayData([
+                'Title' => 'Adipisicing sunt',
+                'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut fugiat non in nisi occaecat ut aliquip.'
+            ]),
+            new ArrayData([
+                'Title' => 'Occaecat eiusmod qui',
+                'Summary' => 'Adipisicing sunt fugiat tempor elit Lorem ullamco mollit sit veniam.'
+            ]),
+        ]);
+
+        $arrayData = new ArrayData([
+            'Items' => $Items
+        ]);
+
+
+        return $arrayData->renderWith('Toast\Blocks\LinkBlock');
     }
 
 

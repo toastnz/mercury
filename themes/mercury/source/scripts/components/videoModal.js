@@ -54,8 +54,9 @@ Variables
 let $body = $('body');
 let modal;
 
-$body.on('click', '.js-video-modal', (e) => {
+$body.on('click', '.js-video-modal', (e) => { 
     e.preventDefault();
+
     let $this = $(e.currentTarget);
 
     modal = new tingle.modal({ onClose() { modal.destroy() } });
@@ -66,8 +67,8 @@ $body.on('click', '.js-video-modal', (e) => {
 
 });
 
+
 $body.on('click', '.js-close-modal', (e) => {
     e.preventDefault();
     modal.close();
 });
-

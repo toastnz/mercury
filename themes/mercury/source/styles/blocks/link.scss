@@ -1,0 +1,88 @@
+//------------------------------------------------------------------
+// Image Text Block
+//------------------------------------------------------------------
+
+.linkBlock {
+  max-width: $xl;
+  margin: 0 auto;
+
+  &__wrap {
+    padding: 0 2rem;
+    margin: 0 -2rem;
+    position: relative;
+
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+
+    &__item {
+      width: calc(33.3333% - 4rem);
+      box-shadow: $z7;
+      margin: 2rem;
+      background: $white;
+      padding: 3rem;
+      border-top: 3px solid $secondary;
+
+      @for $i from 0 through 12 {
+        &:nth-child(#{$i}) {
+          opacity: 0;
+          transition: all 666ms ease;
+          transition-delay: #{($i * 20)}ms;
+          transform: translateY(#{($i * 30)}px);
+        }
+      }
+
+      &.inView {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      &:hover {
+        .linkBlock__wrap__item__content__link svg {
+          transform: translateX(0.5rem);
+        }
+      }
+
+      &__icon {
+        text-align: center;
+        display: block;
+
+        img {
+          margin: 0 auto 2rem;
+          display: inline-block;
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      &__heading {
+        position: relative;
+        padding-bottom: 0.1rem;
+        margin-bottom: 1rem;
+
+        &:after {
+          @include pseudo;
+          left: 0;
+          bottom: 0;
+          height: 3px;
+          background: $grey-light;
+          width: 3rem;
+        }
+      }
+
+      &__content {
+        &__link {
+          color: $primary;
+
+          svg {
+            transition: all 333ms ease;
+
+            path {
+              fill: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

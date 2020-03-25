@@ -22,40 +22,21 @@
 
     &__menu {
       @include vertical-align;
-      right: 4rem;
       left: 0;
       text-align: right;
+      right: 0;
 
       @include media($lg, max) {
         right: 6rem;
       }
 
-      @include media($lg, max) {
-        .js-mega-menu-toggle {
-          display: none !important;
-        }
-      }
-
-      &__indicator {
-        height: 0;
-        background: $primary;
-        width: 5rem;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        transition: all 333ms ease;
-        opacity: 0;
-
-        &.active {
-          opacity: 1;
-          transform: translateY(0);
-          height: 4px;
-        }
-      }
-
       &__item {
         display: inline-block;
         vertical-align: middle;
+
+        @include media($lg, max) {
+          display: none !important;
+        }
 
         &__link {
           padding: 2.6rem 0.5rem;
@@ -70,53 +51,29 @@
             margin: 0 !important;
           }
 
+          &:after {
+            @include pseudo;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 3px;
+            background: $primary;
+            transform: scaleX(0);
+            transition: all 222ms ease;
+          }
+
           &.active,
           &:hover {
             color: $primary;
           }
 
+          &:hover,
           &.section,
           &.current {
             color: $primary;
 
             &:after {
-              @include pseudo;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              height: 4px;
-              background: $primary;
-            }
-          }
-        }
-
-        &--search {
-          padding: 3rem 1rem;
-          cursor: pointer;
-
-          &.active,
-          &:hover {
-            path {
-              fill: $primary;
-            }
-          }
-        }
-
-        &--contact {
-          @extend .button--outline;
-          margin: 0 0 0 3rem;
-          padding: 1rem 2rem;
-          font-size: 1.6rem;
-
-          p {
-            margin: 0 !important;
-            color: $secondary !important;
-            font-weight: 500 !important;
-          }
-
-          &:hover {
-            p {
-              color: $white !important;
+              transform: scaleX(1);
             }
           }
         }

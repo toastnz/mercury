@@ -4,4 +4,6 @@ Name: myproject
 SilverStripe\Core\Manifest\ModuleManifest:
   project: app
 
-
+SilverStripe\Assets\File:
+  allowed_extensions:
+    - 'svg'

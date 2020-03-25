@@ -7,17 +7,18 @@ Toast\Blocks\Extensions\PageExtension:
   available_blocks:
     - Toast\Blocks\TextBlock
     - Toast\Blocks\AccordionBlock
-    - Toast\Blocks\ChildLinkBlock
-    - Toast\Blocks\ColumnBlock
     - Toast\Blocks\DownloadBlock
-    - Toast\Blocks\GalleryBlock
-    - Toast\Blocks\HeroBlock
     - Toast\Blocks\ImageBlock
-    - Toast\Blocks\LinkBlock
-    - Toast\Blocks\NewsBlock
-    - Toast\Blocks\PercentageBlock
-    - Toast\Blocks\SplitBlock
-    - Toast\Blocks\TabbedContentBlock
-    - Toast\Blocks\TestimonialBlock
     - Toast\Blocks\VideoBlock
+    - Toast\Blocks\LinkBlock
+
+    # - Toast\Blocks\ChildLinkBlock
+    # - Toast\Blocks\ColumnBlock
+    # - Toast\Blocks\GalleryBlock
+    # - Toast\Blocks\HeroBlock
+    # - Toast\Blocks\NewsBlock
+    # - Toast\Blocks\PercentageBlock
+    # - Toast\Blocks\SplitBlock
+    # - Toast\Blocks\TabbedContentBlock
+    # - Toast\Blocks\TestimonialBlock
     
