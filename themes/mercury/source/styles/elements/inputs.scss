@@ -4,7 +4,7 @@
 
 button,
 input,
-select, 
+select,
 textarea {
   -webkit-appearance: none;
 }
@@ -54,10 +54,19 @@ form {
       display: block;
     }
 
+    &.textarea {
+      @extend %field;
+
+      textarea {
+        @extend %input;
+        min-height: 10rem;
+        resize: none;
+      }
+    }
+
     &.text {
       @extend %field;
 
-      textarea,
       input {
         @extend %input;
       }

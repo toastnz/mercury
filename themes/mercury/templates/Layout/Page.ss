@@ -1,3 +1,5 @@
+<% include Toast\Banner %>
+
 $Content
 $Form
 
