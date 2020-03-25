@@ -18,10 +18,10 @@ textarea {
   height: 3.6rem;
   font-size: 1.4rem;
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.65);
-  background-color: #fff;
+  color: rgba($black, 0.65);
+  background-color: $white;
   background-image: none;
-  border: 1px solid #d9d9d9;
+  border: 1px solid $grey-light;
   border-radius: 0.4rem;
   transition: all 0.3s;
 
@@ -69,6 +69,65 @@ form {
 
       input {
         @extend %input;
+      }
+    }
+  }
+}
+
+input[type='submit'] {
+  @extend .button;
+}
+
+input[type='checkbox'] {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+
+  + label {
+    position: relative;
+    padding-left: 3rem;
+    user-select: none;
+    cursor: pointer;
+
+    &:before {
+      @include pseudo;
+      display: block;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 333ms ease;
+      background: $white;
+      border: 1px solid $grey-light;
+      width: 20px;
+      height: 20px;
+      border-radius: 0.4rem;
+    }
+
+    &:after {
+      @include pseudo;
+      transform: rotate(43deg);
+      width: 5px;
+      height: 9px;
+      border: 2px solid $white;
+      border-top: 0;
+      border-left: 0;
+      left: 7px;
+      top: 50%;
+      transition: all 333ms ease;
+      margin-top: -1px;
+      transform: translateY(-50%) rotate(20deg);
+    }
+  }
+
+  &:checked {
+    + label {
+      &:before {
+        background: $primary;
+        border-color: $primary;
+      }
+
+      &:after {
+        transform: translateY(-50%) rotate(43deg);
       }
     }
   }

@@ -9,18 +9,18 @@ Banner
     <div class="banner__wrap">
 
         <%------------------------------------------------------------------
-    Overlay
-    ------------------------------------------------------------------%>
+        Overlay
+        ------------------------------------------------------------------%>
 
         <div class="bannerBG"></div>
 
         <% if $BannerImage %>
-        <div class="bannerImage" style="background-image:url({$BannerImage.URL});	background-position: $BannerImage.PercentageX% $BannerImage.PercentageY%;"></div>
+            <div class="bannerImage" style="background-image:url({$BannerImage.URL});	background-position: $BannerImage.PercentageX% $BannerImage.PercentageY%;"></div>
         <% end_if %>
 
         <%------------------------------------------------------------------
-    Content
-    ------------------------------------------------------------------%>
+        Content
+        ------------------------------------------------------------------%>
 
         <div class="banner__wrap__content">
             <div class="[ js-fade-up ]">

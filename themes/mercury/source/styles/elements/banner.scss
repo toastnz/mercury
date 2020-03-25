@@ -3,7 +3,7 @@
 //------------------------------------------------------------------
 
 .banner {
-  overflow: hidden; 
+  overflow: hidden;
   position: relative;
   margin-top: 8rem;
 
@@ -17,7 +17,7 @@
     .banner__wrap {
       width: 100%;
       height: auto;
-      background: $secondary;
+      background: $off-white;
     }
 
     .banner__wrap__overlay {
@@ -43,7 +43,7 @@
 
       &:after {
         @include pseudo;
-        background: linear-gradient(0deg, rgba($secondary, 0.4) 0%, rgba($secondary, 0) 100%);
+        background: linear-gradient(0deg, rgba($black, 0.4) 0%, rgba($black, 0) 100%);
         width: 100%;
         left: 0;
         bottom: 0;
@@ -63,62 +63,22 @@
       left: 0%;
       z-index: 3;
       transform: translateY(20%) translateX(-20%);
-
-      path {
-        // fill: $primary;
-        // fill: $secondary;
-        // fill: transparent;
-        // stroke: $black;
-      }
-    }
-
-    &__video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translateX(-50%) translateY(-50%);
-      transform: translateX(-50%) translateY(-50%);
-      min-width: 105%;
-      min-height: 105%;
-      width: auto;
-      height: auto;
-      z-index: -1000;
-      overflow: hidden;
-      // filter: blur(4px);
     }
 
     &__overlay {
       @include full;
       z-index: 2;
-      background: #0d3c26;
+      background: $black;
       opacity: 0.65;
     }
 
     &__content {
       @include vertical-center;
       width: 100%;
-      max-width: 65rem;
+      max-width: $lg;
       padding: 2rem;
       z-index: 5;
-
-      h1,
-      h4 {
-        text-align: center;
-        color: $white !important;
-      }
-    }
-
-    &__mouse {
-      @include svg(35, 60);
-      position: absolute;
-      width: 3.5rem;
-      z-index: 333;
-      bottom: 0;
-      left: 0;
-      right: 0;
       margin: 0 auto;
-      opacity: 0.4;
-      z-index: 9999999999;
     }
   }
 }
