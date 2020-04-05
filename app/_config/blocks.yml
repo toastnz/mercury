@@ -6,20 +6,12 @@ After: toastblocks
 Toast\Blocks\Extensions\PageExtension:
   available_blocks:
     - Toast\Blocks\TextBlock
-    - Toast\Blocks\AccordionBlock
-    - Toast\Blocks\DownloadBlock
     - Toast\Blocks\ImageBlock
+    - Toast\Blocks\DownloadBlock
     - Toast\Blocks\VideoBlock
+    - Toast\Blocks\AccordionBlock
+    - Toast\Blocks\HeroBlock
     - Toast\Blocks\LinkBlock
+    - Toast\Blocks\ChildLinkBlock
+    - Toast\Blocks\TabbedContentBlock
 
-    # - Toast\Blocks\ChildLinkBlock
-    # - Toast\Blocks\TabbedContentBlock
-    # - Toast\Blocks\HeroBlock
-
-    # - Toast\Blocks\ColumnBlock
-    # - Toast\Blocks\GalleryBlock
-    # - Toast\Blocks\NewsBlock
-    # - Toast\Blocks\PercentageBlock
-    # - Toast\Blocks\SplitBlock
-    # - Toast\Blocks\TestimonialBlock
-    

@@ -3,8 +3,7 @@
 <section class="textBlock block">
 	<div class="textBlock__wrap row">
 		<div class="column">
-			$Content
-            $Form
+			$Form
 		</div>
 	</div>
 </section>
