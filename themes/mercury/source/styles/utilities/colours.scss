@@ -30,6 +30,14 @@ $secondary: var(--secondary-colour);
 $text: $black;
 $text-light: $grey-mid;
 
-.colour--white { 
+.colour--white {
   color: $white !important;
+}
+
+.colour--primary {
+  color: $primary !important;
+}
+
+.colour--secondary {
+  color: $secondary !important;
 }

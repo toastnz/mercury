@@ -4,8 +4,8 @@ Imports
 
 import inView from 'in-view';
 
-setTimeout(() => {
+document.addEventListener('DOMContentLoaded', () => {
     inView('.js-in-view')
         .on('enter', el => { el.classList.add('inView') })
     // .on('exit', el => el.classList.remove('inView'));
-}, 1);
+});

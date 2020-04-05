@@ -7,11 +7,36 @@
     margin: 0 auto;
     max-width: $xl;
     padding: 0 2rem;
+    position: relative;
 
     img {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    &__caption {
+      background: $primary;
+      position: absolute;
+      bottom: 3rem;
+      left: 0rem;
+      padding: 1rem 4rem;
+      box-shadow: $shadow;
+      transition: all 888ms ease;
+      transform: translateX(-2rem);
+      opacity: 0;
+      will-change: opacity, transform;
+      transform: matrix(1, 0, 0, 1, -20, 0);
+
+      &.inView {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        opacity: 1;
+      }
+
+      p {
+        color: $white;
+        margin: 0;
+      }
     }
   }
 }

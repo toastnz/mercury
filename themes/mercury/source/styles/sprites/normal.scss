@@ -46,3 +46,11 @@
     width: 22px;
     height: 22px;
   }
+  %icon-select,
+  .icon-select {
+    display: inline-block;
+    background-image: url(~sprites/sprite.png);
+    background-position: 0px -52px;
+    width: 25px;
+    height: 14px;
+  }

@@ -36,6 +36,7 @@ ol:not([class]) {
       content: counter(counter) '.';
       @include bold;
       font-size: 75%;
+      color: $primary;
     }
 
     li {

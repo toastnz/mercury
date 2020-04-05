@@ -2,7 +2,6 @@
 
     <div class="styleguide__content">
 
-
         <div class="styleguide__content__section" id="Buttons">
             <h3 class="styleguide__content__section__heading">Text Block</h3>
             $TextBlock

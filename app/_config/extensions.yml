@@ -8,3 +8,7 @@ SilverStripe\Admin\LeftAndMain:
 
 StevieMayhew\SilverStripeSVG\SVGTemplate:
   base_path: 'themes/mercury/dist/images/svg/'
+
+SilverStripe\UserForms\Model\UserDefinedForm:
+  block_default_userforms_js: true
+  block_default_userforms_css: true
