@@ -11,6 +11,7 @@ Import modules
 import './components/videoModal';
 import './components/accordionBlock';
 import './components/imageText';
+import './components/tabbed';
 import './components/inview';
 
 /*------------------------------------------------------------------
@@ -19,7 +20,6 @@ Import external
 
 import $ from 'jquery';
 import Choices from 'choices.js';
-
 
 /*------------------------------------------------------------------
 Menu toggle
@@ -35,11 +35,10 @@ $body.on('click', '.js-toggle-menu', (e) => {
 /*------------------------------------------------------------------
 Select elements
 ------------------------------------------------------------------*/
-console.log('elect');
 
 $(function () {
     $('select.dropdown').each((index, select) => {
-        const choices = new Choices(select, {
+        new Choices(select, {
             itemSelectText: 'Select',
             searchPlaceholderValue: 'Type to search...'
         });

@@ -48,6 +48,42 @@ class StyleGuideController extends Controller
         return $arrayData->renderWith('Toast\Blocks\Block');
     }
 
+    public function TabbedContentBlock()
+    {
+        $Tabs = new ArrayList([
+            new ArrayData([
+                'Title' => 'Dolor sit dolor',
+                'Content' => DBField::create_field(DBHTMLText::class, '<h4>Aute amet sit ex mollit non dolor do tempor do dolor culpa.</h4><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p>'),
+            ]),
+            new ArrayData([
+                'Title' => 'Adipisicing sunt',
+                'Content' => DBField::create_field(DBHTMLText::class, '<h4>Deserunt enim laboris ipsum culpa id pariatur.</h4><p>In enim sint nisi ea laborum nisi minim fugiat ullamco. Aliquip eu officia ullamco veniam. Amet qui laboris consectetur commodo commodo et sit adipisicing non ad laboris culpa esse. Est consectetur quis enim ad deserunt occaecat mollit mollit amet ut adipisicing. Elit occaecat ad consectetur occaecat velit cupidatat nulla dolore do velit ad cupidatat sit in. Consequat duis dolor ea nisi fugiat laboris est id cupidatat minim aliquip occaecat consequat ut.</p><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p>'),
+            ]),
+            new ArrayData([
+                'Title' => 'Occaecat eiusmod qui eiusmod sit dolor',
+                'Content' => DBField::create_field(DBHTMLText::class, '<h4>Occaecat magna esse nulla duis eu elit velit eiusmod exercitation nostrud.</h4><p>Do ullamco consectetur exercitation elit ipsum ad commodo. Ullamco irure occaecat in laboris. Incididunt sunt nostrud ex aliquip fugiat dolor in voluptate sit dolor officia. Officia nostrud mollit eu dolor laboris cupidatat excepteur minim sint do labore. Mollit duis eiusmod occaecat pariatur sit. Ut mollit minim laborum tempor ex id elit adipisicing pariatur sint quis non excepteur et. In mollit ullamco aliquip cupidatat magna ut qui.</p><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p>'),
+            ]),
+            new ArrayData([
+                'Title' => 'Dolor sit dolor',
+                'Content' => DBField::create_field(DBHTMLText::class, '<h4>Fugiat mollit et labore magna elit enim.</h4><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p>'),
+            ]),
+            new ArrayData([
+                'Title' => 'Adipisicing sunt',
+                'Content' => DBField::create_field(DBHTMLText::class, '<h4>Ad aliquip aliquip fugiat occaecat pariatur aliqua do eu amet ullamco duis consequat mollit in.</h4><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p>'),
+            ]),
+            new ArrayData([
+                'Title' => 'Occaecat eiusmod qui',
+                'Content' => DBField::create_field(DBHTMLText::class, '<h4>Eu ex nisi laborum sunt eu incididunt deserunt tempor.</h4><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p>'),
+            ]),
+        ]);
+
+        $arrayData = new ArrayData([
+            'Tabs' => $Tabs
+        ]);
+
+        return $arrayData->renderWith('Toast\Blocks\TabbedContentBlock');
+    }
+
     public function LinkBlock()
     {
         $Items = new ArrayList([
