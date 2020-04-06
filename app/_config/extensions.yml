@@ -1,13 +1,16 @@
 ---
 Name: extensions
 ---
+SilverStripe\SiteConfig\SiteConfig:
+  extensions:
+    - Toast\Extensions\SiteConfigExtension
 
 SilverStripe\Admin\LeftAndMain:
   extensions:
     - Toast\Extensions\LeftAndMainExtension
 
 StevieMayhew\SilverStripeSVG\SVGTemplate:
-  base_path: 'themes/mercury/dist/images/svg/'
+  base_path: "themes/mercury/dist/images/svg/"
 
 SilverStripe\UserForms\Model\UserDefinedForm:
   block_default_userforms_js: true
