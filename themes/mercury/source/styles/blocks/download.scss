@@ -4,6 +4,10 @@
 
 .downloadBlock {
   &__wrap {
+    margin: 0 auto;
+    max-width: $xl;
+    padding: 0 2rem;
+
     &__list {
       &__item {
         display: flex;
@@ -25,10 +29,20 @@
             width: 100%;
             transition: all 222ms ease;
           }
+
+          &__title {
+            margin-bottom: 0.5rem !important;
+          }
+
+          &__extension {
+            margin-bottom: 0 !important;
+          }
         }
 
         &__icon {
           margin-right: 2rem;
+          position: relative;
+          top: 0.4rem;
 
           svg {
             overflow: visible;
@@ -41,7 +55,6 @@
 
         &:hover {
           .downloadBlock__wrap__list__item__details__summary,
-          .downloadBlock__wrap__list__item__details__info,
           .downloadBlock__wrap__list__item__details__title {
             color: $primary;
           }

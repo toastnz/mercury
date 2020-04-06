@@ -1,11 +1,12 @@
 <?php
 
 use Toast\Helpers\Helper;
-use SilverStripe\Core\Environment;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\CMS\Controllers\ContentController;
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class Page extends SiteTree
 {
@@ -14,10 +15,24 @@ class Page extends SiteTree
         'CustomTemplateType' => 'Enum("Layout,main","Layout")'
     ];
 
+    private static $has_one = [
+        'BannerImage' => Image::class
+    ];
+
+    private static $owns = [
+        'BannerImage'
+    ];
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
         $fields->removeByName(['Content']);
+
+        $fields->addFieldsToTab(
+            'Root.Banner',
+            [UploadField::create('BannerImage', 'Banner Image')->setDescription('This is optional')]
+        );
+
         return $fields;
     }
 

@@ -1,54 +1,52 @@
 //------------------------------------------------------------------
-// Tables
-//------------------------------------------------------------------
+// Table Styles
+// ------------------------------------------------------------------
 
 table {
-  line-height: 1.5;
-  border: 0 solid #d2d6dc;
+  vertical-align: top;
+  max-width: 100%;
   border-collapse: collapse;
-  min-width: 100%;
+  border-spacing: 0;
+  width: 100%;
+  margin: 0 auto 3rem;
+  border-radius: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $shadow;
+  min-width: $md;
+  border: 2px solid $white;
 
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+  li {
+    margin-bottom: 0 !important;
+  }
 
-  thead {
-    box-sizing: border-box;
-    border: 0 solid #d2d6dc;
+  tr {
+    background: $off-white;
+    border-bottom: 2px solid $white;
+    margin-bottom: 5px;
 
-    tr {
-      border-collapse: collapse;
-      box-sizing: border-box;
-      border: 0 solid #d2d6dc;
-
-      th {
-        border: 0 solid #d2d6dc;
-        background-color: #f9fafb;
-        border-color: #e5e7eb;
-        border-bottom-width: 1px;
-        line-height: 1rem;
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        text-align: left;
-        color: #6b7280;
-        text-transform: uppercase;
-        font-size: 75%;
-      }
+    &:last-of-type {
+      border-bottom: 0;
     }
   }
 
-  tbody {
-    tr {
-      td {
-        border: 0 solid #d2d6dc;
-        border-color: #e5e7eb;
-        border-bottom-width: 1px;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        white-space: nowrap;
-      }
+  tr:nth-child(even) {
+    background: darken($off-white, 5%);
+  }
+
+  th,
+  td {
+    text-align: left;
+    padding: 2rem;
+    border-right: 2px solid $white;
+
+    &:last-of-type {
+      border-right: 0;
     }
+  }
+
+  th {
+    background: $primary;
+    color: $white !important;
   }
 }

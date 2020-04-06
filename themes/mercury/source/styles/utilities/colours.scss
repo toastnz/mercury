@@ -4,7 +4,7 @@
 
 $white: #fff;
 $off-white: #f7f7f7;
-$grey-light: #ddd;
+$grey-light: #cddaed;
 $grey-mid: #7a7a7a;
 $grey-dark: #333;
 $black: #000;
@@ -15,6 +15,7 @@ $black: #000;
 
 :root {
   --primary-colour: #008bd1;
+  --secondary-colour: #0f1b25;
 }
 
 $primary: #008bd1 !default;
@@ -28,3 +29,15 @@ $secondary: var(--secondary-colour);
 
 $text: $black;
 $text-light: $grey-mid;
+
+.colour--white {
+  color: $white !important;
+}
+
+.colour--primary {
+  color: $primary !important;
+}
+
+.colour--secondary {
+  color: $secondary !important;
+}

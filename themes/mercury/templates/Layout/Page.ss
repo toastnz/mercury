@@ -1,15 +1,15 @@
-<div class="innerWrap">
-    $Content
+<% include Toast\Banner %>
 
-    $Form
+$Breadcrumbs
 
+<section class="textBlock block">
+	<div class="textBlock__wrap row">
+		<div class="column">
+			$Form
+		</div>
+	</div>
+</section>
 
-<hr />
-
-    <% loop $ContentBlocks %>
-        <p style="color:green; font-size:12px !important">*** $ClassName</p><Br>
-        $ForTemplate
-        <hr />
-    <% end_loop %>
-
-</div>
+<% loop $ContentBlocks %>
+    $ForTemplate
+<% end_loop %>

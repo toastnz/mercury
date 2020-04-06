@@ -1,0 +1,124 @@
+.breadCrumbs {
+  border-bottom: 1px solid $off-white;
+  margin-bottom: 4rem;
+
+  &__wrap {
+    max-width: $xl;
+    padding: 0 2rem;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    p {
+      display: inline-block;
+      margin: 0 !important;
+      font-size: 1.4rem !important;
+    }
+
+    &__item {
+      margin-bottom: 0;
+      font-size: 1.4rem;
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 2.4rem 1rem;
+      color: $primary;
+
+      @include media($md, max) {
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+        font-size: 1rem;
+      }
+
+      &--divivder svg {
+        position: relative;
+        top: 2px;
+        opacity: 0.2;
+
+        polygon,
+        path {
+          fill: inherit;
+        }
+      }
+
+      &--icon {
+        margin-left: -0.8rem;
+
+        svg {
+          opacity: 0.2;
+          position: relative;
+          top: 2px;
+
+          polygon {
+            transition: all 333ms ease;
+          }
+
+          polygon,
+          path {
+            fill: inherit;
+          }
+        }
+
+        &:hover {
+          path,
+          polygon {
+            fill: inherit;
+          }
+        }
+      }
+
+      &--link {
+        color: $primary;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      &--current {
+        color: $primary;
+      }
+    }
+
+    &__social {
+      @include vertical-align;
+      right: 2rem;
+
+      @include media($sm, max) {
+        display: none;
+      }
+
+      &__text {
+        margin: 0 !important;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.2rem !important;
+
+        @include media($md, max) {
+          display: none;
+        }
+      }
+
+      &__link {
+        @include svg(1, 1);
+        display: inline-block;
+        vertical-align: middle;
+        text-decoration: none;
+        margin-left: 0.3rem;
+        width: 2.4rem;
+        transition: all 222ms ease;
+        backface-visibility: hidden;
+
+        path {
+          fill: $primary;
+        }
+
+        &:hover {
+          transform: scale(1.15);
+        }
+      }
+    }
+  }
+}

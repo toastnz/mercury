@@ -1,30 +1,37 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <% include Toast\Meta %>
-</head>
+    <head>
+       <% include Toast\Meta %>
+    </head>
 
+    <body class="$Classname" <% if $GoogleMapsApiKey %>data-maps-api-key="$GoogleMapsApiKey" <% end_if %> data-classname="$Classname" data-title="$Title" data-url-segment="$URLSegment">
 
+        <div class="tingle-content-wrapper">
 
-<body class="$Classname" <% if $GoogleMapsApiKey %>data-maps-api-key="$GoogleMapsApiKey" <% end_if %> data-classname="$Classname" data-title="$Title" data-url-segment="$URLSegment">
-    <div class="tingle-content-wrapper">
+            <% include Type %>
 
-        <% include Toast\Header %>
+            <div class="type">
+                
+                <% include Toast\Header %>
+                
+                <div class="blur">
+                    $Layout
+                    <% include Toast\Footer %>
+                </div>
+                
+            </div>
 
-        $Layout
+            <% if $SiteConfig.GoogleTagManagerID %>
+                <noscript>
+                    <iframe src="https://www.googletagmanager.com/ns.html?id={$SiteConfig.GoogleTagManagerID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+                </noscript>
+            <% end_if %>
 
-        <% include Toast\Footer %>
+            <% require javascript("themes/mercury/dist/scripts/main.js") %>
 
-        <% if $SiteConfig.GoogleTagManagerID %>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id={$SiteConfig.GoogleTagManagerID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <% end_if %>
-        <% require javascript("themes/mercury/dist/scripts/main.js") %>
-    </div>
-</body>
+        </div>
+
+    </body>
 
 </html>

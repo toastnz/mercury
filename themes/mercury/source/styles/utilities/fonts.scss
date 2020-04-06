@@ -8,13 +8,23 @@
 // Font face
 //------------------------------------------------------------------
 
+@mixin light {
+  font-weight: 300;
+}
+
 @mixin regular {
-  font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
 
+@mixin semi {
+  font-weight: 500;
+}
+
 @mixin bold {
-  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+}
+
+@mixin black {
   font-weight: 700;
 }
 

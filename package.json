@@ -8,12 +8,17 @@
   },
   "license": "BSD-3-Clause",
   "dependencies": {
+    "choices.js": "^9.0.1",
     "google-maps": "^3.3.0",
+    "gsap": "^3.2.6",
+    "imports-loader": "^0.8.0",
+    "in-view": "^0.6.1",
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
     "parsleyjs": "^2.9.1",
+    "scrollmagic": "^2.0.7",
     "slick-carousel": "^1.8.1",
-    "tingle.js": "^0.14.0"
+    "tingle.js": "^0.15.2"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",

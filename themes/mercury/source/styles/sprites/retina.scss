@@ -5,32 +5,37 @@ only screen and (min-resolution: 240dpi) {
   %icon-checkbox-checked,
   .icon-checkbox-checked {
        background-image: url(~sprites//sprite@2x.png);
-       background-size: (72 / 2 )+px (48 / 2 )+px;
+       background-size: (72 / 2 )+px (66 / 2 )+px;
   }
   %icon-checkbox-focused,
   .icon-checkbox-focused {
        background-image: url(~sprites//sprite@2x.png);
-       background-size: (72 / 2 )+px (48 / 2 )+px;
+       background-size: (72 / 2 )+px (66 / 2 )+px;
   }
   %icon-checkbox-unchecked,
   .icon-checkbox-unchecked {
        background-image: url(~sprites//sprite@2x.png);
-       background-size: (72 / 2 )+px (48 / 2 )+px;
+       background-size: (72 / 2 )+px (66 / 2 )+px;
   }
   %icon-radio-checked,
   .icon-radio-checked {
        background-image: url(~sprites//sprite@2x.png);
-       background-size: (72 / 2 )+px (48 / 2 )+px;
+       background-size: (72 / 2 )+px (66 / 2 )+px;
   }
   %icon-radio-focused,
   .icon-radio-focused {
        background-image: url(~sprites//sprite@2x.png);
-       background-size: (72 / 2 )+px (48 / 2 )+px;
+       background-size: (72 / 2 )+px (66 / 2 )+px;
   }
   %icon-radio-unchecked,
   .icon-radio-unchecked {
        background-image: url(~sprites//sprite@2x.png);
-       background-size: (72 / 2 )+px (48 / 2 )+px;
+       background-size: (72 / 2 )+px (66 / 2 )+px;
+  }
+  %icon-select,
+  .icon-select {
+       background-image: url(~sprites//sprite@2x.png);
+       background-size: (72 / 2 )+px (66 / 2 )+px;
   }
 
 }

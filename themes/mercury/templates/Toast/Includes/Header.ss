@@ -1,38 +1,54 @@
-<div class="header">
-    <div class="innerWrap">
+<header class="header">
+    <div class="header__wrap">
 
-        <a href="$BaseURL" class="header__logo">
+        <a href="{$BaseRef}" class="header__wrap__logo">
             $SVG('logo')
         </a>
 
-        <nav>
-            <ul class="header__menu">
-                <% loop $Menu(1) %>
-                    <li class="header__menu__item">
-                        <a href="$Link" class="$LinkingMode header__menu__item__link">$MenuTitle</a>
+        <%----------------------------------------------------------------
+        Menu
+        ----------------------------------------------------------------%>
+        <div class="header__wrap__menu">
+
+            <% loop Menu(1) %>
+            <div class="header__wrap__menu__item [ js-indicator-hover ]">
+                <a href="$Link" class="header__wrap__menu__item__link {$LinkingMode}">
+                    <p>$Title</p>
+                </a>
+
+                <% if $Children %>
+                <div class="header__wrap__nav__link__subnav">
+                    <% loop $Children %>
+
+                    <div class="relative">
+                        <a href="{$Link}" class="header__wrap__nav__link__subnav__item {$LinkingMode}">
+                            <p>{$MenuTitle}</p>
+                        </a>
                         <% if $Children %>
-                            <ul class="header__menu__item__child">
-                                <% loop $Children %>
-                                    <li class="header__menu__item__child__item">
-                                        <a href="$Link" class="$LinkingMode header__menu__item__child__item__link">$MenuTitle</a>
-                                    </li>
-                                <% end_loop %>
-                            </ul>
+                        <div class="header__wrap__nav__link__subnav__item__third">
+                            <% loop $Children %>
+                            <a href="{$Link}" class="header__wrap__nav__link__subnav__item__third__item">
+                                <p>{$MenuTitle}</p>
+                            </a>
+                            <% end_loop %>
+                        </div>
                         <% end_if %>
-                    </li>
-                <% end_loop %>
-            </ul>
-        </nav>
+                    </div>
+                    <% end_loop %>
+                </div>
+                <% end_if %>
 
-        <% include Toast\OffCanvas %>
+            </div>
 
-        <div class="header__navburger [ js-mobile-nav ]">
-            <b></b>
-            <b></b>
-            <b></b>
-            Menu
-        </div>
+            <% end_loop %>
 
-    </div>
-</div>
 
+            <div class="header__wrap__navburger [ js-toggle-menu ]">
+                <div class="header__wrap__navburger__ring header__wrap__navburger__ring--1"></div>
+                <div class="header__wrap__navburger__ring header__wrap__navburger__ring--2"></div>
+                <div class="header__wrap__navburger__ring header__wrap__navburger__ring--3"></div>
+            </div>
+
+</header>
+
+<% include Toast\Includes\Offcanvas %>
