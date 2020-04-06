@@ -1006,7 +1006,7 @@ body form .choices__item {
         opacity: 0.2; }
         .breadCrumbs__wrap__item--divivder svg polygon,
         .breadCrumbs__wrap__item--divivder svg path {
-          fill: var(--primary-colour); }
+          fill: inherit; }
       .breadCrumbs__wrap__item--icon {
         margin-left: -0.8rem; }
         .breadCrumbs__wrap__item--icon svg {
@@ -1019,10 +1019,10 @@ body form .choices__item {
             transition: all 333ms ease; }
           .breadCrumbs__wrap__item--icon svg polygon,
           .breadCrumbs__wrap__item--icon svg path {
-            fill: var(--primary-colour); }
+            fill: inherit; }
         .breadCrumbs__wrap__item--icon:hover path,
         .breadCrumbs__wrap__item--icon:hover polygon {
-          fill: var(--primary-colour); }
+          fill: inherit; }
       .breadCrumbs__wrap__item--link {
         color: var(--primary-colour); }
         .breadCrumbs__wrap__item--link:hover {
@@ -2584,7 +2584,21 @@ table {
   margin: 0 auto;
   max-width: 1280px;
   padding: 0 2rem;
-  position: relative; }
+  position: relative;
+  -webkit-transition: all 888ms ease;
+  -o-transition: all 888ms ease;
+  transition: all 888ms ease;
+  opacity: 0;
+  will-change: opacity, transform;
+  -webkit-transform: matrix(1, 0, 0, 1, 0, 20);
+      -ms-transform: matrix(1, 0, 0, 1, 0, 20);
+          transform: matrix(1, 0, 0, 1, 0, 20); }
+  .imageBlock__wrap.inView {
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
+        -ms-transform: matrix(1, 0, 0, 1, 0, 0);
+            transform: matrix(1, 0, 0, 1, 0, 0);
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    opacity: 1; }
   .imageBlock__wrap img {
     width: 100%;
     height: auto;
@@ -2597,22 +2611,9 @@ table {
     padding: 1rem 4rem;
     -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086);
             box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086);
-    -webkit-transition: all 888ms ease;
-    -o-transition: all 888ms ease;
-    transition: all 888ms ease;
     -webkit-transform: translateX(-2rem);
         -ms-transform: translateX(-2rem);
-            transform: translateX(-2rem);
-    opacity: 0;
-    will-change: opacity, transform;
-    -webkit-transform: matrix(1, 0, 0, 1, -20, 0);
-        -ms-transform: matrix(1, 0, 0, 1, -20, 0);
-            transform: matrix(1, 0, 0, 1, -20, 0); }
-    .imageBlock__wrap__caption.inView {
-      -webkit-transform: matrix(1, 0, 0, 1, 0, 0);
-          -ms-transform: matrix(1, 0, 0, 1, 0, 0);
-              transform: matrix(1, 0, 0, 1, 0, 0);
-      opacity: 1; }
+            transform: translateX(-2rem); }
     .imageBlock__wrap__caption p {
       color: #fff;
       margin: 0; }

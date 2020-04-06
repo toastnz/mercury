@@ -36,9 +36,10 @@
         position: relative;
         top: 2px;
         opacity: 0.2;
+
         polygon,
         path {
-          fill: $primary;
+          fill: inherit;
         }
       }
 
@@ -56,14 +57,14 @@
 
           polygon,
           path {
-            fill: $primary;
+            fill: inherit;
           }
         }
 
         &:hover {
           path,
           polygon {
-            fill: $primary;
+            fill: inherit;
           }
         }
       }
