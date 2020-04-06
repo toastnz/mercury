@@ -1,5 +1,7 @@
 <% include Toast\Banner %>
 
+$Breadcrumbs
+
 <section class="textBlock block">
 	<div class="textBlock__wrap row">
 		<div class="column">

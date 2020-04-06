@@ -83,6 +83,7 @@ form {
 
 input[type='submit'] {
   @extend .button;
+  margin-top: 2rem;
 }
 
 /*------------------------------------------------------------------
