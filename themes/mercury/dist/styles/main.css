@@ -2083,65 +2083,54 @@ table {
     .fourOhFour__wrap__button a {
       font-weight: bold !important; }
 
-.loginWrap {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  background: -o-radial-gradient(circle, #cccccc, gray);
-  background: radial-gradient(circle, #cccccc, gray); }
-  .loginWrap:after {
-    position: absolute;
-    display: block;
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+.login {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+  .login__image {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url(/themes/mercury/dist/scripts/../images/generated/placeholder17ab769fe80bdb851bad3e1d205c0d57.jpg);
-    z-index: 1;
-    opacity: 0.15;
-    -webkit-filter: blur(4px);
-            filter: blur(4px); }
-  .loginWrap__content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-        -ms-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
-    background: #fff;
-    width: 90%;
-    max-width: 40rem;
-    padding: 2rem 4rem 4rem;
-    -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086);
-            box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086);
-    border-radius: 0.5rem;
-    overflow: hidden;
-    z-index: 2; }
-    .loginWrap__content__header {
-      margin-bottom: 2rem;
-      text-align: center; }
-    .loginWrap__content .action {
-      width: 100%; }
-    .loginWrap__content #BackToLogin,
-    .loginWrap__content #ForgotPassword {
-      background: #f2f2f2;
-      margin: 2rem -4rem -4rem;
-      width: calc(100% + 8rem);
-      padding: 1rem 1.5rem 1.5rem;
-      text-align: center; }
-
-#MemberLoginForm_LoginForm_Password_Holder,
-#MemberLoginForm_LoginForm_Email_Holder {
-  margin-bottom: 1rem;
-  position: relative; }
+    width: 50%;
+    background-image: url(/themes/mercury/dist/scripts/../images/generated/login194ed708e8f445a6f3ada546dddedc22.png); }
+  .login__form {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    width: 50%;
+    padding: 4rem; }
+    .login__form__wrap {
+      max-width: 50rem;
+      margin: 0 auto;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; }
+      .login__form__wrap__logo {
+        margin: 6rem auto auto;
+        -webkit-align-self: flex-start;
+            -ms-flex-item-align: start;
+                align-self: flex-start; }
+      .login__form__wrap__copy {
+        width: 100%; }
+        .login__form__wrap__copy h4 {
+          text-align: center; }
+        .login__form__wrap__copy p {
+          text-align: center; }
+        .login__form__wrap__copy #ForgotPassword {
+          display: none; }
 
 .styleguide {
   margin: 0 auto;

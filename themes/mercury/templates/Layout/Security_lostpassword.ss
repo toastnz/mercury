@@ -1,12 +1,28 @@
-<div class="loginWrap">
-    <div class="loginWrap__content">
-        <div class="loginWrap__content__header">
-            <h4>Lost your password</h4>
-        </div>
-        $Form
-        <div class="clearfix"></div>
-        <p id="BackToLogin">
-            <a href="{$BaseURL}Security/login">Back to login</a>
-        </p>
+
+
+<div class="login">
+
+    <div class="login__image">
+
     </div>
+
+    <div class="login__form">
+        <div class="login__form__wrap">
+            <div class="login__form__wrap__logo">
+                $SVG('logo')
+            </div>
+
+            <div class="login__form__wrap__copy">
+                <h4>Lost your password?</h4>
+                <p>
+                    Enter your email andress and we will send you a link to reset it.
+                    <br>
+                    Head back to the <a href="{$BaseURL}Security/login">log in page</a>
+                </p>
+                $Form
+            </div>
+
+        </div>
+    </div>
+
 </div>
