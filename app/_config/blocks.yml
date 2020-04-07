@@ -14,4 +14,5 @@ Toast\Blocks\Extensions\PageExtension:
     - Toast\Blocks\LinkBlock
     - Toast\Blocks\ChildLinkBlock
     - Toast\Blocks\TabbedContentBlock
+    - Toast\Blocks\UserFormBlock
 
