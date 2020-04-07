@@ -13,6 +13,7 @@ import './components/accordionBlock';
 import './components/imageText';
 import './components/tabbed';
 import './components/inview';
+import './components/grid';
 
 /*------------------------------------------------------------------
 Import external

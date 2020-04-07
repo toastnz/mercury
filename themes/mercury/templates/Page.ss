@@ -32,6 +32,8 @@
 
         </div>
 
+        <% include Toast\Grid %>
+
     </body>
 
 </html>
