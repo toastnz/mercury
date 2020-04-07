@@ -2,54 +2,49 @@
 // Login Page
 //------------------------------------------------------------------
 
-.loginWrap {
-  @include full; 
-  position: fixed;
-  background: radial-gradient(circle, darken($white, 20%), darken($white, 50%));
+.login {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
 
-  &:after {
-    @include pseudo;
-    @include full;
+  &__image {
     @include cover;
-    background-image: url('~images/placeholder.jpg');
-    z-index: 1;
-    opacity: 0.15;
-    filter: blur(4px);
+    width: 50%;
+    background-image: url('~images/login.png');
   }
 
-  &__content {
-    @include vertical-center;
-    background: $white;
-    width: 90%;
-    max-width: 40rem;
-    padding: 2rem 4rem 4rem;
-    box-shadow: $shadow;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    z-index: 2;
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding: 4rem;
 
-    &__header {
-      margin-bottom: 2rem;
-      text-align: center;
-    }
+    &__wrap {
+      max-width: 50rem;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
 
-    .action {
-      width: 100%;
-    }
+      &__logo {
+        margin: 6rem auto auto;
+        align-self: flex-start;
+      }
 
-    #BackToLogin,
-    #ForgotPassword {
-      background: darken($white, 5%);
-      margin: 2rem -4rem -4rem;
-      width: calc(100% + 8rem);
-      padding: 1rem 1.5rem 1.5rem;
-      text-align: center;
+      &__copy {
+        width: 100%;
+
+        h4 {
+          text-align: center;
+        }
+
+        p {
+          text-align: center;
+        }
+
+        #ForgotPassword {
+          display: none;
+        }
+      }
     }
   }
-}
-
-#MemberLoginForm_LoginForm_Password_Holder,
-#MemberLoginForm_LoginForm_Email_Holder {
-  margin-bottom: 1rem;
-  position: relative;
 }
