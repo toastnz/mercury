@@ -5,7 +5,7 @@
        <% include Toast\Meta %>
     </head>
 
-    <body class="$Classname" <% if $GoogleMapsApiKey %>data-maps-api-key="$GoogleMapsApiKey" <% end_if %> data-classname="$Classname" data-title="$Title" data-url-segment="$URLSegment">
+    <body class="$Classname" <% if $SiteConfig.GoogleMapsApiKey %>data-maps-api-key="$SiteConfig.GoogleMapsApiKey" <% end_if %> data-classname="$Classname" data-title="$Title" data-url-segment="$URLSegment">
 
         <div class="tingle-content-wrapper">
 

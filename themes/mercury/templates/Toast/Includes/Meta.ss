@@ -59,24 +59,22 @@ Google Tag manager
 Bugherd
 ----------------------------------------------------------------%>
 
-<% with $SiteConfig %>
-    <% if $BHProjectKey %>
-        <script type='text/javascript'>
-            (function (d, t) {
-                var bh  = d.createElement(t), s = d.getElementsByTagName(t)[0];
-                bh.type = 'text/javascript';
-                bh.src  = 'https://www.bugherd.com/sidebarv2.js?apikey={$BHProjectKey}';
-                s.parentNode.insertBefore(bh, s);
-            })(document, 'script');
-        </script>
-    <% end_if %>
-<% end_with %>
+<% if $SiteConfig.BugherdProjectKey %>
+    <script type='text/javascript'>
+        (function (d, t) {
+            var bh  = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            bh.type = 'text/javascript';
+            bh.src  = 'https://www.bugherd.com/sidebarv2.js?apikey={$SiteConfig.BugherdProjectKey}';
+            s.parentNode.insertBefore(bh, s);
+        })(document, 'script');
+    </script>
+<% end_if %>
 
 <%----------------------------------------------------------------
 Google tracking
 ----------------------------------------------------------------%>
 
-<% if $SiteConfig.GoogleTrackingID %>
+<% if $SiteConfig.GoogleAnalytics %>
     <script>
         (function (i, s, o, g, r, a, m) {
             i['GoogleAnalyticsObject'] = r;
@@ -89,7 +87,7 @@ Google tracking
             a.src   = g;
             m.parentNode.insertBefore(a, m)
         })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', '{$SiteConfig.GoogleTrackingID}', 'auto');
+        ga('create', '{$SiteConfig.GoogleAnalytics}', 'auto');
         ga('send', 'pageview');
     </script>
 <% end_if %>
