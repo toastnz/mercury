@@ -2,6 +2,9 @@
 
 namespace Toast\Helpers;
 
+use SilverStripe\Security\Security;
+use SilverStripe\Security\Permission;
+
 
 class Helper 
 {
@@ -36,6 +39,11 @@ class Helper
             }
         }
         return $output;
+    }
+
+    static function isSuperAdmin()
+    {
+        return (Security::getCurrentUser()->ID == 1) && Permission::check('ADMIN');
     }
 
 

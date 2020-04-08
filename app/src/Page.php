@@ -1,12 +1,14 @@
 <?php
 
 use Toast\Helpers\Helper;
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldGroup;
+use SilverStripe\Security\Security;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\DropdownField;
-use SilverStripe\CMS\Controllers\ContentController;
-use SilverStripe\Assets\Image;
+use SilverStripe\Security\Permission;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\CMS\Controllers\ContentController;
 
 class Page extends SiteTree
 {
@@ -64,6 +66,11 @@ class PageController extends ContentController
             $viewer->setTemplateFile($this->CustomTemplateType, getcwd() . $this->CustomTemplateFile);
         }
         return $viewer;
+    }
+
+    public function getIsSuperAdmin()
+    {
+        return Helper::isSuperAdmin();
     }
 
 
