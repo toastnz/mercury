@@ -37,7 +37,7 @@ class SiteConfigExtension extends DataExtension
          * Code Injection
          * ----------------------------------------*/
 
-        if (Helper::isSuperAdmin()) {
+        if (Security::database_is_ready() && Helper::isSuperAdmin()) {
 
             $fields->findOrMakeTab('Root.CodeInjection');
 
@@ -55,7 +55,7 @@ class SiteConfigExtension extends DataExtension
          * Code Injection
          * ----------------------------------------*/
 
-        if (Helper::isSuperAdmin()) {
+        if (Security::database_is_ready() && Helper::isSuperAdmin()) {
             $fields->findOrMakeTab('Root.ExternalAPIKeys');
 
             $fields->addFieldsToTab('Root.ExternalAPIKeys', [
