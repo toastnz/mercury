@@ -1457,12 +1457,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/permanentinc/type.git",
-                "reference": "70e310055ba6c70c640b73e2fa64873ee6e6a63c"
+                "reference": "b6466a5c05b7ffc31631949d91ce6eb776a61198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/permanentinc/type/zipball/70e310055ba6c70c640b73e2fa64873ee6e6a63c",
-                "reference": "70e310055ba6c70c640b73e2fa64873ee6e6a63c",
+                "url": "https://api.github.com/repos/permanentinc/type/zipball/b6466a5c05b7ffc31631949d91ce6eb776a61198",
+                "reference": "b6466a5c05b7ffc31631949d91ce6eb776a61198",
                 "shasum": ""
             },
             "require": {
@@ -1499,7 +1499,7 @@
                 "silverstripe",
                 "type"
             ],
-            "time": "2020-01-20T20:43:47+00:00"
+            "time": "2020-04-08T22:12:04+00:00"
         },
         {
             "name": "psr/cache",
