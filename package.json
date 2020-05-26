@@ -16,6 +16,8 @@
     "in-view": "^0.6.1",
     "jquery": "^3.3.1",
     "lodash": "^4.17.11",
+    "notyf": "^3.7.0",
+    "numeral": "^2.0.6",
     "parsleyjs": "^2.9.1",
     "scrollmagic": "^2.0.7",
     "slick-carousel": "^1.8.1",

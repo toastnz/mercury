@@ -61,6 +61,16 @@ form {
       }
     }
 
+    &.halfLast {
+      width: calc(50% - 1rem);
+      margin-left: 2rem;
+
+      @include media($md, max) {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+
     &.textarea {
       @extend %field;
 

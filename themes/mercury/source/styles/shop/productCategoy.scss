@@ -1,0 +1,84 @@
+.productCategory {
+  position: relative;
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: $xl;
+    margin: 5rem auto;
+    padding: 0 1rem;
+
+    &__item {
+      width: calc(33.3333% - 4rem);
+      background: $white;
+      margin: 1rem 2rem 3rem;
+      border-radius: 0.5rem;
+      box-shadow: $shadow;
+      position: relative;
+      overflow: hidden;
+      transition: opacity 800ms cubic-bezier(0.4, 0, 0.2, 1), transform 800ms cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity, transform;
+      opacity: 0;
+      transform: matrix(1, 0, 0, 1, 0, 20);
+
+      &:after {
+        @include pseudo;
+        top: 0;
+        left: 0;
+        right: 0;
+        border-top: 4px solid $primary;
+      }
+
+      &.inView {
+        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+      }
+
+      &:hover {
+        .productCategory__grid__item__content__link svg {
+          transform: translateX(0.5rem);
+        }
+      }
+
+      &__thumbnail {
+        @include aspect(6, 5);
+        width: 100%;
+        background: $grey-light;
+        display: block;
+
+        img {
+          width: 100%;
+          height: auto;
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      &__content {
+        padding: 0rem 3rem 2rem;
+
+        &__heading {
+          position: relative;
+          margin: 2rem auto 1rem;
+        }
+      }
+
+      &__content {
+        &__link {
+          margin-top: 1rem;
+          color: $primary;
+
+          svg {
+            transition: all 333ms ease;
+
+            path {
+              fill: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+.account {
+  max-width: $xl;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  h4 + hr {
+    margin-top: 0rem;
+  }
+
+  &__sidebar {
+    width: 30rem;
+
+    @include media($md, max) {
+      width: 100%;
+      text-align: center;
+
+      li {
+        display: inline-block;
+      }
+    }
+
+    .button {
+      min-width: 20rem;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    width: calc(100% - 30rem);
+
+    @include media($md, max) {
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
+}
+
+p.alert,
+.message.warning {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(#fbcc5f, 0.3);
+  border-left: 3px solid #fbcc5f;
+  margin-bottom: 3rem;
+  display: block;
+}
+
+.addresses {
+  border: 1px solid $grey-light;
+  margin: 2rem 0;
+  border-radius: 0.2rem;
+  padding: 3rem 2rem 2rem;
+  position: relative;
+
+  &__defaults {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    span {
+      @include bold;
+      display: inline-block;
+      vertical-align: center;
+      background: $primary;
+      color: $white;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      padding: 0.3rem 0.5rem;
+      margin: 1rem 0.5rem;
+    }
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .button {
+    font-size: 1.2rem !important;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+#ChangePasswordForm_ChangePasswordForm_NewPassword1_Holder,
+#ShopAccountForm_EditAccountForm_FirstName_Holder,
+#Form_CreateAddressForm_State_Holder,
+#Form_CreateAddressForm_AddressLine2_Holder {
+  @extend .half;
+}
+
+#ChangePasswordForm_ChangePasswordForm_NewPassword2_Holder,
+#ShopAccountForm_EditAccountForm_Surname_Holder,
+#Form_CreateAddressForm_PostalCode_Holder,
+#Form_CreateAddressForm_City_Holder {
+  @extend .halfLast;
+}
+
+#ShopAccountForm_EditAccountForm_Locale_Holder,
+#ShopAccountForm_EditAccountForm_URLSegment_Holder,
+#ShopAccountForm_EditAccountForm_BlogProfileSummary_Holder,
+#ShopAccountForm_EditAccountForm_BlogProfileImage_Holder {
+  display: none;
+}

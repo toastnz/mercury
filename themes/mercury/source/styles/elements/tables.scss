@@ -2,7 +2,7 @@
 // Table Styles
 // ------------------------------------------------------------------
 
-table {
+table:not([class]) {
   vertical-align: top;
   max-width: 100%;
   border-collapse: collapse;

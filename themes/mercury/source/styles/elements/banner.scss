@@ -2,11 +2,17 @@
 // Home Page
 //------------------------------------------------------------------
 
+.bannerPush {
+  overflow: hidden;
+  position: relative;
+  margin-top: 8rem;
+}
+
 .banner {
   overflow: hidden;
   position: relative;
-  margin-top: 8rem;   
- 
+  margin-top: 8rem;
+
   .banner__wrap__colour {
     @include full;
     background: $secondary;
