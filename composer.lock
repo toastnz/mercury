@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa5e8c2350fedbee61fe01c13ac52978",
+    "content-hash": "169d72ce7ce363688c289b517fa286a6",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -4140,6 +4140,67 @@
             "time": "2020-01-16T19:04:26+00:00"
         },
         {
+            "name": "toastnz/blocks",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toastnz/blocks.git",
+                "reference": "0cc4b2378d46f1db5d8d9cd0da7c501a6399e2a4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toastnz/blocks/zipball/0cc4b2378d46f1db5d8d9cd0da7c501a6399e2a4",
+                "reference": "0cc4b2378d46f1db5d8d9cd0da7c501a6399e2a4",
+                "shasum": ""
+            },
+            "require": {
+                "axllent/silverstripe-form-fields": "1.3.1",
+                "composer/installers": "*",
+                "sheadawson/silverstripe-linkable": "^2.0.0",
+                "silverstripe/cms": "^4.3",
+                "silverstripe/framework": "^4.3",
+                "silverstripe/userforms": "^5.5",
+                "symbiote/silverstripe-gridfieldextensions": "^3.1",
+                "undefinedoffset/sortablegridfield": "^2.0.4"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "images",
+                    "css",
+                    "js"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Jaydn de Graaf",
+                    "homepage": "http://pinc.nz/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Danae Miller-Clendon",
+                    "homepage": "http://toast.co.nz/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Emmanuel Davies",
+                    "homepage": "http://toast.co.nz/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Silverstripe content blocks module",
+            "keywords": [
+                "Content Blocks",
+                "modular",
+                "silverstripe"
+            ],
+            "time": "2020-05-05T02:59:45+00:00"
+        },
+        {
             "name": "unclecheese/display-logic",
             "version": "2.0.3",
             "source": {
@@ -5630,7 +5691,8 @@
     "stability-flags": {
         "silverstripe/recipe-cms": 0,
         "permanentinc/found": 20,
-        "permanentinc/type": 20
+        "permanentinc/type": 20,
+        "toastnz/blocks": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

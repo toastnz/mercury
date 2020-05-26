@@ -26,7 +26,8 @@
         "permanentinc/beautiful": "^0.3.0",
         "stevie-mayhew/silverstripe-svg": "^2.2",
         "undefinedoffset/sortablegridfield": "^2.0",
-        "silverstripe/blog": "^3.5"
+        "silverstripe/blog": "^3.5",
+        "toastnz/blocks": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"
