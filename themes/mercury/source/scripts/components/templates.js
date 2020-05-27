@@ -48,7 +48,7 @@ export const sidecartItem = (product, index) =>
         <a href="${product.url}" class="sidecart__inner__list__item__details">
             <p><strong>${product.title}</strong></p>
             ${(product.product_type) ? `<p>${product.product_type}</p>` : ``}
-            <p><strong>${numeral(product.line_price).divide(100).format('$0,0.00')}</strong></p>
+            <p><strong>${numeral(product.subtotal).format('$0,0.00')}</strong></p>
         </a>
         <a href="${product.url}" class="sidecart__inner__list__item__remove [ js-remove-from-side-cart ]" data-cart-item-index="${index}">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">

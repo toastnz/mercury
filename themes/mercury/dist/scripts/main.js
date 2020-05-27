@@ -19531,7 +19531,7 @@ var Shop = /*#__PURE__*/function () {
     this.$cartCount = this.$shop.find('.js-cart-count');
     this.$sideCart = this.$shop.find('.js-side-cart');
     this.$sideCartItems = this.$shop.find('.js-side-cart-items');
-    this.getCart(null, []);
+    this.getCart(null, ['updateSideCart']);
     this.attachEventListeners();
   }
 
@@ -19599,7 +19599,7 @@ var Shop = /*#__PURE__*/function () {
 
         _this3.updateCartCount(cart.item_count);
 
-        if (updates.includes('updateSideCart')) _this3.updateSideCart(cart);
+        if (updates.includes('updateSideCart')) _this3.updateSideCart(cart.data);
       });
     }
   }, {
@@ -19670,7 +19670,7 @@ var Shop = /*#__PURE__*/function () {
 
       this.$sideCartItems.empty();
 
-      if (cart.item_count) {
+      if (cart.items) {
         cart.items.forEach(function (item, index) {
           return _this6.$sideCartItems.append(_templates__WEBPACK_IMPORTED_MODULE_1__["sidecartItem"](item, index));
         });
@@ -19820,7 +19820,7 @@ var emptySideCart = function emptySideCart() {
 */
 
 var sidecartItem = function sidecartItem(product, index) {
-  return "<div class=\"sidecart__inner__list__item\">\n        <a href=\"".concat(product.url, "\" class=\"sidecart__inner__list__item__image\"><span style=\"background-image:url('").concat(product.image, "')\"></span></a>\n        <a href=\"").concat(product.url, "\" class=\"sidecart__inner__list__item__details\">\n            <p><strong>").concat(product.title, "</strong></p>\n            ").concat(product.product_type ? "<p>".concat(product.product_type, "</p>") : "", "\n            <p><strong>").concat(numeral__WEBPACK_IMPORTED_MODULE_0___default()(product.line_price).divide(100).format('$0,0.00'), "</strong></p>\n        </a>\n        <a href=\"").concat(product.url, "\" class=\"sidecart__inner__list__item__remove [ js-remove-from-side-cart ]\" data-cart-item-index=\"").concat(index, "\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"30\" height=\"30\" viewBox=\"0 0 30 30\">\n                <polygon fill-rule=\"evenodd\" points=\"29.854 25.3 19.482 14.927 29.854 4.553 25.3 0 14.928 10.374 4.555 0 .002 4.553 10.375 14.927 0 25.3 4.553 29.854 14.928 19.48 25.3 29.854\" />\n            </svg>\n        </a>\n    </div>");
+  return "<div class=\"sidecart__inner__list__item\">\n        <a href=\"".concat(product.url, "\" class=\"sidecart__inner__list__item__image\"><span style=\"background-image:url('").concat(product.image, "')\"></span></a>\n        <a href=\"").concat(product.url, "\" class=\"sidecart__inner__list__item__details\">\n            <p><strong>").concat(product.title, "</strong></p>\n            ").concat(product.product_type ? "<p>".concat(product.product_type, "</p>") : "", "\n            <p><strong>").concat(numeral__WEBPACK_IMPORTED_MODULE_0___default()(product.subtotal).format('$0,0.00'), "</strong></p>\n        </a>\n        <a href=\"").concat(product.url, "\" class=\"sidecart__inner__list__item__remove [ js-remove-from-side-cart ]\" data-cart-item-index=\"").concat(index, "\">\n            <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"30\" height=\"30\" viewBox=\"0 0 30 30\">\n                <polygon fill-rule=\"evenodd\" points=\"29.854 25.3 19.482 14.927 29.854 4.553 25.3 0 14.928 10.374 4.555 0 .002 4.553 10.375 14.927 0 25.3 4.553 29.854 14.928 19.48 25.3 29.854\" />\n            </svg>\n        </a>\n    </div>");
 };
 
 /***/ }),

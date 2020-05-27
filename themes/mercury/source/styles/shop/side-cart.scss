@@ -92,6 +92,10 @@ Side Cart
       position: absolute;
       bottom: 0;
 
+      .button {
+        width: 100%;
+      }
+
       &:after {
         @include pseudo;
         left: 0;

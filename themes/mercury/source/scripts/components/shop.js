@@ -13,7 +13,7 @@ export default class Shop {
         this.$sideCart = this.$shop.find('.js-side-cart');
         this.$sideCartItems = this.$shop.find('.js-side-cart-items');
 
-        this.getCart(null, []);
+        this.getCart(null, ['updateSideCart']);
         this.attachEventListeners();
     }
 
@@ -58,7 +58,7 @@ export default class Shop {
         $.getJSON('shop-api/cart/get', (cart) => {
             if ($button) $button.removeClass('busy');
             this.updateCartCount(cart.item_count);
-            if (updates.includes('updateSideCart')) this.updateSideCart(cart)
+            if (updates.includes('updateSideCart')) this.updateSideCart(cart.data)
         });
     }
 
@@ -116,7 +116,7 @@ export default class Shop {
     updateSideCart(cart) {
         this.$sideCartItems.empty();
 
-        if (cart.item_count) {
+        if (cart.items) {
             cart.items.forEach((item, index) => this.$sideCartItems.append(templates.sidecartItem(item, index)));
         } else {
             this.$sideCartItems.append(templates.emptySideCart());

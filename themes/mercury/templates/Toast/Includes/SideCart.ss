@@ -27,7 +27,7 @@
                                 <% if $SubTitle %><p>$SubTitle</p><% end_if %>
                                 <p><strong>$Total.Nice</strong></p>
                             </a>
-                            <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="sidecart__inner__list__item__remove [ js-remove-from-side-cart ]" data-cart-item-index="{{ forloop.index }}">
+                            <a href="$Link" class="sidecart__inner__list__item__remove [ js-remove-from-side-cart ]" data-cart-item-index="$ID">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                                     <polygon fill-rule="evenodd" points="29.854 25.3 19.482 14.927 29.854 4.553 25.3 0 14.928 10.374 4.555 0 .002 4.553 10.375 14.927 0 25.3 4.553 29.854 14.928 19.48 25.3 29.854" />
                                 </svg>
@@ -39,11 +39,13 @@
         </div>
 
         <div class="sidecart__inner__actions">
-
-            <div class="sidecart__inner__actions__total">
-                <h5><strong>SUBTOTAL</strong> <span>{{ cart.total_price | money }}</span></h5>
-            </div>
-
+            <% if $Cart %>
+                <% with $Cart %>
+                    <div class="sidecart__inner__actions__total">
+                        <h5><strong>SUBTOTAL</strong> <span>$$Subtotal</span></h5>
+                    </div>
+                <% end_with %>
+            <% end_if %>
             <p class="small">Shipping, taxes, and discounts codes calculated at checkout.</p>
 
             <a href="$CheckoutLink" class="button">
