@@ -18,7 +18,7 @@ $Breadcrumbs
 			<div class="contentBlock__wrap">
 
                <h4>Address Book</h4>
-    <hr>
+                <hr>
 
 				<% if $CurrentMember.AddressBook %>
             <% loop $CurrentMember.AddressBook %>

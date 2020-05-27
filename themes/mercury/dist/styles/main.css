@@ -3731,9 +3731,7 @@ Side Cart
   cursor: pointer;
   z-index: 99999;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  cursor: pointer;
-  cursor: url('data:image/svg+xml;utf8,<svg width="30" height="30" viewbox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"><path d="M25.3 2.829L14.93 13.202 4.555 2.828 2.83 4.553l10.374 10.374L2.829 25.3l1.724 1.724L14.93 16.652 25.3 27.025l1.724-1.725-10.372-10.373L27.025 4.553 25.301 2.83z" stroke="%23fffFFF" stroke-width="4" fill="none" fill-rule="evenodd"/></svg>'), auto; }
+          backface-visibility: hidden; }
   .sidecart__inner {
     width: 40rem;
     position: absolute;
@@ -3747,8 +3745,7 @@ Side Cart
     -webkit-transform: translateX(100%);
         -ms-transform: translateX(100%);
             transform: translateX(100%);
-    will-change: transform;
-    cursor: default; }
+    will-change: transform; }
     .sidecart__inner:after {
       -webkit-box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
               box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
@@ -3867,7 +3864,8 @@ Side Cart
         .sidecart__inner__list__item__image {
           display: block;
           width: 10rem;
-          position: relative; }
+          position: relative;
+          background: #f7f7f7; }
           .sidecart__inner__list__item__image span {
             position: absolute;
             top: 0;

@@ -15,6 +15,8 @@
                 
                 <% include Toast\Header %>
                 
+                <% include Toast\SideCart %>
+                
                 <div class="blur">
                     $Layout
                     <% include Toast\Footer %>
