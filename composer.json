@@ -1,7 +1,7 @@
 {
-    "name": "silverstripe/installer",
-    "type": "silverstripe-recipe",
-    "description": "The SilverStripe Framework Installer",
+    "name": "toastnz/mercury",
+    "type": "silverstripe-vendormodule",
+    "description": "Toast NZ SilverStripe Installer",
     "require": {
         "php": ">=7.3.0",
         "silverstripe/recipe-plugin": "^1.2",
