@@ -35,7 +35,7 @@ export const searchItem = (product) =>
 */
 
 export const emptySideCart = () =>
-    `<h2>Nothing in your cart yet</h2>`;
+    `<h4 class="sidecart__inner__list__empty">Your cart is empty</h4>`;
 
 /**
 * Return a template for a sidecart item
@@ -44,16 +44,37 @@ export const emptySideCart = () =>
 
 export const sidecartItem = (product, index) =>
     `<div class="sidecart__inner__list__item">
-        <a href="${product.url}" class="sidecart__inner__list__item__image"><span style="background-image:url('${product.image}')"></span></a>
+        <a href="${product.url}" class="sidecart__inner__list__item__image"><span style="background-image:url('${product.thumbnail}')"></span></a>
         <a href="${product.url}" class="sidecart__inner__list__item__details">
-            <p><strong>${product.title}</strong></p>
-            ${(product.product_type) ? `<p>${product.product_type}</p>` : ``}
+            <p><strong>${product.model}</strong></p>
+            ${(product.type) ? `<p>${product.type}</p>` : ``}
             <p><strong>${numeral(product.subtotal).format('$0,0.00')}</strong></p>
         </a>
-        <a href="${product.url}" class="sidecart__inner__list__item__remove [ js-remove-from-side-cart ]" data-cart-item-index="${index}">
+        <a href="${product.item_actions.remove_all}" class="sidecart__inner__list__item__remove [ js-remove-from-side-cart ]">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
                 <polygon fill-rule="evenodd" points="29.854 25.3 19.482 14.927 29.854 4.553 25.3 0 14.928 10.374 4.555 0 .002 4.553 10.375 14.927 0 25.3 4.553 29.854 14.928 19.48 25.3 29.854" />
             </svg>
         </a>
     </div>`;
 
+
+
+/**
+* Return a template for a sidecart item
+* @returns {string}
+*/
+
+export const sidecartItemPlaceholder = () =>
+    `<div class="sidecart__inner__list__item sidecart__inner__list__item--placeholder">
+    <a href="#" class="sidecart__inner__list__item__image"><span></span></a>
+    <a href="#" class="sidecart__inner__list__item__details">
+        <p><strong>&nbsp;</strong></p>
+        <p><strong>&nbsp;</strong></p>
+        <p><strong>&nbsp;</strong></p>
+    </a>
+    <a href="#" class="sidecart__inner__list__item__remove">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+            <polygon fill-rule="evenodd" points="29.854 25.3 19.482 14.927 29.854 4.553 25.3 0 14.928 10.374 4.555 0 .002 4.553 10.375 14.927 0 25.3 4.553 29.854 14.928 19.48 25.3 29.854" />
+        </svg>
+    </a>
+</div>`;

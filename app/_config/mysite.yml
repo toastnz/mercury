@@ -10,3 +10,7 @@ SilverStripe\Assets\File:
     - 'jpg'
     - 'png'
     - 'jpeg'
+
+SilverStripe\Omnipay\Model\Payment:
+  allowed_gateways:
+    - 'Manual'

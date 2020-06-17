@@ -8,6 +8,8 @@
   },
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@meteora-digital/helpers": "^1.1.0",
+    "background-parallax": "^1.0.1",
     "choices.js": "^9.0.1",
     "combokeys": "^3.0.1",
     "google-maps": "^3.3.0",
@@ -19,6 +21,7 @@
     "notyf": "^3.7.0",
     "numeral": "^2.0.6",
     "parsleyjs": "^2.9.1",
+    "query-string": "^6.13.0",
     "scrollmagic": "^2.0.7",
     "slick-carousel": "^1.8.1",
     "tingle.js": "^0.15.2"

@@ -10,19 +10,32 @@ $Breadcrumbs
     <div class="productPage__wrap">
 
     <div class="productPage__wrap__gallery">
-        <div class="productPage__wrap__gallery__navigation">
-            <div class="productPage__wrap__gallery__navigation__item active [ js-change-featured-image ]" data-image-url="$Image.FocusFill(800, 1200).url">
-                <img src="$Image.FocusFill(400, 600).url" />
-            </div>
-            <% loop $AdditionalImages %>
-                <div class="productPage__wrap__gallery__navigation__item [ js-change-featured-image ]" data-image-url="$FocusFill(800, 1200).url">
-                    <img src="$FocusFill(400, 600).url" />
-                </div>
-            <% end_loop %>
-        </div>
+        <div class="productPage__wrap__gallery__inner">
 
-        <div class="productPage__wrap__gallery__featured">
-            <img src="$Image.FocusFill(800, 1200).url" />
+            <div class="productPage__wrap__gallery__inner__tabs [ js-product-slider-navigation ]">
+
+                <div class="productPage__wrap__gallery__inner__tabs__item active [ js-change-featured-image ]" data-image-url="$Image.FocusFill(800, 1200).url">
+                    <img class="productPage__wrap__gallery__inner__tabs__item__image" src="$Image.FocusFill(400, 600).url" />
+                </div>
+                <% loop $AdditionalImages %>
+                    <div class="productPage__wrap__gallery__inner__tabs__item [ js-change-featured-image ]" data-image-url="$FocusFill(800, 1200).url">
+                        <img class="productPage__wrap__gallery__inner__tabs__item__image" src="$FocusFill(400, 600).url" />
+                    </div>
+                <% end_loop %>
+            </div>
+
+            <div class="productPage__wrap__gallery__inner__featured [ js-product-slider ]">
+                <img src="$Image.FocusFill(800, 1200).url" />
+
+                <% loop $AdditionalImages %>
+                    <img src="$FocusFill(800, 1200).url" />
+                <% end_loop %>
+            </div>
+
+            <span class="productPage__wrap__gallery__inner__progress">
+                <span class="productPage__wrap__gallery__inner__progress__bar [ js-gallery-progress ]"></span>
+            </span>
+
         </div>
     </div>
 
@@ -45,14 +58,26 @@ $Breadcrumbs
 
         <hr>
 
+
+        
+
+        <div class="[ js-product-details ]" data-product-id="$ID">
+
+        <button type="submit" class="button [ js-add-to-cart ]">
+         Add to Cart
+            <svg viewBox="-2000 -1000 4000 2000" class="svg-loader">
+            <path id="inf" d="M354-354A500 500 0 1 1 354 354L-354-354A500 500 0 1 0-354 354z"></path>
+            <use xlink:href="#inf" stroke-dasharray="1570 5143" stroke-dashoffset="6713px"></use>
+            </svg>
+        </button>
+
+
+
         <% if $Content %>
             <div class="productPage__wrap__details__description">
                 $Content
             </div>
         <% end_if %>
-
-        $Form
-        
 
     </div>
 

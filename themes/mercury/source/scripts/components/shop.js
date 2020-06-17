@@ -19,32 +19,46 @@ export default class Shop {
 
     attachEventListeners() {
         $(document).keyup((e) => { if (e.keyCode == 27) this.closeSideCart() });
-        this.$shop.on('click', '#AddProductForm_Form_action_addtocart', (e) => { e.preventDefault(), this.addToCartForm(e) });
-        this.$shop.on('click', '.js-change-featured-image', (e) => { e.preventDefault(), this.changeFeaturedImage(e) });
-        this.$shop.on('click', '.js-close-side-cart', (e) => { e.preventDefault(), this.closeSideCart() });
+        this.$shop.on('click', '.js-change-featured-image', (e) => { this.changeFeaturedImage(e) });
+        this.$shop.on('click', '.js-close-side-cart', (e) => { this.closeSideCart(e) });
+        this.$shop.on('click', '.js-open-side-cart', (e) => { this.openSideCart(e) });
+        this.$shop.mouseup((e) => { if (!$('.sidecart__inner').is(e.target) && $('.sidecart__inner').has(e.target).length === 0) this.closeSideCart(e) });
 
-        this.$shop.on('click', '.js-open-side-cart', (e) => { e.preventDefault(), this.openSideCart() });
-        this.$shop.on('click', '.js-remove-from-side-cart', (e) => { this.removeFromSideCart(e) });
-        this.$shop.on('click', '.js-side-cart', (e) => {
-            if (!this.$shop.find('.sidecart__inner').is(e.target) && this.$shop.find('.sidecart__inner').has(e.target).length === 0) this.closeSideCart();
+
+        this.$shop.on('click', '.js-add-to-cart', (e) => { e.preventDefault(), this.addToCartForm(e) });
+        this.$shop.on('click', '.js-remove-from-side-cart', (e) => { this.removeFromSidecart(e) });
+    }
+
+
+    removeFromSidecart(e) {
+        e.preventDefault();
+        let $this = $(e.currentTarget);
+        this.sidecartLoading($('.sidecart__inner__list__item').length);
+        $.getJSON($this.attr('href'), (cart) => {
+            this.updateCartCount(cart.item_count);
+            this.updateSideCart(cart.data);
+            this.openSideCart();
         });
     }
 
     addToCartForm(e) {
         let $this = $(e.currentTarget);
-        let $form = $this.closest('form');
-        $.ajax({
-            dataType: 'json',
-            url: $form.attr('action'),
-            type: 'POST',
-            data: $form.serialize(),
-        })
-            .fail(() => {
-                this.showError();
-            })
-            .done((response) => {
-                this.getCart(null, ['updateSideCart'])
-            })
+        $this.addClass('busy');
+        let product_id = $('.js-product-details').attr('data-product-id');
+        let quantity = $('#AddProductForm_Form_Quantity').val();
+        $.getJSON(`/shop-api/cart/add?product_id=${product_id}&quantity=${quantity}`, (cart) => {
+            this.updateCartCount(cart.item_count);
+            this.updateSideCart(cart.data);
+            this.openSideCart();
+            $this.removeClass('busy');
+        });
+    }
+
+    sidecartLoading(count = 4) {
+        this.$sideCartItems.empty();
+        let html = ``;
+        [...Array(count)].forEach(() => { html += templates.sidecartItemPlaceholder() });
+        this.$sideCartItems.html(html);
     }
 
     changeFeaturedImage(e) {
@@ -58,7 +72,8 @@ export default class Shop {
         $.getJSON('shop-api/cart/get', (cart) => {
             if ($button) $button.removeClass('busy');
             this.updateCartCount(cart.item_count);
-            if (updates.includes('updateSideCart')) this.updateSideCart(cart.data)
+            this.updateSideCart(cart.data);
+            if (updates.includes('openSideCart')) this.openSideCart();
         });
     }
 
@@ -72,34 +87,6 @@ export default class Shop {
         }
     }
 
-    addToCart(e) {
-        e.preventDefault();
-
-        let $this = $(e.currentTarget);
-        let params = {
-            url: 'shop-api/cart',
-            data: $this.closest('form').serialize(),
-            dataType: 'json'
-        };
-
-        $this.addClass('busy');
-
-        $.getJSON(params, () => this.getCart($this, ['updateSideCart']));
-    }
-
-    removeFromSideCart(e) {
-        e.preventDefault();
-        let $this = $(e.currentTarget);
-
-        let params = {
-            url: 'cart/change.js',
-            data: { quantity: 0, line: $this.attr('data-cart-item-index') },
-            dataType: 'json'
-        };
-
-        $.getJSON(params, () => this.getCart($this, ['updateSideCart']));
-
-    }
 
     showError(response) {
         this.$shop.find('.busy').removeClass('busy');
@@ -115,23 +102,27 @@ export default class Shop {
 
     updateSideCart(cart) {
         this.$sideCartItems.empty();
-
         if (cart.items) {
             cart.items.forEach((item, index) => this.$sideCartItems.append(templates.sidecartItem(item, index)));
+            $('html').removeClass('side-cart-empty');
         } else {
             this.$sideCartItems.append(templates.emptySideCart());
+            $('html').addClass('side-cart-empty');
         }
-
-        this.openSideCart();
     }
 
-    openSideCart() {
+    openSideCart(e) {
+        if (e) e.preventDefault();
+        setTimeout(() => this.$sideCartItems.css({ 'overflow': 'auto' }), 800);
         $('html').addClass('side-cart-open');
     }
 
-    closeSideCart() {
+    closeSideCart(e) {
+        if (e) e.preventDefault();
+        this.$sideCartItems.css({ 'overflow': 'hidden' });
         $('html').removeClass('side-cart-open');
     }
+
 
     updateItemQuantity() { }
 
@@ -140,4 +131,9 @@ export default class Shop {
     updatePriceFromOptions() { }
 
 }
+
+
+
+
+
 

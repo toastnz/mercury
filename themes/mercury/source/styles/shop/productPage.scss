@@ -1,72 +1,128 @@
+/*------------------------------------------------------------------
+Product
+------------------------------------------------------------------*/
+
+.cart-popup {
+  display: none;
+}
+
 .productPage {
-  position: relative;
+  padding: 0 2rem;
 
   &__wrap {
+    max-width: $xl;
+    margin: 10rem auto;
     display: flex;
     flex-wrap: wrap;
-    max-width: $xl;
-    margin: 5rem auto;
-    padding: 0 1rem;
+    justify-content: space-between;
 
     &__gallery {
-      width: 50%;
+      width: calc(50% - 2rem);
       display: flex;
       flex-wrap: wrap;
-      padding-right: 4rem;
-      justify-content: space-between;
-      align-items: flex-start;
 
-      &__featured {
-        width: calc(100% - 12rem);
-        @include aspect(4, 6);
-        background: $grey-light;
-
-        img {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: auto;
-          display: block;
-        }
+      @include media($xmd, max) {
+        width: 100%;
       }
 
-      &__navigation {
-        width: 10rem;
+      &__inner {
+        display: block;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        position: relative;
 
-        &__item {
-          cursor: pointer;
-          @include aspect(4, 6);
-          margin-bottom: 2rem;
-          width: 100%;
-          background: $grey-light;
+        &__featured {
+          width: calc(100% - 12rem);
 
-          &.active {
-            outline: 2px solid $primary;
+          @include media($xmd, max) {
+            width: 100%;
           }
 
           img {
-            position: absolute;
-            top: 0;
-            left: 0;
             width: 100%;
             height: auto;
             display: block;
+          }
+        }
+
+        &__progress {
+          width: 100%;
+          height: 2px;
+          background: $grey-light;
+          display: block;
+          width: calc(100% - 12rem);
+          align-self: flex-end;
+          position: absolute;
+          overflow: hidden;
+          top: 0;
+          right: 0;
+          z-index: 2;
+
+          @include media($xmd, max) {
+            width: 100%;
+          }
+
+          &__bar {
+            width: 0;
+            height: 2px;
+            background: $primary;
+            display: block;
+          }
+        }
+
+        &__tabs {
+          width: 10rem;
+
+          @include media($xmd, max) {
+            display: none;
+          }
+
+          .slick-current {
+            .productPage__wrap__gallery__inner__tabs__item {
+              outline: 3px solid $primary !important;
+              outline-offset: -3px;
+            }
+          }
+
+          &__item {
+            margin-bottom: 1rem;
+            display: block;
+            cursor: pointer;
           }
         }
       }
     }
 
     &__details {
-      padding-left: 4rem;
-      width: 50%;
+      width: calc(50% - 2rem);
 
-      .price {
-        font-size: 2.6rem;
+      @include media($xmd, max) {
+        width: 100%;
+      }
+
+      &__form {
+        button {
+          width: 100%;
+        }
+
+        .product-form__controls-group {
+          margin-bottom: 3rem;
+        }
+      }
+
+      &__description {
+        line-height: 1.5;
       }
     }
   }
 }
+
+
+
 
 hr {
   width: 100%;
@@ -74,4 +130,87 @@ hr {
   border: 0;
   background: $grey-light;
   height: 1px;
+}
+
+.js-add-to-cart {
+  color: $white;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  transition: all $fast;
+  display: inline-block;
+  text-align: center;
+
+  &:after {
+    @include pseudo;
+    color: $grey-light;
+    font-size: 9px;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    animation: loader 1.3s infinite linear;
+    transform: translateZ(0);
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: all 333ms ease;
+    margin: 0 auto;
+    top: 2rem;
+  }
+
+  svg:not(.svg-loader) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-80%) translateY(-50%);
+    opacity: 0;
+    transition: all $fast;
+
+    path {
+      fill: $white;
+    }
+  }
+
+  &.busy {
+    color: transparent !important;
+
+    .svg-loader {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &:hover {
+    color: $black;
+
+    svg:not(.svg-loader) {
+      opacity: 1;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+}
+
+.svg-loader {
+  @include vertical-center;
+  background: transparent !important;
+  max-width: 5em;
+  border-radius: 3px;
+  fill: none;
+  stroke: rgba($white, 0.1);
+  stroke-width: 8%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $fast;
+  stroke-linecap: square;
+
+  use {
+    stroke: #fff;
+    animation: a 1.5s linear infinite;
+  }
+}
+
+@keyframes a {
+  to {
+    stroke-dashoffset: 0px;
+  }
 }
