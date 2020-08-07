@@ -118,7 +118,5 @@ $(function () {
     });
 });
 
-import { attach } from '@meteora-digital/helpers';
 
-console.log(attach); 
 

@@ -1,14 +1,23 @@
 <?php
 
+use SilverStripe\Admin\CMSMenu;
 use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 use SilverStripe\Security\PasswordValidator;
 use SilverStripe\Security\Member;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Security\Security;
+
 // remove PasswordValidator for SilverStripe 5.0
 $validator = PasswordValidator::create();
+
 // Settings are registered via Injector configuration - see passwords.yml in framework
 Member::set_password_validator($validator);
+
+// Model admin
+CMSMenu::remove_menu_class(QueuedJobsAdmin::class);
+CMSMenu::remove_menu_class(CampaignAdmin::class);
+CMSMenu::remove_menu_class(ReportAdmin::class);
+CMSMenu::remove_menu_class(ArchiveAdmin::class);
 
 
 $formats = [
@@ -74,5 +83,7 @@ if (Security::database_is_ready()) {
                 . '.button {padding:5px 10px !important;color:white;background: ' . $primaryColour . '; } '
                 . '.button--secondary {padding:5px 10px !important;color:white;background: ' . $secondaryColour . '; } '
                 . '.button--outline {padding:5px 10px !important;background:transparent;color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; } '
+                . '.text-center{text-align:center;}'
+                . '.text-right{text-align:right;}'
         ]);
 }
