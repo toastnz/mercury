@@ -61,4 +61,4 @@
 
 </header>
 
-<% include Toast\Includes\Offcanvas %>
+<% include Toast\Includes\OffCanvas %>

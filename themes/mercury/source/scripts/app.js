@@ -19,7 +19,7 @@ import './components/grid';
 Shop 
 ------------------------------------------------------------------*/
 
-import Shop from './components/shop';
+import Shop from './components/shop'; 
 import slick from 'slick-carousel';
 
 $(() => {
@@ -109,7 +109,7 @@ $body.on('click', '.js-toggle-menu', (e) => {
 Select elements
 ------------------------------------------------------------------*/
 
-$(function () {
+$(() => {
     $('select.dropdown').each((index, select) => {
         new Choices(select, {
             itemSelectText: 'Select',
@@ -117,6 +117,3 @@ $(function () {
         });
     });
 });
-
-
-

@@ -62,6 +62,11 @@ $formats = [
 
 TinyMCEConfig::get('cms')->enablePlugins(['hr', 'anchor']);
 
+// try {
+// } catch (\Exception $e) {
+    // user_error($e->getMessage(), E_USER_NOTICE);
+// }
+
 if (Security::database_is_ready()) {
 
     $config = SiteConfig::current_site_config();
