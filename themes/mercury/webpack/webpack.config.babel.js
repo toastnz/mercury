@@ -1,14 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const SpritesmithPlugin = require('webpack-spritesmith');
 const { getIfUtils, removeEmpty } = require('webpack-config-utils');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
-
 const stats = {
     colors: true,
     hash: false,
@@ -43,7 +41,6 @@ module.exports = (env, argv) => {
         },
         resolve: {
             alias: {
-                'sprites': path.resolve(__dirname, '../dist/images/sprites'),
                 'images': path.resolve(__dirname, '../dist/images/standard')
             }
         },
@@ -103,6 +100,7 @@ module.exports = (env, argv) => {
                 new UglifyJsPlugin({
                     cache: true,
                     parallel: true,
+                    extractComments: 'all',
                     sourceMap: ifProduction(true, false)
                 }),
                 new TerserPlugin({
@@ -122,26 +120,7 @@ module.exports = (env, argv) => {
         plugins: removeEmpty([
             new FriendlyErrorsWebpackPlugin(),
             new webpack.PrefetchPlugin(path.resolve(__dirname, '../source/styles/style.scss')),
-            new MiniCssExtractPlugin({ filename: '../styles/[name].css', chunkFilename: '[id].css' }),
-            new SpritesmithPlugin({
-                src: { cwd: path.resolve(__dirname, '../source/sprites'), glob: '*.png' },
-                target: {
-                    image: path.resolve(__dirname, '../dist/images/sprites/sprite.png'),
-                    css: [
-                        [path.resolve(__dirname, '../source/styles/sprites/normal.scss'), { format: 'normal' }],
-                        [path.resolve(__dirname, '../source/styles/sprites/retina.scss'), { format: 'retina' }]
-                    ]
-                },
-                retina: '@2x',
-                apiOptions: { cssImageRef: '~sprite.png' },
-                customTemplates: {
-                    normal: path.resolve(__dirname, '../source/sprites/sprite_positions.styl.mustache'),
-                    normal_retina: path.resolve(__dirname, '../source/sprites/sprite_positions.styl.mustache'),
-                    retina: path.resolve(__dirname, '../source/sprites/retina-sprite_positions.styl.mustache'),
-                    retina_retina: path.resolve(__dirname, '../source/sprites/retina-sprite_positions.styl.mustache'),
-                },
-                spritesmithOptions: { padding: 4 }
-            }),
+            new MiniCssExtractPlugin({ filename: '../styles/[name].css', chunkFilename: '[id].css' })
         ])
     };
 };

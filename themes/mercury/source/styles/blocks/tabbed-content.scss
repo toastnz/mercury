@@ -41,6 +41,7 @@
       &__item {
         padding: 1rem 0;
         display: block;
+        padding-right: 1rem;
 
         @include media($xmd, max) {
           padding: 0;

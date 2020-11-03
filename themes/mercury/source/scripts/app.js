@@ -20,28 +20,28 @@ Import external
 ------------------------------------------------------------------*/
 
 import $ from 'jquery';
-import Choices from 'choices.js';
+import Selector from 'simple-selector'
 
-/*------------------------------------------------------------------
-Menu toggle
-------------------------------------------------------------------*/
 
-let $body = $('body');
+$(() => {
+    
+    /*------------------------------------------------------------------
+    Menu toggle
+    ------------------------------------------------------------------*/
+    let $body = $('body');
 
-$body.on('click', '.js-toggle-menu', (e) => {
-    e.preventDefault();
-    $body.toggleClass('menuActive');
-});
+    $body.on('click', '.js-toggle-menu', (e) => {
+        e.preventDefault();
+        $body.toggleClass('menuActive');
+    });
 
-/*------------------------------------------------------------------
-Select elements
-------------------------------------------------------------------*/
+    /*------------------------------------------------------------------
+    Select elements
+    ------------------------------------------------------------------*/
 
-$(function () {
-    $('select.dropdown').each((index, select) => {
-        new Choices(select, {
-            itemSelectText: 'Select',
-            searchPlaceholderValue: 'Type to search...'
+    $('select.dropdown').each((index, element) => {
+        element.SS = new Selector(element, {
+            placeholder: element.querySelector('option').innerText,
         });
     });
 });

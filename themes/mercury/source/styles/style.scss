@@ -8,19 +8,12 @@
 @import 'utilities/fonts';
 
 //------------------------------------------------------------------
-// Sprites
-//------------------------------------------------------------------
-
-@import 'sprites/normal.scss';
-@import 'sprites/retina.scss';
-
-//------------------------------------------------------------------
 // Third Party includes
 //------------------------------------------------------------------
 
 @import 'plugins/tingle.js.scss';
 @import 'plugins/slick.scss';
-@import 'plugins/choices.scss';
+@import 'plugins/selector.scss';
 
 //------------------------------------------------------------------
 // Base includes
