@@ -2,15 +2,11 @@
 Debug Grid
 ------------------------------------------------------------------*/
 
-import Combokeys from 'combokeys';
+console.log('fdsf')
 
-document.addEventListener('DOMContentLoaded', () => {
-    let combokeys = new Combokeys(document.documentElement);
-    let el = document.querySelector('.js-debug-grid');
-
-
-    combokeys.bind(['command+g', 'ctrl+g'], () => {
-        el.classList.toggle('active');
-        return false;
-    });
-});
+document.addEventListener('keydown', (e) => {
+    if ((window.navigator.platform.match('Mac') ? e.metaKey : e.ctrlKey) && e.code === 'KeyG') {
+        e.preventDefault();
+        document.querySelector('.js-debug-grid').classList.toggle('active');
+    }
+}, false);
