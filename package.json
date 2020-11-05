@@ -1,5 +1,6 @@
 {
   "name": "mercury",
+  "private": true,
   "scripts": {
     "info": "webpack --mode development --progress --watch --config themes/mercury/webpack/webpack.config.babel.js",
     "dev": "webpack --mode development --progress --watch --config themes/mercury/webpack/webpack.config.babel.js",

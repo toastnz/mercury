@@ -13,6 +13,8 @@ import './components/accordionBlock';
 import './components/imageText';
 import './components/tabbed';
 import './components/inview';
+import './components/mobileMenu';
+import './components/search';
 import './components/grid';
 
 /*------------------------------------------------------------------
@@ -22,19 +24,8 @@ Import external
 import $ from 'jquery';
 import Selector from 'simple-selector'
 
-
 $(() => {
     
-    /*------------------------------------------------------------------
-    Menu toggle
-    ------------------------------------------------------------------*/
-    let $body = $('body');
-
-    $body.on('click', '.js-toggle-menu', (e) => {
-        e.preventDefault();
-        $body.toggleClass('menuActive');
-    });
-
     /*------------------------------------------------------------------
     Select elements
     ------------------------------------------------------------------*/

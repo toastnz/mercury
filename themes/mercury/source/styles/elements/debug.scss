@@ -2,8 +2,8 @@
 // Debug
 //------------------------------------------------------------------
 
-.debug {
-  @include full;
+.debug { 
+  @include full; 
   position: fixed;
   z-index: 9999999999;
   pointer-events: none;
