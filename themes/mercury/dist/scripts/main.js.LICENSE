@@ -3306,6 +3306,22 @@ Imports
 
 // .on('exit', el => el.classList.remove('inView'));
 
+// CONCATENATED MODULE: ./themes/mercury/source/scripts/components/mobileMenu.js
+
+/*------------------------------------------------------------------
+Mega Menu
+------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+Variables
+------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    If the user didnt click on the span in side
+    ------------------------------------------------------------------*/
+
+// CONCATENATED MODULE: ./themes/mercury/source/scripts/components/search.js
+
 // EXTERNAL MODULE: ./themes/mercury/source/scripts/components/grid.js
 
 // EXTERNAL MODULE: ./node_modules/@meteora-digital/helpers/dist/index.js
@@ -3432,10 +3448,6 @@ Import styles
 /*------------------------------------------------------------------
 Import modules
 ------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------
-  Menu toggle
-  ------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------
   Select elements
