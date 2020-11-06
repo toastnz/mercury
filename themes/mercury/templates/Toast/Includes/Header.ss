@@ -57,6 +57,5 @@
 </header>
 
 <% include Toast\Includes\MobileMenu %>
+
 <% include Toast\Includes\SearchPane %>
-
-

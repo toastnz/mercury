@@ -56,10 +56,10 @@ class SiteConfigExtension extends DataExtension
          * ----------------------------------------*/
 
         if (Helper::isSuperAdmin()) {
-            $fields->findOrMakeTab('Root.ExternalAPIKeys');
+            $fields->findOrMakeTab('Root.APIKeys');
 
-            $fields->addFieldsToTab('Root.ExternalAPIKeys', [
-                HeaderField::create('ExternalAPIKeys', 'External API Keys'),
+            $fields->addFieldsToTab('Root.APIKeys', [
+                HeaderField::create('APIKeys', 'External API Keys'),
                 TextField::create('GoogleAnalytics', 'Google Analytics Account Number')
                     ->setAttribute('placeholder', 'UA-XXXXXX-Y')
                     ->setDescription('Enter your <a href="https://support.google.com/analytics/answer/1008080?hl=en#GAID" target="_blank">Google Analytics Account Number</a> to enable Google Analytics on your site.'),
@@ -72,7 +72,7 @@ class SiteConfigExtension extends DataExtension
                 TextField::create('GoogleMapsApiKey', 'Google Maps API Key')
                     ->setAttribute('placeholder', 'xxxxxxxxxxxxxxxxxxxxxx')
                     ->setDescription('Enter your <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">Google Maps API Key</a> to be able to display maps on your site.'),
-                LiteralField::create('ExternalAPIKeysWarning', '<div class="message warning"><strong>Note:</strong> Only <strong>Default Admin</strong> can view these settings</div>')
+                LiteralField::create('APIKeysWarning', '<div class="message warning"><strong>Note:</strong> Only <strong>Default Admin</strong> can view these settings</div>')
             ]);
         }
     }

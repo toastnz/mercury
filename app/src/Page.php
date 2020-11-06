@@ -1,6 +1,8 @@
 <?php
 
 use Toast\Helpers\Helper;
+use Toast\Models\BannerSlide;
+
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Security\Security;
@@ -9,6 +11,10 @@ use SilverStripe\Forms\DropdownField;
 use SilverStripe\Security\Permission;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\CMS\Controllers\ContentController;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 
 class Page extends SiteTree
 {
@@ -17,12 +23,8 @@ class Page extends SiteTree
         'CustomTemplateType' => 'Enum("Layout,main","Layout")'
     ];
 
-    private static $has_one = [
-        'BannerImage' => Image::class
-    ];
-
-    private static $owns = [
-        'BannerImage'
+    private static $has_many = [
+        'BannerSlides' => BannerSlide::class
     ];
 
     public function getCMSFields()
@@ -30,10 +32,22 @@ class Page extends SiteTree
         $fields = parent::getCMSFields();
         $fields->removeByName(['Content']);
 
-        $fields->addFieldsToTab(
-            'Root.Banner',
-            [UploadField::create('BannerImage', 'Banner Image')->setDescription('This is optional')]
+        $config = GridFieldConfig_RelationEditor::create(10);
+        $config->addComponent(GridFieldOrderableRows::create('SortOrder'))
+            ->removeComponentsByType(GridFieldDeleteAction::class)
+            ->addComponent(new GridFieldDeleteAction(false));
+
+        $gridField = GridField::create(
+            'BannerSlides',
+            'BannerSlides',
+            $this->owner->BannerSlides(),
+            $config
         );
+
+        $fields->addFieldsToTab('Root.Banner', [
+            $gridField
+        ]);
+
 
         return $fields;
     }
@@ -53,7 +67,6 @@ class Page extends SiteTree
         ]);
         return $fields;
     }
-
 }
 
 class PageController extends ContentController
@@ -72,6 +85,4 @@ class PageController extends ContentController
     {
         return Helper::isSuperAdmin();
     }
-
-
 }
