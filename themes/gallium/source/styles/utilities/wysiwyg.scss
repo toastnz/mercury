@@ -1,0 +1,110 @@
+//------------------------------------------------------------------
+// Typography variables
+//------------------------------------------------------------------
+
+$base: 10px;
+
+//------------------------------------------------------------------
+// Base body styles
+//------------------------------------------------------------------
+
+html,
+body {
+  font-size: $base;
+  color: $text;
+  font-family: $font-primary;
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+::selection {
+  color: $white;
+  background: $primary;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+p {
+  a {
+    &:not([class]) {
+      color: $primary;
+      text-decoration: none;
+
+      @include active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+//------------------------------------------------------------------
+// Font Styles
+//------------------------------------------------------------------
+
+em,
+i {
+  font-style: italic;
+}
+
+strong,
+b {
+  font-weight: bold;
+
+  * {
+    font-weight: inherit!important;
+  }
+}
+
+a:not([class]) {
+  color: inherit;
+  text-decoration: none;
+}
+
+//------------------------------------------------------------------
+// Images
+//------------------------------------------------------------------
+
+img {
+  max-width: 100%;
+  height: auto;
+
+  &.rightAlone {
+    display: block;
+    margin-left: auto;
+  }
+
+  &.leftAlone {
+    display: block;
+    margin-right: auto;
+  }
+
+  &.right {
+    float: right;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &.left {
+    float: left;
+    margin-right: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+//------------------------------------------------------------------
+// HR
+//------------------------------------------------------------------
+
+hr {
+  border-bottom: $text;
+  border-width: .1rem 0 0 0;
+  border-style: solid;
+  margin: 3rem auto;
+}

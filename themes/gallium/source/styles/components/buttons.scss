@@ -1,0 +1,135 @@
+//-----------------------------------------------------------------
+// Button Styles
+//-----------------------------------------------------------------
+
+@mixin button($colour: $primary) {
+	border-color: $colour;
+	background-color: $colour;
+
+	@if($colour == $white) {
+		color: $primary;
+	}@else {
+		color: $white;
+	}
+
+	@include active {
+		border-color: darken($colour, 10%);
+		background-color: darken($colour, 10%);
+	}
+}
+
+@mixin button-bordered($colour: $primary) {
+	border-color: $colour;
+	background-color: transparent;
+
+	@if($colour == $white) {
+		color: $primary;
+	}@else {
+		color: $white;
+	}
+
+	@include active {
+		border-color: $colour;
+		background-color: $colour;
+	}
+}
+
+@mixin ButtonStyles {
+
+	%button-defaults {
+		// Button Reset
+		position: relative;
+		z-index: 1;
+		border: 0;
+		padding: 0;
+		margin: 0;
+		outline: 0;
+		cursor: pointer;
+		overflow: hidden;
+		background-color: transparent;
+		-webkit-appearance: none;
+		-webkit-border-radius: 0px;
+
+		// User
+		@content;
+	}
+
+	input[type="submit"],
+	button {
+		@extend %button-defaults;
+	}
+
+	input[type="submit"] {
+		background-color: $primary;
+		border-color: $primary;
+		color: $white;
+
+		@include active {
+			color: $white;
+			border-color: darken($primary, 10%);
+			background-color: darken($primary, 10%);
+		}
+	}
+
+	.button {
+		@extend %button-defaults;
+		color: $white;
+		border-color: $primary;
+		background-color: $primary;
+
+		@include active {
+			color: $white;
+			background-color: darken($primary, 10%);
+			border-color: darken($primary, 10%);
+		}
+
+		&--bordered {
+			color: $primary;
+			background-color: transparent;
+		}
+	}
+}
+
+@mixin ButtonClasses {
+	.button {
+		@each $colour, $value in $colour-map {
+			&.button--#{$colour} {
+				border-color: $value;
+				background-color: $value;
+
+				@if($value == $white) {
+					color: $primary;
+				}@else {
+					color: $white;
+				}
+
+				@include active {
+					border-color: darken($value, 10%);
+					background-color: darken($value, 10%);
+				}
+			}
+
+			&.button--bordered--#{$colour} {
+				background-color: transparent;
+				border-color: $value;
+				color: $value;
+
+				@include active {
+					background-color: $value;
+					border-color: $value;
+
+					@if ($value == $white) {
+						color: $primary;
+					} @else {
+						color: $white;
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin Buttons {
+	@include ButtonStyles;
+	@include ButtonClasses;
+}

@@ -1,0 +1,22 @@
+.js-gallery {
+  position: relative;
+
+  .js-gallery--item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    width: 100%;
+    transition: opacity .3s ease;
+
+    &.js-gallery--current {
+      position: relative;
+      z-index: 2;
+    }
+
+    &.js-gallery--active {
+      opacity: 1;
+    }
+  }
+}

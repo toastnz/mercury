@@ -1,0 +1,99 @@
+.banner {
+  .breadcrumbs {
+    border-bottom: 0;
+
+    &__wrap {
+      &__item {
+        color: $white;
+
+        &--divivder svg {
+          polygon,
+          path {
+            fill: $white;
+          }
+        }
+
+        &--icon {
+          svg {
+            polygon,
+            path {
+              fill: $white;
+            }
+          }
+
+          &:hover {
+            path,
+            polygon {
+              fill: $white;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.breadcrumbs {
+  border-bottom: .1rem solid rgba($black, .1);
+  &__wrap {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    p {
+      display: inline-block;
+      margin: 0 !important;
+      font-size: 1.4rem !important;
+      font-weight: 600;
+    }
+
+    &__item {
+      margin-bottom: 0;
+      font-size: 1.4rem;
+      text-decoration: none;
+      display: inline-block;
+      vertical-align: middle;
+      padding: 2.4rem 1rem;
+      color: $black;
+
+      &--divivder svg {
+        position: relative;
+        top: 2px;
+
+        polygon,
+        path {
+          fill: $black;
+        }
+      }
+
+      &--icon {
+        svg {
+          position: relative;
+          top: 2px;
+
+          polygon,
+          path {
+            fill: $black;
+            transition: fill .3s ease;
+          }
+        }
+
+        @include active {
+          path,
+          polygon {
+            fill: $primary!important;
+          }
+        }
+      }
+
+      &--link {
+        transition: color .3s ease;
+
+        @include active {
+          color: $primary!important;
+        }
+      }
+    }
+  }
+}

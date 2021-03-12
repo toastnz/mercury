@@ -1,0 +1,142 @@
+//------------------------------------------------------------------
+// Google Maps Info Windows
+//------------------------------------------------------------------
+
+.gm-style-iw-t {
+  &:after {
+    content: none!important;
+  }
+}
+
+.gm-style-iw.gm-style-iw-c {
+  display: none;
+  border-radius: 0;
+  padding: 30px;
+  overflow: visible;
+  width: 400px;
+  box-shadow: 0 0 2rem 0 rgba($black, 0.3);
+  transform: translate(calc(-100% - 4rem),-25%);
+
+  @include media($xxl) {
+    display: block;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: $off-black;
+  }
+
+  &:before {
+    top: 45%;
+    right: -15px;
+    height: 30px;
+    width: 30px;
+    transform: translateY(-50%) rotate(45deg);
+    box-shadow: 0 0 2rem 0 rgba($black, 0.3);
+  }
+
+  &:after {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  button.gm-ui-hover-effect {
+    position: absolute;
+    top: 2rem!important;
+    right: 2rem!important;
+    height: 2rem!important;
+    width: 2rem!important;
+    opacity: 1;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: .2rem;
+      width: 100%;
+      background-color: $primary;
+    }
+
+    &:before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &:after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    img {
+      display: none!important;
+    }
+  }
+
+  .gm-style-iw-d {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.gm-info {
+  color: $white;
+
+  &__title {
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-right: 3rem;
+  }
+
+  &__details {
+
+    &__item {
+      font-size: 1.6rem;
+      margin-bottom: 0;
+
+      >:last-child {
+        margin-bottom: 0;
+      }
+
+      p,
+      span,
+      b {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 0;
+      }
+
+      p {
+        display: block;
+      }
+
+      svg {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 1rem;
+        @include transition(transform);
+      }
+
+      h6 {
+        font-weight: bold;
+      }
+
+      &.directions {
+        margin-bottom: 30px;
+        svg {
+          height: 15px;
+          width: 21px;
+        }
+      }
+
+      &__link {
+        text-decoration: none;
+        color: $primary;
+      }
+    }
+  }
+}

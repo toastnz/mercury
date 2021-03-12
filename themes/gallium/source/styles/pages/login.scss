@@ -1,0 +1,136 @@
+$login-type-color: $off-black;
+
+.login {
+  font-weight: bold;
+  position: relative;
+  background-color: $primary;;
+
+  .loginHeight {
+    height: 100vh;
+  }
+
+  &__wrap {
+    position: relative;
+    z-index: 1;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    .row {
+      position: relative;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      background-color: $white;
+      border-radius: 1.5rem;
+    }
+
+    &__content {
+      display: block;
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+      padding: 2rem;
+      width: 100%;
+      max-width: 60rem;
+
+      &__text,
+      &__form {
+        @include media($xmd) {
+          padding-left: 5rem;
+          padding-right: 5rem;
+        }
+      }
+
+      &__header {
+        text-align: center;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        background-color: $white;
+
+        @include media($xmd) {
+          margin-bottom: 4rem;
+        }
+      }
+
+      &__text {
+        text-align: center;
+        margin-bottom: 1rem;
+
+        @include media($xmd) {
+          margin-bottom: 2rem;
+        }
+
+        &__heading {
+          color: $login-type-color;
+        }
+      }
+
+      p {
+        color: $login-type-color;
+      }
+
+      &__form {
+        .field {
+          margin-bottom: 1rem;
+        }
+
+        label {
+          display: block;
+          color: $login-type-color;
+          font-size: 1.6rem;
+          margin-bottom: 1rem;
+        }
+
+        input:not([type="submit"]) {
+          @extend %input;
+          color: $login-type-color!important;
+          border: .2rem solid $grey!important;
+        }
+
+        [type="submit"] {
+          @extend %button-defaults;
+          width: 100%;
+          @include button($primary);
+        }
+
+        .field.checkbox {
+          margin-top: 2rem;
+
+          [type="checkbox"] {
+            @extend %checkbox;
+
+            + label {
+              &:before {
+                border-color: $primary!important;
+              }
+
+              &:after {
+                background-color: $primary!important;
+              }
+            }
+          }
+        }
+
+        .btn-toolbar {
+          margin-top: 2rem;
+        }
+
+        #ForgotPassword,
+        #BackToLogin {
+          border-top: .2rem solid rgba($login-type-color, 0.3);
+          text-align: center;
+          margin-top: 3rem;
+          padding-top: 3rem;
+          
+          a {
+            color: $primary;
+            text-decoration: none;
+
+            @include active {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

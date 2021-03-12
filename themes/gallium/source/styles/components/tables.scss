@@ -1,0 +1,56 @@
+//------------------------------------------------------------------
+// Tables
+
+@mixin TableStyles {
+  table {
+    vertical-align: top;
+    max-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    margin: 3rem auto;
+
+    tr {
+      th {
+        color: $white;
+        border-color: $grey;
+        background-color: $primary;
+        font-family: $font-primary;
+        font-weight: bold;
+        padding: $gutter-width / 2;
+        border-width: 0;
+        border-style: solid;
+        text-align: left;
+
+        @include media($xmd) {
+          padding: $gutter-width;
+        }
+
+        * {
+          color: inherit;
+          font-weight: inherit;
+        }
+      }
+
+      &:nth-child(even) {
+        td {
+          background-color: $off-white;
+        }
+      }
+
+      td {
+        color: $text;
+        border-color: $grey;
+        background-color: $white;
+        border-width: 0;
+        border-style: solid;
+        padding: $gutter-width / 2;
+        text-align: left;
+
+        @include media($xmd) {
+          padding: $gutter-width;
+        }
+      }
+    }
+  }
+}

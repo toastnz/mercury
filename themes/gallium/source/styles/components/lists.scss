@@ -1,0 +1,120 @@
+//------------------------------------------------------------------
+// Lists
+
+%bullet {
+  position: relative;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    width: .6rem;
+    height: .6rem;
+    border-radius: 50%;
+    top: .7em;
+    left: -1.9rem;
+  }
+}
+
+@mixin ListStyles {
+  ul,
+  ol {
+    &:not(.unstyled) {
+      padding-left: 2rem;
+      margin-bottom: 3rem;
+
+      @include media($xmd) {
+        padding-left: 3rem;
+      }
+
+      &:before {
+        content: none;
+      }
+
+      li {
+        @extend %bullet;
+        // padding-left: 1rem;
+        margin-bottom: 1rem;
+
+        &:before {
+          background-color: $text;
+        }
+
+        ul,
+        ol {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  ol {
+    &:not(.unstyled) {
+      list-style: decimal;
+    }
+  }
+
+  ul {
+    &.ticks {
+      li {
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+
+        &:before {
+          top: .5em;
+          left: -2.5rem;
+          height: 1.3rem;
+          width: 1.3rem;
+          border-radius: 0;
+          background-color: $primary;
+          background-image: url('/themes/mercury/dist/images/svg/tick.svg');
+          background-position: center;
+          background-size: 80%;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+
+    &.two-columns {
+      // @include clearfix;
+      padding-left: 0;
+
+      li {
+        // display: block;
+        // width: 50%;
+        // float: left;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 0;
+
+        &:before {
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin ListClasses {
+  //------------------------------------------------------------------
+  // Coloured Bullets
+  
+  ul {
+    @each $color, $value in $colour-map {
+      &.coloured--#{$color} {
+        li {
+          @extend %bullet;
+
+          &:before {
+            background-color: $color;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin Lists {
+  @include ListStyles;
+  @include ListClasses;
+}

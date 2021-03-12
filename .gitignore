@@ -1,7 +1,6 @@
 /silverstripe-cache/
 /.env
 /vendor/
-/themes/simple/
 /_resources/
 /public/_resources/
 /assets
@@ -9,3 +8,6 @@
 /blocks
 /silverstripe.log
 /shop-api
+/themes/simple/
+/themes/mercury/node_modules/
+/themes/gallium/node_modules/

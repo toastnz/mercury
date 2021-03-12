@@ -1,0 +1,64 @@
+//------------------------------------------------------------------
+// Theme Colours
+
+$success-colour: #65b922;
+$warning-colour: #ffd33a;
+$error-colour: #e44e4e;
+
+$white: #fff;
+$off-white: #f2f2f2;
+$grey: #B4B5B8;
+$grey-light: #d6d6d6;
+$black: #000;
+$off-black: #231f20;
+
+$text: #000000;
+$text-light: #6d6e6a;
+
+$green: #00ff02;
+$red: #ef4042;
+
+$primary: #676cc1;
+$secondary: $off-black;
+$tertiary: $off-black;
+
+$colour-map: (
+  'white': $white,
+  'off-white': $off-white,
+  'black': $black,
+  'off-black': $off-black,
+  'text': $text,
+  'primary': $primary,
+);
+
+//------------------------------------------------------------------
+// Theme Fonts
+
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+$font-primary: 'Montserrat', sans-serif;
+$font-secondary: 'Open Sans', sans-serif;
+
+%font-primary {
+  font-family: $font-primary;
+}
+
+@mixin font-primary {
+  @extend %font-primary;
+}
+
+%font-secondary {
+  font-family: $font-secondary;
+}
+
+@mixin font-secondary {
+  @extend %font-secondary;
+}
+
+.font-primary {
+  @include font-primary;
+}
+
+.font-secondary {
+  @include font-secondary;
+}

@@ -1,8 +1,8 @@
 ---
-Name: mercury
+Name: gallium
 ---
 SilverStripe\View\SSViewer:
   themes:
     - '$public'
-    - 'mercury'
+    - 'gallium'
     - '$default'

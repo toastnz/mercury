@@ -1,0 +1,26 @@
+.error-page {
+  background-color: $off-black;
+
+  &__wrap {
+    height: 100vh;
+
+    &__content {
+      text-align: center;
+
+      &__title,
+      &__caption {
+        color: $primary;
+      }
+
+      &__title {
+        font-size: 16rem;
+        font-weight: 600;
+        margin-bottom: 3rem;
+      }
+
+      &__caption {
+        margin-bottom: 10rem;
+      }
+    }
+  }
+}
