@@ -34,7 +34,7 @@ module.exports = (env, argv) => {
         stats,
         devtool: ifProduction('', 'source-map'),
         output: {
-            publicPath: '/themes/gallium/dist/scripts/',
+            publicPath: '/themes/SELECTED_THEME/dist/scripts/',
             path: path.resolve(__dirname, '../dist/scripts'),
             filename: '[name].js',
             // sourceMapFilename: '[name].map[query]'

@@ -5,7 +5,7 @@ const root = path.resolve(__dirname, '../../../');
 const config = {
     entry: root + '/icon.png',
     output: {
-        path: root + '/themes/gallium/dist/images',
+        path: root + '/themes/SELECTED_THEME/dist/images',
     }, module: {
         rules: [
             {

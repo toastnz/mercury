@@ -1,8 +1,8 @@
 ---
-Name: gallium
+Name: SELECTED_THEME
 ---
 SilverStripe\View\SSViewer:
   themes:
     - '$public'
-    - 'gallium'
+    - 'SELECTED_THEME'
     - '$default'
