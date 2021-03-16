@@ -38,6 +38,10 @@ for FILE in ./app/_config/*
 	do sed -i '' "s/SELECTED_THEME/$THEME/g" $FILE
 done
 
+for FILE in ./app/_config/*.yml.example
+	do mv -- "$FILE" "${FILE%.example}.yml"
+done
+
 # Replace "SELECTED_THEME" with $THEME in the makefile
 sed -i '' "s/SELECTED_THEME/$THEME/g" "./makefile"
 
@@ -47,6 +51,7 @@ composer install
 # Run a make install
 make install
 
+# Ask the user if they would like to have the other theme folders removed
 while true
 do
  read -r -p "Would you like to remove the other theme folders? [Y/n] " input
@@ -65,4 +70,5 @@ do
  esac
 done
 
+# We have now completed the installation
 echo "$THEME was successfully installed!"
