@@ -38,8 +38,8 @@ for FILE in ./app/_config/*
 	do sed -i '' "s/SELECTED_THEME/$THEME/g" $FILE
 done
 
-for FILE in ./app/_config/*.yml.example
-	do mv -- "$FILE" "${FILE%.example}.yml"
+for FILE in ./app/_config/*.example
+	do mv -- "$FILE" "${FILE%.example}"
 done
 
 # Replace "SELECTED_THEME" with $THEME in the makefile
