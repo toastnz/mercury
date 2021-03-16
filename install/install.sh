@@ -47,4 +47,22 @@ composer install
 # Run a make install
 make install
 
+while true
+do
+ read -r -p "Would you like to remove the other theme folders? [Y/n] " input
+ case $input in
+     [yY][eE][sS]|[yY])
+ for FOLDER in `ls ./themes/ | grep -v "$THEME"` ; do echo "Removing $FOLDER " && rm -rf ./themes/$FOLDER && echo "$FOLDER was removed."; done
+ break
+ ;;
+     [nN][oO]|[nN])
+ echo "Leaving other theme folders in place!"
+ break
+        ;;
+     *)
+ echo "Invalid input..."
+ ;;
+ esac
+done
+
 echo "$THEME was successfully installed!"
