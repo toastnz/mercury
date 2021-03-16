@@ -7668,8 +7668,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _functions_ajax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions/ajax */ "./source/scripts/functions/ajax.js");
 /* harmony import */ var _functions_ajax__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_functions_ajax__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _functions_get_param__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../functions/get-param */ "./source/scripts/functions/get-param.js");
-/* harmony import */ var _functions_get_param__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_functions_get_param__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _functions_get_param__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../functions/get-param */ "./source/scripts/functions/get-param.js");
+/* harmony import */ var _functions_get_param__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_functions_get_param__WEBPACK_IMPORTED_MODULE_2__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -7728,7 +7728,7 @@ var Filters = /*#__PURE__*/function () {
     Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_0__["loopObject"])(this.filters, function (name, settings) {
       // Grab the current page loaded filters
       try {
-        settings.value = _functions_get_param__WEBPACK_IMPORTED_MODULE_3___default()(name).split(',');
+        settings.value = _functions_get_param__WEBPACK_IMPORTED_MODULE_2___default()(name).split(',');
       } catch (err) {
         settings.value = [];
       }

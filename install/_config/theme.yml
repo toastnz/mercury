@@ -4,5 +4,5 @@ Name: mercury
 SilverStripe\View\SSViewer:
   themes:
     - '$public'
-    - 'gallium'
+    - 'SELECTED_THEME'
     - '$default'

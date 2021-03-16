@@ -1,6 +1,6 @@
 const path = require('path');
 const WebappWebpackPlugin = require('webapp-webpack-plugin');
-const root = path.resolve(__dirname, '../../../');
+const root = path.resolve(__dirname, '../');
 
 const config = {
     entry: root + '/icon.png',

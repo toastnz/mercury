@@ -1,5 +1,5 @@
 const fs = require('fs');
-const nvmVersion = fs.readFileSync('./themes/gallium/webpack/.nvmrc').toString().trim();
+const nvmVersion = fs.readFileSync('./themes/SELECTED_THEME/webpack/.nvmrc').toString().trim();
 const desired = `v${nvmVersion}`;
 const running = process.version;
 

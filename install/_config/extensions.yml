@@ -10,7 +10,7 @@ SilverStripe\Admin\LeftAndMain:
     - Toast\Extensions\LeftAndMainExtension
 
 StevieMayhew\SilverStripeSVG\SVGTemplate:
-  base_path: "themes/gallium/dist/images/svg/"
+  base_path: "themes/SELECTED_THEME/dist/images/svg/"
 
 SilverStripe\UserForms\Model\UserDefinedForm:
   block_default_userforms_js: true
