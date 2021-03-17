@@ -5,7 +5,7 @@ echo Running installation
 cd "./themes/"
 
 # Ask the user which theme they would like to install
-printf "Which theme would you like to install?:\n"
+printf "Which theme would you like to install? (Check with the frontender if you're not sure)\n"
 
 # Make a selection for them based on the theme directories
 select DIRECTORY in */; do test -n "$DIRECTORY" && break; echo ">>> Invalid Selection"; done
@@ -39,7 +39,7 @@ composer install
 # Ask the user if they would like to have the other theme folders removed
 while true
 do
- read -r -p "Would you like to remove the other theme folders? [Y/n] " input
+ read -r -p "Would you like to remove the other theme folders? [Y/n]`echo $'\n> '`" input
  case $input in
      [yY][eE][sS]|[yY])
  for FOLDER in `ls ./themes/ | grep -v "$THEME"` ; do echo "Removing $FOLDER " && rm -rf ./themes/$FOLDER && echo "$FOLDER was removed."; done
@@ -73,7 +73,7 @@ echo "" >> $ENV
 # Dev environment
 echo "SS_ENVIRONMENT_TYPE=\"dev\"" >> $ENV
 
-read -r -p "Enter the admin username [admin]" VALUE
+read -r -p "Enter the admin username [admin]`echo $'\n> '`" VALUE
 case $VALUE in
 	"")
 		echo "SS_DEFAULT_ADMIN_USERNAME=\"admin\"" >> $ENV
@@ -84,7 +84,7 @@ case $VALUE in
 	;;
 esac
 
-read -r -p "Enter the admin password [pass]" VALUE
+read -r -p "Enter the admin password [pass]`echo $'\n> '`" VALUE
 case $VALUE in
 	"")
 		echo "SS_DEFAULT_ADMIN_PASSWORD=\"pass\"" >> $ENV
@@ -96,7 +96,7 @@ case $VALUE in
 esac
 
 
-read -r -p "Enter the base URL [http://${PWD##*/}.local]" VALUE
+read -r -p "Enter the base URL [http://${PWD##*/}.local]`echo $'\n> '`" VALUE
 case $VALUE in
 	"")
 		echo "SS_BASE_URL=\"http://${PWD##*/}.local\"" >> $ENV
@@ -112,7 +112,7 @@ echo "" >> $ENV
 echo "SS_DATABASE_CHOOSE_NAME=\"true\"" >> $ENV
 echo "SS_DATABASE_CLASS=\"MySQLPDODatabase\"" >> $ENV
 
-read -r -p "Enter the database name [ss_${PWD##*/}]" VALUE
+read -r -p "Enter the database name [ss_${PWD##*/}]`echo $'\n> '`" VALUE
 case $VALUE in
 	"")
 		echo "SS_DATABASE_NAME=\"ss_${PWD##*/}\"" >> $ENV
@@ -123,7 +123,7 @@ case $VALUE in
 	;;
 esac
 
-read -r -p "Enter the database username [root]" VALUE
+read -r -p "Enter the database username [root]`echo $'\n> '`" VALUE
 case $VALUE in
 	"")
 		echo "SS_DATABASE_USERNAME=\"root\"" >> $ENV
@@ -134,7 +134,7 @@ case $VALUE in
 	;;
 esac
 
-read -r -p "Enter the database password [root]" VALUE
+read -r -p "Enter the database password [root]`echo $'\n> '`" VALUE
 case $VALUE in
 	"")
 		echo "SS_DATABASE_PASSWORD=\"root\"" >> $ENV
@@ -145,7 +145,7 @@ case $VALUE in
 	;;
 esac
 
-read -r -p "Enter the database server [localhost]" VALUE
+read -r -p "Enter the database server [localhost]`echo $'\n> '`" VALUE
 case $VALUE in
 	"")
 		echo "SS_DATABASE_SERVER=\"localhost\"" >> $ENV
@@ -158,7 +158,7 @@ esac
 
 echo "" >> $ENV
 
-read -r -p "Enter your email address [you@toast.co.nz]" VALUE
+read -r -p "Enter your email address [you@toast.co.nz]`echo $'\n> '`" VALUE
 case $VALUE in
 	"")
 		echo "SS_SEND_ALL_EMAILS_TO=\"you@toast.co.nz\"" >> $ENV
