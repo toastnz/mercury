@@ -16,12 +16,12 @@ Member::set_password_validator($validator);
 // Our Base Theme Folder
 SSViewer::config()->set('themes', [
     '$public',
-    Environment::getEnv('SS_THEME_NAME'),
+    Environment::getEnv('SS_THEME'),
     '$default'
 ]);
 
 // Theme SVG Folder
-SVGTemplate::config()->set('base_path', 'themes/' . Environment::getEnv('SS_THEME_NAME') . '/dist/images/svg/');
+SVGTemplate::config()->set('base_path', 'themes/' . Environment::getEnv('SS_THEME') . '/dist/images/svg/');
 
 $formats = [
     [

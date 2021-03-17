@@ -68,7 +68,7 @@ ENV='.env'
 touch -c ./$ENV
 
 # Set our theme name in the .env
-echo "SS_THEME_NAME=\"$THEME\"" > $ENV
+echo "SS_THEME=\"$THEME\"" > $ENV
 
 # A little space
 echo "" >> $ENV
