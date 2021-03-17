@@ -72,3 +72,109 @@ done
 
 # We have now completed the installation
 echo "$THEME was successfully installed!"
+
+# Create a .env file
+
+ENV='.env'
+
+touch -c ./$ENV
+
+printf '%q\n' "${PWD##*/}"
+
+echo "SS_ENVIRONMENT_TYPE=\"dev\"" > $ENV
+echo "SS_THEME_NAME=\"$THEME\"" >> $ENV
+
+
+read -r -p "Enter the admin username [admin]" VALUE
+case $VALUE in
+	"")
+		echo "SS_DEFAULT_ADMIN_USERNAME=\"admin\"" >> $ENV
+	break
+	;;
+	*)
+		echo "SS_DEFAULT_ADMIN_USERNAME=\"$VALUE\"" >> $ENV
+	;;
+esac
+
+read -r -p "Enter the admin password [pass]" VALUE
+case $VALUE in
+	"")
+		echo "SS_DEFAULT_ADMIN_PASSWORD=\"pass\"" >> $ENV
+	break
+	;;
+	*)
+		echo "SS_DEFAULT_ADMIN_PASSWORD=\"$VALUE\"" >> $ENV
+	;;
+esac
+
+
+read -r -p "Enter the base URL [http://${PWD##*/}.local]" VALUE
+case $VALUE in
+	"")
+		echo "SS_BASE_URL=\"http://${PWD##*/}.local\"" >> $ENV
+	break
+	;;
+	*)
+		echo "SS_BASE_URL=\"$VALUE\"" >> $ENV
+	;;
+esac
+
+echo "SS_DATABASE_CHOOSE_NAME=\"true\"" >> $ENV
+echo "SS_DATABASE_CLASS=\"MySQLPDODatabase\"" >> $ENV
+
+read -r -p "Enter the database name [ss_${PWD##*/}]" VALUE
+case $VALUE in
+	"")
+		echo "SS_DATABASE_NAME=\"ss_${PWD##*/}\"" >> $ENV
+	break
+	;;
+	*)
+		echo "SS_DATABASE_NAME=\"$VALUE\"" >> $ENV
+	;;
+esac
+
+read -r -p "Enter the database username [root]" VALUE
+case $VALUE in
+	"")
+		echo "SS_DATABASE_USERNAME=\"root\"" >> $ENV
+	break
+	;;
+	*)
+		echo "SS_DATABASE_USERNAME=\"$VALUE\"" >> $ENV
+	;;
+esac
+
+read -r -p "Enter the database password [root]" VALUE
+case $VALUE in
+	"")
+		echo "SS_DATABASE_PASSWORD=\"root\"" >> $ENV
+	break
+	;;
+	*)
+		echo "SS_DATABASE_PASSWORD=\"$VALUE\"" >> $ENV
+	;;
+esac
+
+read -r -p "Enter the database server [localhost]" VALUE
+case $VALUE in
+	"")
+		echo "SS_DATABASE_SERVER=\"localhost\"" >> $ENV
+	break
+	;;
+	*)
+		echo "SS_DATABASE_SERVER=\"$VALUE\"" >> $ENV
+	;;
+esac
+
+read -r -p "Enter your email address [you@toast.co.nz]" VALUE
+case $VALUE in
+	"")
+		echo "SS_SEND_ALL_EMAILS_TO=\"you@toast.co.nz\"" >> $ENV
+	break
+	;;
+	*)
+		echo "SS_SEND_ALL_EMAILS_TO=\"$VALUE\"" >> $ENV
+	;;
+esac
+
+echo ".env file has been created successfully!"
