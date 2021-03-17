@@ -14,6 +14,6 @@
             <% include Toast\Footer %>
         </div>
 
-        <% require javascript("themes/mercury/dist/scripts/main.js") %>
+        <% require javascript("themes/gallium/dist/scripts/main.js") %>
     </body>
 </html>

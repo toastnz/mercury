@@ -7,6 +7,6 @@
     <body class="$Classname" <% if $GoogleMapsApiKey %>data-maps-api-key="$GoogleMapsApiKey" <% end_if %> data-classname="$Classname" data-title="$Title" data-url-segment="$URLSegment">
         $Layout
 
-        <% require javascript("themes/mercury/dist/scripts/main.js") %>
+        <% require javascript("themes/gallium/dist/scripts/main.js") %>
     </body>
 </html>
