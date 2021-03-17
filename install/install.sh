@@ -58,115 +58,124 @@ done
 # We have now completed the installation
 echo "$THEME was successfully installed!"
 
-# Create a .env file
+# Ask the user if they would like generate a .env file
+while true
+do
+ read -r -p "Would you generate a .env file for this project? [Y/n]`echo $'\n> '`" input
+ case $input in
+     [yY][eE][sS]|[yY])
+ # Create a .env file
 
-ENV='.env'
+ ENV='.env'
 
-touch -c ./$ENV
+ touch -c ./$ENV
 
-# Set our theme name in the .env
-echo "SS_THEME=\"$THEME\"" > $ENV
+ # Set our theme name in the .env
+ echo "SS_THEME=\"$THEME\"" > $ENV
 
-# A little space
-echo "" >> $ENV
+ # A little space
+ echo "" >> $ENV
 
-# Dev environment
-echo "SS_ENVIRONMENT_TYPE=\"dev\"" >> $ENV
+ # Dev environment
+ echo "SS_ENVIRONMENT_TYPE=\"dev\"" >> $ENV
 
-read -r -p "Enter the admin username [admin]`echo $'\n> '`" VALUE
-case $VALUE in
-	"")
-		echo "SS_DEFAULT_ADMIN_USERNAME=\"admin\"" >> $ENV
-	break
-	;;
-	*)
-		echo "SS_DEFAULT_ADMIN_USERNAME=\"$VALUE\"" >> $ENV
-	;;
-esac
+ read -r -p "Enter the admin username [admin]`echo $'\n> '`" VALUE
+ case $VALUE in
+ 	"")
+ 		echo "SS_DEFAULT_ADMIN_USERNAME=\"admin\"" >> $ENV
+ 	;;
+ 	*)
+ 		echo "SS_DEFAULT_ADMIN_USERNAME=\"$VALUE\"" >> $ENV
+ 	;;
+ esac
 
-read -r -p "Enter the admin password [pass]`echo $'\n> '`" VALUE
-case $VALUE in
-	"")
-		echo "SS_DEFAULT_ADMIN_PASSWORD=\"pass\"" >> $ENV
-	break
-	;;
-	*)
-		echo "SS_DEFAULT_ADMIN_PASSWORD=\"$VALUE\"" >> $ENV
-	;;
-esac
+ read -r -p "Enter the admin password [pass]`echo $'\n> '`" VALUE
+ case $VALUE in
+ 	"")
+ 		echo "SS_DEFAULT_ADMIN_PASSWORD=\"pass\"" >> $ENV
+ 	;;
+ 	*)
+ 		echo "SS_DEFAULT_ADMIN_PASSWORD=\"$VALUE\"" >> $ENV
+ 	;;
+ esac
 
 
-read -r -p "Enter the base URL [http://${PWD##*/}.local]`echo $'\n> '`" VALUE
-case $VALUE in
-	"")
-		echo "SS_BASE_URL=\"http://${PWD##*/}.local\"" >> $ENV
-	break
-	;;
-	*)
-		echo "SS_BASE_URL=\"$VALUE\"" >> $ENV
-	;;
-esac
+ read -r -p "Enter the base URL [http://${PWD##*/}.local]`echo $'\n> '`" VALUE
+ case $VALUE in
+ 	"")
+ 		echo "SS_BASE_URL=\"http://${PWD##*/}.local\"" >> $ENV
+ 	;;
+ 	*)
+ 		echo "SS_BASE_URL=\"$VALUE\"" >> $ENV
+ 	;;
+ esac
 
-echo "" >> $ENV
+ echo "" >> $ENV
 
-echo "SS_DATABASE_CHOOSE_NAME=\"true\"" >> $ENV
-echo "SS_DATABASE_CLASS=\"MySQLPDODatabase\"" >> $ENV
+ echo "SS_DATABASE_CHOOSE_NAME=\"true\"" >> $ENV
+ echo "SS_DATABASE_CLASS=\"MySQLPDODatabase\"" >> $ENV
 
-read -r -p "Enter the database name [ss_${PWD##*/}]`echo $'\n> '`" VALUE
-case $VALUE in
-	"")
-		echo "SS_DATABASE_NAME=\"ss_${PWD##*/}\"" >> $ENV
-	break
-	;;
-	*)
-		echo "SS_DATABASE_NAME=\"$VALUE\"" >> $ENV
-	;;
-esac
+ read -r -p "Enter the database name [ss_${PWD##*/}]`echo $'\n> '`" VALUE
+ case $VALUE in
+ 	"")
+ 		echo "SS_DATABASE_NAME=\"ss_${PWD##*/}\"" >> $ENV
+ 	;;
+ 	*)
+ 		echo "SS_DATABASE_NAME=\"$VALUE\"" >> $ENV
+ 	;;
+ esac
 
-read -r -p "Enter the database username [root]`echo $'\n> '`" VALUE
-case $VALUE in
-	"")
-		echo "SS_DATABASE_USERNAME=\"root\"" >> $ENV
-	break
-	;;
-	*)
-		echo "SS_DATABASE_USERNAME=\"$VALUE\"" >> $ENV
-	;;
-esac
+ read -r -p "Enter the database username [root]`echo $'\n> '`" VALUE
+ case $VALUE in
+ 	"")
+ 		echo "SS_DATABASE_USERNAME=\"root\"" >> $ENV
+ 	;;
+ 	*)
+ 		echo "SS_DATABASE_USERNAME=\"$VALUE\"" >> $ENV
+ 	;;
+ esac
 
-read -r -p "Enter the database password [root]`echo $'\n> '`" VALUE
-case $VALUE in
-	"")
-		echo "SS_DATABASE_PASSWORD=\"root\"" >> $ENV
-	break
-	;;
-	*)
-		echo "SS_DATABASE_PASSWORD=\"$VALUE\"" >> $ENV
-	;;
-esac
+ read -r -p "Enter the database password [root]`echo $'\n> '`" VALUE
+ case $VALUE in
+ 	"")
+ 		echo "SS_DATABASE_PASSWORD=\"root\"" >> $ENV
+ 	;;
+ 	*)
+ 		echo "SS_DATABASE_PASSWORD=\"$VALUE\"" >> $ENV
+ 	;;
+ esac
 
-read -r -p "Enter the database server [localhost]`echo $'\n> '`" VALUE
-case $VALUE in
-	"")
-		echo "SS_DATABASE_SERVER=\"localhost\"" >> $ENV
-	break
-	;;
-	*)
-		echo "SS_DATABASE_SERVER=\"$VALUE\"" >> $ENV
-	;;
-esac
+ read -r -p "Enter the database server [localhost]`echo $'\n> '`" VALUE
+ case $VALUE in
+ 	"")
+ 		echo "SS_DATABASE_SERVER=\"localhost\"" >> $ENV
+ 	;;
+ 	*)
+ 		echo "SS_DATABASE_SERVER=\"$VALUE\"" >> $ENV
+ 	;;
+ esac
 
-echo "" >> $ENV
+ echo "" >> $ENV
 
-read -r -p "Enter your email address [you@toast.co.nz]`echo $'\n> '`" VALUE
-case $VALUE in
-	"")
-		echo "SS_SEND_ALL_EMAILS_TO=\"you@toast.co.nz\"" >> $ENV
-	break
-	;;
-	*)
-		echo "SS_SEND_ALL_EMAILS_TO=\"$VALUE\"" >> $ENV
-	;;
-esac
+ read -r -p "Enter your email address [you@toast.co.nz]`echo $'\n> '`" VALUE
+ case $VALUE in
+ 	"")
+ 		echo "SS_SEND_ALL_EMAILS_TO=\"you@toast.co.nz\"" >> $ENV
+ 	;;
+ 	*)
+ 		echo "SS_SEND_ALL_EMAILS_TO=\"$VALUE\"" >> $ENV
+ 	;;
+ esac
 
-echo ".env file has been created successfully!"
+ echo ".env file has been created successfully!"
+ break
+ ;;
+     [nN][oO]|[nN])
+ echo "You will need to create your own .env file before this site will run locally!"
+ break
+        ;;
+     *)
+ echo "Invalid input..."
+ ;;
+ esac
+done
