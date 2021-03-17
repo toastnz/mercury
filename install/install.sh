@@ -36,9 +36,6 @@ sed -i '' "s/SELECTED_THEME/$THEME/g" "./makefile"
 # Run a composer install
 composer install
 
-# Run a make install
-make install
-
 # Ask the user if they would like to have the other theme folders removed
 while true
 do
