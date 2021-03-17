@@ -81,8 +81,11 @@ touch -c ./$ENV
 
 printf '%q\n' "${PWD##*/}"
 
-echo "SS_ENVIRONMENT_TYPE=\"dev\"" > $ENV
-echo "SS_THEME_NAME=\"$THEME\"" >> $ENV
+echo "SS_THEME_NAME=\"$THEME\"" > $ENV
+
+echo "" >> $ENV
+
+echo "SS_ENVIRONMENT_TYPE=\"dev\"" >> $ENV
 
 
 read -r -p "Enter the admin username [admin]" VALUE
@@ -118,6 +121,8 @@ case $VALUE in
 		echo "SS_BASE_URL=\"$VALUE\"" >> $ENV
 	;;
 esac
+
+echo "" >> $ENV
 
 echo "SS_DATABASE_CHOOSE_NAME=\"true\"" >> $ENV
 echo "SS_DATABASE_CLASS=\"MySQLPDODatabase\"" >> $ENV
@@ -165,6 +170,8 @@ case $VALUE in
 		echo "SS_DATABASE_SERVER=\"$VALUE\"" >> $ENV
 	;;
 esac
+
+echo "" >> $ENV
 
 read -r -p "Enter your email address [you@toast.co.nz]" VALUE
 case $VALUE in
