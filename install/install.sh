@@ -30,18 +30,6 @@ for FILE in ./themes/$THEME/webpack/*
 	do sed -i '' "s/SELECTED_THEME/$THEME/g" $FILE
 done
 
-# Copy all our config dev files to the app folder
-cp -r "./install/_config/" "./app/_config/"
-
-# Replace "SELECTED_THEME" with $THEME in all yml files
-for FILE in ./app/_config/*
-	do sed -i '' "s/SELECTED_THEME/$THEME/g" $FILE
-done
-
-for FILE in ./app/_config/*.example
-	do mv -- "$FILE" "${FILE%.example}"
-done
-
 # Replace "SELECTED_THEME" with $THEME in the makefile
 sed -i '' "s/SELECTED_THEME/$THEME/g" "./makefile"
 
@@ -79,14 +67,14 @@ ENV='.env'
 
 touch -c ./$ENV
 
-printf '%q\n' "${PWD##*/}"
-
+# Set our theme name in the .env
 echo "SS_THEME_NAME=\"$THEME\"" > $ENV
 
+# A little space
 echo "" >> $ENV
 
+# Dev environment
 echo "SS_ENVIRONMENT_TYPE=\"dev\"" >> $ENV
-
 
 read -r -p "Enter the admin username [admin]" VALUE
 case $VALUE in

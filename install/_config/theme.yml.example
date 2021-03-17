@@ -1,8 +1,0 @@
----
-Name: mercury
----
-SilverStripe\View\SSViewer:
-  themes:
-    - '$public'
-    - 'SELECTED_THEME'
-    - '$default'

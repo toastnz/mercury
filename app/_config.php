@@ -5,11 +5,23 @@ use SilverStripe\Security\PasswordValidator;
 use SilverStripe\Security\Member;
 use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Security\Security;
+use SilverStripe\Core\Environment;
+use StevieMayhew\SilverStripeSVG\SVGTemplate;
+use SilverStripe\View\SSViewer;
 // remove PasswordValidator for SilverStripe 5.0
 $validator = PasswordValidator::create();
 // Settings are registered via Injector configuration - see passwords.yml in framework
 Member::set_password_validator($validator);
 
+// Our Base Theme Folder
+SSViewer::config()->set('themes', [
+    '$public',
+    Environment::getEnv('SS_THEME_NAME'),
+    '$default'
+]);
+
+// Theme SVG Folder
+SVGTemplate::config()->set('base_path', 'themes/' . Environment::getEnv('SS_THEME_NAME') . '/dist/images/svg/');
 
 $formats = [
     [

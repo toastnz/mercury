@@ -9,9 +9,6 @@ SilverStripe\Admin\LeftAndMain:
   extensions:
     - Toast\Extensions\LeftAndMainExtension
 
-StevieMayhew\SilverStripeSVG\SVGTemplate:
-  base_path: "themes/SELECTED_THEME/dist/images/svg/"
-
 SilverStripe\UserForms\Model\UserDefinedForm:
   block_default_userforms_js: true
   block_default_userforms_css: true
