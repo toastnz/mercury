@@ -3,7 +3,7 @@ ARGS = $(filter-out $@,$(MAKECMDGOALS))
 
 init:
 	sh setup/init.sh
-block:
+blocks:
 	sh setup/blocks.sh
 check-version:
 	@node themes/$(THEME)/webpack/checkversion
