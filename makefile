@@ -2,7 +2,9 @@ THEME = SELECTED_THEME
 ARGS = $(filter-out $@,$(MAKECMDGOALS))
 
 init:
-	sh install/install.sh
+	sh setup/init.sh
+block:
+	sh setup/blocks.sh
 check-version:
 	@node themes/$(THEME)/webpack/checkversion
 install: check-version
