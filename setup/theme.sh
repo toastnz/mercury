@@ -1,7 +1,7 @@
 THEME=""
-THEME_DIR="./themes"
-THEMES=($THEME_DIR/*)
-NUMBER_OF_THEMES=$(ls -l ${THEME_DIR}/ | grep "^d" | wc -l)
+THEMES_DIR="./themes"
+THEMES=($THEMES_DIR/*)
+NUMBER_OF_THEMES=$(ls -l ${THEMES_DIR}/ | grep "^d" | wc -l)
 SETUP="./setup"
 EMOJI_INSTALLING="\xf0\x9f\x92\x81\xe2\x80\x8d\xe2\x99\x80\xef\xb8\x8f\xe2\x9c\xa8"
 EMOJI_COMPOSER="\xf0\x9f\xa7\x99\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f"
@@ -16,7 +16,7 @@ echo Running installation
 # Check if there is more than one theme
 if [[ $NUMBER_OF_THEMES -ge 2 ]]; then
 	# move to the themes folder
-	cd $THEME_DIR/
+	cd $THEMES_DIR/
 	# Ask the user which theme they would like to install
 	printf "$EMOJI_QUESTION Which theme would you like to install? (Check with the frontender if you're not sure)\n"
 	# Make a selection for them based on the theme directories
@@ -39,13 +39,13 @@ fi
 echo "$EMOJI_INSTALLING Installing $THEME"
 
 # Make a new webpack folder inside the theme
-mkdir -p "${THEME_DIR}/${THEME}/webpack"
+mkdir -p "${THEMES_DIR}/${THEME}/webpack"
 
 # Copy all our webpack dev files to the chosen theme
-cp -r "${SETUP}/webpack/" "${THEME_DIR}/${THEME}/webpack"
+cp -r "${SETUP}/webpack/" "${THEMES_DIR}/${THEME}/webpack"
 
 # Replace "SELECTED_THEME" with $THEME in all webpack files
-for FILE in ${THEME_DIR}/${THEME}/webpack/*
+for FILE in ${THEMES_DIR}/${THEME}/webpack/*
 	do sed -i '' "s/SELECTED_THEME/$THEME/g" $FILE
 done
 
@@ -58,7 +58,7 @@ do
  read -r -p "Would you like to remove the other theme folders? [Y/n]`echo $'\n> '`" input
  case $input in
      [yY][eE][sS]|[yY])
- for FOLDER in `ls ${THEME_DIR}/ | grep -v "$THEME"` ; do echo "Removing ${FOLDER} " && rm -rf ${THEME_DIR}/${FOLDER} && echo "${FOLDER} was removed."; done
+ for FOLDER in `ls ${THEMES_DIR}/ | grep -v "$THEME"` ; do echo "Removing ${FOLDER} " && rm -rf ${THEMES_DIR}/${FOLDER} && echo "${FOLDER} was removed."; done
  break
  ;;
      [nN][oO]|[nN])
