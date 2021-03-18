@@ -1,7 +1,7 @@
 THEME = SELECTED_THEME
 ARGS = $(filter-out $@,$(MAKECMDGOALS))
 
-init:
+theme:
 	sh setup/init.sh
 blocks:
 	sh setup/blocks.sh

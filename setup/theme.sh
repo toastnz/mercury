@@ -52,11 +52,6 @@ done
 # Replace "SELECTED_THEME" with $THEME in the makefile
 sed -i '' "s/SELECTED_THEME/$THEME/g" "./makefile"
 
-# Run a composer install
-composer install
-
-echo "$EMOJI_COMPOSER Composer has worked it's magic!"
-
 # Ask the user if they would like to have the other theme folders removed
 while true
 do
@@ -208,3 +203,10 @@ do
  ;;
  esac
 done
+
+# Run a composer install
+composer install
+
+echo "$EMOJI_COMPOSER Composer has worked it's magic!"
+
+echo "$EMOJI_SUCCESS Your site is ready!"
