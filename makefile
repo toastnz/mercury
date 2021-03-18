@@ -2,7 +2,7 @@ THEME = SELECTED_THEME
 ARGS = $(filter-out $@,$(MAKECMDGOALS))
 
 theme:
-	sh setup/init.sh
+	sh setup/theme.sh
 blocks:
 	sh setup/blocks.sh
 check-version:
