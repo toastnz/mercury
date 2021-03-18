@@ -112,8 +112,9 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 				if [[ -n "$STYLE" ]]; then
 					# LOOP OVER ALL .ss FILES IN THE CHOSEN STYLES FOLDER
 					for FILE in ${BLOCKS_STATIC}/${BLOCK_NAME}/${STYLE}/*.ss; do
-						echo ${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}
+						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
 						if [ -e "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}" ]; then
+							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
 							read -r -p "Replace existing \"${BLOCK_TEMPLATE}\" in ${BLOCKS_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
@@ -132,14 +133,26 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 						fi
 					done
 				else
-					echo "nope"
+					# GET THE DEFAULT BLOCK TEMPLATE
+					if [ -e "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}" ]; then
+						# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
+						read -r -p "Replace existing \"${BLOCK_TEMPLATE}\" in ${BLOCKS_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
+						case $INPUT in
+								[yY][eE][sS]|[yY])
+								echo "Replacing existing \"${BLOCK_TEMPLATE}\" file"
+								cp -r "${BLOCKS_SRC}/${BLOCK_TEMPLATE}" "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+							;;
+								[nN][oO]|[nN])
+								echo "Skipping file creation"
+							;;
+							*)
+								echo "$EMOJI_POOP Invalid input..."
+						esac
+					else {
+						cp -r "${BLOCKS_SRC}/${BLOCK_TEMPLATE}" "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+					}
+					fi
 				fi
-
-				exit
-						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
-							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-						# FI
-					# POOL
 
 					# LOOP OVER ALL .scss FILES IN THE CHOSEN STYLES FOLDER
 						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
