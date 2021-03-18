@@ -77,7 +77,7 @@ echo "$EMOJI_SUCCESS $THEME was successfully installed!"
 # Ask the user if they would like generate a .env file
 while true
 do
- read -r -p "Would you generate a .env file for this project? [Y/n]`echo $'\n> '`" input
+ read -r -p "Would you like to create a .env file for this project? [Y/n]`echo $'\n> '`" input
  case $input in
      [yY][eE][sS]|[yY])
  # Create a .env file
@@ -195,7 +195,7 @@ do
  break
  ;;
      [nN][oO]|[nN])
- echo "$EMOJI_WARNING  You will need to create your own .env file before this site will run locally!"
+ echo "$EMOJI_WARNING  You will need to create your own .env file manually before this site will run locally!"
  break
         ;;
      *)
