@@ -3,6 +3,12 @@ THEME_DIR="./themes"
 THEMES=($THEME_DIR/*)
 NUMBER_OF_THEMES=$(ls -l ${THEME_DIR}/ | grep "^d" | wc -l)
 SETUP="./setup"
+EMOJI_INSTALLING="\xf0\x9f\x92\x81\xe2\x80\x8d\xe2\x99\x80\xef\xb8\x8f\xe2\x9c\xa8"
+EMOJI_COMPOSER="\xf0\x9f\xa7\x99\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f"
+EMOJI_NOTHING="\xf0\x9f\xa7\x98"
+EMOJI_SUCCESS="\xf0\x9f\x8e\x89"
+EMOJI_WARNING="\xf0\x9f\x92\xa9"
+EMOJI_QUESTION="\xf0\x9f\xa4\x94"
 
 # Let the user know we are running the installation
 echo Running installation
@@ -12,7 +18,7 @@ if [[ $NUMBER_OF_THEMES -ge 2 ]]; then
 	# move to the themes folder
 	cd $THEME_DIR/
 	# Ask the user which theme they would like to install
-	printf "Which theme would you like to install? (Check with the frontender if you're not sure)\n"
+	printf "$EMOJI_QUESTION Which theme would you like to install? (Check with the frontender if you're not sure)\n"
 	# Make a selection for them based on the theme directories
 	select DIRECTORY in */; do test -n "$DIRECTORY" && break; echo ">>> Invalid Selection"; done
 	# Our theme name will be the directory name - so we have that as a variable
@@ -21,17 +27,16 @@ if [[ $NUMBER_OF_THEMES -ge 2 ]]; then
 	cd ../
 # Otherwise if there is only 1
 elif [[ $NUMBER_OF_THEMES -eq 1 ]]; then
-	echo "There is only one theme to be installed!"
 	# There is only one theme so we pick that one
 	THEME=${THEMES##*/}
 # Othewise exit
 else
-	echo "There are no theme to be installed."
+	echo "$EMOJI_WARNING  There are no theme to be installed."
 	exit
 fi
 
 # Yay we are installing a theme :)
-echo "Installing $THEME..."
+echo "$EMOJI_INSTALLING Installing $THEME"
 
 # Make a new webpack folder inside the theme
 mkdir -p "${THEME_DIR}/${THEME}/webpack"
@@ -50,6 +55,8 @@ sed -i '' "s/SELECTED_THEME/$THEME/g" "./makefile"
 # Run a composer install
 composer install
 
+echo "$EMOJI_COMPOSER Composer has worked it's magic!"
+
 # Ask the user if they would like to have the other theme folders removed
 while true
 do
@@ -60,17 +67,17 @@ do
  break
  ;;
      [nN][oO]|[nN])
- echo "Leaving other theme folders in place!"
+ echo "$EMOJI_NOTHING Alright, we'll leave the other theme folders there!"
  break
         ;;
      *)
- echo "Invalid input..."
+ echo "$EMOJI_WARNING  Invalid input..."
  ;;
  esac
 done
 
 # We have now completed the installation
-echo "$THEME was successfully installed!"
+echo "$EMOJI_SUCCESS $THEME was successfully installed!"
 
 # Ask the user if they would like generate a .env file
 while true
@@ -93,6 +100,7 @@ do
  # Dev environment
  echo "SS_ENVIRONMENT_TYPE=\"dev\"" >> $ENV
 
+ # CMS admin username
  read -r -p "Enter the admin username [admin]`echo $'\n> '`" VALUE
  case $VALUE in
  	"")
@@ -103,6 +111,7 @@ do
  	;;
  esac
 
+ # CMS admin password
  read -r -p "Enter the admin password [pass]`echo $'\n> '`" VALUE
  case $VALUE in
  	"")
@@ -113,7 +122,7 @@ do
  	;;
  esac
 
-
+ # local site URL
  read -r -p "Enter the base URL [http://${PWD##*/}.local]`echo $'\n> '`" VALUE
  case $VALUE in
  	"")
@@ -124,11 +133,14 @@ do
  	;;
  esac
 
+ # A little space
  echo "" >> $ENV
 
+ # Some defaults
  echo "SS_DATABASE_CHOOSE_NAME=\"true\"" >> $ENV
  echo "SS_DATABASE_CLASS=\"MySQLPDODatabase\"" >> $ENV
-
+ 
+ # The database name
  read -r -p "Enter the database name [ss_${PWD##*/}]`echo $'\n> '`" VALUE
  case $VALUE in
  	"")
@@ -139,7 +151,8 @@ do
  	;;
  esac
 
- read -r -p "Enter the database username [root]`echo $'\n> '`" VALUE
+ # The server username
+ read -r -p "Enter the server username [root]`echo $'\n> '`" VALUE
  case $VALUE in
  	"")
  		echo "SS_DATABASE_USERNAME=\"root\"" >> $ENV
@@ -149,7 +162,8 @@ do
  	;;
  esac
 
- read -r -p "Enter the database password [root]`echo $'\n> '`" VALUE
+ # The server password
+ read -r -p "Enter the server password [root]`echo $'\n> '`" VALUE
  case $VALUE in
  	"")
  		echo "SS_DATABASE_PASSWORD=\"root\"" >> $ENV
@@ -159,7 +173,8 @@ do
  	;;
  esac
 
- read -r -p "Enter the database server [localhost]`echo $'\n> '`" VALUE
+ # The server name
+ read -r -p "Enter the server name [localhost]`echo $'\n> '`" VALUE
  case $VALUE in
  	"")
  		echo "SS_DATABASE_SERVER=\"localhost\"" >> $ENV
@@ -181,15 +196,15 @@ do
  	;;
  esac
 
- echo ".env file has been created successfully!"
+ echo "$EMOJI_SUCCESS .env file has been created successfully!"
  break
  ;;
      [nN][oO]|[nN])
- echo "You will need to create your own .env file before this site will run locally!"
+ echo "$EMOJI_WARNING  You will need to create your own .env file before this site will run locally!"
  break
         ;;
      *)
- echo "Invalid input..."
+ echo "$EMOJI_WARNING  Invalid input..."
  ;;
  esac
 done
