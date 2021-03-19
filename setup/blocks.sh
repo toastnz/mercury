@@ -207,44 +207,6 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 					fi
 				fi
 
-					# LOOP OVER ALL .scss FILES IN THE CHOSEN STYLES FOLDER
-						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
-							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-						# FI
-					# POOL
-
-					# LOOP OVER ALL .js FILES IN THE CHOSEN STYLES FOLDER
-						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
-							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-						# FI
-					# POOL
-				# ELSE
-					# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME AS THE DEFAULT TEMPLATE, CHECK IF WE OVERWRITE
-						# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-					# FI
-				# FI
-
-				# Check if a template file already exists and confirm appropriate action
-				# if [ -e "${BLOCKS_STATIC}/${BLOCK_NAME}" ]; then
-				# 	read -r -p "Replace existing \"$TEMPLATE\" file? [Y/n]`echo $'\n> '`" INPUT
-				# 	case $INPUT in
-				# 			[yY][eE][sS]|[yY])
-				# 			echo "Replacing existing \"$TEMPLATE\" file"
-
-				# 			# Replace the existing files
-				# 			addTemplate $NAME $STYLE
-				# 		;;
-				# 			[nN][oO]|[nN])
-				# 			echo "Skipping file creation"
-				# 		;;
-				# 		*)
-				# 			echo "$EMOJI_POOP Invalid input..."
-				# 	esac
-				# else 
-				# 	# Add a new block
-				# 	addTemplate $NAME $STYLE
-				# fi
-
 				echo "$EMOJI_SUCCESS $BLOCK_NAME added!"
 				break
 			;;
