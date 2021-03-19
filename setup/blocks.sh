@@ -96,6 +96,21 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 					# Move back to the root
 					cd $ROOT
 
+					function CreateTemplate() {
+						echo "Replacing existing \"${BLOCK_NAME}.ss\" file"
+						echo "<%-- $BLOCK_NAME Defaults --%>" > "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						# Insert the default block variables
+						cat "${BLOCKS_SRC}/${BLOCK_TEMPLATE}" >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						# New line please
+						echo "" >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						# Separation comment
+						echo "<%-- Styled $BLOCK_NAME --%>" >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						# New line please
+						echo "" >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						# Insert the static template
+						cat $FILE >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+					}
+
 					# LOOP OVER ALL .ss FILES IN THE CHOSEN STYLES FOLDER
 					for FILE in ${BLOCKS_STATIC}/${BLOCK_NAME}/${STYLE}/*.ss; do
 						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
@@ -104,8 +119,7 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 							read -r -p "Replace existing \"${BLOCK_NAME}.ss\" in ${BLOCKS_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
-									echo "Replacing existing \"${BLOCK_NAME}.ss\" file"
-									cp -r "${FILE}" "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+									CreateTemplate
 								;;
 									[nN][oO]|[nN])
 									echo "Skipping file creation"
@@ -114,7 +128,7 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 									echo "$EMOJI_POOP Invalid input..."
 							esac
 						else {
-							cp -r "${FILE}" "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+							CreateTemplate
 						}
 						fi
 					done

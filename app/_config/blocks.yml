@@ -5,3 +5,4 @@ After: toastblocks
 
 Toast\Blocks\Extensions\PageExtension:
   available_blocks:
+    - Toast\Blocks\AccordionBlock
