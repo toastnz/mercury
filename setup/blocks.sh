@@ -61,20 +61,12 @@ echo "  available_blocks:" >> $CONFIG
 echo "$EMOJI_INSTALLING Please select the blocks you would like to install"
 
 BLOCKS_TEMPLATES="${THEMES_DIR}/${THEME}${BLOCKS_TEMPLATES}"
+BLOCKS_STYLES="${THEMES_DIR}/${THEME}${BLOCKS_STYLES}"
+BLOCKS_SCRIPTS="${THEMES_DIR}/${THEME}${BLOCKS_SCRIPTS}"
 
 mkdir -p "${BLOCKS_TEMPLATES}"
-
-# function addTemplate() {
-# 	CURRENT_BLOCK=$1
-# 	CURRENT_STYLE=$2
-
-# 	# If we dont have a chosen style
-# 	if [[ -n "$CURRENT_STYLE" ]]; then
-# 		echo "we have styles"
-# 	else
-# 		echo "we dont have styles"
-# 	fi
-# }
+mkdir -p "${BLOCKS_STYLES}"
+mkdir -p "${BLOCKS_SCRIPTS}"
 
 # Loop all the available blocks templates
 for TEMPLATE in $BLOCKS_SRC/*.ss; do
@@ -100,25 +92,19 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 					select DIRECTORY in */; do test -n "$DIRECTORY" && break; echo ">>> Invalid Selection"; done
 					# Assign the style var to this file name
 					STYLE=${DIRECTORY%/}
+
 					# Move back to the root
 					cd $ROOT
-				else
-					echo "Well ${EMOJI_POOP}... no base styles are available for the \"${BLOCK_NAME}\"."
-					echo "$EMOJI_INSTALLING Don't worry, we still have something for you!"
-					STYLE=""
-				fi
 
-				# IF WE HAVE A CHOSEN STYLE
-				if [[ -n "$STYLE" ]]; then
 					# LOOP OVER ALL .ss FILES IN THE CHOSEN STYLES FOLDER
 					for FILE in ${BLOCKS_STATIC}/${BLOCK_NAME}/${STYLE}/*.ss; do
 						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
-						if [ -e "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}" ]; then
+						if [ -e "${BLOCKS_TEMPLATES}/${BLOCK_NAME}.ss" ]; then
 							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-							read -r -p "Replace existing \"${BLOCK_TEMPLATE}\" in ${BLOCKS_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
+							read -r -p "Replace existing \"${BLOCK_NAME}.ss\" in ${BLOCKS_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
-									echo "Replacing existing \"${BLOCK_TEMPLATE}\" file"
+									echo "Replacing existing \"${BLOCK_NAME}.ss\" file"
 									cp -r "${FILE}" "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
 								;;
 									[nN][oO]|[nN])
@@ -132,7 +118,60 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 						}
 						fi
 					done
+
+					# LOOP OVER ALL .scss FILES IN THE CHOSEN STYLES FOLDER
+					for FILE in ${BLOCKS_STATIC}/${BLOCK_NAME}/${STYLE}/*.scss; do
+						FILE_NAME="${FILE##*/}"
+						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
+						if [ -e "${BLOCKS_STYLES}/${FILE_NAME}" ]; then
+							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
+							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_STYLES}? [Y/n]`echo $'\n> '`" INPUT
+							case $INPUT in
+									[yY][eE][sS]|[yY])
+									echo "Replacing existing \"${FILE_NAME}\" file"
+									cp -r "${FILE}" "${BLOCKS_STYLES}/${FILE_NAME}"
+								;;
+									[nN][oO]|[nN])
+									echo "Skipping file creation"
+								;;
+								*)
+									echo "$EMOJI_POOP Invalid input..."
+							esac
+						else {
+							cp -r "${FILE}" "${BLOCKS_STYLES}/${FILE_NAME}"
+						}
+						fi
+					done
+
+					# LOOP OVER ALL .js FILES IN THE CHOSEN STYLES FOLDER
+					for FILE in ${BLOCKS_STATIC}/${BLOCK_NAME}/${STYLE}/*.js; do
+						FILE_NAME="${FILE##*/}"
+						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
+						if [ -e "${BLOCKS_SCRIPTS}/${FILE_NAME}" ]; then
+							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
+							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_SCRIPTS}? [Y/n]`echo $'\n> '`" INPUT
+							case $INPUT in
+									[yY][eE][sS]|[yY])
+									echo "Replacing existing \"${FILE_NAME}\" file"
+									cp -r "${FILE}" "${BLOCKS_SCRIPTS}/${FILE_NAME}"
+								;;
+									[nN][oO]|[nN])
+									echo "Skipping file creation"
+								;;
+								*)
+									echo "$EMOJI_POOP Invalid input..."
+							esac
+						else {
+							cp -r "${FILE}" "${BLOCKS_SCRIPTS}/${FILE_NAME}"
+						}
+						fi
+					done
 				else
+					echo "Well ${EMOJI_POOP}... no base styles are available for the \"${BLOCK_NAME}\"."
+					echo "$EMOJI_INSTALLING Don't worry, we still have something for you!"
+					STYLE=""
+
+					echo "Copying default ${BLOCK_NAME}"
 					# GET THE DEFAULT BLOCK TEMPLATE
 					if [ -e "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}" ]; then
 						# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
@@ -192,7 +231,7 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 				# 	addTemplate $NAME $STYLE
 				# fi
 
-				echo "$EMOJI_SUCCESS $NAME added!"
+				echo "$EMOJI_SUCCESS $BLOCK_NAME added!"
 				break
 			;;
 
