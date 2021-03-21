@@ -88,7 +88,7 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 				if [ -d "${BLOCKS_FRONTEND}/${BLOCK_NAME}" ]; then
 					cd ${BLOCKS_FRONTEND}/${BLOCK_NAME}
 					# Ask which static style we want
-					printf "$EMOJI_STYLE Which \"${BLOCK_NAME}\" style would you like? (Check with the frontender if you're not sure)\n"
+					printf "$EMOJI_STYLE Which \"${BLOCK_NAME}\" template would you like to install? (Check with the frontender if you're not sure)\n"
 					# Search the static templates
 					select DIRECTORY in */; do test -n "$DIRECTORY" && break; echo ">>> Invalid Selection"; done
 					# Assign the style var to this file name
@@ -141,7 +141,7 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_THEME_STYLES}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
-									echo "Replacing existing \"${FILE_NAME}\" file"
+									echo "$EMOJI_FIRE  Replacing existing \"${FILE_NAME}\" file"
 									cp -r "${FILE}" "${BLOCKS_THEME_STYLES}/${FILE_NAME}"
 								;;
 									[nN][oO]|[nN])
@@ -165,7 +165,7 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_THEME_SCRIPTS}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
-									echo "Replacing existing \"${FILE_NAME}\" file"
+									echo "$EMOJI_FIRE Replacing existing \"${FILE_NAME}\" file"
 									cp -r "${FILE}" "${BLOCKS_THEME_SCRIPTS}/${FILE_NAME}"
 								;;
 									[nN][oO]|[nN])
@@ -180,7 +180,7 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 						fi
 					done
 				else
-					echo "Well ${EMOJI_POOP}... no base styles are available for the \"${BLOCK_NAME}\"."
+					echo "Well ${EMOJI_POOP}... no static templates are available for the \"${BLOCK_NAME}\"."
 					echo "$EMOJI_INSTALLING Don't worry, we still have something for you!"
 					STYLE=""
 
@@ -191,7 +191,7 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 						read -r -p "Replace existing \"${BLOCK_TEMPLATE}\" in ${BLOCKS_THEME_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
 						case $INPUT in
 								[yY][eE][sS]|[yY])
-								echo "Replacing existing \"${BLOCK_TEMPLATE}\" file"
+								echo "$EMOJI_FIRE Replacing existing \"${BLOCK_TEMPLATE}\" file"
 								cp -r "${BLOCKS_BACKEND}/${BLOCK_TEMPLATE}" "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}"
 							;;
 								[nN][oO]|[nN])
