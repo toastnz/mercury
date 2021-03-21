@@ -233,4 +233,15 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 	done
 done
 
+# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
+read -r -p "All your blocks have been added! do you want to run a dev/build now? [yes]`echo $'\n> '`" INPUT
+case $INPUT in
+		[nN][oO]|[nN])
+		echo "Skipping dev/build \n ${EMOJI_SUCCESS} Done!"
+	;;
+	*)
+		php vendor/silverstripe/framework/cli-script.php dev/build
+		echo "${EMOJI_SUCCESS} Done!"
+esac
+
 

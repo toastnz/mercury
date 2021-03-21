@@ -5128,12 +5128,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/toastnz/blocks.git",
-                "reference": "33ac6c6217520e61c3097f3105a05235c42fb962"
+                "reference": "9160043149a35f060615f63a6541849ed78bfbb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/toastnz/blocks/zipball/33ac6c6217520e61c3097f3105a05235c42fb962",
-                "reference": "33ac6c6217520e61c3097f3105a05235c42fb962",
+                "url": "https://api.github.com/repos/toastnz/blocks/zipball/9160043149a35f060615f63a6541849ed78bfbb8",
+                "reference": "9160043149a35f060615f63a6541849ed78bfbb8",
                 "shasum": ""
             },
             "require": {
@@ -5180,7 +5180,7 @@
                 "modular",
                 "silverstripe"
             ],
-            "time": "2021-03-21T18:42:32+00:00"
+            "time": "2021-03-21T19:49:23+00:00"
         },
         {
             "name": "unclecheese/display-logic",
