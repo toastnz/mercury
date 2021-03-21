@@ -9,11 +9,11 @@ STYLE=""
 CONFIG="./app/_config/blocks.yml"
 BLOCK_CONFIG="    - Toast\Blocks\\"
 
-BLOCKS_SRC="./vendor/toastnz/blocks/templates/Toast/Blocks"
-BLOCKS_STATIC="./setup/static-blocks"
-BLOCKS_TEMPLATES="/templates/Toast/Blocks"
-BLOCKS_STYLES="/source/styles/blocks"
-BLOCKS_SCRIPTS="/source/scripts/blocks"
+BLOCKS_BACKEND="./setup/static/backend"
+BLOCKS_FRONTEND="./setup/static/frontend"
+BLOCKS_THEME_TEMPLATES="/templates/Toast/Blocks"
+BLOCKS_THEME_STYLES="/source/styles/blocks"
+BLOCKS_THEME_SCRIPTS="/source/scripts/blocks"
 
 EMOJI_INSTALLING="\xf0\x9f\x92\x81\xe2\x80\x8d\xe2\x99\x80\xef\xb8\x8f\xe2\x9c\xa8"
 EMOJI_QUESTION="\xf0\x9f\xa4\x94"
@@ -21,6 +21,7 @@ EMOJI_SUCCESS="\xf0\x9f\x8e\x89"
 EMOJI_POOP="\xf0\x9f\x92\xa9"
 EMOJI_NOTHING="\xf0\x9f\xa7\x98"
 EMOJI_STYLE="\xf0\x9f\x8e\xa8"
+EMOJI_FIRE="\xf0\x9f\x94\xa5"
 
 # Check if there is more than one theme
 if [[ $NUMBER_OF_THEMES -ge 2 ]]; then
@@ -60,16 +61,16 @@ echo "  available_blocks:" >> $CONFIG
 
 echo "$EMOJI_INSTALLING Please select the blocks you would like to install"
 
-BLOCKS_TEMPLATES="${THEMES_DIR}/${THEME}${BLOCKS_TEMPLATES}"
-BLOCKS_STYLES="${THEMES_DIR}/${THEME}${BLOCKS_STYLES}"
-BLOCKS_SCRIPTS="${THEMES_DIR}/${THEME}${BLOCKS_SCRIPTS}"
+BLOCKS_THEME_TEMPLATES="${THEMES_DIR}/${THEME}${BLOCKS_THEME_TEMPLATES}"
+BLOCKS_THEME_STYLES="${THEMES_DIR}/${THEME}${BLOCKS_THEME_STYLES}"
+BLOCKS_THEME_SCRIPTS="${THEMES_DIR}/${THEME}${BLOCKS_THEME_SCRIPTS}"
 
-mkdir -p "${BLOCKS_TEMPLATES}"
-mkdir -p "${BLOCKS_STYLES}"
-mkdir -p "${BLOCKS_SCRIPTS}"
+mkdir -p "${BLOCKS_THEME_TEMPLATES}"
+mkdir -p "${BLOCKS_THEME_STYLES}"
+mkdir -p "${BLOCKS_THEME_SCRIPTS}"
 
 # Loop all the available blocks templates
-for TEMPLATE in $BLOCKS_SRC/*.ss; do
+for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 	# Grab some values
 	BLOCK_TEMPLATE=${TEMPLATE##*/}
 	BLOCK_NAME=${BLOCK_TEMPLATE%.*}
@@ -84,8 +85,8 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 				echo "${BLOCK_CONFIG}${BLOCK_NAME}" >> $CONFIG
 
 				# Control will enter here if $DIRECTORY exists.
-				if [ -d "${BLOCKS_STATIC}/${BLOCK_NAME}" ]; then
-					cd ${BLOCKS_STATIC}/${BLOCK_NAME}
+				if [ -d "${BLOCKS_FRONTEND}/${BLOCK_NAME}" ]; then
+					cd ${BLOCKS_FRONTEND}/${BLOCK_NAME}
 					# Ask which static style we want
 					printf "$EMOJI_STYLE Which \"${BLOCK_NAME}\" style would you like? (Check with the frontender if you're not sure)\n"
 					# Search the static templates
@@ -97,28 +98,26 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 					cd $ROOT
 
 					function CreateTemplate() {
-						echo "Replacing existing \"${BLOCK_NAME}.ss\" file"
-						echo "<%-- $BLOCK_NAME Defaults --%>" > "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						echo "<%-- $BLOCK_NAME Variables --%>\n" > "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}"
 						# Insert the default block variables
-						cat "${BLOCKS_SRC}/${BLOCK_TEMPLATE}" >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						cat "${BLOCKS_BACKEND}/${BLOCK_TEMPLATE}" >> "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}"
 						# New line please
-						echo "" >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						echo "" >> "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}"
 						# Separation comment
-						echo "<%-- Styled $BLOCK_NAME --%>" >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
-						# New line please
-						echo "" >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						echo "\n<%-- $BLOCK_NAME Template --%>\n" >> "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}"
 						# Insert the static template
-						cat $FILE >> "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						cat $FILE >> "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}"
 					}
 
 					# LOOP OVER ALL .ss FILES IN THE CHOSEN STYLES FOLDER
-					for FILE in ${BLOCKS_STATIC}/${BLOCK_NAME}/${STYLE}/*.ss; do
+					for FILE in ${BLOCKS_FRONTEND}/${BLOCK_NAME}/${STYLE}/*.ss; do
 						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
-						if [ -e "${BLOCKS_TEMPLATES}/${BLOCK_NAME}.ss" ]; then
+						if [ -e "${BLOCKS_THEME_TEMPLATES}/${BLOCK_NAME}.ss" ]; then
 							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-							read -r -p "Replace existing \"${BLOCK_NAME}.ss\" in ${BLOCKS_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
+							read -r -p "Replace existing \"${BLOCK_NAME}.ss\" in ${BLOCKS_THEME_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
+									echo "$EMOJI_FIRE Replacing existing \"${BLOCK_NAME}.ss\" file"
 									CreateTemplate
 								;;
 									[nN][oO]|[nN])
@@ -134,16 +133,16 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 					done
 
 					# LOOP OVER ALL .scss FILES IN THE CHOSEN STYLES FOLDER
-					for FILE in ${BLOCKS_STATIC}/${BLOCK_NAME}/${STYLE}/*.scss; do
+					for FILE in ${BLOCKS_FRONTEND}/${BLOCK_NAME}/${STYLE}/*.scss; do
 						FILE_NAME="${FILE##*/}"
 						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
-						if [ -e "${BLOCKS_STYLES}/${FILE_NAME}" ]; then
+						if [ -e "${BLOCKS_THEME_STYLES}/${FILE_NAME}" ]; then
 							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_STYLES}? [Y/n]`echo $'\n> '`" INPUT
+							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_THEME_STYLES}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
 									echo "Replacing existing \"${FILE_NAME}\" file"
-									cp -r "${FILE}" "${BLOCKS_STYLES}/${FILE_NAME}"
+									cp -r "${FILE}" "${BLOCKS_THEME_STYLES}/${FILE_NAME}"
 								;;
 									[nN][oO]|[nN])
 									echo "Skipping file creation"
@@ -152,22 +151,22 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 									echo "$EMOJI_POOP Invalid input..."
 							esac
 						else {
-							cp -r "${FILE}" "${BLOCKS_STYLES}/${FILE_NAME}"
+							cp -r "${FILE}" "${BLOCKS_THEME_STYLES}/${FILE_NAME}"
 						}
 						fi
 					done
 
 					# LOOP OVER ALL .js FILES IN THE CHOSEN STYLES FOLDER
-					for FILE in ${BLOCKS_STATIC}/${BLOCK_NAME}/${STYLE}/*.js; do
+					for FILE in ${BLOCKS_FRONTEND}/${BLOCK_NAME}/${STYLE}/*.js; do
 						FILE_NAME="${FILE##*/}"
 						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
-						if [ -e "${BLOCKS_SCRIPTS}/${FILE_NAME}" ]; then
+						if [ -e "${BLOCKS_THEME_SCRIPTS}/${FILE_NAME}" ]; then
 							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_SCRIPTS}? [Y/n]`echo $'\n> '`" INPUT
+							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_THEME_SCRIPTS}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
 									echo "Replacing existing \"${FILE_NAME}\" file"
-									cp -r "${FILE}" "${BLOCKS_SCRIPTS}/${FILE_NAME}"
+									cp -r "${FILE}" "${BLOCKS_THEME_SCRIPTS}/${FILE_NAME}"
 								;;
 									[nN][oO]|[nN])
 									echo "Skipping file creation"
@@ -176,7 +175,7 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 									echo "$EMOJI_POOP Invalid input..."
 							esac
 						else {
-							cp -r "${FILE}" "${BLOCKS_SCRIPTS}/${FILE_NAME}"
+							cp -r "${FILE}" "${BLOCKS_THEME_SCRIPTS}/${FILE_NAME}"
 						}
 						fi
 					done
@@ -187,13 +186,13 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 
 					echo "Copying default ${BLOCK_NAME}"
 					# GET THE DEFAULT BLOCK TEMPLATE
-					if [ -e "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}" ]; then
+					if [ -e "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}" ]; then
 						# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-						read -r -p "Replace existing \"${BLOCK_TEMPLATE}\" in ${BLOCKS_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
+						read -r -p "Replace existing \"${BLOCK_TEMPLATE}\" in ${BLOCKS_THEME_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
 						case $INPUT in
 								[yY][eE][sS]|[yY])
 								echo "Replacing existing \"${BLOCK_TEMPLATE}\" file"
-								cp -r "${BLOCKS_SRC}/${BLOCK_TEMPLATE}" "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+								cp -r "${BLOCKS_BACKEND}/${BLOCK_TEMPLATE}" "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}"
 							;;
 								[nN][oO]|[nN])
 								echo "Skipping file creation"
@@ -202,7 +201,7 @@ for TEMPLATE in $BLOCKS_SRC/*.ss; do
 								echo "$EMOJI_POOP Invalid input..."
 						esac
 					else {
-						cp -r "${BLOCKS_SRC}/${BLOCK_TEMPLATE}" "${BLOCKS_TEMPLATES}/${BLOCK_TEMPLATE}"
+						cp -r "${BLOCKS_BACKEND}/${BLOCK_TEMPLATE}" "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}"
 					}
 					fi
 				fi
