@@ -9,8 +9,11 @@ STYLE=""
 CONFIG="./app/_config/blocks.yml"
 BLOCK_CONFIG="    - Toast\Blocks\\"
 
-BLOCKS_BACKEND="./setup/static/backend"
-BLOCKS_FRONTEND="./setup/static/frontend"
+BLOCKS_MODULE="toastnz/blocks:dev-automation-test"
+BLOCKS_COMPOSER="composer require ${BLOCKS_MODULE}"
+
+BLOCKS_BACKEND="./vendor/toastnz/blocks/static/backend"
+BLOCKS_FRONTEND="./vendor/toastnz/blocks/static/frontend"
 BLOCKS_THEME_TEMPLATES="/templates/Toast/Blocks"
 BLOCKS_THEME_STYLES="/source/styles/blocks"
 BLOCKS_THEME_SCRIPTS="/source/scripts/blocks"
@@ -22,6 +25,14 @@ EMOJI_POOP="\xf0\x9f\x92\xa9"
 EMOJI_NOTHING="\xf0\x9f\xa7\x98"
 EMOJI_STYLE="\xf0\x9f\x8e\xa8"
 EMOJI_FIRE="\xf0\x9f\x94\xa5"
+
+# Check the blocks module is installed
+if [ -d "${BLOCKS_MODULE}" ]; then
+	echo "${EMOJI_SUCCESS} Blocks module is installed!"
+else
+	echo "${EMOJI_POOP} Blocks module is not currently installed!\n Please check that you have run a composer install, and that ${BLOCKS_MODULE} is in you composer.json file.\n If not please run ${BLOCKS_COMPOSER}"
+	exit
+fi
 
 # Check if there is more than one theme
 if [[ $NUMBER_OF_THEMES -ge 2 ]]; then
