@@ -13,15 +13,17 @@ $validator = PasswordValidator::create();
 // Settings are registered via Injector configuration - see passwords.yml in framework
 Member::set_password_validator($validator);
 
+$theme = Environment::getEnv('SS_THEME');
+
 // Our Base Theme Folder
 SSViewer::config()->set('themes', [
     '$public',
-    Environment::getEnv('SS_THEME'),
+    $theme,
     '$default'
 ]);
 
 // Theme SVG Folder
-SVGTemplate::config()->set('base_path', 'themes/' . Environment::getEnv('SS_THEME') . '/dist/images/svg/');
+SVGTemplate::config()->set('base_path', 'themes/' . $theme . '/dist/images/svg/');
 
 $formats = [
     [
@@ -65,26 +67,26 @@ $formats = [
 
 TinyMCEConfig::get('cms')->enablePlugins(['hr', 'anchor']);
 
-if (Security::database_is_ready()) {
+// if (Security::database_is_ready()) {
 
-    $config = SiteConfig::current_site_config();
+//     $config = SiteConfig::current_site_config();
 
-    $data = $config->typeCSS;
+//     $data = $config->typeCSS;
 
-    $primaryColour = substr($data, strpos($data, '--primary-colour:') + 17, 7);
-    $secondaryColour = substr($data, strpos($data, '--secondary-colour:') + 19, 7);
+//     $primaryColour = substr($data, strpos($data, '--primary-colour:') + 17, 7);
+//     $secondaryColour = substr($data, strpos($data, '--secondary-colour:') + 19, 7);
 
-    TinyMCEConfig::get('cms')
-        ->addButtonsToLine(2, 'styleselect')
-        ->setOptions([
-            'importcss_append'        => true,
-            'style_formats'           => $formats,
-            'content_style'   =>
-            '.colour--primary {color: ' . $primaryColour . '; } '
-                . '.colour--secondary {color: ' . $secondaryColour . '; } '
-                . '.colour--white {color: #bbbbbb; } '
-                . '.button {padding:5px 10px !important;color:white;background: ' . $primaryColour . '; } '
-                . '.button--secondary {padding:5px 10px !important;color:white;background: ' . $secondaryColour . '; } '
-                . '.button--outline {padding:5px 10px !important;background:transparent;color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; } '
-        ]);
-}
+//     TinyMCEConfig::get('cms')
+//         ->addButtonsToLine(2, 'styleselect')
+//         ->setOptions([
+//             'importcss_append'        => true,
+//             'style_formats'           => $formats,
+//             'content_style'   =>
+//             '.colour--primary {color: ' . $primaryColour . '; } '
+//                 . '.colour--secondary {color: ' . $secondaryColour . '; } '
+//                 . '.colour--white {color: #bbbbbb; } '
+//                 . '.button {padding:5px 10px !important;color:white;background: ' . $primaryColour . '; } '
+//                 . '.button--secondary {padding:5px 10px !important;color:white;background: ' . $secondaryColour . '; } '
+//                 . '.button--outline {padding:5px 10px !important;background:transparent;color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; } '
+//         ]);
+// }
