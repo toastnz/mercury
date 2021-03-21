@@ -8,10 +8,8 @@
     <div class="link-block__wrap xmd-up-2 lg-up-3">
         <%-- <% loop condition %> --%>
             <div class="link-block__wrap__item">
-                <a href="$Link.LinkURL" class="link-block__wrap__item__link">
-                    <% if $Image %>
-                        <div class="link-block__wrap__item__link__image" style="background-image: url('https://via.placeholder.com/500');"></div>
-                    <% end_if %>
+                <a href="#" class="link-block__wrap__item__link">
+                    <div class="link-block__wrap__item__link__image" style="background-image: url('https://via.placeholder.com/500');"></div>
 
                     <div class="link-block__wrap__item__link__content">
                         <h4 class="link-block__wrap__item__link__content__heading">Item Title</h4>
