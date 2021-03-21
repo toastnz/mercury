@@ -114,7 +114,7 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
 						if [ -e "${BLOCKS_THEME_TEMPLATES}/${BLOCK_NAME}.ss" ]; then
 							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-							read -r -p "Replace existing \"${BLOCK_NAME}.ss\" in ${BLOCKS_THEME_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
+							read -r -p "[WARNING] Replace existing \"${BLOCK_NAME}.ss\" in ${BLOCKS_THEME_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
 									echo "$EMOJI_FIRE Replacing existing \"${BLOCK_NAME}.ss\" file"
@@ -138,7 +138,7 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
 						if [ -e "${BLOCKS_THEME_STYLES}/${FILE_NAME}" ]; then
 							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_THEME_STYLES}? [Y/n]`echo $'\n> '`" INPUT
+							read -r -p "[WARNING] Replace existing \"${FILE_NAME}\" in ${BLOCKS_THEME_STYLES}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
 									echo "$EMOJI_FIRE  Replacing existing \"${FILE_NAME}\" file"
@@ -162,7 +162,7 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 						# IF A FILE IN THE THEME FOLDER HAS THE SAME NAME CHECK IF WE OVERWRITE
 						if [ -e "${BLOCKS_THEME_SCRIPTS}/${FILE_NAME}" ]; then
 							# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-							read -r -p "Replace existing \"${FILE_NAME}\" in ${BLOCKS_THEME_SCRIPTS}? [Y/n]`echo $'\n> '`" INPUT
+							read -r -p "[WARNING] Replace existing \"${FILE_NAME}\" in ${BLOCKS_THEME_SCRIPTS}? [Y/n]`echo $'\n> '`" INPUT
 							case $INPUT in
 									[yY][eE][sS]|[yY])
 									echo "$EMOJI_FIRE Replacing existing \"${FILE_NAME}\" file"
@@ -188,7 +188,7 @@ for TEMPLATE in $BLOCKS_BACKEND/*.ss; do
 					# GET THE DEFAULT BLOCK TEMPLATE
 					if [ -e "${BLOCKS_THEME_TEMPLATES}/${BLOCK_TEMPLATE}" ]; then
 						# IF SO COPY THIS FILE ACROSS TO THE THEME DIRECTORY
-						read -r -p "Replace existing \"${BLOCK_TEMPLATE}\" in ${BLOCKS_THEME_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
+						read -r -p "[WARNING] Replace existing \"${BLOCK_TEMPLATE}\" in ${BLOCKS_THEME_TEMPLATES}? [Y/n]`echo $'\n> '`" INPUT
 						case $INPUT in
 								[yY][eE][sS]|[yY])
 								echo "$EMOJI_FIRE Replacing existing \"${BLOCK_TEMPLATE}\" file"
