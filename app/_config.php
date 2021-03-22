@@ -36,10 +36,12 @@ $formats = [
 ];
 
 
-if (Security::database_is_ready()) {
+try {
+    /* ----------------------------------------------
+    Uncomment the following to enable the type module
+    ---------------------------------------------- */
 
     // $config = SiteConfig::current_site_config();
-
     // $data = $config->typeCSS;
 
     // $primaryColour = substr($data, strpos($data, '--primary-colour:') + 17, 7);
@@ -60,4 +62,5 @@ if (Security::database_is_ready()) {
             //     . '.button--secondary {padding:5px 10px !important;color:white;background: ' . $secondaryColour . '; } '
             //     . '.button--outline {padding:5px 10px !important;background:transparent;color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; } '
         ]);
-}
+
+} catch ($e \Exception) {}
