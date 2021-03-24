@@ -44,6 +44,11 @@ mkdir -p "${THEMES_DIR}/${THEME}/webpack"
 # Copy all our webpack dev files to the chosen theme
 cp -r "${SETUP}/webpack/" "${THEMES_DIR}/${THEME}/webpack"
 
+# Copy all our compiler dev files to the chosen theme directory
+for FILE in "${SETUP}/compiler/"; do
+	cp -r $FILE "${THEMES_DIR}/${THEME}/"
+done
+
 # Replace "SELECTED_THEME" with $THEME in all webpack files
 for FILE in ${THEMES_DIR}/${THEME}/webpack/*
 	do sed -i '' "s/SELECTED_THEME/$THEME/g" $FILE
