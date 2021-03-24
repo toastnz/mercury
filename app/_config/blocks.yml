@@ -1,7 +1,0 @@
----
-Name: siteblocks
-After: toastblocks
----
-
-Toast\Blocks\Extensions\PageExtension:
-  available_blocks:
