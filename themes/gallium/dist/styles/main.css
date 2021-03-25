@@ -361,11 +361,9 @@ hr {
   border-style: solid;
   margin: 3rem auto; }
 
-ul:not(.unstyled) li,
-ol:not(.unstyled) li {
+ul:not(.unstyled) li {
   position: relative; }
-  ul:not(.unstyled) li:before,
-  ol:not(.unstyled) li:before {
+  ul:not(.unstyled) li:before {
     content: '';
     position: absolute;
     width: .6rem;
@@ -1158,27 +1156,21 @@ small {
   .small {
     font-size: 1.3rem; } }
 
-ul:not(.unstyled),
-ol:not(.unstyled) {
+ul:not(.unstyled) {
+  list-style: none;
   padding-left: 2rem;
   margin-bottom: 3rem; }
   @media only screen and (min-width: 968px) {
-    ul:not(.unstyled),
-    ol:not(.unstyled) {
+    ul:not(.unstyled) {
       padding-left: 3rem; } }
-  ul:not(.unstyled):before,
-  ol:not(.unstyled):before {
+  ul:not(.unstyled):before {
     content: none; }
-  ul:not(.unstyled) li,
-  ol:not(.unstyled) li {
+  ul:not(.unstyled) li {
     margin-bottom: 1rem; }
-    ul:not(.unstyled) li:before,
-    ol:not(.unstyled) li:before {
+    ul:not(.unstyled) li:before {
       background-color: #000000; }
     ul:not(.unstyled) li ul,
-    ul:not(.unstyled) li ol,
-    ol:not(.unstyled) li ul,
-    ol:not(.unstyled) li ol {
+    ul:not(.unstyled) li ol {
       margin-top: 1rem; }
 
 ol:not(.unstyled) {

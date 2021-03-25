@@ -16,9 +16,9 @@
 }
 
 @mixin ListStyles {
-  ul,
-  ol {
+  ul {
     &:not(.unstyled) {
+      list-style: none;
       padding-left: 2rem;
       margin-bottom: 3rem;
 

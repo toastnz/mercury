@@ -1,26 +1,20 @@
-//------------------------------------------------------------------
-// Base imports
-//------------------------------------------------------------------
+body.mce-content-body {
+  //------------------------------------------------------------------
+  // Base imports
+  //------------------------------------------------------------------
 
-@import 'utilities/reset';
+  @import 'base/base';
 
-@import 'plugins/*';
+  @import 'utilities/functions';
+  @import 'utilities/helpers';
+  @import 'utilities/wysiwyg';
+  @import 'utilities/grid';
 
-@import 'base/base';
+  @import 'base/settings';
 
-@import 'utilities/functions';
-@import 'utilities/helpers';
-@import 'utilities/wysiwyg';
-@import 'utilities/grid';
+  //------------------------------------------------------------------
+  // Additional Tiny MCE Styles
+  //------------------------------------------------------------------
 
-@import 'base/settings';
-@import 'base/page';
+}
 
-//------------------------------------------------------------------
-// Component imports
-//------------------------------------------------------------------
-
-// @import 'common/*';
-@import 'elements/*';
-@import 'pages/*';
-// @import 'blocks/*';

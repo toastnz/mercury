@@ -63,4 +63,6 @@ try {
             //     . '.button--outline {padding:5px 10px !important;background:transparent;color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; } '
         ]);
 
-} catch ($e \Exception) {}
+    throw new Exception();
+
+} catch (Exception $e) {}
