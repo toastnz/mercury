@@ -1,4 +1,4 @@
-THEME = gallium
+THEME = SELECTED_THEME
 ARGS = $(filter-out $@,$(MAKECMDGOALS))
 
 theme:
