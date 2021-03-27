@@ -3,7 +3,7 @@ Import modules
 ------------------------------------------------------------------*/
 
 import Template from '@meteora-digital/template';
-import { objectAssign, relativeTarget } from '@meteora-digital/helpers';
+import { objectAssign, relativeTarget } from 'meteora';
 
 /*------------------------------------------------------------------
 Modal Class

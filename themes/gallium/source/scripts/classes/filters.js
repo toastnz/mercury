@@ -6,13 +6,12 @@ This class can be used to make ajax filtering relatively easy
 Import External Modules
 ------------------------------------------------------------------*/
 
-import { nodeArray, objectAssign, loopObject, containsClass } from '@meteora-digital/helpers';
+import { ajax, nodeArray, objectAssign, loopObject, containsClass } from 'meteora';
 
 /*------------------------------------------------------------------
 Import Internal Modules
 ------------------------------------------------------------------*/
 
-import ajax from '../functions/ajax';
 import getParam from '../functions/get-param';
 
 /*------------------------------------------------------------------
@@ -29,6 +28,7 @@ export default class Filters {
 
     this.settings = objectAssign({
       class: 'js-filter',
+      prettyURL: true,
       success: false,
     }, options);
 
@@ -150,7 +150,7 @@ export default class Filters {
           this.response = response;
 
           // update the page url
-          this.updateURL(this.api.segmentURL);
+          this.updateURL((this.settings.prettyURL) ? this.api.segmentURL : this.api.url);
 
           // Add the loading class
           this.content.classList.add(`${this.settings.class}--loading`);
@@ -180,7 +180,7 @@ export default class Filters {
   }
 
   updateAPI() {
-    this.api.index = 0;
+    this.api.index = (this.url.indexOf('?') >= 0) ? 1 : 0;
     this.api.prefix = '?';
     this.api.url = this.url;
     this.api.segmentURL = window.location.origin + window.location.pathname;

@@ -2,11 +2,7 @@
 // Sticky header
 // ------------------------------------------------------------------*/
 
-import { nodeArray } from '@meteora-digital/helpers';
-
-const submit = require('../functions/submit');
-const serialize = require('../functions/serialize');
-// import serialize from '../functions/serialize';
+import { nodeArray, serialize } from 'meteora';
 
 export default class FormValidation {
   constructor(form) {

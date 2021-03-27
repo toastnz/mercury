@@ -1,4 +1,4 @@
-import { offset } from '@meteora-digital/helpers';
+import { offset } from 'meteora';
 
 function lastInRow(array, i) {
   let top = offset(array[i]).y;

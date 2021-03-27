@@ -2,7 +2,7 @@
 Import modules
 ------------------------------------------------------------------*/
 
-import { nodeArray } from '@meteora-digital/helpers';
+import { nodeArray } from 'meteora';
 
 /*------------------------------------------------------------------
 Requirements

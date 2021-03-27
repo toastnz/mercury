@@ -1,4 +1,4 @@
-import { attach } from '@meteora-digital/helpers';
+import { attach } from 'meteora';
 import GoogleMaps from '@meteora-digital/google-maps';
 
 const API = document.body.getAttribute('data-maps-api-key') || '';

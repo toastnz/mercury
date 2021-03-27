@@ -1,4 +1,4 @@
-import {attach} from '@meteora-digital/helpers';
+import { attach } from 'meteora';
 
 class toggleHeight {
   constructor(el, minHeight = 0, duration = 300) {

@@ -23,7 +23,7 @@ import ScrollController from './classes/scroll-control';
 Import external modules
 ------------------------------------------------------------------*/
 
-import { attach, offset, nodeArray } from '@meteora-digital/helpers';
+import { each, attach, offset, nodeArray } from 'meteora';
 import Gallery from '@meteora-digital/gallery';
 import Equalizer from '@meteora-digital/equalizer';
 import Lazy from '@meteora-digital/lazy';
@@ -54,12 +54,6 @@ import './components/maps';
 import './components/sliders';
 import './components/macy-layouts';
 import './components/videos';
-
-/*------------------------------------------------------------------
-Helpers
-------------------------------------------------------------------*/
-
-import each from './functions/each';
 
 /*------------------------------------------------------------------
 Global

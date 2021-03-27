@@ -1,4 +1,4 @@
-import {objectAssign} from '@meteora-digital/helpers';
+import { objectAssign } from 'meteora';
 
 class VideoEmbed {
   constructor(url, options = {}) {

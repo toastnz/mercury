@@ -1,4 +1,4 @@
-import {Event} from '@meteora-digital/helpers';
+import { Event } from 'meteora';
 
 export default class ScrollLocker {
   constructor(el) {

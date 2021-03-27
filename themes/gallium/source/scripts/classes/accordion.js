@@ -1,4 +1,4 @@
-import { nodeArray } from '@meteora-digital/helpers';
+import { nodeArray } from 'meteora';
 import ToggleHeight from './toggle-height';
 
 class Accordion {

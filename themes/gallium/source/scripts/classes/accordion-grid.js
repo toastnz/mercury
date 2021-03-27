@@ -2,7 +2,7 @@
 // External Imports
 // -----------------------------------------
 
-import { nodeArray, attach, offset } from '@meteora-digital/helpers';
+import { nodeArray, attach, offset } from 'meteora';
 
 // -----------------------------------------
 // Internal Imports

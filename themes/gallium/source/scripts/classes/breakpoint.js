@@ -1,4 +1,4 @@
-import {attach, nodeArray} from '@meteora-digital/helpers';
+import { attach, nodeArray } from 'meteora';
 
 class Breakpoint {
   constructor(el) {

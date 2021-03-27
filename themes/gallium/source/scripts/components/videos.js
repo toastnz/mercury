@@ -2,7 +2,7 @@
 Import External modules
 ------------------------------------------------------------------*/
 
-import objectAssign from '@meteora-digital/helpers';
+import { objectAssign, each } from 'meteora';
 
 /*------------------------------------------------------------------
 Import Internal modules
@@ -10,12 +10,6 @@ Import Internal modules
 
 import Modal from '../classes/modal';
 import VideoEmbed from '../classes/video';
-
-/*------------------------------------------------------------------
-Helper Functions
-------------------------------------------------------------------*/
-
-import each from '../functions/each';
 
 /*------------------------------------------------------------------
 Video Modals
