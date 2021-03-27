@@ -36,7 +36,7 @@ else
 fi
 
 # Check if there is more than one theme
-if [[ $NUMBER_OF_THEMES -ge 2 ]]; then
+if [[ $NUMBER_OF_THEMES -ge 1 ]]; then
 	# move to the themes folder
 	cd $THEMES_DIR/
 	# Ask the user which theme they would like to install
@@ -48,10 +48,10 @@ if [[ $NUMBER_OF_THEMES -ge 2 ]]; then
 	# move back to the root
 	cd ../
 # Otherwise if there is only 1
-elif [[ $NUMBER_OF_THEMES -eq 1 ]]; then
-	# There is only one theme so we pick that one
-	THEME=${THEMES##*/}
-# Othewise exit
+# elif [[ $NUMBER_OF_THEMES -eq 1 ]]; then
+# 	# There is only one theme so we pick that one
+# 	THEME=${THEMES##*/}
+# # Othewise exit
 else
 	echo "$EMOJI_POOP  There are no themes available for these blocks."
 	exit
