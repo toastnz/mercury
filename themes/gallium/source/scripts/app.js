@@ -12,7 +12,6 @@ import Breakpoint from './classes/breakpoint';
 import VideoEmbed from './classes/video'; 
 import Accordion from './classes/accordion';
 import AccordionGrid from './classes/accordion-grid';
-import Filters from './classes/filters';
 import FormValidation from './classes/validation';
 import Uploader from './classes/uploader';
 import PlaceholderLabels from './classes/placeholder-labels';
@@ -54,6 +53,7 @@ import './components/maps';
 import './components/sliders';
 import './components/macy-layouts';
 import './components/videos';
+import './components/filters';
 
 /*------------------------------------------------------------------
 Global
@@ -144,13 +144,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   // uploads
   each('.js-form input[type="file"]', (el) => new Uploader(el, 'No file selected'));
-
-  // filters
-  each('.js-filter', (el) => new Filters(el), {
-    success: (r) => {
-      console.log(r);
-    }
-  });
 
   // form validation
   each('.js-form form', (form) => {

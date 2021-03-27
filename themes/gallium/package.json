@@ -10,6 +10,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@meteora-digital/equalizer": "latest",
+    "@meteora-digital/filters": "latest",
     "@meteora-digital/gallery": "latest",
     "@meteora-digital/google-maps": "latest",
     "@meteora-digital/lazy": "latest",
