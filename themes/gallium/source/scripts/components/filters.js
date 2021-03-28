@@ -1,5 +1,5 @@
 import { each } from 'meteora';
-import Filters from '../classes/filters';
+import Filters from '@meteora-digital/filters';
 
 // filters
 each('.js-filter', (group) => {
