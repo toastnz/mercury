@@ -1,14 +1,4 @@
-const closest = (el, selector) => {
-  let element = el;
-  let closest = el.parentNode.querySelector(selector);
-
-  while (closest == null || closest == undefined) {
-    element = element.parentNode;
-    closest = element.parentNode.querySelector(selector);
-  }
-
-  return closest;
-}
+import { closest } from 'meteora';
 
 export default class PlaceholderLabels {
   constructor(form, options = {}) {
