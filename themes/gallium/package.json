@@ -15,6 +15,7 @@
     "@meteora-digital/google-maps": "latest",
     "@meteora-digital/lazy": "latest",
     "meteora": "latest",
+    "accordions": "latest",
     "background-parallax": "latest",
     "bowser": "^2.11.0",
     "in-view": "^0.6.1",

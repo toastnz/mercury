@@ -10,7 +10,6 @@ Import modules
 
 import Breakpoint from './classes/breakpoint';
 import VideoEmbed from './classes/video'; 
-import Accordion from './classes/accordion';
 import AccordionGrid from './classes/accordion-grid';
 import FormValidation from './classes/validation';
 import Uploader from './classes/uploader';
@@ -26,6 +25,7 @@ import { each, attach, offset, nodeArray } from 'meteora';
 import Gallery from '@meteora-digital/gallery';
 import Equalizer from '@meteora-digital/equalizer';
 import Lazy from '@meteora-digital/lazy';
+import Accordion from 'accordions';
 import Parallax from 'background-parallax';
 import Selector from 'simple-selector';
 import Bowser from "bowser";
