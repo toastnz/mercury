@@ -233,12 +233,12 @@
 
           &:before {
             opacity: 1;
-            background-image: url('/themes/mercury/dist/images/svg/upload.svg');
+            background-image: url('/themes/gallium/dist/images/svg/upload.svg');
           }
 
           &:after {
             opacity: 0;
-            background-image: url('/themes/mercury/dist/images/svg/upload--active.svg');
+            background-image: url('/themes/gallium/dist/images/svg/upload--active.svg');
           }
 
           &.js-active {

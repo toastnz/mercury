@@ -336,12 +336,12 @@ $grid-map: (
     width: 100%;
   }
 
-  > .contentRow {
+  > .content-row {
     display: table-row;
   }
 
-  > .verticalAlign,
-  > .contentRow > .verticalAlign {
+  > .vertical-align,
+  > .content-row > .vertical-align {
     display: table-cell;
     vertical-align: middle;
     float: none;
@@ -356,14 +356,14 @@ $grid-map: (
 
 @mixin TableAlignmentClasses($breakpoints: false) {
   
-  .alignContent {
+  .align-content {
     @include TableAlignmentStyles;
   }
   
   @if($breakpoints) {
     @each $bp, $value in $breakpoints {
       @include media($value) {
-        .#{$bp}-up-alignContent {
+        .#{$bp}-up-align-content {
           @include TableAlignmentStyles;
         }
       }

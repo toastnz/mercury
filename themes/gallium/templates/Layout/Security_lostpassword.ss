@@ -1,6 +1,6 @@
 <section class="login">
-	<div class="loginHeight alignContent">
-		<div class="login__wrap verticalAlign">
+	<div class="loginHeight align-content">
+		<div class="login__wrap vertical-align">
 			<div class="login__wrap__content">
 				<div class="row">
 					<div class="login__wrap__content__header column">
