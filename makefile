@@ -17,4 +17,6 @@ watch: check-version
 	cd themes/$(THEME) && yarn run dev $(ARGS)
 build: check-version
 	cd themes/$(THEME) && yarn run build $(ARGS)
+favicons: check-version
+	cd themes/$(THEME) && yarn run favicons $(ARGS)
 %:;
