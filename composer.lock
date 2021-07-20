@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64bd7141f8a5cb892371a1dd8a00d007",
+    "content-hash": "839bd86d806f053a17fab2c7b87326fd",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -5230,6 +5230,33 @@
                 "silverstripe"
             ],
             "time": "2021-07-20T00:28:40+00:00"
+        },
+        {
+            "name": "toastnz/webp",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toastnz/webp.git",
+                "reference": "376f425877b70c9ec69aecdc07c0cfe6574f9005"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toastnz/webp/zipball/376f425877b70c9ec69aecdc07c0cfe6574f9005",
+                "reference": "376f425877b70c9ec69aecdc07c0cfe6574f9005",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "silverstripe/cms": "^4",
+                "silverstripe/framework": "^4"
+            },
+            "type": "silverstripe-vendormodule",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Silverstripe WebP",
+            "time": "2021-07-19T04:12:18+00:00"
         },
         {
             "name": "unclecheese/display-logic",

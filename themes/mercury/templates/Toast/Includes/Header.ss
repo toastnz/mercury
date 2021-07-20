@@ -2,7 +2,11 @@
     <div class="header__wrap">
 
         <a href="{$BaseRef}" class="header__wrap__logo">
-            $SVG('logo')
+            <% if $SiteConfig.Logo %>
+                <img src="$SiteConfig.Logo.URL" alt="$SiteConfig.Title" />
+            <% else %>
+                $SVG('logo')
+            <% end_if %>
         </a>
 
         <%----------------------------------------------------------------
