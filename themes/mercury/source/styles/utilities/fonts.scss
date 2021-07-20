@@ -78,3 +78,20 @@ h6,
 p {
   font-size: 1.6rem;
 }
+
+b,
+strong {
+  @include bold;
+}
+
+em {
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

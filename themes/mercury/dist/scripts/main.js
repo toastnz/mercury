@@ -86,227 +86,20 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/@meteora-digital/helpers/dist/index.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@meteora-digital/helpers/dist/index.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function attach(el, event, func, userdelay) {
-  var throttle = false; // not throttled
-
-  var debounce = false; // holder debounce
-
-  var delay = userdelay || false;
-  func(); // initialise function before adding event handlers
-
-  var attachment = function attachment(e) {
-    if (delay) {
-      // throttle
-      if (!throttle) {
-        throttle = true;
-        func(e);
-        setTimeout(function () {
-          return throttle = 0;
-        }, delay);
-      } // debounce
-
-
-      clearTimeout(debounce);
-      debounce = setTimeout(function () {
-        func();
-      }, delay);
-    } else {
-      func();
-    }
-  };
-
-  event.split(' ').forEach(function (type) {
-    el.addEventListener(type, function (e) {
-      return attachment(e);
-    });
-  });
-}
-
-exports.attach = attach;
-function containsClass(el, className) {
-  return (' ' + el.className + ' ').indexOf(' ' + className + ' ') > -1;
-}
-
-exports.containsClass = containsClass;
-function Event(event, params) {
-  params = params || {
-    bubbles: false,
-    cancelable: false,
-    detail: undefined
-  };
-  var evt = document.createEvent('CustomEvent');
-  evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-  return evt;
-}
-
-exports.Event = Event;
-function drawSVG(svg) {
-  var paths = svg.querySelectorAll('circle, ellipsis, line, polygon, polyline, rect, path'); // Initialize
-
-  for (var i = 0; i < paths.length; i++) {
-    paths[i].style.strokeDasharray = paths[i].getTotalLength();
-    paths[i].style.strokeDashoffset = paths[i].getTotalLength();
-  } // Our draw function. 1 = erase, 2 = draw
-
-
-  var draw = function draw(duration) {
-    var dir = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-
-    for (var i = 0; i < paths.length; i++) {
-      paths[i].style.transition = "stroke-dashoffset ".concat(duration / 1000, "s ease");
-      paths[i].style.strokeDashoffset = paths[i].getTotalLength() * dir;
-    }
-  };
-
-  svg.draw = function () {
-    var duration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
-    return draw(duration, 2);
-  };
-
-  svg.erase = function () {
-    var duration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
-    return draw(duration, 1);
-  };
-}
-
-exports.drawSVG = drawSVG;
-function getTransformValues(el) {
-  var matrix = window.getComputedStyle(el).transform; // Remove the brackets and matrix strings
-
-  var transformValues = matrix.replace('matrix(', '').replace(')', '');
-  var transformArray = transformValues.split(',');
-  return {
-    scaleX: parseFloat(transformArray[0]),
-    skewY: parseFloat(transformArray[1]),
-    skewX: parseFloat(transformArray[2]),
-    scaleY: parseFloat(transformArray[3]),
-    translateX: parseFloat(transformArray[4]),
-    translateY: parseFloat(transformArray[5])
-  };
-}
-
-exports.getTransformValues = getTransformValues;
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function loopObject(object, func) {
-  if (object && _typeof(object) === 'object') {
-    for (key in object) {
-      func(key, object[key]);
-    }
-  }
-}
-
-exports.loopObject = loopObject;
-function nodeArray() {
-  var nodeList = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  var array = [];
-
-  for (var i = 0; i < nodeList.length; i++) {
-    array.push(nodeList[i]);
-  }
-
-  return array;
-}
-
-exports.nodeArray = nodeArray;
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function objectAssign(defaultSettings, userSettings) {
-  for (key in defaultSettings) {
-    if (userSettings[key] !== undefined) {
-      if (_typeof(defaultSettings[key]) === "object" && _typeof(userSettings[key]) === "object") {
-        objectAssign(defaultSettings[key], userSettings[key]);
-      } else {
-        defaultSettings[key] = userSettings[key];
-      }
-    }
-  }
-
-  for (key in userSettings) {
-    if (_typeof(defaultSettings[key]) === "object" && _typeof(userSettings[key]) === "object") {
-      objectAssign(defaultSettings[key], userSettings[key]);
-    } else {
-      defaultSettings[key] = userSettings[key];
-    }
-  }
-
-  return defaultSettings;
-}
-
-exports.objectAssign = objectAssign;
-function offsetY(el) {
-  var offset = 0;
-
-  while (el) {
-    offset += el.offsetTop;
-    el = el.offsetParent;
-  }
-
-  return offset;
-}
-
-exports.offsetY = offsetY;
-function parentWithClass(el, className) {
-  var parent = el.parentNode;
-
-  while (!parent.classList.contains(className)) {
-    parent = parent.parentNode;
-  }
-
-  return parent;
-}
-
-exports.parentWithClass = parentWithClass;
-function relativeTarget(target, relativeElement) {
-  var node = target;
-  var parent = node.parentNode;
-
-  if (node !== relativeElement) {
-    while (parent && parent !== relativeElement) {
-      parent = parent.parentNode;
-    }
-
-    return parent === relativeElement;
-  } else {
-    return true;
-  }
-}
-
-exports.relativeTarget = relativeTarget;
-function stagger(arrayOfElements, func) {
-  var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 500;
-  var setDelay = delay;
-
-  for (var i = 0; i < arrayOfElements.length; i++) {
-    func(arrayOfElements[i], delay);
-    delay += setDelay;
-  }
-}
-
-exports.stagger = stagger;
-
-/***/ }),
-
 /***/ "./node_modules/@meteora-digital/template/dist/js/template.js":
 /*!********************************************************************!*\
   !*** ./node_modules/@meteora-digital/template/dist/js/template.js ***!
   \********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Template; });
-/* harmony import */ var _meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @meteora-digital/helpers */ "./node_modules/@meteora-digital/helpers/dist/index.js");
-/* harmony import */ var _meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -314,7 +107,15 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
- // const loopObject = require('@meteora-digital/helpers/dist/js/loopObject');
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function loopObject(object, func) {
+  if (object && _typeof(object) === 'object') {
+    for (var key in object) {
+      func(key, object[key]);
+    }
+  }
+}
 
 var Template = /*#__PURE__*/function () {
   function Template(object) {
@@ -344,7 +145,7 @@ var Template = /*#__PURE__*/function () {
       var element = document.createElement(data.tagName);
       delete data.tagName;
       element.className = '';
-      Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_0__["loopObject"])(data, function (key, value) {
+      loopObject(data, function (key, value) {
         // Children
         if (key === 'innerHTML' && _typeof(value) === 'object') {
           for (var i = 0; i < value.length; i++) {
@@ -355,13 +156,13 @@ var Template = /*#__PURE__*/function () {
             element.className += value;
           } // Styles
           else if (key === 'style' && _typeof(value) === 'object') {
-              Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_0__["loopObject"])(value, function (styleName, styleValue) {
+              loopObject(value, function (styleName, styleValue) {
                 element.style[styleName] = styleValue;
               });
             } // Data Attributes
             else if (key === 'dataset') {
                 if (_typeof(value) === 'object') {
-                  Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_0__["loopObject"])(value, function (dataName, dataValue) {
+                  loopObject(value, function (dataName, dataValue) {
                     element.setAttribute("data-".concat(dataName), dataValue);
                   });
                 }
@@ -375,8 +176,12 @@ var Template = /*#__PURE__*/function () {
     key: "renderInside",
     value: function renderInside(el) {
       if (el) {
-        for (var i = 0; i < this.html.length; i++) {
-          el.appendChild(this.html[i]);
+        if (Array.isArray(this.html)) {
+          for (var i = 0; i < this.html.length; i++) {
+            el.appendChild(this.html[i]);
+          }
+        } else {
+          el.appendChild(this.html);
         }
       }
     }
@@ -385,191 +190,28 @@ var Template = /*#__PURE__*/function () {
   return Template;
 }();
 /* new Template(
-	[
-		{
-			tagName: 'article',
-			classList: 'classes here'
-			innerHTML: [
-				{
-					tagName: 'p',
-					classList: 'classes here',
-					innnerHTML: 'Text here'
-				},
-				{
-					tagName: 'input',
-					type: 'checkbox',
-					value: 1,
-				}
-			]
-		}
-	]
+  [
+    {
+      tagName: 'article',
+      classList: 'classes here'
+      innerHTML: [
+        {
+          tagName: 'p',
+          classList: 'classes here',
+          innnerHTML: 'Text here'
+        },
+        {
+          tagName: 'input',
+          type: 'checkbox',
+          value: 1,
+        }
+      ]
+    }
+  ]
 )*/
 
 
-
-
-/***/ }),
-
-/***/ "./node_modules/debug/node_modules/ms/index.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/debug/node_modules/ms/index.js ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} [options]
- * @throws {Error} throw an error if val is not a non-empty string or a number
- * @return {String|Number}
- * @api public
- */
-
-module.exports = function(val, options) {
-  options = options || {};
-  var type = typeof val;
-  if (type === 'string' && val.length > 0) {
-    return parse(val);
-  } else if (type === 'number' && isNaN(val) === false) {
-    return options.long ? fmtLong(val) : fmtShort(val);
-  }
-  throw new Error(
-    'val is not a non-empty string or a valid number. val=' +
-      JSON.stringify(val)
-  );
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = String(str);
-  if (str.length > 100) {
-    return;
-  }
-  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
-    str
-  );
-  if (!match) {
-    return;
-  }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-    default:
-      return undefined;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtShort(ms) {
-  if (ms >= d) {
-    return Math.round(ms / d) + 'd';
-  }
-  if (ms >= h) {
-    return Math.round(ms / h) + 'h';
-  }
-  if (ms >= m) {
-    return Math.round(ms / m) + 'm';
-  }
-  if (ms >= s) {
-    return Math.round(ms / s) + 's';
-  }
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtLong(ms) {
-  return plural(ms, d, 'day') ||
-    plural(ms, h, 'hour') ||
-    plural(ms, m, 'minute') ||
-    plural(ms, s, 'second') ||
-    ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, n, name) {
-  if (ms < n) {
-    return;
-  }
-  if (ms < n * 1.5) {
-    return Math.floor(ms / n) + ' ' + name;
-  }
-  return Math.ceil(ms / n) + ' ' + name + 's';
-}
-
+exports["default"] = Template;
 
 /***/ }),
 
@@ -790,7 +432,7 @@ exports.coerce = coerce;
 exports.disable = disable;
 exports.enable = enable;
 exports.enabled = enabled;
-exports.humanize = __webpack_require__(/*! ms */ "./node_modules/debug/node_modules/ms/index.js");
+exports.humanize = __webpack_require__(/*! ms */ "./node_modules/ms/index.js");
 
 /**
  * The currently active debug mode names, and names to skip.
@@ -1007,17 +649,17 @@ function coerce(val) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * jQuery JavaScript Library v3.5.1
+ * jQuery JavaScript Library v3.6.0
  * https://jquery.com/
  *
  * Includes Sizzle.js
  * https://sizzlejs.com/
  *
- * Copyright JS Foundation and other contributors
+ * Copyright OpenJS Foundation and other contributors
  * Released under the MIT license
  * https://jquery.org/license
  *
- * Date: 2020-05-04T22:49Z
+ * Date: 2021-03-02T17:08Z
  */
 ( function( global, factory ) {
 
@@ -1084,12 +726,16 @@ var support = {};
 
 var isFunction = function isFunction( obj ) {
 
-      // Support: Chrome <=57, Firefox <=52
-      // In some browsers, typeof returns "function" for HTML <object> elements
-      // (i.e., `typeof document.createElement( "object" ) === "function"`).
-      // We don't want to classify *any* DOM node as a function.
-      return typeof obj === "function" && typeof obj.nodeType !== "number";
-  };
+		// Support: Chrome <=57, Firefox <=52
+		// In some browsers, typeof returns "function" for HTML <object> elements
+		// (i.e., `typeof document.createElement( "object" ) === "function"`).
+		// We don't want to classify *any* DOM node as a function.
+		// Support: QtWeb <=3.8.5, WebKit <=534.34, wkhtmltopdf tool <=0.12.5
+		// Plus for old WebKit, typeof returns "function" for HTML collections
+		// (e.g., `typeof document.getElementsByTagName("div") === "function"`). (gh-4756)
+		return typeof obj === "function" && typeof obj.nodeType !== "number" &&
+			typeof obj.item !== "function";
+	};
 
 
 var isWindow = function isWindow( obj ) {
@@ -1155,7 +801,7 @@ function toType( obj ) {
 
 
 var
-	version = "3.5.1",
+	version = "3.6.0",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -1409,7 +1055,7 @@ jQuery.extend( {
 			if ( isArrayLike( Object( arr ) ) ) {
 				jQuery.merge( ret,
 					typeof arr === "string" ?
-					[ arr ] : arr
+						[ arr ] : arr
 				);
 			} else {
 				push.call( ret, arr );
@@ -1504,9 +1150,9 @@ if ( typeof Symbol === "function" ) {
 
 // Populate the class2type map
 jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
-function( _i, name ) {
-	class2type[ "[object " + name + "]" ] = name.toLowerCase();
-} );
+	function( _i, name ) {
+		class2type[ "[object " + name + "]" ] = name.toLowerCase();
+	} );
 
 function isArrayLike( obj ) {
 
@@ -1526,14 +1172,14 @@ function isArrayLike( obj ) {
 }
 var Sizzle =
 /*!
- * Sizzle CSS Selector Engine v2.3.5
+ * Sizzle CSS Selector Engine v2.3.6
  * https://sizzlejs.com/
  *
  * Copyright JS Foundation and other contributors
  * Released under the MIT license
  * https://js.foundation/
  *
- * Date: 2020-03-14
+ * Date: 2021-02-16
  */
 ( function( window ) {
 var i,
@@ -2116,8 +1762,8 @@ support = Sizzle.support = {};
  * @returns {Boolean} True iff elem is a non-HTML XML node
  */
 isXML = Sizzle.isXML = function( elem ) {
-	var namespace = elem.namespaceURI,
-		docElem = ( elem.ownerDocument || elem ).documentElement;
+	var namespace = elem && elem.namespaceURI,
+		docElem = elem && ( elem.ownerDocument || elem ).documentElement;
 
 	// Support: IE <=8
 	// Assume HTML when documentElement doesn't yet exist, such as inside loading iframes
@@ -4032,9 +3678,9 @@ var rneedsContext = jQuery.expr.match.needsContext;
 
 function nodeName( elem, name ) {
 
-  return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
+	return elem.nodeName && elem.nodeName.toLowerCase() === name.toLowerCase();
 
-};
+}
 var rsingleTag = ( /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i );
 
 
@@ -5005,8 +4651,8 @@ jQuery.extend( {
 			resolveContexts = Array( i ),
 			resolveValues = slice.call( arguments ),
 
-			// the master Deferred
-			master = jQuery.Deferred(),
+			// the primary Deferred
+			primary = jQuery.Deferred(),
 
 			// subordinate callback factory
 			updateFunc = function( i ) {
@@ -5014,30 +4660,30 @@ jQuery.extend( {
 					resolveContexts[ i ] = this;
 					resolveValues[ i ] = arguments.length > 1 ? slice.call( arguments ) : value;
 					if ( !( --remaining ) ) {
-						master.resolveWith( resolveContexts, resolveValues );
+						primary.resolveWith( resolveContexts, resolveValues );
 					}
 				};
 			};
 
 		// Single- and empty arguments are adopted like Promise.resolve
 		if ( remaining <= 1 ) {
-			adoptValue( singleValue, master.done( updateFunc( i ) ).resolve, master.reject,
+			adoptValue( singleValue, primary.done( updateFunc( i ) ).resolve, primary.reject,
 				!remaining );
 
 			// Use .then() to unwrap secondary thenables (cf. gh-3000)
-			if ( master.state() === "pending" ||
+			if ( primary.state() === "pending" ||
 				isFunction( resolveValues[ i ] && resolveValues[ i ].then ) ) {
 
-				return master.then();
+				return primary.then();
 			}
 		}
 
 		// Multiple arguments are aggregated like Promise.all array elements
 		while ( i-- ) {
-			adoptValue( resolveValues[ i ], updateFunc( i ), master.reject );
+			adoptValue( resolveValues[ i ], updateFunc( i ), primary.reject );
 		}
 
-		return master.promise();
+		return primary.promise();
 	}
 } );
 
@@ -5188,8 +4834,8 @@ var access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 			for ( ; i < len; i++ ) {
 				fn(
 					elems[ i ], key, raw ?
-					value :
-					value.call( elems[ i ], i, fn( elems[ i ], key ) )
+						value :
+						value.call( elems[ i ], i, fn( elems[ i ], key ) )
 				);
 			}
 		}
@@ -6097,10 +5743,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 }
 
 
-var
-	rkeyEvent = /^key/,
-	rmouseEvent = /^(?:mouse|pointer|contextmenu|drag|drop)|click/,
-	rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
+var rtypenamespace = /^([^.]*)(?:\.(.+)|)/;
 
 function returnTrue() {
 	return true;
@@ -6395,8 +6038,8 @@ jQuery.event = {
 			event = jQuery.event.fix( nativeEvent ),
 
 			handlers = (
-					dataPriv.get( this, "events" ) || Object.create( null )
-				)[ event.type ] || [],
+				dataPriv.get( this, "events" ) || Object.create( null )
+			)[ event.type ] || [],
 			special = jQuery.event.special[ event.type ] || {};
 
 		// Use the fix-ed jQuery.Event rather than the (read-only) native event
@@ -6520,12 +6163,12 @@ jQuery.event = {
 			get: isFunction( hook ) ?
 				function() {
 					if ( this.originalEvent ) {
-							return hook( this.originalEvent );
+						return hook( this.originalEvent );
 					}
 				} :
 				function() {
 					if ( this.originalEvent ) {
-							return this.originalEvent[ name ];
+						return this.originalEvent[ name ];
 					}
 				},
 
@@ -6664,7 +6307,13 @@ function leverageNative( el, type, expectSync ) {
 						// Cancel the outer synthetic event
 						event.stopImmediatePropagation();
 						event.preventDefault();
-						return result.value;
+
+						// Support: Chrome 86+
+						// In Chrome, if an element having a focusout handler is blurred by
+						// clicking outside of it, it invokes the handler synchronously. If
+						// that handler calls `.remove()` on the element, the data is cleared,
+						// leaving `result` undefined. We need to guard against this.
+						return result && result.value;
 					}
 
 				// If this is an inner synthetic event for an event with a bubbling surrogate
@@ -6829,34 +6478,7 @@ jQuery.each( {
 	targetTouches: true,
 	toElement: true,
 	touches: true,
-
-	which: function( event ) {
-		var button = event.button;
-
-		// Add which for key events
-		if ( event.which == null && rkeyEvent.test( event.type ) ) {
-			return event.charCode != null ? event.charCode : event.keyCode;
-		}
-
-		// Add which for click: 1 === left; 2 === middle; 3 === right
-		if ( !event.which && button !== undefined && rmouseEvent.test( event.type ) ) {
-			if ( button & 1 ) {
-				return 1;
-			}
-
-			if ( button & 2 ) {
-				return 3;
-			}
-
-			if ( button & 4 ) {
-				return 2;
-			}
-
-			return 0;
-		}
-
-		return event.which;
-	}
+	which: true
 }, jQuery.event.addProp );
 
 jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateType ) {
@@ -6879,6 +6501,12 @@ jQuery.each( { focus: "focusin", blur: "focusout" }, function( type, delegateTyp
 			leverageNative( this, type );
 
 			// Return non-false to allow normal event-path propagation
+			return true;
+		},
+
+		// Suppress native focus or blur as it's already being fired
+		// in leverageNative.
+		_default: function() {
 			return true;
 		},
 
@@ -7549,6 +7177,10 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		// set in CSS while `offset*` properties report correct values.
 		// Behavior in IE 9 is more subtle than in newer versions & it passes
 		// some versions of this test; make sure not to make it pass there!
+		//
+		// Support: Firefox 70+
+		// Only Firefox includes border widths
+		// in computed dimensions. (gh-4529)
 		reliableTrDimensions: function() {
 			var table, tr, trChild, trStyle;
 			if ( reliableTrDimensionsVal == null ) {
@@ -7556,9 +7188,22 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 				tr = document.createElement( "tr" );
 				trChild = document.createElement( "div" );
 
-				table.style.cssText = "position:absolute;left:-11111px";
+				table.style.cssText = "position:absolute;left:-11111px;border-collapse:separate";
+				tr.style.cssText = "border:1px solid";
+
+				// Support: Chrome 86+
+				// Height set through cssText does not get applied.
+				// Computed height then comes back as 0.
 				tr.style.height = "1px";
 				trChild.style.height = "9px";
+
+				// Support: Android 8 Chrome 86+
+				// In our bodyBackground.html iframe,
+				// display for all div elements is set to "inline",
+				// which causes a problem only in Android 8 Chrome 86.
+				// Ensuring the div is display: block
+				// gets around this issue.
+				trChild.style.display = "block";
 
 				documentElement
 					.appendChild( table )
@@ -7566,7 +7211,9 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 					.appendChild( trChild );
 
 				trStyle = window.getComputedStyle( tr );
-				reliableTrDimensionsVal = parseInt( trStyle.height ) > 3;
+				reliableTrDimensionsVal = ( parseInt( trStyle.height, 10 ) +
+					parseInt( trStyle.borderTopWidth, 10 ) +
+					parseInt( trStyle.borderBottomWidth, 10 ) ) === tr.offsetHeight;
 
 				documentElement.removeChild( table );
 			}
@@ -8030,10 +7677,10 @@ jQuery.each( [ "height", "width" ], function( _i, dimension ) {
 					// Running getBoundingClientRect on a disconnected node
 					// in IE throws an error.
 					( !elem.getClientRects().length || !elem.getBoundingClientRect().width ) ?
-						swap( elem, cssShow, function() {
-							return getWidthOrHeight( elem, dimension, extra );
-						} ) :
-						getWidthOrHeight( elem, dimension, extra );
+					swap( elem, cssShow, function() {
+						return getWidthOrHeight( elem, dimension, extra );
+					} ) :
+					getWidthOrHeight( elem, dimension, extra );
 			}
 		},
 
@@ -8092,7 +7739,7 @@ jQuery.cssHooks.marginLeft = addGetHookIf( support.reliableMarginLeft,
 					swap( elem, { marginLeft: 0 }, function() {
 						return elem.getBoundingClientRect().left;
 					} )
-				) + "px";
+			) + "px";
 		}
 	}
 );
@@ -8231,7 +7878,7 @@ Tween.propHooks = {
 			if ( jQuery.fx.step[ tween.prop ] ) {
 				jQuery.fx.step[ tween.prop ]( tween );
 			} else if ( tween.elem.nodeType === 1 && (
-					jQuery.cssHooks[ tween.prop ] ||
+				jQuery.cssHooks[ tween.prop ] ||
 					tween.elem.style[ finalPropName( tween.prop ) ] != null ) ) {
 				jQuery.style( tween.elem, tween.prop, tween.now + tween.unit );
 			} else {
@@ -8476,7 +8123,7 @@ function defaultPrefilter( elem, props, opts ) {
 
 			anim.done( function() {
 
-			/* eslint-enable no-loop-func */
+				/* eslint-enable no-loop-func */
 
 				// The final step of a "hide" animation is actually hiding the element
 				if ( !hidden ) {
@@ -8596,7 +8243,7 @@ function Animation( elem, properties, options ) {
 			tweens: [],
 			createTween: function( prop, end ) {
 				var tween = jQuery.Tween( elem, animation.opts, prop, end,
-						animation.opts.specialEasing[ prop ] || animation.opts.easing );
+					animation.opts.specialEasing[ prop ] || animation.opts.easing );
 				animation.tweens.push( tween );
 				return tween;
 			},
@@ -8769,7 +8416,8 @@ jQuery.fn.extend( {
 					anim.stop( true );
 				}
 			};
-			doAnimation.finish = doAnimation;
+
+		doAnimation.finish = doAnimation;
 
 		return empty || optall.queue === false ?
 			this.each( doAnimation ) :
@@ -9409,8 +9057,8 @@ jQuery.fn.extend( {
 				if ( this.setAttribute ) {
 					this.setAttribute( "class",
 						className || value === false ?
-						"" :
-						dataPriv.get( this, "__className__" ) || ""
+							"" :
+							dataPriv.get( this, "__className__" ) || ""
 					);
 				}
 			}
@@ -9425,7 +9073,7 @@ jQuery.fn.extend( {
 		while ( ( elem = this[ i++ ] ) ) {
 			if ( elem.nodeType === 1 &&
 				( " " + stripAndCollapse( getClass( elem ) ) + " " ).indexOf( className ) > -1 ) {
-					return true;
+				return true;
 			}
 		}
 
@@ -9715,9 +9363,7 @@ jQuery.extend( jQuery.event, {
 				special.bindType || type;
 
 			// jQuery handler
-			handle = (
-					dataPriv.get( cur, "events" ) || Object.create( null )
-				)[ event.type ] &&
+			handle = ( dataPriv.get( cur, "events" ) || Object.create( null ) )[ event.type ] &&
 				dataPriv.get( cur, "handle" );
 			if ( handle ) {
 				handle.apply( cur, data );
@@ -9864,7 +9510,7 @@ var rquery = ( /\?/ );
 
 // Cross-browser xml parsing
 jQuery.parseXML = function( data ) {
-	var xml;
+	var xml, parserErrorElem;
 	if ( !data || typeof data !== "string" ) {
 		return null;
 	}
@@ -9873,12 +9519,17 @@ jQuery.parseXML = function( data ) {
 	// IE throws on parseFromString with invalid input.
 	try {
 		xml = ( new window.DOMParser() ).parseFromString( data, "text/xml" );
-	} catch ( e ) {
-		xml = undefined;
-	}
+	} catch ( e ) {}
 
-	if ( !xml || xml.getElementsByTagName( "parsererror" ).length ) {
-		jQuery.error( "Invalid XML: " + data );
+	parserErrorElem = xml && xml.getElementsByTagName( "parsererror" )[ 0 ];
+	if ( !xml || parserErrorElem ) {
+		jQuery.error( "Invalid XML: " + (
+			parserErrorElem ?
+				jQuery.map( parserErrorElem.childNodes, function( el ) {
+					return el.textContent;
+				} ).join( "\n" ) :
+				data
+		) );
 	}
 	return xml;
 };
@@ -9979,16 +9630,14 @@ jQuery.fn.extend( {
 			// Can add propHook for "elements" to filter or add form elements
 			var elements = jQuery.prop( this, "elements" );
 			return elements ? jQuery.makeArray( elements ) : this;
-		} )
-		.filter( function() {
+		} ).filter( function() {
 			var type = this.type;
 
 			// Use .is( ":disabled" ) so that fieldset[disabled] works
 			return this.name && !jQuery( this ).is( ":disabled" ) &&
 				rsubmittable.test( this.nodeName ) && !rsubmitterTypes.test( type ) &&
 				( this.checked || !rcheckableType.test( type ) );
-		} )
-		.map( function( _i, elem ) {
+		} ).map( function( _i, elem ) {
 			var val = jQuery( this ).val();
 
 			if ( val == null ) {
@@ -10041,7 +9690,8 @@ var
 
 	// Anchor tag for parsing the document origin
 	originAnchor = document.createElement( "a" );
-	originAnchor.href = location.href;
+
+originAnchor.href = location.href;
 
 // Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
 function addToPrefiltersOrTransports( structure ) {
@@ -10422,8 +10072,8 @@ jQuery.extend( {
 			// Context for global events is callbackContext if it is a DOM node or jQuery collection
 			globalEventContext = s.context &&
 				( callbackContext.nodeType || callbackContext.jquery ) ?
-					jQuery( callbackContext ) :
-					jQuery.event,
+				jQuery( callbackContext ) :
+				jQuery.event,
 
 			// Deferreds
 			deferred = jQuery.Deferred(),
@@ -10735,8 +10385,10 @@ jQuery.extend( {
 				response = ajaxHandleResponses( s, jqXHR, responses );
 			}
 
-			// Use a noop converter for missing script
-			if ( !isSuccess && jQuery.inArray( "script", s.dataTypes ) > -1 ) {
+			// Use a noop converter for missing script but not if jsonp
+			if ( !isSuccess &&
+				jQuery.inArray( "script", s.dataTypes ) > -1 &&
+				jQuery.inArray( "json", s.dataTypes ) < 0 ) {
 				s.converters[ "text script" ] = function() {};
 			}
 
@@ -11474,12 +11126,6 @@ jQuery.offset = {
 			options.using.call( elem, props );
 
 		} else {
-			if ( typeof props.top === "number" ) {
-				props.top += "px";
-			}
-			if ( typeof props.left === "number" ) {
-				props.left += "px";
-			}
 			curElem.css( props );
 		}
 	}
@@ -11648,8 +11294,11 @@ jQuery.each( [ "top", "left" ], function( _i, prop ) {
 
 // Create innerHeight, innerWidth, height, width, outerHeight and outerWidth methods
 jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
-	jQuery.each( { padding: "inner" + name, content: type, "": "outer" + name },
-		function( defaultExtra, funcName ) {
+	jQuery.each( {
+		padding: "inner" + name,
+		content: type,
+		"": "outer" + name
+	}, function( defaultExtra, funcName ) {
 
 		// Margin is only for outerHeight, outerWidth
 		jQuery.fn[ funcName ] = function( margin, value ) {
@@ -11734,7 +11383,8 @@ jQuery.fn.extend( {
 	}
 } );
 
-jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
+jQuery.each(
+	( "blur focus focusin focusout resize scroll click dblclick " +
 	"mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
 	"change select submit keydown keypress keyup contextmenu" ).split( " " ),
 	function( _i, name ) {
@@ -11745,7 +11395,8 @@ jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 				this.on( name, null, data, fn ) :
 				this.trigger( name );
 		};
-	} );
+	}
+);
 
 
 
@@ -11959,6 +11610,492 @@ function ieOnEnd (script, cb) {
 
 /***/ }),
 
+/***/ "./node_modules/meteora/dist/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/meteora/dist/index.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function Event(event, params) {
+  params = params || {
+    bubbles: false,
+    cancelable: false,
+    detail: undefined
+  };
+  var evt = document.createEvent('CustomEvent');
+  evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+  return evt;
+}
+
+exports.Event = Event;
+function ajax(options) {
+  var httpRequest = new XMLHttpRequest();
+  var settings = Object.assign({
+    url: '/',
+    method: 'GET',
+    data: '',
+    load: function load(response) {
+      if (settings.success !== undefined && typeof settings.success === 'function') {
+        if (response.explicitOriginalTarget !== undefined) {
+          settings.success(response.explicitOriginalTarget.response);
+        } else if (response.currentTarget) {
+          settings.success(response.currentTarget.response);
+        }
+      }
+
+      ;
+    },
+    error: function error(response) {
+      console.warn(response);
+    }
+  }, options);
+
+  if (settings.method === 'GET') {
+    settings.contentType = 'application/json;charset=UTF-8';
+  } else if (settings.method === 'POST') {
+    settings.contentType = 'application/x-www-form-urlencoded';
+  } else {
+    console.warn('method: ', settings.method, 'is not valid.');
+    return false;
+  }
+
+  httpRequest.addEventListener("load", settings.load);
+  httpRequest.addEventListener("error", settings.error);
+  httpRequest.open(settings.method, settings.url);
+  httpRequest.setRequestHeader('x-requested-with', "XMLHttpRequest");
+  httpRequest.setRequestHeader('Content-Type', settings.contentType);
+  httpRequest.setRequestHeader('Access-Control-Allow-Origin', settings.url);
+  httpRequest.send(settings.data);
+}
+
+;
+exports.ajax = ajax;
+function attach(el, event, func, userdelay) {
+  var throttle = false; // not throttled
+
+  var debounce = false; // holder debounce
+
+  var delay = userdelay || false; // Feature detection
+
+  var passiveIfSupported = false;
+  func(); // initialise function before adding event handlers
+
+  try {
+    window.addEventListener("test", null, Object.defineProperty({}, "passive", {
+      get: function get() {
+        passiveIfSupported = {
+          passive: false
+        };
+      }
+    }));
+  } catch (err) {}
+
+  var attachment = function attachment(e) {
+    if (delay) {
+      // throttle
+      if (!throttle) {
+        throttle = true;
+        func(e);
+        setTimeout(function () {
+          return throttle = 0;
+        }, delay);
+      } // debounce
+
+
+      clearTimeout(debounce);
+      debounce = setTimeout(function () {
+        func();
+      }, delay);
+    } else {
+      func();
+    }
+  };
+
+  event.split(' ').forEach(function (type) {
+    if (type === 'scroll' && passiveIfSupported) {
+      el.addEventListener(type, function (e) {
+        return attachment(e);
+      }, passiveIfSupported);
+    } else {
+      el.addEventListener(type, function (e) {
+        return attachment(e);
+      });
+    }
+  });
+}
+
+exports.attach = attach;
+function closest(el, selector) {
+  var element = el;
+  var closest = el.parentNode.querySelector(selector) || false;
+
+  while (closest == false) {
+    element = element.parentNode;
+    closest = element.parentNode.querySelector(selector) || false;
+  }
+
+  return closest;
+}
+
+exports.closest = closest;
+function containsClass(el, className) {
+  return (' ' + el.className + ' ').indexOf(' ' + className + ' ') > -1;
+}
+
+exports.containsClass = containsClass;
+function drawSVG(svg) {
+  var paths = svg.querySelectorAll('circle, ellipsis, line, polygon, polyline, rect, path'); // Initialize
+
+  for (var i = 0; i < paths.length; i++) {
+    paths[i].style.strokeDasharray = paths[i].getTotalLength();
+    paths[i].style.strokeDashoffset = paths[i].getTotalLength();
+  } // Our draw function. 1 = erase, 2 = draw
+
+
+  var draw = function draw(duration) {
+    var dir = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+    for (var i = 0; i < paths.length; i++) {
+      paths[i].style.transition = "stroke-dashoffset ".concat(duration / 1000, "s ease");
+      paths[i].style.strokeDashoffset = paths[i].getTotalLength() * dir;
+    }
+  };
+
+  svg.draw = function () {
+    var duration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
+    return draw(duration, 2);
+  };
+
+  svg.erase = function () {
+    var duration = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1000;
+    return draw(duration, 1);
+  };
+}
+
+exports.drawSVG = drawSVG;
+function each(selector, func) {
+  var nodeList = document.querySelectorAll(selector);
+  var nodeArray = [];
+
+  for (var i = 0; i < nodeList.length; i++) {
+    nodeArray.push(nodeList[i]);
+  }
+
+  if (func && typeof func === 'function') nodeArray.forEach(function (el, i) {
+    return func(el, i);
+  });
+  return nodeArray;
+}
+
+exports.each = each;
+function getTransformValues(el) {
+  var matrix = window.getComputedStyle(el).transform; // Remove the brackets and matrix strings
+
+  var transformValues = matrix.replace('matrix(', '').replace(')', '');
+  var transformArray = transformValues.split(',');
+  return {
+    scaleX: parseFloat(transformArray[0]),
+    skewY: parseFloat(transformArray[1]),
+    skewX: parseFloat(transformArray[2]),
+    scaleY: parseFloat(transformArray[3]),
+    translateX: parseFloat(transformArray[4]),
+    translateY: parseFloat(transformArray[5])
+  };
+}
+
+exports.getTransformValues = getTransformValues;
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function loopObject(object, func) {
+  if (object && _typeof(object) === 'object') for (key in object) {
+    func(key, object[key]);
+  }
+}
+
+exports.loopObject = loopObject;
+function nodeArray() {
+  var nodeList = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var array = [];
+
+  for (var i = 0; i < nodeList.length; i++) {
+    array.push(nodeList[i]);
+  }
+
+  return array;
+}
+
+exports.nodeArray = nodeArray;
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function objectAssign(defaultSettings, userSettings) {
+  for (var _key in defaultSettings) {
+    if (userSettings[_key] !== undefined) {
+      if (_typeof(defaultSettings[_key]) === "object" && _typeof(userSettings[_key]) === "object") {
+        objectAssign(defaultSettings[_key], userSettings[_key]);
+      } else {
+        defaultSettings[_key] = userSettings[_key];
+      }
+    }
+  }
+
+  for (key in userSettings) {
+    if (_typeof(defaultSettings[key]) === "object" && _typeof(userSettings[key]) === "object") {
+      objectAssign(defaultSettings[key], userSettings[key]);
+    } else {
+      defaultSettings[key] = userSettings[key];
+    }
+  }
+
+  return defaultSettings;
+}
+
+exports.objectAssign = objectAssign;
+function offset(el) {
+  var obj = {
+    x: 0,
+    y: 0
+  };
+
+  while (el) {
+    obj.y += el.offsetTop;
+    obj.x += el.offsetLeft;
+    el = el.offsetParent;
+  }
+
+  return obj;
+}
+
+exports.offset = offset;
+function parentWithClass(el, className) {
+  var parent = el.parentNode;
+
+  while ((' ' + parent.className + ' ').indexOf(' ' + className + ' ') == -1) {
+    parent = parent.parentNode;
+  }
+
+  return parent;
+}
+
+exports.parentWithClass = parentWithClass;
+function relativeTarget(target, relativeElement) {
+  var node = target;
+  var parent = node.parentNode;
+
+  if (node !== relativeElement) {
+    while (parent && parent !== relativeElement) {
+      parent = parent.parentNode;
+    }
+
+    return parent === relativeElement;
+  } else {
+    return true;
+  }
+}
+
+exports.relativeTarget = relativeTarget;
+function serialize(form) {
+  // Setup our serialized data
+  var serialized = []; // Loop through each field in the form
+
+  for (var i = 0; i < form.elements.length; i++) {
+    var field = form.elements[i]; // Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+
+    if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue; // If a multi-select, get all selections
+
+    if (field.type === 'select-multiple') {
+      for (var n = 0; n < field.options.length; n++) {
+        if (!field.options[n].selected) continue;
+        serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
+      }
+    } // Convert field data to a query string
+    else if (field.type !== 'checkbox' && field.type !== 'radio' || field.checked) {
+        serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+      }
+  }
+
+  return serialized.join('&');
+}
+
+;
+exports.serialize = serialize;
+function stagger(arrayOfElements, func) {
+  var delay = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 500;
+  var setDelay = delay;
+
+  for (var i = 0; i < arrayOfElements.length; i++) {
+    func(arrayOfElements[i], delay);
+    delay += setDelay;
+  }
+}
+
+exports.stagger = stagger;
+
+/***/ }),
+
+/***/ "./node_modules/ms/index.js":
+/*!**********************************!*\
+  !*** ./node_modules/ms/index.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isNaN(val) === false) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  if (ms >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (ms >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (ms >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (ms >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  return plural(ms, d, 'day') ||
+    plural(ms, h, 'hour') ||
+    plural(ms, m, 'minute') ||
+    plural(ms, s, 'second') ||
+    ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, n, name) {
+  if (ms < n) {
+    return;
+  }
+  if (ms < n * 1.5) {
+    return Math.floor(ms / n) + ' ' + name;
+  }
+  return Math.ceil(ms / n) + ' ' + name + 's';
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/process/browser.js":
 /*!*****************************************!*\
   !*** ./node_modules/process/browser.js ***!
@@ -12158,23 +12295,28 @@ process.umask = function() { return 0; };
 /*!**********************************************************!*\
   !*** ./node_modules/simple-selector/dist/js/selector.js ***!
   \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Selector; });
-/* harmony import */ var _meteora_digital_template__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @meteora-digital/template */ "./node_modules/@meteora-digital/template/dist/js/template.js");
-/* harmony import */ var _meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @meteora-digital/helpers */ "./node_modules/@meteora-digital/helpers/dist/index.js");
-/* harmony import */ var _meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__);
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _template = _interopRequireDefault(__webpack_require__(/*! @meteora-digital/template */ "./node_modules/@meteora-digital/template/dist/js/template.js"));
+
+var _meteora = __webpack_require__(/*! meteora */ "./node_modules/meteora/dist/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
 
 var Selector = /*#__PURE__*/function () {
   function Selector(select) {
@@ -12185,19 +12327,18 @@ var Selector = /*#__PURE__*/function () {
     // Grab the default select box info
     this["default"] = {
       select: select,
-      options: Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__["nodeArray"])(select.querySelectorAll('option'))
+      options: (0, _meteora.nodeArray)(select.querySelectorAll('option'))
     }; // Gather the user's settings
 
-    this.settings = Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__["objectAssign"])({
+    this.settings = (0, _meteora.objectAssign)({
       placeholder: this["default"].select.getAttribute('placeholder') || 'Select',
       "class": 'selector',
       search: false,
       multiple: this["default"].select.getAttribute('multiple') != undefined || false,
       autoClose: true
-    }, options);
-    this.initialPlaceholder = this.settings.placeholder; // Render the new select box
+    }, options); // Render the new select box
 
-    this.faux = new _meteora_digital_template__WEBPACK_IMPORTED_MODULE_0__["default"]({
+    this.faux = new _template["default"]({
       tagName: 'div',
       classList: this.settings["class"],
       innerHTML: [{
@@ -12222,12 +12363,12 @@ var Selector = /*#__PURE__*/function () {
     this.list = this.select.querySelector(".".concat(this.settings["class"], "__list"));
     this.options = [];
     this.val = [];
-    this.changeEvent = Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__["Event"])('change');
+    this.changeEvent = (0, _meteora.Event)('change');
     this.updateOptions(); // Render the search input
 
     if (this.settings.search) {
       // Create the template
-      var search = new _meteora_digital_template__WEBPACK_IMPORTED_MODULE_0__["default"]({
+      var search = new _template["default"]({
         tagName: 'li',
         classList: "".concat(this.settings["class"], "__search"),
         innerHTML: [{
@@ -12262,21 +12403,30 @@ var Selector = /*#__PURE__*/function () {
       var selection = []; // Empty the list
 
       this.options.forEach(function (option) {
-        return option.remove();
+        return option.parentNode.removeChild(option);
       });
       this.options = []; // Get new options
 
-      this["default"].options = Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__["nodeArray"])(this["default"].select.querySelectorAll('option')); // Gather our data from the <option>s
+      this["default"].options = (0, _meteora.nodeArray)(this["default"].select.querySelectorAll('option')); // Gather our data from the <option>s
 
       this["default"].options.forEach(function (option) {
-        template = new _meteora_digital_template__WEBPACK_IMPORTED_MODULE_0__["default"]({
+        template = new _template["default"]({
           tagName: 'li',
           classList: "".concat(_this.settings["class"], "__option"),
           innerHTML: option.innerHTML,
           dataset: {
             value: option.value
           }
-        }); // Append the new options to the page
+        }); // Grab all the data attributes from the option and assign them to the new one
+
+        for (var i = 0; i < option.attributes.length; i++) {
+          if (option.attributes[i].nodeName.indexOf('data-') >= 0) {
+            template.html.setAttribute(option.attributes[i].nodeName, option.attributes[i].nodeValue);
+          }
+        } // If the default option is disabled, disable the faux option
+
+
+        option.disabled ? template.html.setAttribute('data-disabled', true) : template.html.removeAttribute('data-disabled'); // Append the new options to the page
 
         _this.options.push(template.html);
       }); // Create our event handlers and append the items to our list
@@ -12284,53 +12434,63 @@ var Selector = /*#__PURE__*/function () {
       this.options.forEach(function (option, index) {
         // Change the default select box and toggle some classes
         option.addEventListener('click', function () {
-          // If we are using a multi-select
-          if (_this.settings.multiple) {
-            // If our option has already been selected, deselect it
-            if (Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__["containsClass"])(option, "".concat(_this.settings["class"], "__option--active"))) {
-              option.classList.remove("".concat(_this.settings["class"], "__option--active"));
-              _this["default"].options[index].selected = false;
-            } // Otherwise, select it
-            else {
-                option.classList.add("".concat(_this.settings["class"], "__option--active")); // Select all appropriate options in the default select
-
+          // If the default option is enabled
+          if (_this["default"].options[index].disabled === false) {
+            // If we are using a multi-select
+            if (_this.settings.multiple) {
+              if (option.getAttribute('data-value') === '') {
+                // Clear all other options
                 _this.options.forEach(function (customOption, customOptionIndex) {
-                  _this["default"].options[customOptionIndex].selected = Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__["containsClass"])(customOption, "".concat(_this.settings["class"], "__option--active"));
-                });
+                  customOption.classList.remove("".concat(_this.settings["class"], "__option--active"));
+                  _this["default"].options[customOptionIndex].selected = false;
+                }); // Select "all" option
+
+
+                option.classList.add("".concat(_this.settings["class"], "__option--active"));
+              } else {
+                // Clear the all option
+                if (_this["default"].options[0].value === '') _this.options[0].classList.remove("".concat(_this.settings["class"], "__option--active")); // If our option has already been selected, deselect it
+
+                if ((0, _meteora.containsClass)(option, "".concat(_this.settings["class"], "__option--active"))) {
+                  option.classList.remove("".concat(_this.settings["class"], "__option--active"));
+                  _this["default"].options[index].selected = false;
+                } // Otherwise, select it
+                else {
+                    option.classList.add("".concat(_this.settings["class"], "__option--active")); // Select all appropriate options in the default select
+
+                    _this.options.forEach(function (customOption, customOptionIndex) {
+                      _this["default"].options[customOptionIndex].selected = (0, _meteora.containsClass)(customOption, "".concat(_this.settings["class"], "__option--active"));
+                    });
+                  }
               }
-          } // Otherwise select the single option, then close the input
-          else {
-              selection = [];
+            } // Otherwise select the single option, then close the input
+            else {
+                selection = [];
 
-              if (!option.classList.contains("".concat(_this.settings["class"], "__option--active"))) {
-                // Toggle the active state to the option we just clicked
-                _this.options.forEach(function (o) {
-                  return o.classList.remove("".concat(_this.settings["class"], "__option--active"));
-                });
+                if (!option.classList.contains("".concat(_this.settings["class"], "__option--active"))) {
+                  // Toggle the active state to the option we just clicked
+                  _this.options.forEach(function (o) {
+                    return o.classList.remove("".concat(_this.settings["class"], "__option--active"));
+                  });
 
-                option.classList.add("".concat(_this.settings["class"], "__option--active")); // Loop default options and select the one's who's value matches our duplicate
+                  option.classList.add("".concat(_this.settings["class"], "__option--active")); // Loop default options and select the one's who's value matches our duplicate
 
-                _this["default"].options.forEach(function (defaultOption) {
-                  defaultOption.selected = defaultOption.value === option.getAttribute('data-value');
-                });
-              }
+                  _this["default"].options.forEach(function (defaultOption) {
+                    defaultOption.selected = defaultOption.value === option.getAttribute('data-value');
+                  });
+                }
 
-              if (_this.settings.autoClose) _this.close();
-            } // Our selected items all in a nice list
-
-
-          selection = Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__["nodeArray"])(_this.list.querySelectorAll(".".concat(_this.settings["class"], "__option--active"))); // Set the placeholder based on the selected items
-
-          if (selection.length >= 2) {
-            _this.placeholder.innerHTML = 'Multiple selected';
-          } else if (selection.length === 1) {
-            _this.placeholder.innerHTML = selection[0].innerHTML;
-          } else {
-            _this.placeholder.innerHTML = _this.settings.placeholder;
-          } // Finally send a change function to the original select
+                if (_this.settings.autoClose) _this.close();
+              } // Our selected items all in a nice list
 
 
-          _this.change();
+            selection = (0, _meteora.nodeArray)(_this.list.querySelectorAll(".".concat(_this.settings["class"], "__option--active"))); // Set the placeholder based on the selected items
+
+            _this.updatePlaceholder(selection); // Finally send a change function to the original select
+
+
+            _this.change();
+          }
         }); // Add these options to our list
 
         _this.list.appendChild(option);
@@ -12343,19 +12503,17 @@ var Selector = /*#__PURE__*/function () {
 
       // Open or close the select depending on the user's clicked target
       window.addEventListener('click', function (e) {
-        if (!Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__["relativeTarget"])(e.target, _this2.select)) _this2.close();
+        if (!(0, _meteora.relativeTarget)(e.target, _this2.select)) _this2.close();
       }); // If we click on the header, and the selector is already open, we assume the user is trying to close it
 
       this.header.addEventListener('click', function () {
-        Object(_meteora_digital_helpers__WEBPACK_IMPORTED_MODULE_1__["containsClass"])(_this2.select, 'js-active') ? _this2.close() : _this2.open();
+        (0, _meteora.containsClass)(_this2.select, 'js-active') ? _this2.close() : _this2.open();
       }); // When search is enabled add the filter event
       // Note, the filter event can be used from outside this class
 
-      if (this.search) {
-        this.searchInput.addEventListener('keyup', function () {
-          _this2.filter(_this2.searchInput.value);
-        });
-      }
+      if (this.search) this.searchInput.addEventListener('keyup', function () {
+        return _this2.filter(_this2.searchInput.value);
+      });
     }
   }, {
     key: "open",
@@ -12403,6 +12561,31 @@ var Selector = /*#__PURE__*/function () {
     key: "change",
     value: function change() {
       this["default"].select.dispatchEvent(this.changeEvent);
+    } // Set the placeholder based on the selected items
+
+  }, {
+    key: "updatePlaceholder",
+    value: function updatePlaceholder(selection) {
+      if (selection.length >= 2) {
+        // Add a class to show multiple options are selected
+        this.placeholder.classList.add('multiple-selected'); // Remove the class that shows one option is selected
+
+        this.placeholder.classList.remove('single-selected');
+        this.placeholder.innerHTML = 'Multiple selected';
+      } else if (selection.length === 1 && selection[0].getAttribute('data-value') != '') {
+        // Add a class to shows one option is selected
+        this.placeholder.classList.add('single-selected'); // Remove the class that shows multiple options are selected
+
+        this.placeholder.classList.remove('multiple-selected');
+        this.placeholder.innerHTML = selection[0].innerHTML;
+      } else {
+        // Remove the class that shows one option is selected
+        this.placeholder.classList.remove('single-selected'); // Remove the class that shows multiple options are selected
+
+        this.placeholder.classList.remove('multiple-selected');
+        this.placeholder.innerHTML = this.settings.placeholder;
+        if (this.settings.multiple && this["default"].options[0].value === '') this.options[0].classList.add("".concat(this.settings["class"], "__option--active"));
+      }
     }
   }, {
     key: "updateValue",
@@ -12412,16 +12595,10 @@ var Selector = /*#__PURE__*/function () {
       var selection = [];
       this["default"].options.forEach(function (option, index) {
         if (option.selected && option.value !== "") selection.push(option);
-        if (option.selected) _this4.options[index].classList.add("".concat(_this4.settings["class"], "__option--active"));
+        option.selected ? _this4.options[index].classList.add("".concat(_this4.settings["class"], "__option--active")) : _this4.options[index].classList.remove("".concat(_this4.settings["class"], "__option--active"));
       }); // Set the placeholder based on the selected items
 
-      if (selection.length >= 2) {
-        this.placeholder.innerHTML = 'Multiple selected';
-      } else if (selection.length === 1) {
-        this.placeholder.innerHTML = selection[0].innerHTML;
-      } else {
-        this.placeholder.innerHTML = this.settings.placeholder;
-      }
+      this.updatePlaceholder(selection);
     }
   }, {
     key: "update",
@@ -12444,7 +12621,7 @@ var Selector = /*#__PURE__*/function () {
 // nodeArray(document.querSelectorAll('select.js-select')).forEach((select) => new Selector(select));
 
 
-
+exports["default"] = Selector;
 
 /***/ }),
 
@@ -16070,6 +16247,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_10__);
 /* harmony import */ var simple_selector__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! simple-selector */ "./node_modules/simple-selector/dist/js/selector.js");
+/* harmony import */ var simple_selector__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(simple_selector__WEBPACK_IMPORTED_MODULE_11__);
 /*------------------------------------------------------------------
 Import styles
 ------------------------------------------------------------------*/
@@ -16098,7 +16276,7 @@ jquery__WEBPACK_IMPORTED_MODULE_10___default()(function () {
   Select elements
   ------------------------------------------------------------------*/
   jquery__WEBPACK_IMPORTED_MODULE_10___default()('select.dropdown').each(function (index, element) {
-    element.SS = new simple_selector__WEBPACK_IMPORTED_MODULE_11__["default"](element, {
+    element.SS = new simple_selector__WEBPACK_IMPORTED_MODULE_11___default.a(element, {
       placeholder: element.querySelector('option').innerText
     });
   });
@@ -16246,7 +16424,6 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
 /*------------------------------------------------------------------
 Debug Grid
 ------------------------------------------------------------------*/
-console.log('fdsf');
 document.addEventListener('keydown', function (e) {
   if ((window.navigator.platform.match('Mac') ? e.metaKey : e.ctrlKey) && e.code === 'KeyG') {
     e.preventDefault();

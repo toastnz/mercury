@@ -236,6 +236,19 @@ h6,
 p {
   font-size: 1.6rem; }
 
+b,
+strong {
+  font-weight: 700; }
+
+em {
+  font-style: italic; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
 /*------------------------------------------------------------------
 Tingle
 ------------------------------------------------------------------*/
@@ -430,6 +443,8 @@ body .selector {
   position: relative;
   z-index: 100;
   display: block;
+  float: left;
+  min-width: 100%;
   -webkit-transition: z-index .3s ease;
   -o-transition: z-index .3s ease;
   transition: z-index .3s ease;
@@ -484,7 +499,7 @@ body .selector {
       background-color: #fff; }
   body .selector__header {
     position: relative;
-    min-width: 100%;
+    width: 100%;
     padding: 2rem 4rem 2rem 2rem;
     border: 0 solid rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -519,6 +534,8 @@ body .selector {
   body .selector__search {
     margin-bottom: 0 !important; }
   body .selector__searchInput {
+    position: relative;
+    z-index: 2;
     margin-bottom: 0;
     border: 0;
     width: 100%;
@@ -550,13 +567,13 @@ body .selector {
     transition: transform .2s ease;
     transition: transform .2s ease, -webkit-transform .2s ease;
     max-height: 40rem;
-    overflow: auto; }
+    overflow: auto;
+    z-index: 150; }
   body .selector__option {
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
             user-select: none;
-    cursor: pointer;
     padding: 1rem 2rem !important;
     margin-bottom: 0 !important;
     color: inherit;
@@ -564,9 +581,13 @@ body .selector {
     -webkit-transition: background-color 0.3s ease, color 0.3s ease;
     -o-transition: background-color 0.3s ease, color 0.3s ease;
     transition: background-color 0.3s ease, color 0.3s ease; }
-    body .selector__option:hover {
-      color: #000;
-      background-color: rgba(0, 0, 0, 0.1); }
+    body .selector__option:not([data-disabled="true"]) {
+      cursor: pointer; }
+      body .selector__option:not([data-disabled="true"]):hover {
+        color: #000;
+        background-color: rgba(0, 0, 0, 0.1); }
+    body .selector__option[data-disabled="true"] {
+      opacity: .3; }
     body .selector__option--active, body .selector__option--active:hover {
       color: #fff;
       background-color: var(--primary-colour); }
@@ -1395,42 +1416,42 @@ a:not([class]) {
 ul:not([class]) {
   list-style: none;
   margin: 1rem auto; }
-  ul:not([class]) li {
+  ul:not([class]) > li {
     position: relative;
     padding-left: 2rem;
     margin-bottom: 0.5rem; }
-    ul:not([class]) li:before {
+    ul:not([class]) > li:before {
       position: absolute;
       display: block;
       content: '';
       width: 0.4rem;
       height: 0.4rem;
       border-radius: 50%;
-      top: 0.7rem;
+      top: 1rem;
       left: 0.5rem;
       background: var(--primary-colour); }
 
 ol:not([class]) {
   margin: 1rem auto;
   list-style: none; }
-  ol:not([class]) li {
+  ol:not([class]) > li {
     padding-left: 2rem;
     margin-bottom: 0.5rem;
     position: relative;
     counter-increment: counter; }
-    ol:not([class]) li:before {
+    ol:not([class]) > li:before {
       position: absolute;
       display: block;
       content: '';
-      top: 0.4rem;
+      top: 0.3rem;
       left: 0.5rem;
       content: counter(counter) ".";
       font-weight: 700;
       font-size: 75%;
       color: var(--primary-colour); }
-    ol:not([class]) li li {
+    ol:not([class]) > li li {
       counter-increment: internalcounter; }
-      ol:not([class]) li li:before {
+      ol:not([class]) > li li:before {
         content: counter(internalcounter) "."; }
 
 .mobileMenu {
