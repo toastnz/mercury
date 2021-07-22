@@ -43,7 +43,88 @@ class StyleGuideController extends Controller
     public function TextBlock()
     {
         $arrayData = new ArrayData([
-            'Content' => DBField::create_field(DBHTMLText::class, '<h5 class="colour--primary"><b>ALIQUAM TINCIDUNT</b></h5><h1 class="h2">Morbi in sem quis dui placerat ornare</h1><h6>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.</h6><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, <a href="">feugiat vitae</a>, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
+            'Content' => DBField::create_field(DBHTMLText::class, '<h1>This is an H1, the most important heading on a page</h1>
+            <h2>This is an H2, the second most important heading on a page</h2>
+            <h3>This is an H3, the third most important heading on a page</h3>
+            <h4>This is an H4, the fourth most important heading on a page</h4>
+            <h5>This is an H5, the fifth most important heading on a page</h5>
+            <h6>This is an H6, the sixth most important heading on a page</h6>
+            <p>
+                <strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+                <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,
+                <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui.
+                <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
+                <p>&nbsp;</p>
+                <p>
+                <a href="#" onclick="event.preventDefault();" class="button">Normal Button</a>
+                <a href="#" onclick="event.preventDefault();" class="button button--secondary">Secondary Button</a>
+                <a href="#" onclick="event.preventDefault();" class="button button--outline">Outline Button</a>
+                </p>
+                <p>
+                <a href="#" onclick="event.preventDefault();" class="button button--rounded">Normal Button Rounded</a>
+                <a href="#" onclick="event.preventDefault();" class="button button--secondary button--rounded">Secondary Button Rounded</a>
+                <a href="#" onclick="event.preventDefault();" class="button button--outline button--rounded">Outline Button Rounded</a>
+                <p>&nbsp;</p>
+                <ul>
+                    <li>This is an unordered list item</li>
+                    <li>This is an unordered list item that has a slightly longer amount of text that may run over more than one line</li>
+                    <li>This is an unordered list item
+                        <ul>
+                            <li>This is an unordered list item</li>
+                            <li>This is an unordered list item that has a slightly longer amount of text that may run over more than one line</li>
+                            <li>This is an unordered list item</li>
+                            <li>This is an unordered list item</li>
+                        </ul>
+                    </li>
+                    <li>This is an unordered list item</li>
+                </ul>
+
+                <ol>
+                    <li>This is an unordered list item</li>
+                    <li>This is an unordered list item that has a slightly longer amount of text that may run over more than one line</li>
+                    <li>This is an unordered list item
+                        <ol>
+                            <li>This is an unordered list item</li>
+                            <li>This is an unordered list item that has a slightly longer amount of text that may run over more than one line</li>
+                            <li>This is an unordered list item</li>
+                            <li>This is an unordered list item</li>
+                        </ol>
+                    </li>
+                    <li>This is an unordered list item</li>
+                </ol>
+                <p>&nbsp;</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Table head th</th>
+                            <th>Table head th</th>
+                            <th>Table head th</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Table body td</td>
+                            <td>Table body td</td>
+                            <td>Table body td</td>
+                        </tr>
+                        <tr>
+                            <td>Table body td</td>
+                            <td>Table body td</td>
+                            <td>Table body td</td>
+                        </tr>
+                        <tr>
+                            <td>Table body td</td>
+                            <td>Table body td</td>
+                            <td>Table body td</td>
+                        </tr>
+                        <tr>
+                            <td>Table body td</td>
+                            <td>Table body td</td>
+                            <td>Table body td</td>
+                        </tr>
+                    </tbody>
+                </table>
+                ')
         ]);
         return $arrayData->renderWith('Toast\Blocks\Block');
     }
@@ -88,26 +169,32 @@ class StyleGuideController extends Controller
     {
         $Items = new ArrayList([
             new ArrayData([
+                'Image' => Image::find('Placeholder.jpg'),
                 'Title' => 'Dolor sit dolor',
                 'Summary' => 'Esse officia consectetur sit proident ipsum mollit fugiat amet veniam ipsum velit.'
             ]),
             new ArrayData([
+                'Image' => Image::find('Placeholder.jpg'),
                 'Title' => 'Adipisicing sunt',
                 'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut fugiat non in nisi occaecat ut aliquip.'
             ]),
             new ArrayData([
+                'Image' => Image::find('Placeholder.jpg'),
                 'Title' => 'Occaecat eiusmod qui',
                 'Summary' => 'Adipisicing sunt fugiat tempor elit Lorem ullamco mollit sit veniam.'
             ]),
             new ArrayData([
+                'Image' => Image::find('Placeholder.jpg'),
                 'Title' => 'Dolor sit dolor',
                 'Summary' => 'Esse officia consectetur sit proident ipsum mollit fugiat amet veniam ipsum velit.'
             ]),
             new ArrayData([
+                'Image' => Image::find('Placeholder.jpg'),
                 'Title' => 'Adipisicing sunt',
                 'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut fugiat non in nisi occaecat ut aliquip.'
             ]),
             new ArrayData([
+                'Image' => Image::find('Placeholder.jpg'),
                 'Title' => 'Occaecat eiusmod qui',
                 'Summary' => 'Adipisicing sunt fugiat tempor elit Lorem ullamco mollit sit veniam.'
             ]),
@@ -183,7 +270,7 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Image'   => Image::find('Placeholder.jpg'),
-            'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Ipsum dolor sit</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
+            'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Ipsum dolor sit</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
         ]);
         return $arrayData->renderWith('Toast\Blocks\ImageTextBlock');
     }

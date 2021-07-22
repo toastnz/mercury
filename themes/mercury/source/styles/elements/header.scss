@@ -20,6 +20,10 @@
     max-width: $xl;
     margin: 0 auto;
 
+    &--full {
+      max-width: 100%;
+    }
+
     &__menu {
       @include vertical-align;
       left: 0;
@@ -39,42 +43,20 @@
         }
 
         &__link {
-          padding: 2.6rem 0.5rem;
+          padding: 2rem 0.5rem;
           display: block;
-          font-size: 1.6rem;
           margin: 0;
           color: $text;
           position: relative;
 
           p {
-            font-size: 1.8rem !important;
             margin: 0 !important;
           }
 
-          &:after {
-            @include pseudo;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 3px;
-            background: $primary;
-            transform: scaleX(0);
-            transition: all 222ms ease;
-          }
-
-          &.active,
-          &:hover {
-            color: $primary;
-          }
-
-          &:hover,
-          &.section,
-          &.current {
-            color: $primary;
-
-            &:after {
-              transform: scaleX(1);
-            }
+          &:hover .nav,
+          &.section   .nav,
+          &.current .nav{
+            color: $primary !important;
           }
         }
       }

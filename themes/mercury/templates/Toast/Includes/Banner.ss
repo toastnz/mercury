@@ -23,7 +23,7 @@ Banner
                 Banner Background Video
                 ------------------------------------------------------------------%>    
                 <% if $BannerVideo %>
-                    <div class="banner__wrap__item__video [ js-banner-video ]" data-video-id="$BannerVideo.VideoID" data-video-service="$BannerVideo.Service"><div id="video-player"></div></div>
+                    <div class="banner__wrap__item__video [ js-banner-video ]" data-video-id="$BannerVideo.VideoID"><div id="video-player"></div></div>
                 <% end_if %>    
 
                 <%------------------------------------------------------------------

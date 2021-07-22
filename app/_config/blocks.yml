@@ -2,7 +2,6 @@
 Name: siteblocks
 After: toastblocks
 ---
-
 Toast\Blocks\Extensions\PageExtension:
   available_blocks:
     - Toast\Blocks\TextBlock
@@ -10,10 +9,9 @@ Toast\Blocks\Extensions\PageExtension:
     - Toast\Blocks\DownloadBlock
     - Toast\Blocks\VideoBlock
     - Toast\Blocks\AccordionBlock
-    - Toast\Blocks\HeroBlock
+    - Toast\Blocks\TabbedContentBlock
+    - Toast\Blocks\UserFormBlock
     - Toast\Blocks\LinkBlock
     - Toast\Blocks\ChildLinkBlock
-    - Toast\Blocks\TabbedContentBlock
     - Toast\Blocks\ImageTextBlock
-    - Toast\Blocks\UserFormBlock
-
+    - Toast\Blocks\HeroBlock

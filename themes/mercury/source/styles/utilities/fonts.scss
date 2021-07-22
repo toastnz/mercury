@@ -84,8 +84,9 @@ strong {
   @include bold;
 }
 
+i,
 em {
-  font-style: italic;
+  font-style: italic !important;
 }
 
 .text-center {

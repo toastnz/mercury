@@ -27,7 +27,8 @@ class SiteConfigExtension extends DataExtension
         'GoogleAnalytics' =>  'Varchar(64)',
         'GoogleTagManagerID' =>  'Varchar(64)',
         'BugherdProjectKey' => 'Varchar(64)',
-        'GoogleMapsApiKey' => 'Varchar(64)'
+        'GoogleMapsApiKey' => 'Varchar(64)',
+        'MakeHeaderFullWidth' => 'Boolean'
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -48,6 +49,11 @@ class SiteConfigExtension extends DataExtension
                 TextareaField::create('FooterCodeInjection', 'Footer Code Injection')
                     ->setDescription('Enter code that will be injected into the footer on every page of your site.'),
                 LiteralField::create('CodeInjectionWarning', '<div class="message warning"><strong>Note:</strong> Only <strong>Default Admin</strong> can view these settings</div>')
+            ]);
+            $fields->findOrMakeTab('Root.Theme');
+
+            $fields->addFieldsToTab('Root.Theme', [
+                CheckboxField::create('MakeHeaderFullWidth', 'Make Header Full Width')
             ]);
         }
 

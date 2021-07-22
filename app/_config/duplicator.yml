@@ -1,0 +1,15 @@
+---
+Name: duplicator
+---
+SilverStripe\ORM\DataObject:
+  extensions:
+    - Toast\Extensions\DuplicatorExtension
+
+Page:
+  duplicator_relations:
+    - BannerSlides
+    - ContentBlocks
+
+Toast\Blocks\AccordionBlock:
+  duplicator_relations:
+    - Items

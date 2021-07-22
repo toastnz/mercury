@@ -36,16 +36,6 @@
         }
       }
 
-      &.bordered {
-        &:after {
-          @include pseudo;
-          top: 0;
-          left: 0;
-          right: 0;
-          border-top: 4px solid $primary;
-        }
-      }
-
       &.inView {
         opacity: 1;
         transform: matrix(1, 0, 0, 1, 0, 0);
@@ -58,8 +48,6 @@
       }
 
       &__image {
-        @include cover;
-        @include aspect(600, 300);
         width: 100%;
       }
 
@@ -81,13 +69,17 @@
         &__heading {
           position: relative;
           margin: 2rem auto 1rem;
-          text-align: center;
         }
       }
 
       &__content {
+        padding-bottom: 6rem;
+
         &__link {
           color: $primary;
+          position: absolute;
+          bottom: 2rem;
+          left: 3rem;
 
           svg {
             transition: all 333ms ease;

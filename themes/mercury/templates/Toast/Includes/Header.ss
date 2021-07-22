@@ -1,5 +1,5 @@
 <header class="header">
-    <div class="header__wrap">
+    <div class="header__wrap <% if $Siteconfig.MakeHeaderFullWidth %>header__wrap--full<% end_if %>">
 
         <a href="{$BaseRef}" class="header__wrap__logo">
             $SVG('logo')
@@ -13,7 +13,7 @@
             <% loop Menu(1) %>
             <div class="header__wrap__menu__item [ js-indicator-hover ]">
                 <a href="$Link" class="header__wrap__menu__item__link {$LinkingMode}">
-                    <p>$Title</p>
+                    <p class="nav">$Title</p>
                 </a>
 
                 <% if $Children %>
@@ -22,13 +22,13 @@
 
                     <div class="relative">
                         <a href="{$Link}" class="header__wrap__nav__link__subnav__item {$LinkingMode}">
-                            <p>{$MenuTitle}</p>
+                            <p class="nav">{$MenuTitle}</p>
                         </a>
                         <% if $Children %>
                         <div class="header__wrap__nav__link__subnav__item__third">
                             <% loop $Children %>
                             <a href="{$Link}" class="header__wrap__nav__link__subnav__item__third__item">
-                                <p>{$MenuTitle}</p>
+                                <p class="nav">{$MenuTitle}</p>
                             </a>
                             <% end_loop %>
                         </div>

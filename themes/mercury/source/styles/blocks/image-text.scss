@@ -4,22 +4,28 @@
 
 .imageText {
   + .imageText {
-    margin-top: 20rem !important;
+    &[data-parallax] {
+      margin-top: 20rem !important;
+    }
+  }
+
+  [data-parallax] .imageText__wrap {
+    align-items: flex-start;
+    margin: 10rem auto;
+
+    @include media($md, max) {
+      margin: 10rem auto;
+    }
   }
 
   &__wrap {
     padding: 0 2rem;
     position: relative;
     max-width: $xl;
-    margin: 10rem auto;
-    display: flex;
     width: 100%;
+    display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
-
-    @include media($md, max) {
-      margin: 10rem auto;
-    }
+    margin: 6rem auto;
 
     &__image {
       width: 50%;
@@ -31,7 +37,10 @@
       justify-content: space-around;
       padding: 0;
       z-index: 4;
-      box-shadow: $shadow;
+
+      &[data-parallax] {
+        box-shadow: $shadow;
+      }
 
       @include media($md, max) {
         width: 100%;
@@ -68,6 +77,7 @@
         width: 100%;
         order: 2 !important;
         transform: none !important;
+        padding: 3rem 3rem;
       }
 
       &:after {
