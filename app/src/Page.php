@@ -3,24 +3,24 @@
 use Toast\Helpers\Helper;
 use Toast\Models\BannerSlide;
 
-use SilverStripe\Assets\Image;
 use SilverStripe\Forms\FieldGroup;
-use SilverStripe\Security\Security;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\DropdownField;
-use SilverStripe\Security\Permission;
-use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\CMS\Controllers\ContentController;
+use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use Toast\Pages\SearchResultsPage;
+use SilverStripe\ORM\DB;
 
 class Page extends SiteTree
 {
     private static $db = [
         'CustomTemplateFile' => 'Varchar(1024)',
-        'CustomTemplateType' => 'Enum("Layout,main","Layout")'
+        'CustomTemplateType' => 'Enum("Layout,main","Layout")',
+        'TransparentHeader' => 'Boolean'
     ];
 
     private static $has_many = [
@@ -45,7 +45,8 @@ class Page extends SiteTree
         );
 
         $fields->addFieldsToTab('Root.Banner', [
-            $gridField
+            CheckboxField::create('TransparentHeader', 'Make the header transparent'),
+            $gridField,
         ]);
 
 
@@ -67,6 +68,9 @@ class Page extends SiteTree
         ]);
         return $fields;
     }
+
+
+   
 }
 
 class PageController extends ContentController

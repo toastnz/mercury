@@ -3,21 +3,15 @@
 namespace Toast\Extensions;
 
 use Toast\Helpers\Helper;
-use SilverStripe\Forms\TabSet;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\ORM\DataExtension;
-use SilverStripe\Security\Security;
-use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\LiteralField;
-use SilverStripe\Control\Email\Email;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextareaField;
-use SilverStripe\Security\Permission;
-use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\Forms\TreeMultiselectField;
-use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\File;
 
 class SiteConfigExtension extends DataExtension
 {
@@ -31,8 +25,32 @@ class SiteConfigExtension extends DataExtension
         'MakeHeaderFullWidth' => 'Boolean'
     ];
 
+    private static $has_one = [
+        'Logo' => File::class
+    ];
+
+    private static $owns = [
+        'Logo'
+    ];
+
+
     public function updateCMSFields(FieldList $fields)
     {
+
+
+        /** -----------------------------------------
+         * Branding
+         * ----------------------------------------*/
+
+        if (Helper::isSuperAdmin()) {
+
+            $fields->findOrMakeTab('Root.Theme');
+
+            $fields->addFieldsToTab('Root.Theme', [
+                UploadField::create('Logo', 'Logo')
+                    ->setDescription('Upload an SVG logo for your site')
+            ]);
+        }
 
         /** -----------------------------------------
          * Code Injection

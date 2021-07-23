@@ -10,3 +10,7 @@ SilverStripe\Assets\File:
     - 'jpg'
     - 'png'
     - 'jpeg'
+
+SilverStripe\Blog\Model\BlogController:
+  extensions:
+    - Toast\Extensions\BlogControllerExtension

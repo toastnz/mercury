@@ -7,6 +7,10 @@
   position: relative;
   margin-top: 8rem;
 
+  &.hasTransparentHeader {
+    margin-top: 0;
+  }
+
   &__wrap {
     width: 100%;
     position: relative;

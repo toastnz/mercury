@@ -7,7 +7,11 @@
     <div class="login__form">
         <div class="login__form__wrap">
             <div class="login__form__wrap__logo">
-                $SVG('logo')
+                <% if $SiteConfig.Logo %>
+                    <img src="$SiteConfig.Logo.URL" alt="$SiteConfig.Title" />
+                <% else %>
+                    $SVG('logo')
+                <% end_if %>
             </div>
 
             <div class="login__form__wrap__copy">

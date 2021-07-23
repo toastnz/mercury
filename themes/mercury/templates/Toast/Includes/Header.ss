@@ -1,8 +1,12 @@
-<header class="header">
+<header class="header<% if $TransparentHeader %> header--transparent<% end_if %>">
     <div class="header__wrap <% if $Siteconfig.MakeHeaderFullWidth %>header__wrap--full<% end_if %>">
 
         <a href="{$BaseRef}" class="header__wrap__logo">
-            $SVG('logo')
+            <% if $SiteConfig.Logo %>
+                <img src="$SiteConfig.Logo.URL" alt="$SiteConfig.Title" />
+            <% else %>
+                $SVG('logo')
+            <% end_if %>
         </a>
 
         <%----------------------------------------------------------------

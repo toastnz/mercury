@@ -2,6 +2,10 @@
 // Header - Styles
 //------------------------------------------------------------------
 
+html {
+  min-height: 200vh;
+}
+
 .header {
   width: 100%;
   position: fixed;
@@ -13,6 +17,25 @@
   z-index: 999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+
+  &--transparent {
+    box-shadow: none;
+    background: transparent;
+
+    + .banner {
+      margin-top: 0;
+    }
+  }
+
+  &.nav-down {
+    transform: translateY(0%);
+    background: $white;
+    box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
+  }
+
+  &.nav-up {
+    transform: translateY(-110%);
+  }
 
   &__wrap {
     position: relative;
@@ -54,8 +77,8 @@
           }
 
           &:hover .nav,
-          &.section   .nav,
-          &.current .nav{
+          &.section .nav,
+          &.current .nav {
             color: $primary !important;
           }
         }

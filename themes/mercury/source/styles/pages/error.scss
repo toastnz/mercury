@@ -10,7 +10,7 @@
 
 .fourOhFour {
   @include full;
-  background: $primary;
+  background: $primary; 
 
   &__wrap {
     @include vertical-center;

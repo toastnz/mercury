@@ -1,10 +1,14 @@
 <?php
 
-use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
-use SilverStripe\Security\PasswordValidator;
 use SilverStripe\Security\Member;
-use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Security\Security;
+use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Security\PasswordValidator;
+use SilverStripe\ORM\Search\FulltextSearchable;
+use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
+
+
 // remove PasswordValidator for SilverStripe 5.0
 $validator = PasswordValidator::create();
 // Settings are registered via Injector configuration - see passwords.yml in framework
@@ -78,10 +82,10 @@ if (Security::database_is_ready()) {
                 '.colour--primary {color: ' . $primaryColour . '; } '
                     . '.colour--secondary {color: ' . $secondaryColour . '; } '
                     . '.colour--white {color: #bbbbbb; } '
+                    . '.button--rounded {padding:5px 10px !important;border-radius:100rem; color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; border-radius:100rem;} '
                     . '.button {padding:5px 10px !important;color:white;background: ' . $primaryColour . '; } '
                     . '.button--secondary {padding:5px 10px !important;color:white;background: ' . $secondaryColour . '; } '
                     . '.button--outline {padding:5px 10px !important;background:transparent;color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; } '
-                    . '.button--rounded {padding:5px 10px !important;border-radius:100rem; color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; border-radius:100rem;} '
                     . '.text-center {text-align:center;} '
                     . '.text-right {text-align:right;} '
                     . 'h1 {font-size:2.4em;margin-top: .2em;margin-bottom: .2em;} '
@@ -94,4 +98,10 @@ if (Security::database_is_ready()) {
             ]);
     } catch (\Exception $e) {
     }
+}
+
+try {
+    FulltextSearchable::enable([SiteTree::class]);
+} catch (\Exception $e) {
+    user_error($e->getMessage(), E_USER_NOTICE);
 }

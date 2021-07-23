@@ -1,7 +1,7 @@
 <%------------------------------------------------------------------
 Banner
 ------------------------------------------------------------------%>
-<div class="banner [ js-banner ]">
+<div class="banner [ js-banner ] <% if $TransparentHeader %> hasTransparentHeader<% end_if %>">
 
     <%------------------------------------------------------------------
     If more than one slide, let's make a slider
