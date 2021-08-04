@@ -101,6 +101,5 @@ Google tracking
 Styles
 -------------------------------------------------------------- -->
 
-<%-- <% require themedCSS("dist/styles/main.css") %> --%>
 
 <link rel="stylesheet" href="/themes/mercury/dist/styles/main.css" media="print" onload="this.media='all'">

@@ -22,3 +22,9 @@ SilverStripe\Blog\Model\BlogPost:
 SilverStripe\Blog\Model\Blog:
   extensions:
     - Toast\Extensions\BlogExtension    
+
+Heyday\MenuManager\MenuSet:
+  default_sets:
+    - Header
+    - FooterLeft
+    - FooterRight

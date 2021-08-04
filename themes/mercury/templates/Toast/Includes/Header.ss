@@ -14,7 +14,7 @@
         ----------------------------------------------------------------%>
         <div class="header__wrap__menu">
 
-            <% loop Menu(1) %>
+            <% loop $MenuSet('Header').MenuItems %>
             <div class="header__wrap__menu__item [ js-indicator-hover ]">
                 <a href="$Link" class="header__wrap__menu__item__link {$LinkingMode}">
                     <p class="nav">$Title</p>

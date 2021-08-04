@@ -3,15 +3,17 @@
 namespace Toast\Extensions;
 
 use Toast\Helpers\Helper;
+use SilverStripe\Assets\File;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\ORM\DataExtension;
+use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextareaField;
+use Sheadawson\Linkable\Forms\LinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\Assets\File;
 
 class SiteConfigExtension extends DataExtension
 {
@@ -22,11 +24,13 @@ class SiteConfigExtension extends DataExtension
         'GoogleTagManagerID' =>  'Varchar(64)',
         'BugherdProjectKey' => 'Varchar(64)',
         'GoogleMapsApiKey' => 'Varchar(64)',
-        'MakeHeaderFullWidth' => 'Boolean'
+        'MakeHeaderFullWidth' => 'Boolean',
     ];
 
     private static $has_one = [
-        'Logo' => File::class
+        'Logo' => File::class,
+        'TermsLink' => Link::class,
+        'PrivacyLink' => Link::class,
     ];
 
     private static $owns = [
@@ -37,6 +41,20 @@ class SiteConfigExtension extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
 
+
+        /** -----------------------------------------
+         * Branding
+         * ----------------------------------------*/
+
+        if (Helper::isSuperAdmin()) {
+
+            $fields->findOrMakeTab('Root.Links');
+
+            $fields->addFieldsToTab('Root.Links', [
+                LinkField::create('TermsLinkID', 'Terms and Conditions Page'),
+                LinkField::create('PrivacyLinkID', 'Privacy Policy Page'),
+            ]);
+        }
 
         /** -----------------------------------------
          * Branding

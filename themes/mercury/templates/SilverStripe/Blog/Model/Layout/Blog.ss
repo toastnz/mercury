@@ -7,6 +7,11 @@ Blog Section
 ------------------------------------------------------------------ -->
 <section class="blog">
 	<div class="blog__wrap">
+
+		<div class="blog__wrap__filter">
+			
+		</div>
+
 		<div class="blog__wrap__grid">
 
 			<% loop $PaginatedList %>

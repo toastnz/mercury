@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f5e6e3e04355262a295ea92c20bb334e",
+    "content-hash": "0d050e30e469a9902e934fb95afc3b0f",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -837,6 +837,51 @@
                 "url"
             ],
             "time": "2021-04-26T09:17:50+00:00"
+        },
+        {
+            "name": "heyday/silverstripe-menumanager",
+            "version": "3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/heyday/silverstripe-menumanager.git",
+                "reference": "a65bb5190bb84affdd535c70babebbb0195a0618"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/heyday/silverstripe-menumanager/zipball/a65bb5190bb84affdd535c70babebbb0195a0618",
+                "reference": "a65bb5190bb84affdd535c70babebbb0195a0618",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~4.0",
+                "silverstripe/vendor-plugin": "^1.0",
+                "symbiote/silverstripe-gridfieldextensions": "^3.0"
+            },
+            "require-dev": {
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "dev-master": "3.0.x-dev"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Heyday\\MenuManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Heyday Developers",
+                    "email": "dev@heyday.co.nz",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Allows complex menu management to be handled through the CMS when a simple tree structure is not enough.",
+            "time": "2021-03-30T20:51:34+00:00"
         },
         {
             "name": "intervention/image",
