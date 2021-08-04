@@ -1,5 +1,4 @@
 const path = require('path');
-const WebappWebpackPlugin = require('webapp-webpack-plugin');
 const root = path.resolve(__dirname, '../../../');
 
 const config = {
@@ -16,15 +15,7 @@ const config = {
                 }
             }
         ]
-    },
-    plugins: [
-        new WebappWebpackPlugin({
-            logo: root + '/icon.png',
-            prefix: 'favicons/',
-            favicons: {
-            }
-        })
-    ]
+    }
 };
 
 module.exports = config;

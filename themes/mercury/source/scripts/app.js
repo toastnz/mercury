@@ -6,15 +6,13 @@ Import styles
 ------------------------------------------------------------------*/
 
 import './../styles/style.scss';
-
+ 
 window.onload = () => {
-    'use strict';
-
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./sw.js');
     }
 }
-
+ 
 /*------------------------------------------------------------------
 Import modules
 ------------------------------------------------------------------*/
@@ -23,7 +21,7 @@ import './components/imageText';
 import './components/inview';
 import './components/mobileMenu';
 import './components/search';
-import './components/grid'; 
+import './components/grid';
 import './components/banner';
 
 /*------------------------------------------------------------------

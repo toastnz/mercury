@@ -1,12 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const { getIfUtils, removeEmpty } = require('webpack-config-utils');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin =  require('terser-webpack-plugin')
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
 const stats = {
     colors: true,
     hash: false,
@@ -29,16 +29,17 @@ module.exports = (env, argv) => {
     const { ifProduction } = getIfUtils(argv.mode);
 
     return {
-        mode: ifProduction('production', 'development'),
         entry: path.resolve(__dirname, '../source/scripts/app.js'),
+        mode: ifProduction('production', 'development'),
         stats,
-        devtool: ifProduction('', 'source-map'),
+        devtool: ifProduction('source-map', 'source-map'),
         output: {
             publicPath: '/themes/mercury/dist/scripts/',
             path: path.resolve(__dirname, '../dist/scripts'),
             filename: '[name].js',
             sourceMapFilename: '[file].map[query]',
-            chunkFilename: '[name].js?id=[query]',
+            chunkFilename: '[name].[hash].js?id=[query]',
+            clean: true,
         },
         resolve: {
             alias: {
@@ -60,17 +61,7 @@ module.exports = (env, argv) => {
                             loader: 'css-loader',
                             options: { sourceMap: ifProduction(true, false) }
                         },
-                        {
-                            loader: 'postcss-loader',
-                            options: {
-                                sourceMap: ifProduction(true, false),
-                                plugins: [
-                                    autoprefixer({
-                                        'overrideBrowserslist': ['last 10 versions']
-                                    })
-                                ]
-                            }
-                        },
+                        'postcss-loader',
                         {
                             loader: 'sass-loader',
                             options: { sourceMap: ifProduction(true, false) }
@@ -97,20 +88,10 @@ module.exports = (env, argv) => {
             ]
         },
         optimization: {
+            minimize: ifProduction(true, false),
             minimizer: [
-                new UglifyJsPlugin({
-                    cache: true,
-                    parallel: true,
-                    extractComments: 'all',
-                    sourceMap: ifProduction(true, false)
-                }),
                 new TerserPlugin({
-                    sourceMap: true,
-                    terserOptions: {
-                        compress: {
-                            drop_console: true,
-                        },
-                    },
+                    extractComments: "all",
                 }),
                 new OptimizeCssAssetsPlugin({
                     cssProcessorOptions: { discardComments: { removeAll: true } },

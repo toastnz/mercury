@@ -1,13 +1,12 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
+"use strict";
+(self["webpackChunkmercury"] = self["webpackChunkmercury"] || []).push([["themes_mercury_source_scripts_components_tabbed_js"],{
 
 /***/ "./themes/mercury/source/scripts/components/tabbed.js":
 /*!************************************************************!*\
   !*** ./themes/mercury/source/scripts/components/tabbed.js ***!
   \************************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
@@ -66,4 +65,4 @@ document.addEventListener('DOMContentLoaded', function () {
 /***/ })
 
 }]);
-//# sourceMappingURL=2.js.map?id=
+//# sourceMappingURL=themes_mercury_source_scripts_components_tabbed_js.29b6f57bda34bb32d9c1.js.map?id=[query]

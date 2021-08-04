@@ -1,742 +1,257 @@
-/******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	function webpackJsonpCallback(data) {
-/******/ 		var chunkIds = data[0];
-/******/ 		var moreModules = data[1];
-/******/
-/******/
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, resolves = [];
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 				resolves.push(installedChunks[chunkId][0]);
-/******/ 			}
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
-/******/
-/******/ 		while(resolves.length) {
-/******/ 			resolves.shift()();
-/******/ 		}
-/******/
-/******/ 	};
-/******/
-/******/
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// object to store loaded and loading chunks
-/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 	// Promise = chunk loading, 0 = chunk loaded
-/******/ 	var installedChunks = {
-/******/ 		"main": 0
-/******/ 	};
-/******/
-/******/
-/******/
-/******/ 	// script path function
-/******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({}[chunkId]||chunkId) + ".js?id="
-/******/ 	}
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
-/******/ 		var promises = [];
-/******/
-/******/
-/******/ 		// JSONP chunk loading for javascript
-/******/
-/******/ 		var installedChunkData = installedChunks[chunkId];
-/******/ 		if(installedChunkData !== 0) { // 0 means "already installed".
-/******/
-/******/ 			// a Promise means "currently loading".
-/******/ 			if(installedChunkData) {
-/******/ 				promises.push(installedChunkData[2]);
-/******/ 			} else {
-/******/ 				// setup Promise in chunk cache
-/******/ 				var promise = new Promise(function(resolve, reject) {
-/******/ 					installedChunkData = installedChunks[chunkId] = [resolve, reject];
-/******/ 				});
-/******/ 				promises.push(installedChunkData[2] = promise);
-/******/
-/******/ 				// start chunk loading
-/******/ 				var script = document.createElement('script');
-/******/ 				var onScriptComplete;
-/******/
-/******/ 				script.charset = 'utf-8';
-/******/ 				script.timeout = 120;
-/******/ 				if (__webpack_require__.nc) {
-/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 				}
-/******/ 				script.src = jsonpScriptSrc(chunkId);
-/******/
-/******/ 				// create error before stack unwound to get useful stacktrace later
-/******/ 				var error = new Error();
-/******/ 				onScriptComplete = function (event) {
-/******/ 					// avoid mem leaks in IE.
-/******/ 					script.onerror = script.onload = null;
-/******/ 					clearTimeout(timeout);
-/******/ 					var chunk = installedChunks[chunkId];
-/******/ 					if(chunk !== 0) {
-/******/ 						if(chunk) {
-/******/ 							var errorType = event && (event.type === 'load' ? 'missing' : event.type);
-/******/ 							var realSrc = event && event.target && event.target.src;
-/******/ 							error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
-/******/ 							error.name = 'ChunkLoadError';
-/******/ 							error.type = errorType;
-/******/ 							error.request = realSrc;
-/******/ 							chunk[1](error);
-/******/ 						}
-/******/ 						installedChunks[chunkId] = undefined;
-/******/ 					}
-/******/ 				};
-/******/ 				var timeout = setTimeout(function(){
-/******/ 					onScriptComplete({ type: 'timeout', target: script });
-/******/ 				}, 120000);
-/******/ 				script.onerror = script.onload = onScriptComplete;
-/******/ 				document.head.appendChild(script);
-/******/ 			}
-/******/ 		}
-/******/ 		return Promise.all(promises);
-/******/ 	};
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// define __esModule on exports
-/******/ 	__webpack_require__.r = function(exports) {
-/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 		}
-/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 	};
-/******/
-/******/ 	// create a fake namespace object
-/******/ 	// mode & 1: value is a module id, require it
-/******/ 	// mode & 2: merge all properties of value into the ns
-/******/ 	// mode & 4: return value when already ns object
-/******/ 	// mode & 8|1: behave like require
-/******/ 	__webpack_require__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __webpack_require__(value);
-/******/ 		if(mode & 8) return value;
-/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-/******/ 		var ns = Object.create(null);
-/******/ 		__webpack_require__.r(ns);
-/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
-/******/ 		return ns;
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/themes/mercury/dist/scripts/";
-/******/
-/******/ 	// on error function for async loading
-/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
-/******/
-/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
-/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
-/******/ 	jsonpArray.push = webpackJsonpCallback;
-/******/ 	jsonpArray = jsonpArray.slice();
-/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
-/******/ 	var parentJsonpFunction = oldJsonpFunction;
-/******/
-/******/
-/******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./themes/mercury/source/scripts/app.js");
-/******/ })
-/************************************************************************/
-/******/ ({
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/@meteora-digital/template/dist/js/template.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@meteora-digital/template/dist/js/template.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./themes/mercury/source/scripts/components/banner.js":
+/*!************************************************************!*\
+  !*** ./themes/mercury/source/scripts/components/banner.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var youtube_player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! youtube-player */ "./node_modules/youtube-player/dist/index.js");
+/* harmony import */ var youtube_player__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(youtube_player__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
+/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(slick_carousel__WEBPACK_IMPORTED_MODULE_2__);
+/*------------------------------------------------------------------
+Banner Video
+------------------------------------------------------------------*/
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+  var $body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function loopObject(object, func) {
-  if (object && _typeof(object) === 'object') {
-    for (var key in object) {
-      func(key, object[key]);
-    }
-  }
-}
-
-var Template = /*#__PURE__*/function () {
-  function Template(object) {
-    _classCallCheck(this, Template);
-
-    this.data = object;
-    this.html = [];
-
-    if (Object.prototype.toString.call(this.data) == '[object Array]') {
-      if (this.data.length >= 2) {
-        for (var i = 0; i < this.data.length; i++) {
-          this.html.push(this.createTemplate(this.data[i]));
-        }
-      } else {
-        this.html = this.createTemplate(this.data[0]);
+  var throttle = function throttle(callback, limit) {
+    var wait = false;
+    return function () {
+      if (!wait) {
+        callback.call();
+        wait = true;
+        setTimeout(function () {
+          return wait = false;
+        }, limit);
       }
-    } else if (_typeof(this.data) === 'object') {
-      this.html = this.createTemplate(this.data);
-    }
-  }
+    };
+  };
 
-  _createClass(Template, [{
-    key: "createTemplate",
-    value: function createTemplate(data) {
-      var _this = this;
+  var resizeVideo = function resizeVideo() {
+    var bw = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner').outerWidth();
+    var bh = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner').outerHeight();
+    var ratio = 1920 / 1080;
 
-      var element = document.createElement(data.tagName);
-      delete data.tagName;
-      element.className = '';
-      loopObject(data, function (key, value) {
-        // Children
-        if (key === 'innerHTML' && _typeof(value) === 'object') {
-          for (var i = 0; i < value.length; i++) {
-            element.appendChild(_this.createTemplate(value[i]));
-          }
-        } // Classes
-        else if (key === 'classList' || key === 'className') {
-            element.className += value;
-          } // Styles
-          else if (key === 'style' && _typeof(value) === 'object') {
-              loopObject(value, function (styleName, styleValue) {
-                element.style[styleName] = styleValue;
-              });
-            } // Data Attributes
-            else if (key === 'dataset') {
-                if (_typeof(value) === 'object') {
-                  loopObject(value, function (dataName, dataValue) {
-                    element.setAttribute("data-".concat(dataName), dataValue);
-                  });
-                }
-              } else {
-                element[key] = value;
-              }
+    if (bw / bh < ratio) {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-video').css({
+        height: bh,
+        width: bh * ratio
       });
-      return element;
+    } else {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-video').css({
+        height: bh * ratio,
+        width: bw
+      });
     }
-  }, {
-    key: "renderInside",
-    value: function renderInside(el) {
-      if (el) {
-        if (Array.isArray(this.html)) {
-          for (var i = 0; i < this.html.length; i++) {
-            el.appendChild(this.html[i]);
-          }
-        } else {
-          el.appendChild(this.html);
-        }
+  };
+
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('#video-player').length) {
+    var player = youtube_player__WEBPACK_IMPORTED_MODULE_1___default()('video-player', {
+      color: 'white',
+      controls: 0,
+      autoplay: 1,
+      rel: 0,
+      fs: 0,
+      modestbranding: 1
+    });
+    player.loadVideoById(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-video').attr('data-video-id'));
+    player.mute();
+    player.playVideo().then(function () {
+      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#video-player').css({
+        opacity: 1
+      });
+    });
+    window.addEventListener('resize', throttle(resizeVideo, 100));
+    resizeVideo();
+    player.on('stateChange', function (e) {
+      if (e.data == YT.PlayerState.ENDED) player.playVideo();
+    });
+  }
+
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-slider').length) {
+    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      dots: true,
+      autoplaySpeed: 5000,
+      autoplay: true,
+      customPaging: function customPaging() {
+        return '<span></span>';
       }
-    }
-  }]);
-
-  return Template;
-}();
-/* new Template(
-  [
-    {
-      tagName: 'article',
-      classList: 'classes here'
-      innerHTML: [
-        {
-          tagName: 'p',
-          classList: 'classes here',
-          innnerHTML: 'Text here'
-        },
-        {
-          tagName: 'input',
-          type: 'checkbox',
-          value: 1,
-        }
-      ]
-    }
-  ]
-)*/
-
-
-exports["default"] = Template;
+    });
+  }
+});
 
 /***/ }),
 
-/***/ "./node_modules/debug/src/browser.js":
-/*!*******************************************!*\
-  !*** ./node_modules/debug/src/browser.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./themes/mercury/source/scripts/components/grid.js":
+/*!**********************************************************!*\
+  !*** ./themes/mercury/source/scripts/components/grid.js ***!
+  \**********************************************************/
+/***/ (() => {
 
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * This is the web browser implementation of `debug()`.
- *
- * Expose `debug()` as the module.
- */
-
-exports = module.exports = __webpack_require__(/*! ./debug */ "./node_modules/debug/src/debug.js");
-exports.log = log;
-exports.formatArgs = formatArgs;
-exports.save = save;
-exports.load = load;
-exports.useColors = useColors;
-exports.storage = 'undefined' != typeof chrome
-               && 'undefined' != typeof chrome.storage
-                  ? chrome.storage.local
-                  : localstorage();
-
-/**
- * Colors.
- */
-
-exports.colors = [
-  'lightseagreen',
-  'forestgreen',
-  'goldenrod',
-  'dodgerblue',
-  'darkorchid',
-  'crimson'
-];
-
-/**
- * Currently only WebKit-based Web Inspectors, Firefox >= v31,
- * and the Firebug extension (any Firefox version) are known
- * to support "%c" CSS customizations.
- *
- * TODO: add a `localStorage` variable to explicitly enable/disable colors
- */
-
-function useColors() {
-  // NB: In an Electron preload script, document will be defined but not fully
-  // initialized. Since we know we're in Chrome, we'll just detect this case
-  // explicitly
-  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
-    return true;
+/*------------------------------------------------------------------
+Debug Grid
+------------------------------------------------------------------*/
+document.addEventListener('keydown', function (e) {
+  if ((window.navigator.platform.match('Mac') ? e.metaKey : e.ctrlKey) && e.code === 'KeyG') {
+    e.preventDefault();
+    document.querySelector('.js-debug-grid').classList.toggle('active');
   }
+}, false);
 
-  // is webkit? http://stackoverflow.com/a/16459606/376773
-  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
-  return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
-    // is firebug? http://stackoverflow.com/a/398120/376773
-    (typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
-    // is firefox >= v31?
-    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
-    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
-    // double check webkit in userAgent just in case we are in a worker
-    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
-}
+/***/ }),
 
-/**
- * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
- */
+/***/ "./themes/mercury/source/scripts/components/imageText.js":
+/*!***************************************************************!*\
+  !*** ./themes/mercury/source/scripts/components/imageText.js ***!
+  \***************************************************************/
+/***/ (() => {
 
-exports.formatters.j = function(v) {
-  try {
-    return JSON.stringify(v);
-  } catch (err) {
-    return '[UnexpectedJSONParseError]: ' + err.message;
-  }
-};
+var parallaxItems = [];
 
+function scrollHandler() {
+  var windowHeight = window.innerHeight;
+  parallaxItems.forEach(function (item) {
+    var ratio = parseFloat(item.getAttribute('data-parallax'));
+    var rect = item.getBoundingClientRect();
 
-/**
- * Colorize log arguments if enabled.
- *
- * @api public
- */
-
-function formatArgs(args) {
-  var useColors = this.useColors;
-
-  args[0] = (useColors ? '%c' : '')
-    + this.namespace
-    + (useColors ? ' %c' : ' ')
-    + args[0]
-    + (useColors ? '%c ' : ' ')
-    + '+' + exports.humanize(this.diff);
-
-  if (!useColors) return;
-
-  var c = 'color: ' + this.color;
-  args.splice(1, 0, c, 'color: inherit')
-
-  // the final "%c" is somewhat tricky, because there could be other
-  // arguments passed either before or after the %c, so we need to
-  // figure out the correct index to insert the CSS into
-  var index = 0;
-  var lastC = 0;
-  args[0].replace(/%[a-zA-Z%]/g, function(match) {
-    if ('%%' === match) return;
-    index++;
-    if ('%c' === match) {
-      // we only are interested in the *last* %c
-      // (the user may have provided their own)
-      lastC = index;
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      var normalized = (rect.top - windowHeight) / (rect.top - rect.bottom - windowHeight);
+      normalized = Math.max(0, Math.min(1, normalized));
+      var y = normalized * ratio * rect.height;
+      item.style.webkitTransform = 'translate(0, ' + y + 'px)';
+      item.style.MozTransform = 'translate(0, ' + y + 'px)';
+      item.style.msTransform = 'translate(0, ' + y + 'px)';
+      item.style.OTransform = 'translate(0, ' + y + 'px)';
+      item.style.transform = 'translate(0, ' + y + 'px)';
     }
   });
-
-  args.splice(lastC, 0, c);
 }
 
-/**
- * Invokes `console.log()` when available.
- * No-op when `console.log` is not a "function".
- *
- * @api public
- */
+function init() {
+  var itemsParallax = document.querySelectorAll('[data-parallax]');
 
-function log() {
-  // this hackery is required for IE8/9, where
-  // the `console.log` function doesn't have 'apply'
-  return 'object' === typeof console
-    && console.log
-    && Function.prototype.apply.call(console.log, console, arguments);
-}
-
-/**
- * Save `namespaces`.
- *
- * @param {String} namespaces
- * @api private
- */
-
-function save(namespaces) {
-  try {
-    if (null == namespaces) {
-      exports.storage.removeItem('debug');
-    } else {
-      exports.storage.debug = namespaces;
-    }
-  } catch(e) {}
-}
-
-/**
- * Load `namespaces`.
- *
- * @return {String} returns the previously persisted debug modes
- * @api private
- */
-
-function load() {
-  var r;
-  try {
-    r = exports.storage.debug;
-  } catch(e) {}
-
-  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
-  if (!r && typeof process !== 'undefined' && 'env' in process) {
-    r = process.env.DEBUG;
+  for (var i = 0; i < itemsParallax.length; i++) {
+    parallaxItems.push(itemsParallax[i]);
   }
 
-  return r;
+  scrollHandler();
+  window.addEventListener('scroll', scrollHandler);
 }
 
-/**
- * Enable namespaces listed in `localStorage.debug` initially.
- */
-
-exports.enable(load());
-
-/**
- * Localstorage attempts to return the localstorage.
- *
- * This is necessary because safari throws
- * when a user disables cookies/localstorage
- * and you attempt to access it.
- *
- * @return {LocalStorage}
- * @api private
- */
-
-function localstorage() {
-  try {
-    return window.localStorage;
-  } catch (e) {}
-}
-
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js")))
+window.onload = init;
 
 /***/ }),
 
-/***/ "./node_modules/debug/src/debug.js":
-/*!*****************************************!*\
-  !*** ./node_modules/debug/src/debug.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./themes/mercury/source/scripts/components/inview.js":
+/*!************************************************************!*\
+  !*** ./themes/mercury/source/scripts/components/inview.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var in_view__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! in-view */ "./node_modules/in-view/dist/in-view.min.js");
+/* harmony import */ var in_view__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(in_view__WEBPACK_IMPORTED_MODULE_0__);
+/*------------------------------------------------------------------
+Imports
+------------------------------------------------------------------*/
 
-/**
- * This is the common logic for both the Node.js and web browser
- * implementations of `debug()`.
- *
- * Expose `debug()` as the module.
- */
+document.addEventListener('DOMContentLoaded', function () {
+  in_view__WEBPACK_IMPORTED_MODULE_0___default()('.js-in-view').on('enter', function (el) {
+    el.classList.add('inView');
+  }); // .on('exit', el => el.classList.remove('inView'));
+});
 
-exports = module.exports = createDebug.debug = createDebug['default'] = createDebug;
-exports.coerce = coerce;
-exports.disable = disable;
-exports.enable = enable;
-exports.enabled = enabled;
-exports.humanize = __webpack_require__(/*! ms */ "./node_modules/ms/index.js");
+/***/ }),
 
-/**
- * The currently active debug mode names, and names to skip.
- */
+/***/ "./themes/mercury/source/scripts/components/mobileMenu.js":
+/*!****************************************************************!*\
+  !*** ./themes/mercury/source/scripts/components/mobileMenu.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-exports.names = [];
-exports.skips = [];
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
+/*------------------------------------------------------------------
+Mega Menu
+------------------------------------------------------------------*/
 
-/**
- * Map of special "%n" handling functions, for the debug "format" argument.
- *
- * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
- */
+var $body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
+var enableMobileMenu = true;
+/*------------------------------------------------------------------
+Variables
+------------------------------------------------------------------*/
 
-exports.formatters = {};
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+  $body.on('click', '.js-toggle-menu', function (e) {
+    e.preventDefault();
+    $body.toggleClass('mobileMenuActive');
+  });
+  var $topLevel = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-top-level');
+  $topLevel.on('click', function (e) {
+    /*------------------------------------------------------------------
+    If the user didnt click on the span in side
+    ------------------------------------------------------------------*/
+    if (e.target !== 'span') {
+      var $this = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.currentTarget);
 
-/**
- * Previous log timestamp.
- */
-
-var prevTime;
-
-/**
- * Select a color.
- * @param {String} namespace
- * @return {Number}
- * @api private
- */
-
-function selectColor(namespace) {
-  var hash = 0, i;
-
-  for (i in namespace) {
-    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);
-    hash |= 0; // Convert to 32bit integer
-  }
-
-  return exports.colors[Math.abs(hash) % exports.colors.length];
-}
-
-/**
- * Create a debugger with the given `namespace`.
- *
- * @param {String} namespace
- * @return {Function}
- * @api public
- */
-
-function createDebug(namespace) {
-
-  function debug() {
-    // disabled?
-    if (!debug.enabled) return;
-
-    var self = debug;
-
-    // set `diff` timestamp
-    var curr = +new Date();
-    var ms = curr - (prevTime || curr);
-    self.diff = ms;
-    self.prev = prevTime;
-    self.curr = curr;
-    prevTime = curr;
-
-    // turn the `arguments` into a proper Array
-    var args = new Array(arguments.length);
-    for (var i = 0; i < args.length; i++) {
-      args[i] = arguments[i];
-    }
-
-    args[0] = exports.coerce(args[0]);
-
-    if ('string' !== typeof args[0]) {
-      // anything else let's inspect with %O
-      args.unshift('%O');
-    }
-
-    // apply any `formatters` transformations
-    var index = 0;
-    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
-      // if we encounter an escaped % then don't increase the array index
-      if (match === '%%') return match;
-      index++;
-      var formatter = exports.formatters[format];
-      if ('function' === typeof formatter) {
-        var val = args[index];
-        match = formatter.call(self, val);
-
-        // now we need to remove `args[index]` since it's inlined in the `format`
-        args.splice(index, 1);
-        index--;
+      if (!$this.hasClass('active')) {
+        $topLevel.removeClass('active');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-second-level').slideUp();
+        $this.next('.js-second-level').slideToggle();
+        setTimeout(function () {
+          return $this.addClass('active');
+        }, 100);
+      } else {
+        $topLevel.removeClass('active');
+        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-second-level').slideUp();
       }
-      return match;
-    });
-
-    // apply env-specific formatting (colors, etc.)
-    exports.formatArgs.call(self, args);
-
-    var logFn = debug.log || exports.log || console.log.bind(console);
-    logFn.apply(self, args);
-  }
-
-  debug.namespace = namespace;
-  debug.enabled = exports.enabled(namespace);
-  debug.useColors = exports.useColors();
-  debug.color = selectColor(namespace);
-
-  // env-specific initialization logic for debug instances
-  if ('function' === typeof exports.init) {
-    exports.init(debug);
-  }
-
-  return debug;
-}
-
-/**
- * Enables a debug mode by namespaces. This can include modes
- * separated by a colon and wildcards.
- *
- * @param {String} namespaces
- * @api public
- */
-
-function enable(namespaces) {
-  exports.save(namespaces);
-
-  exports.names = [];
-  exports.skips = [];
-
-  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
-  var len = split.length;
-
-  for (var i = 0; i < len; i++) {
-    if (!split[i]) continue; // ignore empty strings
-    namespaces = split[i].replace(/\*/g, '.*?');
-    if (namespaces[0] === '-') {
-      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
-    } else {
-      exports.names.push(new RegExp('^' + namespaces + '$'));
     }
-  }
-}
+  });
+});
 
-/**
- * Disable debug output.
- *
- * @api public
- */
+/***/ }),
 
-function disable() {
-  exports.enable('');
-}
+/***/ "./themes/mercury/source/scripts/components/search.js":
+/*!************************************************************!*\
+  !*** ./themes/mercury/source/scripts/components/search.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/**
- * Returns true if the given mode name is enabled, false otherwise.
- *
- * @param {String} name
- * @return {Boolean}
- * @api public
- */
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 
-function enabled(name) {
-  var i, len;
-  for (i = 0, len = exports.skips.length; i < len; i++) {
-    if (exports.skips[i].test(name)) {
-      return false;
-    }
-  }
-  for (i = 0, len = exports.names.length; i < len; i++) {
-    if (exports.names[i].test(name)) {
-      return true;
-    }
-  }
-  return false;
-}
-
-/**
- * Coerce `val`.
- *
- * @param {Mixed} val
- * @return {Mixed}
- * @api private
- */
-
-function coerce(val) {
-  if (val instanceof Error) return val.stack || val.message;
-  return val;
-}
-
+jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
+  var $body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
+  $body.on('click', '.js-toggle-search', function (e) {
+    e.preventDefault();
+    $body.addClass('searchActive');
+  });
+  $body.on('click', '.js-close-search', function (e) {
+    e.preventDefault();
+    $body.removeClass('searchActive');
+  });
+  jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('keydown', function (e) {
+    if (e.keyCode === 27) $body.removeClass('searchActive');
+  });
+});
 
 /***/ }),
 
@@ -744,15 +259,14 @@ function coerce(val) {
 /*!**************************************************!*\
   !*** ./node_modules/in-view/dist/in-view.min.js ***!
   \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module) {
 
 /*!
  * in-view 0.6.1 - Get notified when a DOM element enters or exits the viewport.
  * Copyright (c) 2016 Cam Wiegert <cam@camwiegert.com> - https://camwiegert.github.io/in-view
  * License: MIT
  */
-!function(t,e){ true?module.exports=e():undefined}(this,function(){return function(t){function e(r){if(n[r])return n[r].exports;var i=n[r]={exports:{},id:r,loaded:!1};return t[r].call(i.exports,i,i.exports,e),i.loaded=!0,i.exports}var n={};return e.m=t,e.c=n,e.p="",e(0)}([function(t,e,n){"use strict";function r(t){return t&&t.__esModule?t:{"default":t}}var i=n(2),o=r(i);t.exports=o["default"]},function(t,e){function n(t){var e=typeof t;return null!=t&&("object"==e||"function"==e)}t.exports=n},function(t,e,n){"use strict";function r(t){return t&&t.__esModule?t:{"default":t}}Object.defineProperty(e,"__esModule",{value:!0});var i=n(9),o=r(i),u=n(3),f=r(u),s=n(4),c=function(){if("undefined"!=typeof window){var t=100,e=["scroll","resize","load"],n={history:[]},r={offset:{},threshold:0,test:s.inViewport},i=(0,o["default"])(function(){n.history.forEach(function(t){n[t].check()})},t);e.forEach(function(t){return addEventListener(t,i)}),window.MutationObserver&&addEventListener("DOMContentLoaded",function(){new MutationObserver(i).observe(document.body,{attributes:!0,childList:!0,subtree:!0})});var u=function(t){if("string"==typeof t){var e=[].slice.call(document.querySelectorAll(t));return n.history.indexOf(t)>-1?n[t].elements=e:(n[t]=(0,f["default"])(e,r),n.history.push(t)),n[t]}};return u.offset=function(t){if(void 0===t)return r.offset;var e=function(t){return"number"==typeof t};return["top","right","bottom","left"].forEach(e(t)?function(e){return r.offset[e]=t}:function(n){return e(t[n])?r.offset[n]=t[n]:null}),r.offset},u.threshold=function(t){return"number"==typeof t&&t>=0&&t<=1?r.threshold=t:r.threshold},u.test=function(t){return"function"==typeof t?r.test=t:r.test},u.is=function(t){return r.test(t,r)},u.offset(0),u}};e["default"]=c()},function(t,e){"use strict";function n(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=function(){function t(e,r){n(this,t),this.options=r,this.elements=e,this.current=[],this.handlers={enter:[],exit:[]},this.singles={enter:[],exit:[]}}return r(t,[{key:"check",value:function(){var t=this;return this.elements.forEach(function(e){var n=t.options.test(e,t.options),r=t.current.indexOf(e),i=r>-1,o=n&&!i,u=!n&&i;o&&(t.current.push(e),t.emit("enter",e)),u&&(t.current.splice(r,1),t.emit("exit",e))}),this}},{key:"on",value:function(t,e){return this.handlers[t].push(e),this}},{key:"once",value:function(t,e){return this.singles[t].unshift(e),this}},{key:"emit",value:function(t,e){for(;this.singles[t].length;)this.singles[t].pop()(e);for(var n=this.handlers[t].length;--n>-1;)this.handlers[t][n](e);return this}}]),t}();e["default"]=function(t,e){return new i(t,e)}},function(t,e){"use strict";function n(t,e){var n=t.getBoundingClientRect(),r=n.top,i=n.right,o=n.bottom,u=n.left,f=n.width,s=n.height,c={t:o,r:window.innerWidth-u,b:window.innerHeight-r,l:i},a={x:e.threshold*f,y:e.threshold*s};return c.t>e.offset.top+a.y&&c.r>e.offset.right+a.x&&c.b>e.offset.bottom+a.y&&c.l>e.offset.left+a.x}Object.defineProperty(e,"__esModule",{value:!0}),e.inViewport=n},function(t,e){(function(e){var n="object"==typeof e&&e&&e.Object===Object&&e;t.exports=n}).call(e,function(){return this}())},function(t,e,n){var r=n(5),i="object"==typeof self&&self&&self.Object===Object&&self,o=r||i||Function("return this")();t.exports=o},function(t,e,n){function r(t,e,n){function r(e){var n=x,r=m;return x=m=void 0,E=e,w=t.apply(r,n)}function a(t){return E=t,j=setTimeout(h,e),M?r(t):w}function l(t){var n=t-O,r=t-E,i=e-n;return _?c(i,g-r):i}function d(t){var n=t-O,r=t-E;return void 0===O||n>=e||n<0||_&&r>=g}function h(){var t=o();return d(t)?p(t):void(j=setTimeout(h,l(t)))}function p(t){return j=void 0,T&&x?r(t):(x=m=void 0,w)}function v(){void 0!==j&&clearTimeout(j),E=0,x=O=m=j=void 0}function y(){return void 0===j?w:p(o())}function b(){var t=o(),n=d(t);if(x=arguments,m=this,O=t,n){if(void 0===j)return a(O);if(_)return j=setTimeout(h,e),r(O)}return void 0===j&&(j=setTimeout(h,e)),w}var x,m,g,w,j,O,E=0,M=!1,_=!1,T=!0;if("function"!=typeof t)throw new TypeError(f);return e=u(e)||0,i(n)&&(M=!!n.leading,_="maxWait"in n,g=_?s(u(n.maxWait)||0,e):g,T="trailing"in n?!!n.trailing:T),b.cancel=v,b.flush=y,b}var i=n(1),o=n(8),u=n(10),f="Expected a function",s=Math.max,c=Math.min;t.exports=r},function(t,e,n){var r=n(6),i=function(){return r.Date.now()};t.exports=i},function(t,e,n){function r(t,e,n){var r=!0,f=!0;if("function"!=typeof t)throw new TypeError(u);return o(n)&&(r="leading"in n?!!n.leading:r,f="trailing"in n?!!n.trailing:f),i(t,e,{leading:r,maxWait:e,trailing:f})}var i=n(7),o=n(1),u="Expected a function";t.exports=r},function(t,e){function n(t){return t}t.exports=n}])});
+!function(t,e){ true?module.exports=e():0}(this,function(){return function(t){function e(r){if(n[r])return n[r].exports;var i=n[r]={exports:{},id:r,loaded:!1};return t[r].call(i.exports,i,i.exports,e),i.loaded=!0,i.exports}var n={};return e.m=t,e.c=n,e.p="",e(0)}([function(t,e,n){"use strict";function r(t){return t&&t.__esModule?t:{"default":t}}var i=n(2),o=r(i);t.exports=o["default"]},function(t,e){function n(t){var e=typeof t;return null!=t&&("object"==e||"function"==e)}t.exports=n},function(t,e,n){"use strict";function r(t){return t&&t.__esModule?t:{"default":t}}Object.defineProperty(e,"__esModule",{value:!0});var i=n(9),o=r(i),u=n(3),f=r(u),s=n(4),c=function(){if("undefined"!=typeof window){var t=100,e=["scroll","resize","load"],n={history:[]},r={offset:{},threshold:0,test:s.inViewport},i=(0,o["default"])(function(){n.history.forEach(function(t){n[t].check()})},t);e.forEach(function(t){return addEventListener(t,i)}),window.MutationObserver&&addEventListener("DOMContentLoaded",function(){new MutationObserver(i).observe(document.body,{attributes:!0,childList:!0,subtree:!0})});var u=function(t){if("string"==typeof t){var e=[].slice.call(document.querySelectorAll(t));return n.history.indexOf(t)>-1?n[t].elements=e:(n[t]=(0,f["default"])(e,r),n.history.push(t)),n[t]}};return u.offset=function(t){if(void 0===t)return r.offset;var e=function(t){return"number"==typeof t};return["top","right","bottom","left"].forEach(e(t)?function(e){return r.offset[e]=t}:function(n){return e(t[n])?r.offset[n]=t[n]:null}),r.offset},u.threshold=function(t){return"number"==typeof t&&t>=0&&t<=1?r.threshold=t:r.threshold},u.test=function(t){return"function"==typeof t?r.test=t:r.test},u.is=function(t){return r.test(t,r)},u.offset(0),u}};e["default"]=c()},function(t,e){"use strict";function n(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(e,"__esModule",{value:!0});var r=function(){function t(t,e){for(var n=0;n<e.length;n++){var r=e[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}return function(e,n,r){return n&&t(e.prototype,n),r&&t(e,r),e}}(),i=function(){function t(e,r){n(this,t),this.options=r,this.elements=e,this.current=[],this.handlers={enter:[],exit:[]},this.singles={enter:[],exit:[]}}return r(t,[{key:"check",value:function(){var t=this;return this.elements.forEach(function(e){var n=t.options.test(e,t.options),r=t.current.indexOf(e),i=r>-1,o=n&&!i,u=!n&&i;o&&(t.current.push(e),t.emit("enter",e)),u&&(t.current.splice(r,1),t.emit("exit",e))}),this}},{key:"on",value:function(t,e){return this.handlers[t].push(e),this}},{key:"once",value:function(t,e){return this.singles[t].unshift(e),this}},{key:"emit",value:function(t,e){for(;this.singles[t].length;)this.singles[t].pop()(e);for(var n=this.handlers[t].length;--n>-1;)this.handlers[t][n](e);return this}}]),t}();e["default"]=function(t,e){return new i(t,e)}},function(t,e){"use strict";function n(t,e){var n=t.getBoundingClientRect(),r=n.top,i=n.right,o=n.bottom,u=n.left,f=n.width,s=n.height,c={t:o,r:window.innerWidth-u,b:window.innerHeight-r,l:i},a={x:e.threshold*f,y:e.threshold*s};return c.t>e.offset.top+a.y&&c.r>e.offset.right+a.x&&c.b>e.offset.bottom+a.y&&c.l>e.offset.left+a.x}Object.defineProperty(e,"__esModule",{value:!0}),e.inViewport=n},function(t,e){(function(e){var n="object"==typeof e&&e&&e.Object===Object&&e;t.exports=n}).call(e,function(){return this}())},function(t,e,n){var r=n(5),i="object"==typeof self&&self&&self.Object===Object&&self,o=r||i||Function("return this")();t.exports=o},function(t,e,n){function r(t,e,n){function r(e){var n=x,r=m;return x=m=void 0,E=e,w=t.apply(r,n)}function a(t){return E=t,j=setTimeout(h,e),M?r(t):w}function l(t){var n=t-O,r=t-E,i=e-n;return _?c(i,g-r):i}function d(t){var n=t-O,r=t-E;return void 0===O||n>=e||n<0||_&&r>=g}function h(){var t=o();return d(t)?p(t):void(j=setTimeout(h,l(t)))}function p(t){return j=void 0,T&&x?r(t):(x=m=void 0,w)}function v(){void 0!==j&&clearTimeout(j),E=0,x=O=m=j=void 0}function y(){return void 0===j?w:p(o())}function b(){var t=o(),n=d(t);if(x=arguments,m=this,O=t,n){if(void 0===j)return a(O);if(_)return j=setTimeout(h,e),r(O)}return void 0===j&&(j=setTimeout(h,e)),w}var x,m,g,w,j,O,E=0,M=!1,_=!1,T=!0;if("function"!=typeof t)throw new TypeError(f);return e=u(e)||0,i(n)&&(M=!!n.leading,_="maxWait"in n,g=_?s(u(n.maxWait)||0,e):g,T="trailing"in n?!!n.trailing:T),b.cancel=v,b.flush=y,b}var i=n(1),o=n(8),u=n(10),f="Expected a function",s=Math.max,c=Math.min;t.exports=r},function(t,e,n){var r=n(6),i=function(){return r.Date.now()};t.exports=i},function(t,e,n){function r(t,e,n){var r=!0,f=!0;if("function"!=typeof t)throw new TypeError(u);return o(n)&&(r="leading"in n?!!n.leading:r,f="trailing"in n?!!n.trailing:f),i(t,e,{leading:r,maxWait:e,trailing:f})}var i=n(7),o=n(1),u="Expected a function";t.exports=r},function(t,e){function n(t){return t}t.exports=n}])});
 
 /***/ }),
 
@@ -760,8 +274,7 @@ function coerce(val) {
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
   \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * jQuery JavaScript Library v3.6.0
@@ -11607,7 +11120,7 @@ if ( true ) {
 	!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function() {
 		return jQuery;
 	}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 }
 
 
@@ -11653,8 +11166,7 @@ return jQuery;
 /*!*******************************************!*\
   !*** ./node_modules/load-script/index.js ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ ((module) => {
 
 
 module.exports = function load (src, opts, cb) {
@@ -11729,8 +11241,7 @@ function ieOnEnd (script, cb) {
 /*!********************************************!*\
   !*** ./node_modules/meteora/dist/index.js ***!
   \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ ((__unused_webpack_module, exports) => {
 
 function Event(event, params) {
   params = params || {
@@ -12048,360 +11559,15 @@ exports.stagger = stagger;
 
 /***/ }),
 
-/***/ "./node_modules/ms/index.js":
-/*!**********************************!*\
-  !*** ./node_modules/ms/index.js ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/***/ "./themes/mercury/source/styles/style.scss":
+/*!*************************************************!*\
+  !*** ./themes/mercury/source/styles/style.scss ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/**
- * Helpers.
- */
-
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var y = d * 365.25;
-
-/**
- * Parse or format the given `val`.
- *
- * Options:
- *
- *  - `long` verbose formatting [false]
- *
- * @param {String|Number} val
- * @param {Object} [options]
- * @throws {Error} throw an error if val is not a non-empty string or a number
- * @return {String|Number}
- * @api public
- */
-
-module.exports = function(val, options) {
-  options = options || {};
-  var type = typeof val;
-  if (type === 'string' && val.length > 0) {
-    return parse(val);
-  } else if (type === 'number' && isNaN(val) === false) {
-    return options.long ? fmtLong(val) : fmtShort(val);
-  }
-  throw new Error(
-    'val is not a non-empty string or a valid number. val=' +
-      JSON.stringify(val)
-  );
-};
-
-/**
- * Parse the given `str` and return milliseconds.
- *
- * @param {String} str
- * @return {Number}
- * @api private
- */
-
-function parse(str) {
-  str = String(str);
-  if (str.length > 100) {
-    return;
-  }
-  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
-    str
-  );
-  if (!match) {
-    return;
-  }
-  var n = parseFloat(match[1]);
-  var type = (match[2] || 'ms').toLowerCase();
-  switch (type) {
-    case 'years':
-    case 'year':
-    case 'yrs':
-    case 'yr':
-    case 'y':
-      return n * y;
-    case 'days':
-    case 'day':
-    case 'd':
-      return n * d;
-    case 'hours':
-    case 'hour':
-    case 'hrs':
-    case 'hr':
-    case 'h':
-      return n * h;
-    case 'minutes':
-    case 'minute':
-    case 'mins':
-    case 'min':
-    case 'm':
-      return n * m;
-    case 'seconds':
-    case 'second':
-    case 'secs':
-    case 'sec':
-    case 's':
-      return n * s;
-    case 'milliseconds':
-    case 'millisecond':
-    case 'msecs':
-    case 'msec':
-    case 'ms':
-      return n;
-    default:
-      return undefined;
-  }
-}
-
-/**
- * Short format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtShort(ms) {
-  if (ms >= d) {
-    return Math.round(ms / d) + 'd';
-  }
-  if (ms >= h) {
-    return Math.round(ms / h) + 'h';
-  }
-  if (ms >= m) {
-    return Math.round(ms / m) + 'm';
-  }
-  if (ms >= s) {
-    return Math.round(ms / s) + 's';
-  }
-  return ms + 'ms';
-}
-
-/**
- * Long format for `ms`.
- *
- * @param {Number} ms
- * @return {String}
- * @api private
- */
-
-function fmtLong(ms) {
-  return plural(ms, d, 'day') ||
-    plural(ms, h, 'hour') ||
-    plural(ms, m, 'minute') ||
-    plural(ms, s, 'second') ||
-    ms + ' ms';
-}
-
-/**
- * Pluralization helper.
- */
-
-function plural(ms, n, name) {
-  if (ms < n) {
-    return;
-  }
-  if (ms < n * 1.5) {
-    return Math.floor(ms / n) + ' ' + name;
-  }
-  return Math.ceil(ms / n) + ' ' + name + 's';
-}
-
-
-/***/ }),
-
-/***/ "./node_modules/process/browser.js":
-/*!*****************************************!*\
-  !*** ./node_modules/process/browser.js ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
 
 
 /***/ }),
@@ -12410,22 +11576,17 @@ process.umask = function() { return 0; };
 /*!**********************************************************!*\
   !*** ./node_modules/simple-selector/dist/js/selector.js ***!
   \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
-exports["default"] = void 0;
-
-var _template = _interopRequireDefault(__webpack_require__(/*! @meteora-digital/template */ "./node_modules/@meteora-digital/template/dist/js/template.js"));
+}));
+exports.default = void 0;
 
 var _meteora = __webpack_require__(/*! meteora */ "./node_modules/meteora/dist/index.js");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -12433,310 +11594,390 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var Selector = /*#__PURE__*/function () {
-  function Selector(select) {
+/*------------------------------------------------------------------
+Simple Selector
+------------------------------------------------------------------*/
+var SimpleSelector = /*#__PURE__*/function () {
+  function SimpleSelector(select) {
+    var _this = this;
+
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-    _classCallCheck(this, Selector);
+    _classCallCheck(this, SimpleSelector);
 
-    // Grab the default select box info
+    // The Simple Selector events will be store here
+    this.events = {}; // The selected option values will go here
+
+    this.selection = []; // The active state for the select
+
+    this.active = false; // This will be used to trigger a change event on the real select element
+
+    this.change = new _meteora.Event('change'); // Disable all inputs to keep form submissions clean
+
+    this.disable = null; // The default select element
+
     this["default"] = {
       select: select,
-      options: (0, _meteora.nodeArray)(select.querySelectorAll('option'))
-    }; // Gather the user's settings
+      options: select.children
+    }; // The select's ID
 
-    this.settings = (0, _meteora.objectAssign)({
-      placeholder: this["default"].select.getAttribute('placeholder') || 'Select',
-      "class": 'selector',
+    this.id = 'SimpleSelector_' + this["default"].select.id || 0; // The default settings
+
+    this.settings = {
       search: false,
-      multiple: this["default"].select.getAttribute('multiple') != undefined || false,
-      autoClose: true
-    }, options); // Render the new select box
+      autoClose: true,
+      "class": 'selector',
+      placeholder: this["default"].select.getAttribute('placeholder') || 'Select'
+    }; // Assign the user options to the defaults
 
-    this.faux = new _template["default"]({
-      tagName: 'div',
-      classList: this.settings["class"],
-      innerHTML: [{
-        tagName: 'div',
-        classList: "".concat(this.settings["class"], "__header"),
-        innerHTML: [{
-          tagName: 'span',
-          classList: "".concat(this.settings["class"], "__placeholder"),
-          innerHTML: this.settings.placeholder
-        }]
-      }, {
-        tagName: 'ul',
-        classList: "".concat(this.settings["class"], "__list unstyled")
-      }]
-    }); // Create the new template before the existing select
+    for (var key in this.settings) {
+      if (this.settings.hasOwnProperty(key) && options.hasOwnProperty(key)) this.settings[key] = options[key];
+    } // The new select element
 
-    this["default"].select.parentNode.insertBefore(this.faux.html, this["default"].select); // Initialise
 
-    this.select = this.faux.html;
-    this.header = this.select.querySelector(".".concat(this.settings["class"], "__header"));
-    this.placeholder = this.select.querySelector(".".concat(this.settings["class"], "__placeholder"));
-    this.list = this.select.querySelector(".".concat(this.settings["class"], "__list"));
-    this.options = [];
-    this.val = [];
-    this.changeEvent = (0, _meteora.Event)('change');
-    this.updateOptions(); // Render the search input
+    this.select = document.createElement('div'); // This will hold our options
+
+    this.options = []; // These are our template elements
+
+    this.template = {
+      header: document.createElement('div'),
+      placeholder: document.createElement('span'),
+      list: document.createElement('div'),
+      options: [],
+      search: document.createElement('input')
+    }; // Add a class to the new select
+
+    this.select.className = this.settings["class"]; // Loop the template object and add some classes
+
+    for (var name in this.template) {
+      if (this.template.hasOwnProperty(name)) this.template[name].className = "".concat(this.settings["class"], "__").concat(name);
+    } // Build the select html
+
+
+    this.template.header.appendChild(this.template.placeholder);
+    this.select.appendChild(this.template.header);
+    this.select.appendChild(this.template.list); // If we have search enabled
 
     if (this.settings.search) {
-      // Create the template
-      var search = new _template["default"]({
-        tagName: 'li',
-        classList: "".concat(this.settings["class"], "__search"),
-        innerHTML: [{
-          tagName: 'input',
-          classList: "".concat(this.settings["class"], "__searchInput"),
-          placeholder: 'Search'
-        }]
-      }); // Initialise
+      // The search input is a text input
+      this.template.search.type = 'text'; // The search input placeholder text
 
-      this.search = search.html;
-      this.searchInput = this.search.querySelector(".".concat(this.settings["class"], "__searchInput"));
-      this.list.insertBefore(this.search, this.list.childNodes[0]);
-    }
+      this.template.search.placeholder = 'Search'; // Put the search input into the select list
 
-    ;
+      this.template.list.appendChild(this.template.search); // When we type in the search input, we need to filter the options
 
-    if (this.settings.multiple) {
-      this["default"].select.setAttribute('multiple', true);
-      this.select.classList.add('multiple');
-    }
+      this.template.search.addEventListener('keyup', function () {
+        return _this.filter(_this.template.search.value);
+      });
+    } // When the default select is changed, we want to update the Simple Selector
 
-    this.events();
-    this.updateValue();
+
+    this["default"].select.addEventListener('change', function () {
+      return _this.update();
+    }); // Make the header Tab Accessible
+
+    this.template.header.setAttribute('tabindex', "0"); // If we want it to auto close
+
+    if (this.settings.autoClose) {
+      // If we have clicked somewhere else on the page then close the select
+      window.addEventListener('click', function (e) {
+        if (!(0, _meteora.relativeTarget)(e.target, _this.select)) _this.close();
+      });
+    } // Clicking the header should open / close the select list
+
+
+    this.template.header.addEventListener('click', function (e) {
+      e.preventDefault();
+      _this.active ? _this.close() : _this.open();
+    }); // When the header is focused if we hit enter
+
+    this.template.header.addEventListener('keypress', function (e) {
+      if (e.keyCode === 13 || e.keyCode === 32) {
+        e.preventDefault();
+        _this.active ? _this.close() : _this.open();
+      }
+    }); // Put the new selector in the template
+
+    this["default"].select.parentNode.insertBefore(this.select, this["default"].select); // Initialise the selector
+
+    this.reinit();
+    this.update();
   }
 
-  _createClass(Selector, [{
-    key: "updateOptions",
-    value: function updateOptions() {
-      var _this = this;
-
-      var template = null;
-      var selection = []; // Empty the list
-
-      this.options.forEach(function (option) {
-        return option.parentNode.removeChild(option);
-      });
-      this.options = []; // Get new options
-
-      this["default"].options = (0, _meteora.nodeArray)(this["default"].select.querySelectorAll('option')); // Gather our data from the <option>s
-
-      this["default"].options.forEach(function (option) {
-        template = new _template["default"]({
-          tagName: 'li',
-          classList: "".concat(_this.settings["class"], "__option"),
-          innerHTML: option.innerHTML,
-          dataset: {
-            value: option.value
-          }
-        }); // Grab all the data attributes from the option and assign them to the new one
-
-        for (var i = 0; i < option.attributes.length; i++) {
-          if (option.attributes[i].nodeName.indexOf('data-') >= 0) {
-            template.html.setAttribute(option.attributes[i].nodeName, option.attributes[i].nodeValue);
-          }
-        } // If the default option is disabled, disable the faux option
-
-
-        option.disabled ? template.html.setAttribute('data-disabled', true) : template.html.removeAttribute('data-disabled'); // Append the new options to the page
-
-        _this.options.push(template.html);
-      }); // Create our event handlers and append the items to our list
-
-      this.options.forEach(function (option, index) {
-        // Change the default select box and toggle some classes
-        option.addEventListener('click', function () {
-          // If the default option is enabled
-          if (_this["default"].options[index].disabled === false) {
-            // If we are using a multi-select
-            if (_this.settings.multiple) {
-              if (option.getAttribute('data-value') === '') {
-                // Clear all other options
-                _this.options.forEach(function (customOption, customOptionIndex) {
-                  customOption.classList.remove("".concat(_this.settings["class"], "__option--active"));
-                  _this["default"].options[customOptionIndex].selected = false;
-                }); // Select "all" option
-
-
-                option.classList.add("".concat(_this.settings["class"], "__option--active"));
-              } else {
-                // Clear the all option
-                if (_this["default"].options[0].value === '') _this.options[0].classList.remove("".concat(_this.settings["class"], "__option--active")); // If our option has already been selected, deselect it
-
-                if ((0, _meteora.containsClass)(option, "".concat(_this.settings["class"], "__option--active"))) {
-                  option.classList.remove("".concat(_this.settings["class"], "__option--active"));
-                  _this["default"].options[index].selected = false;
-                } // Otherwise, select it
-                else {
-                    option.classList.add("".concat(_this.settings["class"], "__option--active")); // Select all appropriate options in the default select
-
-                    _this.options.forEach(function (customOption, customOptionIndex) {
-                      _this["default"].options[customOptionIndex].selected = (0, _meteora.containsClass)(customOption, "".concat(_this.settings["class"], "__option--active"));
-                    });
-                  }
-              }
-            } // Otherwise select the single option, then close the input
-            else {
-                selection = [];
-
-                if (!option.classList.contains("".concat(_this.settings["class"], "__option--active"))) {
-                  // Toggle the active state to the option we just clicked
-                  _this.options.forEach(function (o) {
-                    return o.classList.remove("".concat(_this.settings["class"], "__option--active"));
-                  });
-
-                  option.classList.add("".concat(_this.settings["class"], "__option--active")); // Loop default options and select the one's who's value matches our duplicate
-
-                  _this["default"].options.forEach(function (defaultOption) {
-                    defaultOption.selected = defaultOption.value === option.getAttribute('data-value');
-                  });
-                }
-
-                if (_this.settings.autoClose) _this.close();
-              } // Our selected items all in a nice list
-
-
-            selection = (0, _meteora.nodeArray)(_this.list.querySelectorAll(".".concat(_this.settings["class"], "__option--active"))); // Set the placeholder based on the selected items
-
-            _this.updatePlaceholder(selection); // Finally send a change function to the original select
-
-
-            _this.change();
-          }
-        }); // Add these options to our list
-
-        _this.list.appendChild(option);
-      });
-    }
-  }, {
-    key: "events",
-    value: function events() {
+  _createClass(SimpleSelector, [{
+    key: "reinit",
+    value: function reinit() {
       var _this2 = this;
 
-      // Open or close the select depending on the user's clicked target
-      window.addEventListener('click', function (e) {
-        if (!(0, _meteora.relativeTarget)(e.target, _this2.select)) _this2.close();
-      }); // If we click on the header, and the selector is already open, we assume the user is trying to close it
+      // Find all the options in the real select element
+      this["default"].options = this["default"].select.children; // Remove the current options from the list
 
-      this.header.addEventListener('click', function () {
-        (0, _meteora.containsClass)(_this2.select, 'js-active') ? _this2.close() : _this2.open();
-      }); // When search is enabled add the filter event
-      // Note, the filter event can be used from outside this class
+      for (var i = 0; i < this.options.length; i++) {
+        this.template.list.removeChild(this.options[i].field);
+      } // Reset the options
 
-      if (this.search) this.searchInput.addEventListener('keyup', function () {
-        return _this2.filter(_this2.searchInput.value);
-      });
+
+      this.options = [];
+      this.template.options = []; // Loop all the option elements and add a new input to our select
+
+      for (var _i = 0; _i < this["default"].options.length; _i++) {
+        // Save it as an option
+        var option = this["default"].options[_i]; // Create our new option element
+
+        var input = document.createElement('input'); // Create a new label
+
+        var label = document.createElement('label'); // Set the type based on the type of select
+
+        input.type = this["default"].select.type == 'select-one' ? 'radio' : 'checkbox'; // Add the value to the input option
+
+        input.value = option.value; // The input name
+
+        input.name = this.id; // The input ID
+
+        input.id = "".concat(this.id, "_").concat(_i); // Get the content of the real option and chuck it into the label
+
+        label.innerHTML = option.innerHTML; // Add a class to the input option
+
+        label.className = "".concat(this.settings["class"], "__option"); // The label for attribute
+
+        label.htmlFor = "".concat(this.id, "_").concat(_i); // Grab all the data attributes from the option and assign them to the new one
+
+        for (var j = 0; j < option.attributes.length; j++) {
+          // Save as an attribute
+          var attribute = option.attributes[_i]; // If it is a data attribute
+
+          if (attribute && attribute.nodeName.indexOf('data-') > -1) {
+            // Add it to the new input option
+            input.setAttribute(attribute.nodeName, attribute.nodeValue);
+          }
+        } // Disable all inputs when the selector is closed
+
+
+        input.disabled = true; // Add this new option to the template options array
+
+        this.options.push({
+          "default": option,
+          input: input,
+          label: label,
+          // If the option is disabled, we need to reflect that on the new one
+          disabled: option.disabled
+        });
+      } // For all the new options
+
+
+      this.options.forEach(function (option, index) {
+        // Create a new group div to hold the input and label
+        option.field = document.createElement('div'); // Set a class for the group element
+
+        option.field.className = "".concat(_this2.settings["class"], "__item"); // When we click the option we need to change the real select's value
+
+        option.input.addEventListener('change', function (e) {
+          e.preventDefault(); // If this is a multi select toggle the option selected state
+
+          if (_this2["default"].select.type == 'select-multiple') {
+            // If this option has no value
+            if (option["default"].value == "") {
+              // Deselect all selected items
+              _this2.options.filter(function (item) {
+                return item["default"].getAttribute('selected');
+              }).forEach(function (item) {
+                return item["default"].removeAttribute('selected');
+              });
+            } else {
+              // Deselect the item with no value
+              _this2.options.filter(function (item) {
+                return item["default"].value == '';
+              }).forEach(function (item) {
+                return item["default"].removeAttribute('selected');
+              });
+            } // If the option is selected, deselect it
+
+
+            if (option.input.checked) {
+              option["default"].setAttribute('selected', 'selected');
+            } // Otherwise select it
+            else {
+                option["default"].removeAttribute('selected');
+              }
+          } // Otherwise select just the one item
+          else {
+              _this2["default"].select.selectedIndex = index;
+            } // Trigger the change event on the default select
+
+
+          _this2["default"].select.dispatchEvent(_this2.change);
+        }); // If we want it to autoClose and it is not a multi select, then close after selecting an option
+
+        if (_this2["default"].select.type == 'select-one' && _this2.settings.autoClose) {
+          // If we press enter on an input
+          option.input.addEventListener('keypress', function (e) {
+            e.preventDefault();
+            if (e.keyCode === 13 || e.keyCode === 32) _this2.close();
+          }); // When we click the label we want something to happen
+
+          option.label.addEventListener('click', function () {
+            return _this2.close();
+          });
+        } // Add the new option element to the template object and list element
+
+
+        _this2.template.options.push(option.input); // Put the input / label into the group element
+
+
+        option.field.appendChild(option.input);
+        option.field.appendChild(option.label); // Put the new group into the list
+
+        _this2.template.list.appendChild(option.field);
+      }); // Run the reinit callback
+
+      this.callback('reinit', this);
+    }
+  }, {
+    key: "update",
+    value: function update() {
+      // Reset our selection
+      this.selection = []; // Loop all the options and do something with the selected options
+
+      for (var i = 0; i < this.options.length; i++) {
+        // Save this as an option
+        var option = this.options[i]; // If the option is selected,
+
+        if (option["default"].selected) {
+          // Activate the input
+          option.input.checked = true; // If the deafult option has a real value
+
+          if (option["default"].value != "") {
+            // Push this option value to the selection
+            this.selection.push(option);
+          }
+        } else {
+          // Deactivate the input
+          option.input.checked = false;
+        }
+      } // Set the placeholder text
+
+
+      switch (this.selection.length) {
+        case 0:
+          // We have nothing selected so set the placeholder back to the default value
+          this.template.placeholder.innerHTML = this.settings.placeholder;
+          this.template.placeholder.className = "".concat(this.settings["class"], "__placeholder");
+          break;
+
+        case 1:
+          // we have one option selected so set the to match the selected option's text
+          this.template.placeholder.innerHTML = this.selection[0].label.textContent;
+          this.template.placeholder.classList.add("".concat(this.settings["class"], "__placeholder--single"));
+          this.template.placeholder.classList.remove("".concat(this.settings["class"], "__placeholder--multiple"));
+          break;
+
+        default:
+          // Otherwise we have multiple selected
+          this.template.placeholder.innerHTML = 'Multiple Selected';
+          this.template.placeholder.classList.remove("".concat(this.settings["class"], "__placeholder--single"));
+          this.template.placeholder.classList.add("".concat(this.settings["class"], "__placeholder--multiple"));
+          break;
+      } // Run the update callback
+
+
+      this.callback('update', this);
     }
   }, {
     key: "open",
     value: function open() {
-      // Add the active state
-      this.select.classList.add('js-active');
+      // Keep the select enabled
+      clearTimeout(this.disable); // Scroll the list to the top
+
+      this.template.list.scrollTo(0, 0); // Add the active state
+
+      this.select.classList.add("".concat(this.settings["class"], "--active")); // Activate the select state
+
+      this.active = true; // Enable all allowed inputs
+
+      this.options.forEach(function (option) {
+        return option.input.disabled = option.disabled;
+      }); // Find the enabled inputs
+
+      var enabled = this.options.filter(function (option) {
+        return option.disabled == false;
+      }); // If there are any enabled inputs focus on the first one
+
+      if (enabled.length) enabled[0].input.focus(); // Run the open callback
+
+      this.callback('open', this);
     }
   }, {
     key: "close",
     value: function close() {
+      var _this3 = this;
+
       // Remove the active state
-      this.select.classList.remove('js-active'); // Clear the search
+      this.select.classList.remove("".concat(this.settings["class"], "--active")); // Clear the search
 
       if (this.search) {
-        this.searchInput.value = '';
+        this.search.value = '';
         this.filter();
       }
 
-      ;
-    }
-  }, {
-    key: "value",
-    value: function value() {
-      var _this3 = this;
+      ; // Deactivate the select state
 
-      // function to return the single value, or an array of multiple values as needed
-      this.val = [];
-      this["default"].options.forEach(function (option) {
-        if (option.selected) _this3.val.push(option.value);
-      }); // if 2 of more -> array else if 1 -> value else if 0 -> ''
+      this.active = false; // Disable all the inputs
 
-      return this.val.length >= 2 ? this.val : this.val.length === 1 ? this.val[0] : '';
+      this.disable = setTimeout(function () {
+        _this3.options.forEach(function (option) {
+          return option.input.disabled = true;
+        });
+      }, 100); // Run the close callback
+
+      this.callback('close', this);
     } // Filters the options by looking for a specific string
 
   }, {
     key: "filter",
     value: function filter() {
-      var string = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-      this.options.forEach(function (option) {
-        option.style.display = option.textContent.toLowerCase().indexOf(string.toLowerCase()) > -1 || string.length === 0 ? 'block' : 'none';
-      });
-    } // Event to fire when dynamically changing the default select
-
-  }, {
-    key: "change",
-    value: function change() {
-      this["default"].select.dispatchEvent(this.changeEvent);
-    } // Set the placeholder based on the selected items
-
-  }, {
-    key: "updatePlaceholder",
-    value: function updatePlaceholder(selection) {
-      if (selection.length >= 2) {
-        // Add a class to show multiple options are selected
-        this.placeholder.classList.add('multiple-selected'); // Remove the class that shows one option is selected
-
-        this.placeholder.classList.remove('single-selected');
-        this.placeholder.innerHTML = 'Multiple selected';
-      } else if (selection.length === 1 && selection[0].getAttribute('data-value') != '') {
-        // Add a class to shows one option is selected
-        this.placeholder.classList.add('single-selected'); // Remove the class that shows multiple options are selected
-
-        this.placeholder.classList.remove('multiple-selected');
-        this.placeholder.innerHTML = selection[0].innerHTML;
-      } else {
-        // Remove the class that shows one option is selected
-        this.placeholder.classList.remove('single-selected'); // Remove the class that shows multiple options are selected
-
-        this.placeholder.classList.remove('multiple-selected');
-        this.placeholder.innerHTML = this.settings.placeholder;
-        if (this.settings.multiple && this["default"].options[0].value === '') this.options[0].classList.add("".concat(this.settings["class"], "__option--active"));
-      }
-    }
-  }, {
-    key: "updateValue",
-    value: function updateValue() {
       var _this4 = this;
 
-      var selection = [];
-      this["default"].options.forEach(function (option, index) {
-        if (option.selected && option.value !== "") selection.push(option);
-        option.selected ? _this4.options[index].classList.add("".concat(_this4.settings["class"], "__option--active")) : _this4.options[index].classList.remove("".concat(_this4.settings["class"], "__option--active"));
-      }); // Set the placeholder based on the selected items
+      var string = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+      // Loop through all the options
+      this.options.forEach(function (option) {
+        // If the option's text content matches our search query, or if the search query is empty
+        if (option.input.textContent.toLowerCase().indexOf(string.toLowerCase()) > -1 || string.length === 0) {
+          // Remove the hidden class
+          option.input.classList.remove("".concat(_this4.settings["class"], "--hidden"));
+        } // Otherwise
+        else {
+            // Add a hidden class
+            option.input.classList.add("".concat(_this4.settings["class"], "--hidden"));
+          }
+      }); // Run the filter callback
 
-      this.updatePlaceholder(selection);
+      this.callback('filter', this);
     }
   }, {
-    key: "update",
-    value: function update() {
-      this.updateOptions();
-      this.updateValue();
+    key: "callback",
+    value: function callback(type) {
+      var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      // run the callback functions
+      if (this.events[type]) this.events[type].forEach(function (event) {
+        return event(data);
+      });
+    }
+  }, {
+    key: "on",
+    value: function on(event, func) {
+      // If we loaded an event and it's not the on event and we also loaded a function
+      if (event && event != 'on' && event != 'callback' && this[event] && func && typeof func == 'function') {
+        if (this.events[event] == undefined) this.events[event] = []; // Push a new event to the event array
+
+        this.events[event].push(func);
+      }
     }
   }]);
 
-  return Selector;
-}(); // <select name="JobType" id="JobType" class="js-select">
-//   <option value="0">View All</option>
-//   <option value="1">Full Time</option>
-//   <option value="1">Part Time</option>
-//   <option value="1">Fixed Term</option>
-//   <option value="1">Contract</option>
-//   <option value="1">Casual</option>
-// </select>
-// import Selector from './components/Selector';
-// nodeArray(document.querSelectorAll('select.js-select')).forEach((select) => new Selector(select));
+  return SimpleSelector;
+}();
 
-
-exports["default"] = Selector;
+exports.default = SimpleSelector;
 
 /***/ }),
 
@@ -12744,8 +11985,7 @@ exports["default"] = Selector;
 /*!*******************************************!*\
   !*** ./node_modules/sister/src/sister.js ***!
   \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module) => {
 
 "use strict";
 
@@ -12817,8 +12057,7 @@ module.exports = Sister;
 /*!****************************************************!*\
   !*** ./node_modules/slick-carousel/slick/slick.js ***!
   \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
      _ _      _       _
@@ -12841,9 +12080,9 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     'use strict';
     if (true) {
         !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
-				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
-				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
     } else {}
 
 }(function($) {
@@ -15838,15 +15077,14 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /*!**************************************************************!*\
   !*** ./node_modules/youtube-player/dist/FunctionStateMap.js ***!
   \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
+}));
 
 var _PlayerStates = __webpack_require__(/*! ./constants/PlayerStates */ "./node_modules/youtube-player/dist/constants/PlayerStates.js");
 
@@ -15880,17 +15118,16 @@ module.exports = exports['default'];
 /*!***********************************************************!*\
   !*** ./node_modules/youtube-player/dist/YouTubePlayer.js ***!
   \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
+}));
 
-var _debug = __webpack_require__(/*! debug */ "./node_modules/debug/src/browser.js");
+var _debug = __webpack_require__(/*! debug */ "./node_modules/youtube-player/node_modules/debug/src/browser.js");
 
 var _debug2 = _interopRequireDefault(_debug);
 
@@ -16089,15 +15326,14 @@ module.exports = exports['default'];
 /*!********************************************************************!*\
   !*** ./node_modules/youtube-player/dist/constants/PlayerStates.js ***!
   \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, exports) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
+}));
 exports.default = {
   BUFFERING: 3,
   ENDED: 0,
@@ -16114,15 +15350,14 @@ module.exports = exports["default"];
 /*!********************************************************!*\
   !*** ./node_modules/youtube-player/dist/eventNames.js ***!
   \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, exports) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
+}));
 
 
 /**
@@ -16139,15 +15374,14 @@ module.exports = exports['default'];
 /*!***********************************************************!*\
   !*** ./node_modules/youtube-player/dist/functionNames.js ***!
   \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, exports) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
+}));
 
 
 /**
@@ -16162,15 +15396,14 @@ module.exports = exports['default'];
 /*!***************************************************!*\
   !*** ./node_modules/youtube-player/dist/index.js ***!
   \***************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
+}));
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
@@ -16266,15 +15499,14 @@ module.exports = exports['default'];
 /*!******************************************************************!*\
   !*** ./node_modules/youtube-player/dist/loadYouTubeIframeApi.js ***!
   \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ ((module, exports, __webpack_require__) => {
 
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", ({
   value: true
-});
+}));
 
 var _loadScript = __webpack_require__(/*! load-script */ "./node_modules/load-script/index.js");
 
@@ -16322,21 +15554,833 @@ module.exports = exports['default'];
 
 /***/ }),
 
-/***/ "./themes/mercury/source/scripts/app.js":
+/***/ "./node_modules/youtube-player/node_modules/debug/src/browser.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/youtube-player/node_modules/debug/src/browser.js ***!
+  \***********************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+/**
+ * This is the web browser implementation of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = __webpack_require__(/*! ./debug */ "./node_modules/youtube-player/node_modules/debug/src/debug.js");
+exports.log = log;
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = 'undefined' != typeof chrome
+               && 'undefined' != typeof chrome.storage
+                  ? chrome.storage.local
+                  : localstorage();
+
+/**
+ * Colors.
+ */
+
+exports.colors = [
+  'lightseagreen',
+  'forestgreen',
+  'goldenrod',
+  'dodgerblue',
+  'darkorchid',
+  'crimson'
+];
+
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+function useColors() {
+  // NB: In an Electron preload script, document will be defined but not fully
+  // initialized. Since we know we're in Chrome, we'll just detect this case
+  // explicitly
+  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
+    return true;
+  }
+
+  // is webkit? http://stackoverflow.com/a/16459606/376773
+  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+  return (typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance) ||
+    // is firebug? http://stackoverflow.com/a/398120/376773
+    (typeof window !== 'undefined' && window.console && (window.console.firebug || (window.console.exception && window.console.table))) ||
+    // is firefox >= v31?
+    // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31) ||
+    // double check webkit in userAgent just in case we are in a worker
+    (typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/));
+}
+
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+exports.formatters.j = function(v) {
+  try {
+    return JSON.stringify(v);
+  } catch (err) {
+    return '[UnexpectedJSONParseError]: ' + err.message;
+  }
+};
+
+
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+function formatArgs(args) {
+  var useColors = this.useColors;
+
+  args[0] = (useColors ? '%c' : '')
+    + this.namespace
+    + (useColors ? ' %c' : ' ')
+    + args[0]
+    + (useColors ? '%c ' : ' ')
+    + '+' + exports.humanize(this.diff);
+
+  if (!useColors) return;
+
+  var c = 'color: ' + this.color;
+  args.splice(1, 0, c, 'color: inherit')
+
+  // the final "%c" is somewhat tricky, because there could be other
+  // arguments passed either before or after the %c, so we need to
+  // figure out the correct index to insert the CSS into
+  var index = 0;
+  var lastC = 0;
+  args[0].replace(/%[a-zA-Z%]/g, function(match) {
+    if ('%%' === match) return;
+    index++;
+    if ('%c' === match) {
+      // we only are interested in the *last* %c
+      // (the user may have provided their own)
+      lastC = index;
+    }
+  });
+
+  args.splice(lastC, 0, c);
+}
+
+/**
+ * Invokes `console.log()` when available.
+ * No-op when `console.log` is not a "function".
+ *
+ * @api public
+ */
+
+function log() {
+  // this hackery is required for IE8/9, where
+  // the `console.log` function doesn't have 'apply'
+  return 'object' === typeof console
+    && console.log
+    && Function.prototype.apply.call(console.log, console, arguments);
+}
+
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+
+function save(namespaces) {
+  try {
+    if (null == namespaces) {
+      exports.storage.removeItem('debug');
+    } else {
+      exports.storage.debug = namespaces;
+    }
+  } catch(e) {}
+}
+
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+
+function load() {
+  var r;
+  try {
+    r = exports.storage.debug;
+  } catch(e) {}
+
+  // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+  if (!r && typeof process !== 'undefined' && 'env' in process) {
+    r = process.env.DEBUG;
+  }
+
+  return r;
+}
+
+/**
+ * Enable namespaces listed in `localStorage.debug` initially.
+ */
+
+exports.enable(load());
+
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+  try {
+    return window.localStorage;
+  } catch (e) {}
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/youtube-player/node_modules/debug/src/debug.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/youtube-player/node_modules/debug/src/debug.js ***!
+  \*********************************************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = createDebug.debug = createDebug['default'] = createDebug;
+exports.coerce = coerce;
+exports.disable = disable;
+exports.enable = enable;
+exports.enabled = enabled;
+exports.humanize = __webpack_require__(/*! ms */ "./node_modules/youtube-player/node_modules/ms/index.js");
+
+/**
+ * The currently active debug mode names, and names to skip.
+ */
+
+exports.names = [];
+exports.skips = [];
+
+/**
+ * Map of special "%n" handling functions, for the debug "format" argument.
+ *
+ * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+ */
+
+exports.formatters = {};
+
+/**
+ * Previous log timestamp.
+ */
+
+var prevTime;
+
+/**
+ * Select a color.
+ * @param {String} namespace
+ * @return {Number}
+ * @api private
+ */
+
+function selectColor(namespace) {
+  var hash = 0, i;
+
+  for (i in namespace) {
+    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);
+    hash |= 0; // Convert to 32bit integer
+  }
+
+  return exports.colors[Math.abs(hash) % exports.colors.length];
+}
+
+/**
+ * Create a debugger with the given `namespace`.
+ *
+ * @param {String} namespace
+ * @return {Function}
+ * @api public
+ */
+
+function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms = curr - (prevTime || curr);
+    self.diff = ms;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if ('function' === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it's inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if ('function' === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}
+
+/**
+ * Enables a debug mode by namespaces. This can include modes
+ * separated by a colon and wildcards.
+ *
+ * @param {String} namespaces
+ * @api public
+ */
+
+function enable(namespaces) {
+  exports.save(namespaces);
+
+  exports.names = [];
+  exports.skips = [];
+
+  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+  var len = split.length;
+
+  for (var i = 0; i < len; i++) {
+    if (!split[i]) continue; // ignore empty strings
+    namespaces = split[i].replace(/\*/g, '.*?');
+    if (namespaces[0] === '-') {
+      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+    } else {
+      exports.names.push(new RegExp('^' + namespaces + '$'));
+    }
+  }
+}
+
+/**
+ * Disable debug output.
+ *
+ * @api public
+ */
+
+function disable() {
+  exports.enable('');
+}
+
+/**
+ * Returns true if the given mode name is enabled, false otherwise.
+ *
+ * @param {String} name
+ * @return {Boolean}
+ * @api public
+ */
+
+function enabled(name) {
+  var i, len;
+  for (i = 0, len = exports.skips.length; i < len; i++) {
+    if (exports.skips[i].test(name)) {
+      return false;
+    }
+  }
+  for (i = 0, len = exports.names.length; i < len; i++) {
+    if (exports.names[i].test(name)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Coerce `val`.
+ *
+ * @param {Mixed} val
+ * @return {Mixed}
+ * @api private
+ */
+
+function coerce(val) {
+  if (val instanceof Error) return val.stack || val.message;
+  return val;
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/youtube-player/node_modules/ms/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/youtube-player/node_modules/ms/index.js ***!
+  \**************************************************************/
+/***/ ((module) => {
+
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isNaN(val) === false) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  if (ms >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (ms >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (ms >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (ms >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  return plural(ms, d, 'day') ||
+    plural(ms, h, 'hour') ||
+    plural(ms, m, 'minute') ||
+    plural(ms, s, 'second') ||
+    ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, n, name) {
+  if (ms < n) {
+    return;
+  }
+  if (ms < n * 1.5) {
+    return Math.floor(ms / n) + ' ' + name;
+  }
+  return Math.ceil(ms / n) + ' ' + name + 's';
+}
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + "." + __webpack_require__.h() + ".js?id=[query]";
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get mini-css chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference all chunks
+/******/ 		__webpack_require__.miniCssF = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return undefined;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/getFullHash */
+/******/ 	(() => {
+/******/ 		__webpack_require__.h = () => ("29b6f57bda34bb32d9c1")
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		var dataWebpackPrefix = "mercury:";
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url || s.getAttribute("data-webpack") == dataWebpackPrefix + key) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.setAttribute("data-webpack", dataWebpackPrefix + key);
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			;
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "/themes/mercury/dist/scripts/";
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"main": 0
+/******/ 		};
+/******/ 		
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
+/******/ 				// JSONP chunk loading for javascript
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
+/******/ 		
+/******/ 					// a Promise means "currently loading".
+/******/ 					if(installedChunkData) {
+/******/ 						promises.push(installedChunkData[2]);
+/******/ 					} else {
+/******/ 						if(true) { // all chunks have JS
+/******/ 							// setup Promise in chunk cache
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
+/******/ 							promises.push(installedChunkData[2] = promise);
+/******/ 		
+/******/ 							// start chunk loading
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+/******/ 							// create error before stack unwound to get useful stacktrace later
+/******/ 							var error = new Error();
+/******/ 							var loadingEnded = (event) => {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
+/******/ 									installedChunkData = installedChunks[chunkId];
+/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
+/******/ 									if(installedChunkData) {
+/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 										var realSrc = event && event.target && event.target.src;
+/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 										error.name = 'ChunkLoadError';
+/******/ 										error.type = errorType;
+/******/ 										error.request = realSrc;
+/******/ 										installedChunkData[1](error);
+/******/ 									}
+/******/ 								}
+/******/ 							};
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						} else installedChunks[chunkId] = 0;
+/******/ 					}
+/******/ 				}
+/******/ 		};
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			for(moduleId in moreModules) {
+/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 				}
+/******/ 			}
+/******/ 			if(runtime) var result = runtime(__webpack_require__);
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkIds[i]] = 0;
+/******/ 			}
+/******/ 		
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkmercury"] = self["webpackChunkmercury"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
 /*!**********************************************!*\
   !*** ./themes/mercury/source/scripts/app.js ***!
   \**********************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var simple_selector__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! simple-selector */ "./node_modules/simple-selector/dist/js/selector.js");
-/* harmony import */ var simple_selector__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(simple_selector__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../styles/style.scss */ "./themes/mercury/source/styles/style.scss");
-/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_styles_style_scss__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _components_imageText__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/imageText */ "./themes/mercury/source/scripts/components/imageText.js");
 /* harmony import */ var _components_imageText__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_imageText__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _components_inview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/inview */ "./themes/mercury/source/scripts/components/inview.js");
@@ -16354,8 +16398,6 @@ Import styles
 
 
 window.onload = function () {
-  'use strict';
-
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js');
   }
@@ -16376,9 +16418,9 @@ Components
 ------------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', function () {
-  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-video-modal').length) __webpack_require__.e(/*! import() */ 0).then(__webpack_require__.bind(null, /*! ./components/videoModal */ "./themes/mercury/source/scripts/components/videoModal.js"));
-  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-accordion-trigger').length) __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./components/accordionBlock */ "./themes/mercury/source/scripts/components/accordionBlock.js"));
-  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-tabs').length) __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./components/tabbed */ "./themes/mercury/source/scripts/components/tabbed.js"));
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-video-modal').length) __webpack_require__.e(/*! import() */ "themes_mercury_source_scripts_components_videoModal_js").then(__webpack_require__.bind(__webpack_require__, /*! ./components/videoModal */ "./themes/mercury/source/scripts/components/videoModal.js"));
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-accordion-trigger').length) __webpack_require__.e(/*! import() */ "themes_mercury_source_scripts_components_accordionBlock_js").then(__webpack_require__.bind(__webpack_require__, /*! ./components/accordionBlock */ "./themes/mercury/source/scripts/components/accordionBlock.js"));
+  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-tabs').length) __webpack_require__.e(/*! import() */ "themes_mercury_source_scripts_components_tabbed_js").then(__webpack_require__.bind(__webpack_require__, /*! ./components/tabbed */ "./themes/mercury/source/scripts/components/tabbed.js"));
 });
 /*------------------------------------------------------------------
 Import external
@@ -16389,7 +16431,7 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
   Select elements
   ------------------------------------------------------------------*/
   jquery__WEBPACK_IMPORTED_MODULE_0___default()('select.dropdown').each(function (index, element) {
-    element.SS = new simple_selector__WEBPACK_IMPORTED_MODULE_1___default.a(element, {
+    element.SS = new simple_selector__WEBPACK_IMPORTED_MODULE_1__.default(element, {
       placeholder: element.querySelector('option').innerText
     });
   });
@@ -16426,279 +16468,8 @@ jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
     if (didScroll) hasScrolled(), didScroll = false;
   }, 250);
 });
+})();
 
-/***/ }),
-
-/***/ "./themes/mercury/source/scripts/components/banner.js":
-/*!************************************************************!*\
-  !*** ./themes/mercury/source/scripts/components/banner.js ***!
-  \************************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var youtube_player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! youtube-player */ "./node_modules/youtube-player/dist/index.js");
-/* harmony import */ var youtube_player__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(youtube_player__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! slick-carousel */ "./node_modules/slick-carousel/slick/slick.js");
-/* harmony import */ var slick_carousel__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(slick_carousel__WEBPACK_IMPORTED_MODULE_2__);
-/*------------------------------------------------------------------
-Banner Video
-------------------------------------------------------------------*/
-
-
-
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
-  var $body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
-
-  var throttle = function throttle(callback, limit) {
-    var wait = false;
-    return function () {
-      if (!wait) {
-        callback.call();
-        wait = true;
-        setTimeout(function () {
-          return wait = false;
-        }, limit);
-      }
-    };
-  };
-
-  var resizeVideo = function resizeVideo() {
-    var bw = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner').outerWidth();
-    var bh = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner').outerHeight();
-    var ratio = 1920 / 1080;
-
-    if (bw / bh < ratio) {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-video').css({
-        height: bh,
-        width: bh * ratio
-      });
-    } else {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-video').css({
-        height: bh * ratio,
-        width: bw
-      });
-    }
-  };
-
-  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('#video-player').length) {
-    var player = youtube_player__WEBPACK_IMPORTED_MODULE_1___default()('video-player', {
-      color: 'white',
-      controls: 0,
-      autoplay: 1,
-      rel: 0,
-      fs: 0,
-      modestbranding: 1
-    });
-    player.loadVideoById(jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-video').attr('data-video-id'));
-    player.mute();
-    player.playVideo().then(function () {
-      jquery__WEBPACK_IMPORTED_MODULE_0___default()('#video-player').css({
-        opacity: 1
-      });
-    });
-    window.addEventListener('resize', throttle(resizeVideo, 100));
-    resizeVideo();
-    player.on('stateChange', function (e) {
-      if (e.data == YT.PlayerState.ENDED) player.playVideo();
-    });
-  }
-
-  if (jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-slider').length) {
-    jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-banner-slider').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      dots: true,
-      autoplaySpeed: 5000,
-      autoplay: true,
-      customPaging: function customPaging() {
-        return '<span></span>';
-      }
-    });
-  }
-});
-
-/***/ }),
-
-/***/ "./themes/mercury/source/scripts/components/grid.js":
-/*!**********************************************************!*\
-  !*** ./themes/mercury/source/scripts/components/grid.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*------------------------------------------------------------------
-Debug Grid
-------------------------------------------------------------------*/
-document.addEventListener('keydown', function (e) {
-  if ((window.navigator.platform.match('Mac') ? e.metaKey : e.ctrlKey) && e.code === 'KeyG') {
-    e.preventDefault();
-    document.querySelector('.js-debug-grid').classList.toggle('active');
-  }
-}, false);
-
-/***/ }),
-
-/***/ "./themes/mercury/source/scripts/components/imageText.js":
-/*!***************************************************************!*\
-  !*** ./themes/mercury/source/scripts/components/imageText.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var parallaxItems = [];
-
-function scrollHandler() {
-  var windowHeight = window.innerHeight;
-  parallaxItems.forEach(function (item) {
-    var ratio = parseFloat(item.getAttribute('data-parallax'));
-    var rect = item.getBoundingClientRect();
-
-    if (rect.top < window.innerHeight && rect.bottom > 0) {
-      var normalized = (rect.top - windowHeight) / (rect.top - rect.bottom - windowHeight);
-      normalized = Math.max(0, Math.min(1, normalized));
-      var y = normalized * ratio * rect.height;
-      item.style.webkitTransform = 'translate(0, ' + y + 'px)';
-      item.style.MozTransform = 'translate(0, ' + y + 'px)';
-      item.style.msTransform = 'translate(0, ' + y + 'px)';
-      item.style.OTransform = 'translate(0, ' + y + 'px)';
-      item.style.transform = 'translate(0, ' + y + 'px)';
-    }
-  });
-}
-
-function init() {
-  var itemsParallax = document.querySelectorAll('[data-parallax]');
-
-  for (var i = 0; i < itemsParallax.length; i++) {
-    parallaxItems.push(itemsParallax[i]);
-  }
-
-  scrollHandler();
-  window.addEventListener('scroll', scrollHandler);
-}
-
-window.onload = init;
-
-/***/ }),
-
-/***/ "./themes/mercury/source/scripts/components/inview.js":
-/*!************************************************************!*\
-  !*** ./themes/mercury/source/scripts/components/inview.js ***!
-  \************************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var in_view__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! in-view */ "./node_modules/in-view/dist/in-view.min.js");
-/* harmony import */ var in_view__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(in_view__WEBPACK_IMPORTED_MODULE_0__);
-/*------------------------------------------------------------------
-Imports
-------------------------------------------------------------------*/
-
-document.addEventListener('DOMContentLoaded', function () {
-  in_view__WEBPACK_IMPORTED_MODULE_0___default()('.js-in-view').on('enter', function (el) {
-    el.classList.add('inView');
-  }); // .on('exit', el => el.classList.remove('inView'));
-});
-
-/***/ }),
-
-/***/ "./themes/mercury/source/scripts/components/mobileMenu.js":
-/*!****************************************************************!*\
-  !*** ./themes/mercury/source/scripts/components/mobileMenu.js ***!
-  \****************************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-/*------------------------------------------------------------------
-Mega Menu
-------------------------------------------------------------------*/
-
-var $body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
-var enableMobileMenu = true;
-/*------------------------------------------------------------------
-Variables
-------------------------------------------------------------------*/
-
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
-  $body.on('click', '.js-toggle-menu', function (e) {
-    e.preventDefault();
-    $body.toggleClass('mobileMenuActive');
-  });
-  var $topLevel = jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-top-level');
-  $topLevel.on('click', function (e) {
-    /*------------------------------------------------------------------
-    If the user didnt click on the span in side
-    ------------------------------------------------------------------*/
-    if (e.target !== 'span') {
-      var $this = jquery__WEBPACK_IMPORTED_MODULE_0___default()(e.currentTarget);
-
-      if (!$this.hasClass('active')) {
-        $topLevel.removeClass('active');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-second-level').slideUp();
-        $this.next('.js-second-level').slideToggle();
-        setTimeout(function () {
-          return $this.addClass('active');
-        }, 100);
-      } else {
-        $topLevel.removeClass('active');
-        jquery__WEBPACK_IMPORTED_MODULE_0___default()('.js-second-level').slideUp();
-      }
-    }
-  });
-});
-
-/***/ }),
-
-/***/ "./themes/mercury/source/scripts/components/search.js":
-/*!************************************************************!*\
-  !*** ./themes/mercury/source/scripts/components/search.js ***!
-  \************************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);
-
-jquery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
-  var $body = jquery__WEBPACK_IMPORTED_MODULE_0___default()('body');
-  $body.on('click', '.js-toggle-search', function (e) {
-    e.preventDefault();
-    $body.addClass('searchActive');
-  });
-  $body.on('click', '.js-close-search', function (e) {
-    e.preventDefault();
-    $body.removeClass('searchActive');
-  });
-  jquery__WEBPACK_IMPORTED_MODULE_0___default()(document).on('keydown', function (e) {
-    if (e.keyCode === 27) $body.removeClass('searchActive');
-  });
-});
-
-/***/ }),
-
-/***/ "./themes/mercury/source/styles/style.scss":
-/*!*************************************************!*\
-  !*** ./themes/mercury/source/styles/style.scss ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ })
-
-/******/ });
+/******/ })()
+;
 //# sourceMappingURL=main.js.map

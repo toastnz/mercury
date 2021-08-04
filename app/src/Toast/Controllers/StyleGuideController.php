@@ -343,7 +343,7 @@ class StyleGuideController extends Controller
         return $arrayData->renderWith('Toast\Blocks\SplitBlock');
     }
 
-    public function getTags()
+    public function getTypeTags()
     {
         return  new ArrayList([
             new ArrayData(['Selector' => 'h1', 'Name' => 'Heading 1']),
