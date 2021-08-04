@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8ae5b7d6b57c87c49fa4c2f6db317d22",
+    "content-hash": "f5e6e3e04355262a295ea92c20bb334e",
     "packages": [
         {
             "name": "asyncphp/doorman",

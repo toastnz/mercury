@@ -1,7 +1,7 @@
 <header class="header<% if $TransparentHeader %> header--transparent<% end_if %>">
     <div class="header__wrap <% if $Siteconfig.MakeHeaderFullWidth %>header__wrap--full<% end_if %>">
 
-        <a href="{$BaseRef}" class="header__wrap__logo">
+        <a href="{$BaseHref}" class="header__wrap__logo" title="$SiteConfig.Title">
             <% if $SiteConfig.Logo %>
                 <img src="$SiteConfig.Logo.URL" alt="$SiteConfig.Title" />
             <% else %>
@@ -47,7 +47,7 @@
             <% end_loop %>
 
             <div class="header__wrap__menu__item [ js-indicator-hover ]">
-                <a href="#" class="header__wrap__menu__item__link [ js-toggle-search ]">
+                <a href="#" class="header__wrap__menu__item__link [ js-toggle-search ]" title="Search">
                     <p>$SVG('search')</p>
                 </a>
             </div>
