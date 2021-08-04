@@ -14,3 +14,11 @@ SilverStripe\Assets\File:
 SilverStripe\Blog\Model\BlogController:
   extensions:
     - Toast\Extensions\BlogControllerExtension
+
+SilverStripe\Blog\Model\BlogPost:
+  extensions:
+    - Toast\Extensions\BlogPostExtension    
+
+SilverStripe\Blog\Model\Blog:
+  extensions:
+    - Toast\Extensions\BlogExtension    

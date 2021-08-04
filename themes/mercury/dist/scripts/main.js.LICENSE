@@ -2,7 +2,15 @@
 
 // webpackBootstrap
 
+// install a JSONP callback for chunk loading
+
 // The module cache
+
+// object to store loaded and loading chunks
+
+// undefined = chunk not loaded, null = chunk preloaded/prefetched
+
+// Promise = chunk loading, 0 = chunk loaded
 
 // The require function
 
@@ -16,9 +24,19 @@
 
 // Flag the module as loaded
 
-// expose the modules object (__webpack_modules__)
+// This file contains only the entry chunk.
 
-// Load entry module and return exports
+// The chunk loading function for additional chunks
+
+// JSONP chunk loading for javascript
+
+// 0 means "already installed".
+
+// a Promise means "currently loading".
+
+// avoid mem leaks in IE.
+
+// expose the modules object (__webpack_modules__)
 
 // expose the module cache
 
@@ -41,6 +59,10 @@
 // Object.prototype.hasOwnProperty.call
 
 // __webpack_public_path__
+
+// on error function for async loading
+
+// Load entry module and return exports
 
 /************************************************************************/
 
@@ -3278,44 +3300,6 @@
 
 /* 1 */
 
-/* 2 */
-
-/*!
- * in-view 0.6.1 - Get notified when a DOM element enters or exits the viewport.
- * Copyright (c) 2016 Cam Wiegert <cam@camwiegert.com> - https://camwiegert.github.io/in-view
- * License: MIT
- */
-
-/* 3 */
-
-/**
- * @typedef YT.Player
- * @see https://developers.google.com/youtube/iframe_api_reference
- * */
-
-/**
- * @see https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
- */
-
-/**
- * A factory function used to produce an instance of YT.Player and queue function calls and proxy events of the resulting object.
- *
- * @param maybeElementId Either An existing YT.Player instance,
- * the DOM element or the id of the HTML element where the API will insert an <iframe>.
- * @param options See `options` (Ignored when using an existing YT.Player instance).
- * @param strictState A flag designating whether or not to wait for
- * an acceptable state when calling supported functions. Default: `false`.
- * See `FunctionStateMap.js` for supported functions and acceptable states.
- */
-
-// asume maybeElementId can be rendered inside
-
-// eslint-disable-next-line promise/catch-or-return
-
-// eslint-disable-line promise/prefer-await-to-then
-
-/* 4 */
-
 /*#__PURE__*/
 
 // Grab the default select box info
@@ -3422,19 +3406,102 @@
 
 // nodeArray(document.querSelectorAll('select.js-select')).forEach((select) => new Selector(select));
 
+/* 2 */
+
+/*!
+ * in-view 0.6.1 - Get notified when a DOM element enters or exits the viewport.
+ * Copyright (c) 2016 Cam Wiegert <cam@camwiegert.com> - https://camwiegert.github.io/in-view
+ * License: MIT
+ */
+
+/* 3 */
+
+/**
+ * @typedef YT.Player
+ * @see https://developers.google.com/youtube/iframe_api_reference
+ * */
+
+/**
+ * @see https://developers.google.com/youtube/iframe_api_reference#Loading_a_Video_Player
+ */
+
+/**
+ * A factory function used to produce an instance of YT.Player and queue function calls and proxy events of the resulting object.
+ *
+ * @param maybeElementId Either An existing YT.Player instance,
+ * the DOM element or the id of the HTML element where the API will insert an <iframe>.
+ * @param options See `options` (Ignored when using an existing YT.Player instance).
+ * @param strictState A flag designating whether or not to wait for
+ * an acceptable state when calling supported functions. Default: `false`.
+ * See `FunctionStateMap.js` for supported functions and acceptable states.
+ */
+
+// asume maybeElementId can be rendered inside
+
+// eslint-disable-next-line promise/catch-or-return
+
+// eslint-disable-line promise/prefer-await-to-then
+
+/* 4 */
+
+// Children
+
+/* new Template(
+  [
+    {
+      tagName: 'article',
+      classList: 'classes here'
+      innerHTML: [
+        {
+          tagName: 'p',
+          classList: 'classes here',
+          innnerHTML: 'Text here'
+        },
+        {
+          tagName: 'input',
+          type: 'checkbox',
+          value: 1,
+        }
+      ]
+    }
+  ]
+)*/
+
 /* 5 */
 
-// extracted by mini-css-extract-plugin
+// not throttled
+
+// initialise function before adding event handlers
+
+// throttle
+
+// debounce
+
+// Initialize
+
+// Our draw function. 1 = erase, 2 = draw
+
+// Loop through each field in the form
+
+// Setup our serialized data
+
+// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+
+// If a multi-select, get all selections
 
 /* 6 */
 
+// extracted by mini-css-extract-plugin
+
 /* 7 */
+
+/* 8 */
 
 /*------------------------------------------------------------------
 Debug Grid
 ------------------------------------------------------------------*/
 
-/* 8 */
+/* 9 */
 
 /**
      * @name handler
@@ -3457,13 +3524,13 @@ Debug Grid
      * @param {Object} data Event data.
      */
 
-/* 9 */
+/* 10 */
 
 // The API will call this function when page has finished downloading
 
 // the JavaScript for the player API.
 
-/* 10 */
+/* 11 */
 
 // this.onload = null here is necessary
 
@@ -3475,7 +3542,7 @@ Debug Grid
 
 // old IE will ignore this and new IE will set onload
 
-/* 11 */
+/* 12 */
 
 /* eslint-disable promise/prefer-await-to-then */
 
@@ -3514,7 +3581,7 @@ Debug Grid
 
 // eslint-disable-next-line prefer-spread
 
-/* 12 */
+/* 13 */
 
 /* WEBPACK VAR INJECTION */
 
@@ -3610,7 +3677,7 @@ Debug Grid
  * Colors.
  */
 
-/* 13 */
+/* 14 */
 
 // shim for using process in browser
 
@@ -3644,7 +3711,7 @@ Debug Grid
 
 // empty string to avoid regexp issues
 
-/* 14 */
+/* 15 */
 
 /**
  * Previous log timestamp.
@@ -3732,7 +3799,7 @@ Debug Grid
  * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
  */
 
-/* 15 */
+/* 16 */
 
 /**
  * Helpers.
@@ -3780,13 +3847,13 @@ Debug Grid
  * @api private
  */
 
-/* 16 */
+/* 17 */
 
 /**
  * @see https://developers.google.com/youtube/iframe_api_reference#Functions
  */
 
-/* 17 */
+/* 18 */
 
 /**
  * @see https://developers.google.com/youtube/iframe_api_reference#Events
@@ -3794,15 +3861,15 @@ Debug Grid
  * it emits an object: `{volume: 82.6923076923077, muted: false}`
  */
 
-/* 18 */
+/* 19 */
 
 // TRICKY: `seekTo` may not cause a state change if no buffering is
 
 // required.
 
-/* 19 */
-
 /* 20 */
+
+/* 21 */
 
 /*
      _ _      _       _
@@ -3866,76 +3933,11 @@ Debug Grid
 
 // loop through the responsive object and splice out duplicates.
 
-/* 21 */
-
-// Children
-
-/* new Template(
-  [
-    {
-      tagName: 'article',
-      classList: 'classes here'
-      innerHTML: [
-        {
-          tagName: 'p',
-          classList: 'classes here',
-          innnerHTML: 'Text here'
-        },
-        {
-          tagName: 'input',
-          type: 'checkbox',
-          value: 1,
-        }
-      ]
-    }
-  ]
-)*/
-
 /* 22 */
-
-// not throttled
-
-// initialise function before adding event handlers
-
-// throttle
-
-// debounce
-
-// Initialize
-
-// Our draw function. 1 = erase, 2 = draw
-
-// Loop through each field in the form
-
-// Setup our serialized data
-
-// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
-
-// If a multi-select, get all selections
-
-/* 23 */
 
 // ESM COMPAT FLAG
 
-// EXTERNAL MODULE: ./themes/mercury/source/styles/style.scss
-
-// EXTERNAL MODULE: ./node_modules/tingle.js/dist/tingle.min.js
-
-/*html*/
-
-// EXTERNAL MODULE: ./themes/mercury/source/scripts/components/imageText.js
-
-// CONCATENATED MODULE: ./themes/mercury/source/scripts/components/tabbed.js
-
-/*------------------------------------------------------------------
-Import external
-------------------------------------------------------------------*/
-
-/*------------------------------------------------------------------
-Menu toggle
-------------------------------------------------------------------*/
-
-// EXTERNAL MODULE: ./node_modules/in-view/dist/in-view.min.js
+// EXTERNAL MODULE: ./node_modules/jquery/dist/jquery.js
 
 // CONCATENATED MODULE: ./themes/mercury/source/scripts/components/inview.js
 
@@ -3971,8 +3973,6 @@ Variables
 Banner Video
 ------------------------------------------------------------------*/
 
-// EXTERNAL MODULE: ./node_modules/simple-selector/dist/js/selector.js
-
 // CONCATENATED MODULE: ./themes/mercury/source/scripts/app.js
 
 /*------------------------------------------------------------------
@@ -3981,6 +3981,16 @@ Import styles
 
 /*------------------------------------------------------------------
 Import modules
+------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+Components
+------------------------------------------------------------------*/
+
+/* import() */
+
+/*------------------------------------------------------------------
+Import external
 ------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------

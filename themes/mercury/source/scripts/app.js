@@ -1,3 +1,6 @@
+import $ from 'jquery';
+import Selector from 'simple-selector'
+
 /*------------------------------------------------------------------
 Import styles
 ------------------------------------------------------------------*/
@@ -8,10 +11,7 @@ import './../styles/style.scss';
 Import modules
 ------------------------------------------------------------------*/
 
-import './components/videoModal';
-import './components/accordionBlock';
 import './components/imageText';
-import './components/tabbed';
 import './components/inview';
 import './components/mobileMenu';
 import './components/search';
@@ -19,11 +19,19 @@ import './components/grid';
 import './components/banner';
 
 /*------------------------------------------------------------------
+Components
+------------------------------------------------------------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+    if ($('.js-video-modal').length) import('./components/videoModal');
+    if ($('.js-accordion-trigger').length) import('./components/accordionBlock');
+    if ($('.js-tabs').length) import('./components/tabbed');
+});
+
+/*------------------------------------------------------------------
 Import external
 ------------------------------------------------------------------*/
 
-import $ from 'jquery';
-import Selector from 'simple-selector'
 
 $(() => {
 

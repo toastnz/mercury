@@ -19,16 +19,13 @@ Tabbed Content
  * updateIndicator
 */
 const updateIndicator = ($tab, $indicator) => {
-    console.log('update');
-    
-    
     let position = $tab.position();
     $indicator.css({ top: position.top, height: $tab.outerHeight() });
 };
 
 /**
  * updateTabs
-*/
+*/ 
 const updateTabs = ($block, $currentTab) => {
     $block.find('.js-tabs-link,.js-tabs-item').removeClass('active');
     $currentTab.addClass('active');

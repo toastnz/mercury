@@ -37,7 +37,8 @@ module.exports = (env, argv) => {
             publicPath: '/themes/mercury/dist/scripts/',
             path: path.resolve(__dirname, '../dist/scripts'),
             filename: '[name].js',
-            // sourceMapFilename: '[name].map[query]'
+            sourceMapFilename: '[file].map[query]',
+            chunkFilename: '[name].js?id=[query]',
         },
         resolve: {
             alias: {
