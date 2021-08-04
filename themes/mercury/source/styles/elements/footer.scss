@@ -18,7 +18,11 @@ footer
         &__copyright {
             margin-top: 4rem;
             padding: 0 2rem;
-            
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+
             @include media($md, max) {
                 padding: 0;
             }

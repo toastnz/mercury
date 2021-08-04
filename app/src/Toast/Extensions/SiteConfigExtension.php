@@ -25,6 +25,12 @@ class SiteConfigExtension extends DataExtension
         'BugherdProjectKey' => 'Varchar(64)',
         'GoogleMapsApiKey' => 'Varchar(64)',
         'MakeHeaderFullWidth' => 'Boolean',
+        'FacebookPage' => 'Varchar(255)',
+        'LinkedinPage' => 'Varchar(255)',
+        'PinterestPage' => 'Varchar(255)',
+        'InstagramPage' => 'Varchar(255)',
+        'YoutubePage' => 'Varchar(255)',
+        'TwitterPage' => 'Varchar(255)',
     ];
 
     private static $has_one = [
@@ -37,24 +43,25 @@ class SiteConfigExtension extends DataExtension
         'Logo'
     ];
 
-
     public function updateCMSFields(FieldList $fields)
     {
-
 
         /** -----------------------------------------
          * Branding
          * ----------------------------------------*/
 
-        if (Helper::isSuperAdmin()) {
+        $fields->findOrMakeTab('Root.Links');
 
-            $fields->findOrMakeTab('Root.Links');
-
-            $fields->addFieldsToTab('Root.Links', [
-                LinkField::create('TermsLinkID', 'Terms and Conditions Page'),
-                LinkField::create('PrivacyLinkID', 'Privacy Policy Page'),
-            ]);
-        }
+        $fields->addFieldsToTab('Root.Links', [
+            LinkField::create('TermsLinkID', 'Terms and Conditions Page'),
+            LinkField::create('PrivacyLinkID', 'Privacy Policy Page'),
+            TextField::create('FacebookPage', 'Facebook Page'),
+            TextField::create('LinkedinPage', 'Linkedin Page'),
+            TextField::create('PinterestPage', 'Pinterest Page'),
+            TextField::create('InstagramPage', 'Instagram Page'),
+            TextField::create('YoutubePage', 'Youtube Page'),
+            TextField::create('TwitterPage', 'Twitter Page'),
+        ]);
 
         /** -----------------------------------------
          * Branding

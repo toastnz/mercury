@@ -34,9 +34,29 @@ Footer
                     <a $SiteConfig.PrivacyLink.TargetAttr href="$SiteConfig.PrivacyLink.LinkURL">$SiteConfig.PrivacyLink.Title.XML </a>
                 <% end_if %>
                 <% if $SiteConfig.TermsLink  %>
-                    <a $SiteConfig.TermsLink.TargetAttr href="$SiteConfig.TermsLink.LinkURL">$SiteConfig.TermsLink.Title.XML </a><br>
+                    <a $SiteConfig.TermsLink.TargetAttr href="$SiteConfig.TermsLink.LinkURL">$SiteConfig.TermsLink.Title.XML </a>
                 <% end_if %>
             </p>
+            <div class="footer__wrap__copyright__social">
+                <% if $SiteConfig.FacebookPage  %>
+                    <a href="{$SiteConfig.FacebookPage}" class="" target="_blank" rel="noopener">$SVG('facebook-icon')</a>
+                <% end_if %>
+                <% if $SiteConfig.LinkedinPage  %>
+                    <a href="{$SiteConfig.LinkedinPage}" class="" target="_blank" rel="noopener">$SVG('linkedin-icon')</a>
+                <% end_if %>
+                <% if $SiteConfig.PinterestPage  %>
+                    <a href="{$SiteConfig.PinterestPage}" class="" target="_blank" rel="noopener">$SVG('pinterest-icon')</a>
+                <% end_if %>
+                <% if $SiteConfig.InstagramPage  %>
+                    <a href="{$SiteConfig.InstagramPage}" class="" target="_blank" rel="noopener">$SVG('instagram-icon')</a>
+                <% end_if %>
+                <% if $SiteConfig.YoutubePage  %>
+                    <a href="{$SiteConfig.YoutubePage}" class="" target="_blank" rel="noopener">$SVG('youtube-icon')</a>
+                <% end_if %>
+                <% if $SiteConfig.TwitterPage  %>
+                    <a href="{$SiteConfig.TwitterPage}" class="" target="_blank" rel="noopener">$SVG('twitter-icon')</a>
+                <% end_if %>
+            </div>
         </div>
     </div>
 </footer>
