@@ -69,15 +69,26 @@ Tingle
   }
 }
 
-.modal__close__icon {
-  @include svg(86, 85);
+.modal__close {
   position: absolute;
-  top: -2rem;
   right: 0;
-  transform: translateY(-100%);
-  width: 5rem;
+  bottom: 100%;
+  width: 6rem;
+  height: 6rem;
+  margin-bottom: 2rem;
 
-  polygon {
-    stroke: $primary;
+  @include media($md, max) {
+    width: 4rem;
+    margin-bottom: 0rem;
+  }
+
+  &__icon {
+    @include svg(86, 85);
+    width: 100%;
+    display: block;
+
+    polygon {
+      stroke: $primary;
+    }
   }
 }

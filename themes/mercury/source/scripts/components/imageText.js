@@ -1,9 +1,11 @@
+const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
 
 let parallaxItems = [];
 
-function scrollHandler() {
+const scrollHandler = () => {
     let windowHeight = window.innerHeight;
-    parallaxItems.forEach(function (item) {
+    parallaxItems.forEach((item) => {
         let ratio = parseFloat(item.getAttribute('data-parallax'));
         let rect = item.getBoundingClientRect();
 
@@ -12,23 +14,18 @@ function scrollHandler() {
             normalized = Math.max(0, Math.min(1, normalized));
             let y = normalized * ratio * rect.height;
             item.style.webkitTransform = 'translate(0, ' + y + 'px)';
-            item.style.MozTransform = 'translate(0, ' + y + 'px)';
             item.style.msTransform = 'translate(0, ' + y + 'px)';
-            item.style.OTransform = 'translate(0, ' + y + 'px)';
             item.style.transform = 'translate(0, ' + y + 'px)';
         }
     });
 }
 
-function init() {
-    let itemsParallax = document.querySelectorAll('[data-parallax]');
+document.addEventListener('DOMContentLoaded', () => {
 
-    for (let i = 0; i < itemsParallax.length; i++) {
-        parallaxItems.push(itemsParallax[i]);
-    }
+    parallaxItems = [...queryAll('[data-parallax]')];
 
     scrollHandler();
-    window.addEventListener('scroll', scrollHandler);
-}
 
-window.onload = init;
+    window.addEventListener('scroll', scrollHandler);
+
+});

@@ -1,58 +1,39 @@
-/*------------------------------------------------------------------
-Import external
-------------------------------------------------------------------*/
-
-import $ from 'jquery';
 
 /*------------------------------------------------------------------
-Menu toggle
+Helpers
 ------------------------------------------------------------------*/
 
-let $body = $('body');
+const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
 
 /*------------------------------------------------------------------
 Tabbed Content
 ------------------------------------------------------------------*/
 
+const updateTabbedContent = (indicator, currentTab) => {
+    currentTab.classList.add('active');
+    let rect = currentTab.getBoundingClientRect();
+    indicator.style.height = `${rect.height}px`;
+    indicator.style.top = `${currentTab.offsetTop}px`;
+}
 
-/**
- * updateIndicator
-*/
-const updateIndicator = ($tab, $indicator) => {
-    let position = $tab.position();
-    $indicator.css({ top: position.top, height: $tab.outerHeight() });
-};
+[...queryAll('.js-tabs')].forEach(tabbedContent => {
 
-/**
- * updateTabs
-*/ 
-const updateTabs = ($block, $currentTab) => {
-    $block.find('.js-tabs-link,.js-tabs-item').removeClass('active');
-    $currentTab.addClass('active');
-    $block.find('.js-tabs-item').eq($currentTab.index() - 1).addClass('active');
-};
+    let indicator = tabbedContent.querySelector('.js-tabbed-indicator');
+    let currentTab = tabbedContent.querySelector('.js-tabs-link.active');
 
-document.addEventListener('DOMContentLoaded', () => {
+    [...queryAll('.js-tabs-link', tabbedContent)].forEach(tabbedContentLink => {
 
-    $('.js-tabs').each((index, element) => {
-
-        let $this = $(element);
-        let $indicator = $this.find('.js-tabbed-indicator');
-        let $currentTab = $this.find('.js-tabs-link.active');
-
-        updateIndicator($currentTab, $indicator);
-
-        $this.on('click', '.js-tabs-link', (e) => {
+        tabbedContentLink.addEventListener('click', (e) => {
             e.preventDefault();
-            let $tab = $(e.currentTarget);
-            $currentTab = $tab;
-            updateIndicator($currentTab, $indicator);
-            updateTabs($this, $currentTab);
+            currentTab.classList.remove('active');
+            currentTab = tabbedContentLink;
+            updateTabbedContent(indicator, currentTab);
         });
- 
-        window.addEventListener('resize', updateIndicator($currentTab, $indicator));
 
     });
+
+    updateTabbedContent(indicator, currentTab);
 
 });
 

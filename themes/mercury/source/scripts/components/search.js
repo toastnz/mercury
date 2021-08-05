@@ -1,21 +1,24 @@
-import $ from 'jquery';
+const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
 
-$(() => {
+document.addEventListener('DOMContentLoaded', () => {
 
-    let $body = $('body'); 
-
-    $body.on('click', '.js-toggle-search', function (e) {
-        e.preventDefault();
-        $body.addClass('searchActive');
+    [...queryAll('.js-toggle-search')].forEach(toggleSearch => {
+        toggleSearch.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.body.classList.add('searchActive');
+        });
     });
 
-    $body.on('click', '.js-close-search', function (e) {
-        e.preventDefault();
-        $body.removeClass('searchActive');
+    [...queryAll('.js-close-search')].forEach(toggleSearch => {
+        toggleSearch.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.body.classList.remove('searchActive');
+        });
     });
 
-    $(document).on('keydown', (e) => {
-        if (e.keyCode === 27) $body.removeClass('searchActive');
-    });
+    document.onkeydown = (e) => {
+        if (e.keyCode === 27) document.body.classList.remove('searchActive');
+    };
 
 });

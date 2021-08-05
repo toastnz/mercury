@@ -1,26 +1,42 @@
 /*------------------------------------------------------------------
-Accordion block
+Helpers
 ------------------------------------------------------------------*/
 
-import $ from 'jquery';
+const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
+
 
 /*------------------------------------------------------------------
 Variables
 ------------------------------------------------------------------*/
 
-let $body = $('body');
+const slideUp = (container) => {
+    container.style.height = "0px"
+    container.addEventListener('transitionend', () => {
+        container.classList.remove('active')
+    }, { once: true })
+};
 
-$body.on('click', '.js-accordion-trigger', function (e) {
-    e.preventDefault();
+const slideDown = (container) => {
+    container.classList.add('active')
+    container.style.height = 'auto'
+    let height = container.clientHeight + 'px'
+    container.style.height = '0px'
+    setTimeout(() => container.style.height = height, 0)
+};
 
-    let $accordion = $(this).closest('.js-accordion-item');
+[...queryAll('.js-accordion-trigger')].forEach(accordionTrigger => {
+    accordionTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
 
-    if ($accordion.hasClass('active')) {
-        $accordion.removeClass('active');
-        $accordion.find('.js-accordion-target').slideUp();
-    } else {
-        $accordion.addClass('active');
-        $accordion.find('.js-accordion-target').slideDown();
-    }
+        accordion = accordionTrigger.closest('.js-accordion-item');
+
+        if (accordion.classList.contains('active')) {
+            accordion.classList.remove('active');
+            slideUp(accordion.querySelector('.js-accordion-target'));
+        } else {
+            accordion.classList.add('active');
+            slideDown(accordion.querySelector('.js-accordion-target'));
+        }
+    });
 });
-

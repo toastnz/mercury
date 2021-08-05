@@ -1,18 +1,22 @@
-import $ from 'jquery';
-import Selector from 'simple-selector'
-
 /*------------------------------------------------------------------
 Import styles
 ------------------------------------------------------------------*/
 
 import './../styles/style.scss';
- 
+
 window.onload = () => {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./sw.js');
     }
 }
- 
+
+/*------------------------------------------------------------------
+Helpers
+------------------------------------------------------------------*/
+
+const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
+
 /*------------------------------------------------------------------
 Import modules
 ------------------------------------------------------------------*/
@@ -22,16 +26,16 @@ import './components/inview';
 import './components/mobileMenu';
 import './components/search';
 import './components/grid';
-import './components/banner';
+// import './components/banner';
 
 /*------------------------------------------------------------------
 Components
 ------------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
-    if ($('.js-video-modal').length) import('./components/videoModal');
-    if ($('.js-accordion-trigger').length) import('./components/accordionBlock');
-    if ($('.js-tabs').length) import('./components/tabbed');
+    if ([...queryAll('.js-video-modal')].length) import('./components/videoModal');
+    if ([...queryAll('.js-accordion-trigger')].length) import('./components/accordionBlock');
+    if ([...queryAll('.js-tabs')].length) import('./components/tabbed');
 });
 
 /*------------------------------------------------------------------
@@ -39,47 +43,35 @@ Import external
 ------------------------------------------------------------------*/
 
 
-$(() => {
-
-    /*------------------------------------------------------------------
-    Select elements
-    ------------------------------------------------------------------*/
-
-    $('select.dropdown').each((index, element) => {
-        element.SS = new Selector(element, {
-            placeholder: element.querySelector('option').innerText,
-        });
-    });
+document.addEventListener('DOMContentLoaded', () => {
 
     /*------------------------------------------------------------------
     Sticky header  
     ------------------------------------------------------------------*/
 
+    let previousScrollPosition = 0;
+    let scrollDelta = 5;
+    let header = query('.header');
+    let headerHeight = (header) ? header.clientHeight / 3 : 0;
 
-    let didScroll;
-    let lastScrollTop = 0;
-    let delta = 5;
-    let navbarHeight = $('.header').outerHeight() / 3;
-
-    const hasScrolled = () => {
-        var st = $(window).scrollTop();
-        if (Math.abs(lastScrollTop - st) <= delta) return;
+    const stickyHeader = () => {
+        let st = window.scrollY;
+        if (Math.abs(previousScrollPosition - st) <= scrollDelta) return;
         if (st === 0) {
-            $('.header').removeClass('nav-down').removeClass('nav-up');
-        } else if (st > lastScrollTop && st > navbarHeight) {
-            $('.header').removeClass('nav-down').addClass('nav-up');
+            header.classList.remove('nav-down');
+            header.classList.remove('nav-up');
+        } else if (st > previousScrollPosition && st > headerHeight) {
+            header.classList.remove('nav-down');
+            header.classList.add('nav-up');
         } else {
-            if (st + $(window).height() < $(document).height()) {
-                $('.header').removeClass('nav-up').addClass('nav-down');
+            if (st + window.innerHeight < document.body.clientHeight) {
+                header.classList.add('nav-down');
+                header.classList.remove('nav-up');
             }
         }
-        lastScrollTop = st;
+        previousScrollPosition = st;
     }
 
-    window.addEventListener('scroll', () => { didScroll = true, $('body').removeClass('nav-open') });
-
-    setInterval(() => { if (didScroll) hasScrolled(), didScroll = false; }, 250);
-
-
+    window.addEventListener('scroll', stickyHeader);
 
 });
