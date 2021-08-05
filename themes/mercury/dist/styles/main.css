@@ -1823,8 +1823,12 @@ Blog
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-image: url(/themes/mercury/dist/scripts/12b529a42fad58c2b46b.png);
-    width: 50%; }
+    background-color: #000;
+    width: 50%;
+    background-color: #000000;
+    opacity: 0.1;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 14px), repeating-linear-gradient(#ffffff55, #ffffff);
+    -image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 14px), repeating-linear-gradient(#ffffff55, #ffffff); }
     @media only screen and (max-width: 967px) {
       .login__image {
         display: none; } }

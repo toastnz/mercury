@@ -9,8 +9,13 @@
 
   &__image {
     @include cover;
-    background-image: url('~images/login.png');
+    background-color: $black;
     width: 50%;
+
+    background-color: #000000;
+    opacity: 0.1;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 14px), repeating-linear-gradient(#ffffff55, #ffffff);
+    -image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 14px), repeating-linear-gradient(#ffffff55, #ffffff);
 
     @include media($xmd, max) {
       display: none;
