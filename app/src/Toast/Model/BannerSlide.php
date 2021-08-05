@@ -51,13 +51,13 @@ class BannerSlide extends DataObject
 
         $fields->addFieldsToTab('Root.Main', [
             HTMLEditorField::create('Content', 'Content')->setRows(6),
-            CheckboxField::create('Overlay','Show background overlay'),
+            CheckboxField::create('Overlay', 'Show background overlay'),
             VideoLinkField::create('BannerVideo', 'Banner Video')
-            ->showPreview('100%'),
+                ->showPreview('100%'),
             UploadField::create('BackgroundImage', 'Background Image')
                 ->setIsMultiUpload(false)
                 ->setAllowedExtensions(['jpg'])
-                ->setFolderName('Uploads/banner-images'),
+                ->setFolderName('Banner Images'),
         ]);
 
         $fields->changeFieldOrder([
@@ -68,5 +68,4 @@ class BannerSlide extends DataObject
 
         return $fields;
     }
-
 }

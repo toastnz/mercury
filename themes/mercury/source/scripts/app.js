@@ -74,4 +74,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', stickyHeader);
 
+
+
+
+    [...queryAll('.js-hero-block')].forEach(heroBlock => {
+        let speed = 7;
+        let image = heroBlock.querySelector('.js-hero-block-image');
+        let elementTop = heroBlock.getBoundingClientRect();
+        window.addEventListener('scroll', () => {
+            var scrolled = window.scrollY;
+            var shiftDistance = (elementTop.top - scrolled) / speed;
+            image.style.transform = `translate3d(0, ${shiftDistance}px, 0)`;
+        });
+
+    });
+
 });
+

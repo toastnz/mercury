@@ -1,0 +1,41 @@
+.heroBlock {
+    width: 100%;
+    position: relative;
+    padding: 10rem 2rem;
+    background: $off-white;
+    overflow: hidden;
+
+    &__wrap {
+        margin: 0 auto;
+        max-width: $xl;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        &__content {
+            background: $white;
+            padding: 6rem;
+            max-width: 50rem;
+        }
+    }
+
+    &__container {
+        position: absolute;
+        top: -30%;
+        left: 0;
+        height: 160%;
+        width: 100%;
+
+        &__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+        }
+    }
+}

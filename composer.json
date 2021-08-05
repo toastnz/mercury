@@ -28,7 +28,8 @@
         "permanentinc/beautiful": "dev-master",
         "toastnz/blocks": "^1.1",
         "toastnz/webp": "1.2",
-        "heyday/silverstripe-menumanager": "^3.2"
+        "heyday/silverstripe-menumanager": "^3.2",
+        "toastnz/duplicator": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"

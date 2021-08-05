@@ -1,6 +1,8 @@
 .button {
+  @include semi;
+  text-align: center;
   background: $primary;
-  padding: 1.5rem 4rem;
+  padding: 1rem 3.5rem;
   display: inline-block;
   margin-bottom: 0.5rem;
   text-decoration: none !important;

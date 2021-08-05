@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d050e30e469a9902e934fb95afc3b0f",
+    "content-hash": "db6382f3a2c61a67e1019bd344303306",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -5275,6 +5275,38 @@
                 "silverstripe"
             ],
             "time": "2021-03-25T20:11:52+00:00"
+        },
+        {
+            "name": "toastnz/duplicator",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toastnz/duplicator.git",
+                "reference": "2b81a2b632614213de27744d300eadc08a237b6a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toastnz/duplicator/zipball/2b81a2b632614213de27744d300eadc08a237b6a",
+                "reference": "2b81a2b632614213de27744d300eadc08a237b6a",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "silverstripe/framework": "^4.3"
+            },
+            "type": "silverstripe-vendormodule",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Silverstripe relationship duplicator",
+            "keywords": [
+                "duplicate",
+                "duplicator",
+                "relationship",
+                "silverstripe"
+            ],
+            "time": "2021-07-22T03:46:14+00:00"
         },
         {
             "name": "toastnz/webp",
