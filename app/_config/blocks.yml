@@ -15,3 +15,4 @@ Toast\Blocks\Extensions\PageExtension:
     - Toast\Blocks\ChildLinkBlock
     - Toast\Blocks\ImageTextBlock
     - Toast\Blocks\HeroBlock
+    - Toast\Blocks\CodeBlock
