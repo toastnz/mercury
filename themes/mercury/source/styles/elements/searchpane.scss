@@ -18,12 +18,11 @@
 .searchPane {
   @include full;
   position: fixed;
-  background: rgba($black, 0.9);
+  background: rgba($white, 0.95);
   transition: all 555ms ease;
   z-index: 9999999999;
   opacity: 0;
   visibility: hidden;
-  font-family: 'Poppins';
 
   &__wrap {
     max-width: $lg;
@@ -80,7 +79,6 @@
           border: 0;
           border-radius: 0;
           margin: 0;
-          color: $white;
           box-shadow: none !important;
           font-size: 5rem;
           padding-left: 0 !important;
@@ -94,8 +92,7 @@
           }
 
           @include placeholder {
-            opacity: 1 !important;
-            color: $white !important;
+            opacity: 0.8 !important;
           }
         }
       }

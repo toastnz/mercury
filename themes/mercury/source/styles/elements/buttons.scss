@@ -41,13 +41,13 @@
   }
 
   &--outline {
-    padding: 1.3rem 4rem;
+    padding: 0.8rem 4rem;
     background: transparent;
     border: 2px solid $primary;
     color: $primary !important;
 
     &:hover {
-      box-shadow: inset 0 0 0 1000px $primary;
+      background: $primary !important;
       color: $white !important;
     }
   }
