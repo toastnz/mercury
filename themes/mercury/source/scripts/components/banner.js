@@ -1,14 +1,26 @@
 
 /*------------------------------------------------------------------
+Helpers
+------------------------------------------------------------------*/
+
+const query = document.querySelector.bind(document);
+const queryAll = document.querySelectorAll.bind(document);
+
+/*------------------------------------------------------------------
 Banner Video
 ------------------------------------------------------------------*/
-import $ from 'jquery';
+
 import YouTubePlayer from 'youtube-player';
-import slick from 'slick-carousel';
+import Flickity from 'flickity';
 
-$(() => {
+let flkty;
 
-    let $body = $('body');
+const flickityOptions = {
+    wrapAround: true,
+    prevNextButtons: false
+};
+
+document.addEventListener('DOMContentLoaded', () => {
 
     const throttle = (callback, limit) => {
         var wait = false;
@@ -22,17 +34,24 @@ $(() => {
     }
 
     const resizeVideo = () => {
-        let bw = $('.js-banner').outerWidth();
-        let bh = $('.js-banner').outerHeight();
+        let bannerVideo = query('.js-banner-video');
+        let banner = query('.js-banner');
+        let bw = banner.clientWidth;
+        let bh = banner.clientHeight;
         let ratio = 1920 / 1080;
         if (bw / bh < ratio) {
-            $('.js-banner-video').css({ height: bh, width: bh * ratio });
+            bannerVideo.style.height = bh + 'px';
+            bannerVideo.style.width = bh * ratio + 'px';
         } else {
-            $('.js-banner-video').css({ height: bh * ratio, width: bw });
+            bannerVideo.style.height = bh * ratio + 'px';
+            bannerVideo.style.width = bw + 'px';
         }
     }
 
-    if ($('#video-player').length) {
+
+    if (queryAll('#video-player').length) {
+        let bannerVideo = query('.js-banner-video');
+
         let player = YouTubePlayer('video-player', {
             color: 'white',
             controls: 0,
@@ -41,26 +60,17 @@ $(() => {
             fs: 0,
             modestbranding: 1
         });
-        player.loadVideoById($('.js-banner-video').attr('data-video-id'));
+
+        player.loadVideoById(bannerVideo.dataset.videoId);
         player.mute();
-        player.playVideo().then(() => { $('#video-player').css({ opacity: 1 }) });
+        player.playVideo().then(() => { query('#video-player').style.opacity = 1 });
         window.addEventListener('resize', throttle(resizeVideo, 100));
         resizeVideo();
         player.on('stateChange', (e) => { if (e.data == YT.PlayerState.ENDED) player.playVideo() });
     }
 
-    if ($('.js-banner-slider').length) {
-        $('.js-banner-slider').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            arrows: false,
-            dots: true,
-            autoplaySpeed: 5000,
-            autoplay: true,
-            customPaging() {
-                return '<span></span>';
-            },
-        });
+    if (query('.js-banner-slider')) {
+        flkty = new Flickity(query('.js-banner-slider'), flickityOptions);
     }
 
 });

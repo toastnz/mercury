@@ -26,7 +26,7 @@ import './components/inview';
 import './components/mobileMenu';
 import './components/search';
 import './components/grid';
-// import './components/banner';
+import './components/banner';
 
 /*------------------------------------------------------------------
 Components
