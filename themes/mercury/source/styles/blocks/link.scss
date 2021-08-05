@@ -11,7 +11,6 @@
     margin: 0 -2rem;
     position: relative;
     display: flex;
-    width: 100%;
     flex-wrap: wrap;
 
     @include media($md, max) {

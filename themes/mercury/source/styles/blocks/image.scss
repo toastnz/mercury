@@ -3,6 +3,8 @@
 //------------------------------------------------------------------
 body {
   .imageBlock {
+    margin-bottom:6rem;
+    
     &__wrap {
       margin: 0 auto;
       max-width: $xl;

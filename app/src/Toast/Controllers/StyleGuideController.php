@@ -266,6 +266,15 @@ class StyleGuideController extends Controller
     }
 
 
+    public function HeroBlock()
+    {
+        $arrayData = new ArrayData([
+            'BackgroundImage'   => Image::find('Placeholder.jpg'),
+            'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Ipsum dolor sit</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
+        ]);
+        return $arrayData->renderWith('Toast\Blocks\HeroBlock');
+    }
+
     public function ImageTextBlock()
     {
         $arrayData = new ArrayData([

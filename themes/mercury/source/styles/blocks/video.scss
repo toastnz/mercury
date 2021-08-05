@@ -3,11 +3,12 @@
 //------------------------------------------------------------------
 
 .videoBlock {
+  max-width: $xl;
+  margin: 0 auto;
   padding: 0 2rem;
 
   &__wrap {
     margin: 0 auto;
-    max-width: $xl;
     @include aspect(1920, 1080);
     overflow: hidden;
     display: block;

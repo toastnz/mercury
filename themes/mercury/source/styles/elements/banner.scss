@@ -7,6 +7,12 @@
   position: relative;
   margin-top: 8rem;
 
+  &__push {
+    overflow: hidden;
+    position: relative;
+    margin-top: 8rem;
+  }
+
   &.hasTransparentHeader {
     margin-top: 0;
   }
