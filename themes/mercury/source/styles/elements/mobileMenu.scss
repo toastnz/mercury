@@ -40,9 +40,12 @@
 }
 
 .mobileMenuActive {
+  overflow: hidden;
+  
   .header {
     background: $primary;
     box-shadow: none !important;
+    transform: translateY(0%) !important;
 
     .header__wrap__logo {
       path {
