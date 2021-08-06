@@ -1,10 +1,10 @@
 .breadCrumbs {
   border-bottom: 1px solid $off-white;
   margin-bottom: 4rem;
+  padding: 0 2rem;
 
   &__wrap {
     max-width: $xl;
-    padding: 0 2rem;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -44,7 +44,7 @@
       }
 
       &--icon {
-        margin-left: -0.8rem;
+        margin-left: -0.9rem;
 
         svg {
           opacity: 0.2;
@@ -84,7 +84,7 @@
 
     &__social {
       @include vertical-align;
-      right: 2rem;
+      right: 0.2rem;
 
       @include media($sm, max) {
         display: none;

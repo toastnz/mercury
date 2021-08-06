@@ -5270,26 +5270,6 @@ return Unipointer;
 
 /***/ }),
 
-/***/ "./node_modules/web-vitals/dist/web-vitals.js":
-/*!****************************************************!*\
-  !*** ./node_modules/web-vitals/dist/web-vitals.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getCLS": () => (/* binding */ h),
-/* harmony export */   "getFCP": () => (/* binding */ d),
-/* harmony export */   "getFID": () => (/* binding */ w),
-/* harmony export */   "getLCP": () => (/* binding */ F),
-/* harmony export */   "getTTFB": () => (/* binding */ P)
-/* harmony export */ });
-var e,t,n,i,r=function(e,t){return{name:e,value:void 0===t?-1:t,delta:0,entries:[],id:"v2-".concat(Date.now(),"-").concat(Math.floor(8999999999999*Math.random())+1e12)}},a=function(e,t){try{if(PerformanceObserver.supportedEntryTypes.includes(e)){if("first-input"===e&&!("PerformanceEventTiming"in self))return;var n=new PerformanceObserver((function(e){return e.getEntries().map(t)}));return n.observe({type:e,buffered:!0}),n}}catch(e){}},o=function(e,t){var n=function n(i){"pagehide"!==i.type&&"hidden"!==document.visibilityState||(e(i),t&&(removeEventListener("visibilitychange",n,!0),removeEventListener("pagehide",n,!0)))};addEventListener("visibilitychange",n,!0),addEventListener("pagehide",n,!0)},u=function(e){addEventListener("pageshow",(function(t){t.persisted&&e(t)}),!0)},c=function(e,t,n){var i;return function(r){t.value>=0&&(r||n)&&(t.delta=t.value-(i||0),(t.delta||void 0===i)&&(i=t.value,e(t)))}},f=-1,s=function(){return"hidden"===document.visibilityState?0:1/0},m=function(){o((function(e){var t=e.timeStamp;f=t}),!0)},v=function(){return f<0&&(f=s(),m(),u((function(){setTimeout((function(){f=s(),m()}),0)}))),{get firstHiddenTime(){return f}}},d=function(e,t){var n,i=v(),o=r("FCP"),f=function(e){"first-contentful-paint"===e.name&&(m&&m.disconnect(),e.startTime<i.firstHiddenTime&&(o.value=e.startTime,o.entries.push(e),n(!0)))},s=performance.getEntriesByName&&performance.getEntriesByName("first-contentful-paint")[0],m=s?null:a("paint",f);(s||m)&&(n=c(e,o,t),s&&f(s),u((function(i){o=r("FCP"),n=c(e,o,t),requestAnimationFrame((function(){requestAnimationFrame((function(){o.value=performance.now()-i.timeStamp,n(!0)}))}))})))},p=!1,l=-1,h=function(e,t){p||(d((function(e){l=e.value})),p=!0);var n,i=function(t){l>-1&&e(t)},f=r("CLS",0),s=0,m=[],v=function(e){if(!e.hadRecentInput){var t=m[0],i=m[m.length-1];s&&e.startTime-i.startTime<1e3&&e.startTime-t.startTime<5e3?(s+=e.value,m.push(e)):(s=e.value,m=[e]),s>f.value&&(f.value=s,f.entries=m,n())}},h=a("layout-shift",v);h&&(n=c(i,f,t),o((function(){h.takeRecords().map(v),n(!0)})),u((function(){s=0,l=-1,f=r("CLS",0),n=c(i,f,t)})))},g={passive:!0,capture:!0},y=new Date,T=function(i,r){e||(e=r,t=i,n=new Date,L(removeEventListener),E())},E=function(){if(t>=0&&t<n-y){var r={entryType:"first-input",name:e.type,target:e.target,cancelable:e.cancelable,startTime:e.timeStamp,processingStart:e.timeStamp+t};i.forEach((function(e){e(r)})),i=[]}},S=function(e){if(e.cancelable){var t=(e.timeStamp>1e12?new Date:performance.now())-e.timeStamp;"pointerdown"==e.type?function(e,t){var n=function(){T(e,t),r()},i=function(){r()},r=function(){removeEventListener("pointerup",n,g),removeEventListener("pointercancel",i,g)};addEventListener("pointerup",n,g),addEventListener("pointercancel",i,g)}(t,e):T(t,e)}},L=function(e){["mousedown","keydown","touchstart","pointerdown"].forEach((function(t){return e(t,S,g)}))},w=function(n,f){var s,m=v(),d=r("FID"),p=function(e){e.startTime<m.firstHiddenTime&&(d.value=e.processingStart-e.startTime,d.entries.push(e),s(!0))},l=a("first-input",p);s=c(n,d,f),l&&o((function(){l.takeRecords().map(p),l.disconnect()}),!0),l&&u((function(){var a;d=r("FID"),s=c(n,d,f),i=[],t=-1,e=null,L(addEventListener),a=p,i.push(a),E()}))},b=new Set,F=function(e,t){var n,i=v(),f=r("LCP"),s=function(e){var t=e.startTime;t<i.firstHiddenTime&&(f.value=t,f.entries.push(e)),n()},m=a("largest-contentful-paint",s);if(m){n=c(e,f,t);var d=function(){b.has(f.id)||(m.takeRecords().map(s),m.disconnect(),b.add(f.id),n(!0))};["keydown","click"].forEach((function(e){addEventListener(e,d,{once:!0,capture:!0})})),o(d,!0),u((function(i){f=r("LCP"),n=c(e,f,t),requestAnimationFrame((function(){requestAnimationFrame((function(){f.value=performance.now()-i.timeStamp,b.add(f.id),n(!0)}))}))}))}},P=function(e){var t,n=r("TTFB");t=function(){try{var t=performance.getEntriesByType("navigation")[0]||function(){var e=performance.timing,t={entryType:"navigation",startTime:0};for(var n in e)"navigationStart"!==n&&"toJSON"!==n&&(t[n]=Math.max(e[n]-e.navigationStart,0));return t}();if(n.value=n.delta=t.responseStart,n.value<0)return;n.entries=[t],e(n)}catch(e){}},"complete"===document.readyState?setTimeout(t,0):addEventListener("pageshow",t)};
-
-
-/***/ }),
-
 /***/ "./node_modules/youtube-player/dist/FunctionStateMap.js":
 /*!**************************************************************!*\
   !*** ./node_modules/youtube-player/dist/FunctionStateMap.js ***!
@@ -6457,7 +6437,7 @@ function plural(ms, n, name) {
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("b4ffc4c0ac16f472a299")
+/******/ 		__webpack_require__.h = () => ("3df891ae477058f16cb0")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -6624,22 +6604,21 @@ var __webpack_exports__ = {};
   !*** ./themes/mercury/source/scripts/app.js ***!
   \**********************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var web_vitals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! web-vitals */ "./node_modules/web-vitals/dist/web-vitals.js");
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
-/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var lazysizes_plugins_bgset_ls_bgset__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lazysizes/plugins/bgset/ls.bgset */ "./node_modules/lazysizes/plugins/bgset/ls.bgset.js");
-/* harmony import */ var lazysizes_plugins_bgset_ls_bgset__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lazysizes_plugins_bgset_ls_bgset__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../styles/style.scss */ "./themes/mercury/source/styles/style.scss");
-/* harmony import */ var _components_imageText__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/imageText */ "./themes/mercury/source/scripts/components/imageText.js");
-/* harmony import */ var _components_imageText__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_components_imageText__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_inview__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/inview */ "./themes/mercury/source/scripts/components/inview.js");
-/* harmony import */ var _components_mobileMenu__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/mobileMenu */ "./themes/mercury/source/scripts/components/mobileMenu.js");
-/* harmony import */ var _components_mobileMenu__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_components_mobileMenu__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/search */ "./themes/mercury/source/scripts/components/search.js");
-/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _components_grid__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/grid */ "./themes/mercury/source/scripts/components/grid.js");
-/* harmony import */ var _components_grid__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_components_grid__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _components_banner__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/banner */ "./themes/mercury/source/scripts/components/banner.js");
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lazysizes */ "./node_modules/lazysizes/lazysizes.js");
+/* harmony import */ var lazysizes__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lazysizes__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var lazysizes_plugins_bgset_ls_bgset__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lazysizes/plugins/bgset/ls.bgset */ "./node_modules/lazysizes/plugins/bgset/ls.bgset.js");
+/* harmony import */ var lazysizes_plugins_bgset_ls_bgset__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lazysizes_plugins_bgset_ls_bgset__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../styles/style.scss */ "./themes/mercury/source/styles/style.scss");
+/* harmony import */ var _components_imageText__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/imageText */ "./themes/mercury/source/scripts/components/imageText.js");
+/* harmony import */ var _components_imageText__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_imageText__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_inview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/inview */ "./themes/mercury/source/scripts/components/inview.js");
+/* harmony import */ var _components_mobileMenu__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/mobileMenu */ "./themes/mercury/source/scripts/components/mobileMenu.js");
+/* harmony import */ var _components_mobileMenu__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_components_mobileMenu__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/search */ "./themes/mercury/source/scripts/components/search.js");
+/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _components_grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/grid */ "./themes/mercury/source/scripts/components/grid.js");
+/* harmony import */ var _components_grid__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_components_grid__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _components_banner__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/banner */ "./themes/mercury/source/scripts/components/banner.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -6655,14 +6634,14 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 /*------------------------------------------------------------------
 Web Vitals
 ------------------------------------------------------------------*/
-
-(0,web_vitals__WEBPACK_IMPORTED_MODULE_0__.getCLS)(console.log); // getFID(console.log);
+// import { getLCP, getFID, getCLS } from 'web-vitals';
+// getCLS(console.log);
+// getFID(console.log);
 // getLCP(console.log);
 
 /*------------------------------------------------------------------
 Import styles
 ------------------------------------------------------------------*/
-
 
 
 document.addEventListener('lazybeforeunveil', function (e) {
@@ -6746,6 +6725,10 @@ document.addEventListener('DOMContentLoaded', function () {
       var shiftDistance = (elementTop.top - scrolled) / speed;
       image.style.transform = "translate3d(0, ".concat(shiftDistance, "px, 0)");
     });
+  });
+
+  _toConsumableArray(queryAll('.js-postload')).forEach(function (item) {
+    item.classList.remove('js-postload');
   });
 });
 })();

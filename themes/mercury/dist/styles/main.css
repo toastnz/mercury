@@ -554,10 +554,10 @@ https://flickity.metafizzy.co
 
 .breadCrumbs {
   border-bottom: 1px solid #f7f7f7;
-  margin-bottom: 4rem; }
+  margin-bottom: 4rem;
+  padding: 0 2rem; }
   .breadCrumbs__wrap {
     max-width: 1280px;
-    padding: 0 2rem;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -588,7 +588,7 @@ https://flickity.metafizzy.co
         .breadCrumbs__wrap__item--divivder svg path {
           fill: inherit; }
       .breadCrumbs__wrap__item--icon {
-        margin-left: -0.8rem; }
+        margin-left: -0.9rem; }
         .breadCrumbs__wrap__item--icon svg {
           opacity: 0.2;
           position: relative;
@@ -611,7 +611,7 @@ https://flickity.metafizzy.co
       top: 50%;
       transform: translateY(-50%);
       position: absolute;
-      right: 2rem; }
+      right: 0.2rem; }
       @media only screen and (max-width: 639px) {
         .breadCrumbs__wrap__social {
           display: none; } }

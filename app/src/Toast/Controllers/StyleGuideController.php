@@ -212,7 +212,8 @@ class StyleGuideController extends Controller
     public function index()
     {
         if (is_null(Security::getCurrentUser())) {
-            return $this->redirect('Security/login?BackURL=_styleguide');
+            return $this->renderWith(['StyleGuideController', 'Page']);
+            // return $this->redirect('Security/login?BackURL=_styleguide');
         } else {
             return $this->renderWith(['StyleGuideController', 'Page']);
         }

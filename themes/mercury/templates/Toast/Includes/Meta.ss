@@ -105,3 +105,18 @@ Styles
 <link rel="stylesheet" href="/themes/mercury/dist/styles/main.css" media="print" onload="this.media='all'">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<!-- --------------------------------------------------------------
+Postload
+-------------------------------------------------------------- -->
+
+<style>
+    html{
+        font-size:10px;
+        font-family: Verdana, sans-serif;
+    }
+    .js-postload{
+        display: none;
+    }
+</style>

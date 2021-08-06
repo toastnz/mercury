@@ -2,7 +2,7 @@
 Header Search
 ------------------------------------------------------------------%>
 
-<section class="searchPane">
+<section class="searchPane [ js-postload ]">
     <div class="searchPane__wrap">
         <div class="searchPane__wrap__close [ js-close-search ]">
             $SVG('close')

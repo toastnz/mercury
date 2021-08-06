@@ -2,9 +2,9 @@
 Web Vitals
 ------------------------------------------------------------------*/
 
-import { getLCP, getFID, getCLS } from 'web-vitals';
+// import { getLCP, getFID, getCLS } from 'web-vitals';
 
-getCLS(console.log);
+// getCLS(console.log);
 // getFID(console.log);
 // getLCP(console.log);
 
@@ -101,6 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
             image.style.transform = `translate3d(0, ${shiftDistance}px, 0)`;
         });
 
+    });
+
+    [...queryAll('.js-postload')].forEach(item => {
+        item.classList.remove('js-postload');
     });
 
 });
