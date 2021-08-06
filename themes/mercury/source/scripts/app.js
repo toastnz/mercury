@@ -1,6 +1,23 @@
 /*------------------------------------------------------------------
+Web Vitals
+------------------------------------------------------------------*/
+
+import { getLCP, getFID, getCLS } from 'web-vitals';
+
+getCLS(console.log);
+// getFID(console.log);
+// getLCP(console.log);
+
+/*------------------------------------------------------------------
 Import styles
 ------------------------------------------------------------------*/
+import 'lazysizes';
+import 'lazysizes/plugins/bgset/ls.bgset';
+
+document.addEventListener('lazybeforeunveil', function (e) {
+    var bg = e.target.getAttribute('data-bg');
+    if (bg) e.target.style.backgroundImage = 'url(' + bg + ')';
+});
 
 import './../styles/style.scss';
 
@@ -73,9 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', stickyHeader);
-
-
-
 
     [...queryAll('.js-hero-block')].forEach(heroBlock => {
         let speed = 7;

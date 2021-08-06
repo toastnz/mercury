@@ -16,16 +16,17 @@
     &:hover {
       .videoBlock__wrap__background {
         cursor: pointer;
-        transform: scale(1);
+        transform: scale(1.1);
       }
     }
 
     &__background {
-      @include full;
-      @include cover;
-      transform: scale(1.05);
-      transition: all 555ms ease;
-      z-index: 1;
+      width: 100%;
+      height: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all $slow;
     }
 
     &__icon {

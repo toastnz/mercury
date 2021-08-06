@@ -10,27 +10,11 @@
   &__push {
     overflow: hidden;
     position: relative;
-    margin-top: 8rem;
+    margin-top: 12rem;
   }
 
   &.hasTransparentHeader {
     margin-top: 0;
-  }
-
-  &__progress {
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    height: 2px;
-    z-index: 3;
-
-    &__bar {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      top: 0;
-      background: $primary;
-    }
   }
 
   &__wrap {
@@ -43,8 +27,13 @@
       overflow: hidden;
 
       &__background {
-        @include full;
-        @include cover;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
       }
 
       &__video {

@@ -81,9 +81,6 @@ const addCloseHandler = () => {
 
         modal.open();
 
-
-
-
     });
 });
 

@@ -22,11 +22,14 @@ Banner
     
             <div class="banner__wrap__item" data-position="{$Pos}">
 
+
+
                 <!-- ----------------------------------------------------------------
                 Banner Background Image
                 ----------------------------------------------------------------- -->    
                 <% if $BackgroundImage %>
-                    <div class="banner__wrap__item__background" style="background-image:url({$BackgroundImage.FocusFill(1920,1080).URL}); background-position: $BackgroundImage.PercentageX% $BackgroundImage.PercentageY%;"></div>
+                    <link rel="preload" href="$BackgroundImage.FocusFill(640,360).URL" as="image">
+                    <img alt="$BackgroundImage.Title" width="640" height="360" src="$BackgroundImage.FocusFill(640,360).URL" srcset="$BackgroundImage.FocusFill(640,360).URL 640w, $BackgroundImage.FocusFill(1280,720).URL 1280w, $BackgroundImage.FocusFill(1920,1080).URL 1920w" class="banner__wrap__item__background">
                 <% end_if %>
 
                 <!-- ----------------------------------------------------------------

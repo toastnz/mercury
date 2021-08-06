@@ -5,6 +5,8 @@
 .linkBlock {
   max-width: $xl;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 
   &__wrap {
     padding: 4rem 2rem;

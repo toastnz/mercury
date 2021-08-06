@@ -4,153 +4,60 @@
 
 .mobileMenu {
   position: fixed;
-  top: 8rem;
+  top: 0;
   left: 0;
   right: 0;
-  background: $white;
+  background: $primary;
   z-index: 999999;
   bottom: 0;
   padding: 3rem 0 10rem;
   overflow: auto;
-  transition: all 262ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all $fast;
   visibility: hidden;
   opacity: 0;
   backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
 
-  &.sticky {
-    top: 7.9rem;
-  }
-
-  &__group {
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
     margin: 0 auto;
+    position: absolute;
+    @include full;
+    align-items: center;
+    align-content: center;
 
-    &--noKids {
-      opacity: 1;
-    }
-
-    &__top {
-      @include bold;
-      text-decoration: none;
-      display: block;
-      text-transform: capitalize;
-      position: relative;
-      transition: all 222ms cubic-bezier(0.165, 0.84, 0.44, 1);
-      padding: 2rem 2rem 2rem 4rem;
-      color: $black;
-      font-size: 2rem;
-      cursor: pointer;
-
-      &:before {
-        @include pseudo;
-        width: 2rem;
-        height: 0.2rem;
-        background: $black;
-        position: absolute;
-        left: 1rem;
-        top: 50%;
-        margin-top: -1px;
-        transform: rotate(90deg);
-        transition: transform 444ms ease, background 111ms ease;
-      }
-
-      &:after {
-        @include pseudo;
-        width: 2rem;
-        height: 0.2rem;
-        background: $black;
-        position: absolute;
-        left: 1rem;
-        top: 50%;
-        margin-top: -1px;
-        transition: transform 444ms ease, background 111ms ease;
-      }
-
-      a {
-        @include vertical-align;
-        right: 2rem;
-        margin-top: -1rem;
-        color: $grey-mid;
-        opacity: 0;
-        transform: translateX(-1rem);
-        transition: transform 444ms ease, background 111ms ease;
-      }
-
-      &.active {
-        padding-left: 5rem;
-        color: $primary;
-
-        a {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
-        &:before,
-        &:after {
-          background: $primary;
-          transform: rotate(180deg);
-        }
-
-        + .mobileMenu__group__children {
-          .mobileMenu__group__children__item {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-      }
-
-      &:hover {
-        color: $primary;
-      }
-    }
-
-    &__children {
-      background: $primary;
-      padding: 0 2rem;
-
-      &__item {
-        @include bold;
-        text-decoration: none;
-        color: $white;
-        padding: 1.2rem 3rem;
-        display: block;
-        text-transform: capitalize;
-        transition: all 222ms cubic-bezier(0.165, 0.84, 0.44, 1);
-        opacity: 0;
-        font-size: 1.6rem !important;
-
-        &:after {
-          @include pseudo;
-          left: -2rem;
-          right: -2rem;
-          bottom: 0;
-          margin: 0 auto;
-          height: 1px;
-          background: rgba($white, 0.1);
-        }
-
-        @include media($sm, max) {
-          font-size: 2rem;
-        }
-
-        @for $i from 1 through 20 {
-          &:nth-child(#{$i}) {
-            transition-delay: #{($i * 50)}ms;
-            transform: translateX(-#{($i * 10)}px);
-          }
-        }
-      }
+    &__item {
+      width: 100%;
+      color: $white;
+      font-size: 2.4rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 1rem;
     }
   }
 }
 
 .mobileMenuActive {
+  .header {
+    background: $primary;
+    box-shadow: none !important;
+
+    .header__wrap__logo {
+      path {
+        fill: $white;
+      }
+    }
+  }
+
   .mobileMenu {
     visibility: visible !important;
     opacity: 1 !important;
   }
   .header__wrap__navburger__ring--1 {
     transform: rotate(45deg) translateX(0.7rem) translateY(0.7rem);
+    background: $white;
   }
 
   .header__wrap__navburger__ring--2 {
@@ -159,5 +66,6 @@
 
   .header__wrap__navburger__ring--3 {
     transform: rotate(-45deg) translateX(0.7rem) translateY(-0.7rem);
+    background: $white;
   }
 }
