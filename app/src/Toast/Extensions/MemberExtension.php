@@ -12,8 +12,8 @@ class MemberExtension extends DataExtension
     {
         // Only show the additional fields on an appropriate kind of use 
         if(Permission::checkMember($this->owner->ID, "VIEW_FORUM")) {
-            // Edit the FieldList passed, adding or removing fields as necessary
-           
+
+            // get current fieldsname and add the data attr to all of them to prevent auto populate
             $dataFieldNames = $fields->dataFieldNames();
             foreach($dataFieldNames as $fieldname){
                 $fields->dataFieldByName($fieldname)
