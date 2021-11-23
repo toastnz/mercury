@@ -34,7 +34,11 @@ $FoundTags
 Favicons Template
 -------------------------------------------------------------- -->
 
-<% include Toast\Favicons %>
+<% if SiteConfig.FaviconImage %>
+    <link rel="shortcut icon" href="$SiteConfig.FaviconImage.Link" type="image/x-icon"/>
+<% else %>
+    <% include Toast\Favicons %>
+<% end_if %>
 
 <!-- --------------------------------------------------------------
 Google Tag manager
