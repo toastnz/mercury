@@ -26,7 +26,7 @@
         "permanentinc/found": "dev-master",
         "permanentinc/type": "dev-master",
         "permanentinc/beautiful": "dev-master",
-        "toastnz/blocks": "^1.1",
+        "toastnz/blocks": "dev-master",
         "heyday/silverstripe-menumanager": "^3.2",
         "toastnz/duplicator": "^1.0",
         "toastnz/webp": "^1.3"
