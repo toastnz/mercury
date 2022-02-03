@@ -1057,6 +1057,7 @@ proto.create = function() {
   this.element.setAttribute( 'aria-hidden', 'true' );
   this.x = 0;
   this.shift = 0;
+  this.element.style[ this.parent.originSide ] = 0;
 };
 
 proto.destroy = function() {
@@ -1065,6 +1066,7 @@ proto.destroy = function() {
   this.element.style.position = '';
   var side = this.parent.originSide;
   this.element.style[ side ] = '';
+  this.element.style.transform = '';
   this.element.removeAttribute('aria-hidden');
 };
 
@@ -1087,8 +1089,14 @@ proto.updateTarget = proto.setDefaultTarget = function() {
 
 proto.renderPosition = function( x ) {
   // render position of cell with in slider
-  var side = this.parent.originSide;
-  this.element.style[ side ] = this.parent.getPositionValue( x );
+  var sideOffset = this.parent.originSide === 'left' ? 1 : -1;
+
+  var adjustedX = this.parent.options.percentPosition ?
+    x * sideOffset * ( this.parent.size.innerWidth / this.size.width ) :
+    x * sideOffset;
+
+  this.element.style.transform = 'translateX(' +
+    this.parent.getPositionValue( adjustedX ) + ')';
 };
 
 proto.select = function() {
@@ -1164,21 +1172,12 @@ proto._touchActionValue = 'pan-y';
 
 // --------------------------  -------------------------- //
 
-var isTouch = 'createTouch' in document;
-var isTouchmoveScrollCanceled = false;
-
 proto._createDrag = function() {
   this.on( 'activate', this.onActivateDrag );
   this.on( 'uiChange', this._uiChangeDrag );
   this.on( 'deactivate', this.onDeactivateDrag );
   this.on( 'cellChange', this.updateDraggable );
   // TODO updateDraggable on resize? if groupCells & slides change
-  // HACK - add seemingly innocuous handler to fix iOS 10 scroll behavior
-  // #457, RubaXa/Sortable#973
-  if ( isTouch && !isTouchmoveScrollCanceled ) {
-    window.addEventListener( 'touchmove', function() {} );
-    isTouchmoveScrollCanceled = true;
-  }
 };
 
 proto.onActivateDrag = function() {
@@ -2279,7 +2278,8 @@ proto.onresize = function() {
 utils.debounceMethod( Flickity, 'onresize', 150 );
 
 proto.resize = function() {
-  if ( !this.isActive ) {
+  // #1177 disable resize behavior when animating or dragging for iOS 15
+  if ( !this.isActive || this.isAnimating || this.isDragging ) {
     return;
   }
   this.getSize();
@@ -2441,7 +2441,7 @@ return Flickity;
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * Flickity v2.2.2
+ * Flickity v2.3.0
  * Touch, responsive, flickable carousels
  *
  * Licensed GPLv3 for open source use
@@ -4695,7 +4695,7 @@ module.exports = Sister;
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * Unidragger v2.3.1
+ * Unidragger v2.4.0
  * Draggable base class
  * MIT license
  */
@@ -4977,7 +4977,7 @@ return Unidragger;
 /***/ ((module, exports, __webpack_require__) => {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
- * Unipointer v2.3.0
+ * Unipointer v2.4.0
  * base class for doing one thing with pointer event
  * MIT license
  */
@@ -5027,12 +5027,13 @@ proto._bindStartEvent = function( elem, isAdd ) {
 
   // default to mouse events
   var startEvent = 'mousedown';
-  if ( window.PointerEvent ) {
+  if ( 'ontouchstart' in window ) {
+    // HACK prefer Touch Events as you can preventDefault on touchstart to
+    // disable scroll in iOS & mobile Chrome metafizzy/flickity#1177
+    startEvent = 'touchstart';
+  } else if ( window.PointerEvent ) {
     // Pointer Events
     startEvent = 'pointerdown';
-  } else if ( 'ontouchstart' in window ) {
-    // Touch Events. iOS Safari
-    startEvent = 'touchstart';
   }
   elem[ bindMethod ]( startEvent, this );
 };
@@ -5289,7 +5290,7 @@ var _PlayerStates2 = _interopRequireDefault(_PlayerStates);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = {
+exports["default"] = {
   pauseVideo: {
     acceptableStates: [_PlayerStates2.default.ENDED, _PlayerStates2.default.PAUSED],
     stateChangeRequired: false
@@ -5514,7 +5515,7 @@ YouTubePlayer.promisifyPlayer = function (playerAPIReady) {
   return functions;
 };
 
-exports.default = YouTubePlayer;
+exports["default"] = YouTubePlayer;
 module.exports = exports['default'];
 
 /***/ }),
@@ -5531,7 +5532,7 @@ module.exports = exports['default'];
 Object.defineProperty(exports, "__esModule", ({
   value: true
 }));
-exports.default = {
+exports["default"] = {
   BUFFERING: 3,
   ENDED: 0,
   PAUSED: 2,
@@ -5562,7 +5563,7 @@ Object.defineProperty(exports, "__esModule", ({
  * `volumeChange` is not officially supported but seems to work
  * it emits an object: `{volume: 82.6923076923077, muted: false}`
  */
-exports.default = ['ready', 'stateChange', 'playbackQualityChange', 'playbackRateChange', 'error', 'apiChange', 'volumeChange'];
+exports["default"] = ['ready', 'stateChange', 'playbackQualityChange', 'playbackRateChange', 'error', 'apiChange', 'volumeChange'];
 module.exports = exports['default'];
 
 /***/ }),
@@ -5584,7 +5585,7 @@ Object.defineProperty(exports, "__esModule", ({
 /**
  * @see https://developers.google.com/youtube/iframe_api_reference#Functions
  */
-exports.default = ['cueVideoById', 'loadVideoById', 'cueVideoByUrl', 'loadVideoByUrl', 'playVideo', 'pauseVideo', 'stopVideo', 'getVideoLoadedFraction', 'cuePlaylist', 'loadPlaylist', 'nextVideo', 'previousVideo', 'playVideoAt', 'setShuffle', 'setLoop', 'getPlaylist', 'getPlaylistIndex', 'setOption', 'mute', 'unMute', 'isMuted', 'setVolume', 'getVolume', 'seekTo', 'getPlayerState', 'getPlaybackRate', 'setPlaybackRate', 'getAvailablePlaybackRates', 'getPlaybackQuality', 'setPlaybackQuality', 'getAvailableQualityLevels', 'getCurrentTime', 'getDuration', 'removeEventListener', 'getVideoUrl', 'getVideoEmbedCode', 'getOptions', 'getOption', 'addEventListener', 'destroy', 'setSize', 'getIframe'];
+exports["default"] = ['cueVideoById', 'loadVideoById', 'cueVideoByUrl', 'loadVideoByUrl', 'playVideo', 'pauseVideo', 'stopVideo', 'getVideoLoadedFraction', 'cuePlaylist', 'loadPlaylist', 'nextVideo', 'previousVideo', 'playVideoAt', 'setShuffle', 'setLoop', 'getPlaylist', 'getPlaylistIndex', 'setOption', 'mute', 'unMute', 'isMuted', 'setVolume', 'getVolume', 'seekTo', 'getPlayerState', 'getPlaybackRate', 'setPlaybackRate', 'getAvailablePlaybackRates', 'getPlaybackQuality', 'setPlaybackQuality', 'getAvailableQualityLevels', 'getCurrentTime', 'getDuration', 'removeEventListener', 'getVideoUrl', 'getVideoEmbedCode', 'getOptions', 'getOption', 'addEventListener', 'destroy', 'setSize', 'getIframe'];
 module.exports = exports['default'];
 
 /***/ }),
@@ -5639,7 +5640,7 @@ var youtubeIframeAPI = void 0;
  * See `FunctionStateMap.js` for supported functions and acceptable states.
  */
 
-exports.default = function (maybeElementId) {
+exports["default"] = function (maybeElementId) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var strictState = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
@@ -5711,7 +5712,7 @@ var _loadScript2 = _interopRequireDefault(_loadScript);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.default = function (emitter) {
+exports["default"] = function (emitter) {
   /**
    * A promise that is resolved when window.onYouTubeIframeAPIReady is called.
    * The promise is resolved with a reference to window.YT object.
@@ -6431,13 +6432,13 @@ function plural(ms, n, name) {
 /******/ 		// This function allow to reference all chunks
 /******/ 		__webpack_require__.miniCssF = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return undefined;
+/******/ 			return "../styles/" + chunkId + ".css";
 /******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("3df891ae477058f16cb0")
+/******/ 		__webpack_require__.h = () => ("1131e0d48d989ec9ce1c")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
@@ -6573,19 +6574,21 @@ function plural(ms, n, name) {
 /******/ 			// add "moreModules" to the modules object,
 /******/ 			// then flag all "chunkIds" as loaded and fire callback
 /******/ 			var moduleId, chunkId, i = 0;
-/******/ 			for(moduleId in moreModules) {
-/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 					__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
 /******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
 /******/ 			}
-/******/ 			if(runtime) var result = runtime(__webpack_require__);
 /******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
 /******/ 			for(;i < chunkIds.length; i++) {
 /******/ 				chunkId = chunkIds[i];
 /******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
 /******/ 					installedChunks[chunkId][0]();
 /******/ 				}
-/******/ 				installedChunks[chunkIds[i]] = 0;
+/******/ 				installedChunks[chunkId] = 0;
 /******/ 			}
 /******/ 		
 /******/ 		}

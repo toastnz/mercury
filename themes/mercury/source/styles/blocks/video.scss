@@ -21,11 +21,8 @@
     }
 
     &__background {
-      width: 100%;
-      height: auto;
-      position: absolute;
-      top: 0;
-      left: 0;
+      @include full;
+      @include cover;
       transition: all $slow;
     }
 

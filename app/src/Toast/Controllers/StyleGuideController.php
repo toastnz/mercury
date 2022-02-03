@@ -26,11 +26,11 @@ class StyleGuideController extends Controller
     public function init()
     {
 
-        $image = File::find('Placeholder.jpg');
+        $image = File::find('placeholder.jpg');
 
         if (!$image) {
             $file = Image::create();
-            $file->setFromLocalFile('themes/mercury/dist/images/standard/Placeholder.jpg', 'Placeholder.jpg');
+            $file->setFromLocalFile('themes/mercury/dist/images/standard/placeholder.jpg', 'placeholder.jpg');
             $file->write();
             if (class_exists(Versioned::class)) {
                 $file->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
@@ -169,32 +169,32 @@ class StyleGuideController extends Controller
     {
         $Items = new ArrayList([
             new ArrayData([
-                'Image' => Image::find('Placeholder.jpg'),
+                'Image' => Image::find('placeholder.jpg'),
                 'Title' => 'Dolor sit dolor',
                 'Summary' => 'Esse officia consectetur sit proident ipsum mollit fugiat amet veniam ipsum velit.'
             ]),
             new ArrayData([
-                'Image' => Image::find('Placeholder.jpg'),
+                'Image' => Image::find('placeholder.jpg'),
                 'Title' => 'Adipisicing sunt',
                 'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut fugiat non in nisi occaecat ut aliquip.'
             ]),
             new ArrayData([
-                'Image' => Image::find('Placeholder.jpg'),
+                'Image' => Image::find('placeholder.jpg'),
                 'Title' => 'Occaecat eiusmod qui',
                 'Summary' => 'Adipisicing sunt fugiat tempor elit Lorem ullamco mollit sit veniam.'
             ]),
             new ArrayData([
-                'Image' => Image::find('Placeholder.jpg'),
+                'Image' => Image::find('placeholder.jpg'),
                 'Title' => 'Dolor sit dolor',
                 'Summary' => 'Esse officia consectetur sit proident ipsum mollit fugiat amet veniam ipsum velit.'
             ]),
             new ArrayData([
-                'Image' => Image::find('Placeholder.jpg'),
+                'Image' => Image::find('placeholder.jpg'),
                 'Title' => 'Adipisicing sunt',
                 'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut fugiat non in nisi occaecat ut aliquip.'
             ]),
             new ArrayData([
-                'Image' => Image::find('Placeholder.jpg'),
+                'Image' => Image::find('placeholder.jpg'),
                 'Title' => 'Occaecat eiusmod qui',
                 'Summary' => 'Adipisicing sunt fugiat tempor elit Lorem ullamco mollit sit veniam.'
             ]),
@@ -252,7 +252,7 @@ class StyleGuideController extends Controller
             'Video'     => 'ScMzIvxBSi4',
             'Caption'   => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
             'ThumbnailID' => 12,
-            'Thumbnail' => Image::find('Placeholder.jpg')
+            'Thumbnail' => Image::find('placeholder.jpg')
         ]);
         return $arrayData->renderWith('Toast\Blocks\VideoBlock');
     }
@@ -260,7 +260,7 @@ class StyleGuideController extends Controller
     public function ImageBlock()
     {
         $arrayData = new ArrayData([
-            'Image'   => Image::find('Placeholder.jpg'),
+            'Image'   => Image::find('placeholder.jpg'),
             'Caption' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
         ]);
         return $arrayData->renderWith('Toast\Blocks\ImageBlock');
@@ -270,7 +270,7 @@ class StyleGuideController extends Controller
     public function HeroBlock()
     {
         $arrayData = new ArrayData([
-            'BackgroundImage'   => Image::find('Placeholder.jpg'),
+            'BackgroundImage'   => Image::find('placeholder.jpg'),
             'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Ipsum dolor sit</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
         ]);
         return $arrayData->renderWith('Toast\Blocks\HeroBlock');
@@ -279,7 +279,7 @@ class StyleGuideController extends Controller
     public function ImageTextBlock()
     {
         $arrayData = new ArrayData([
-            'Image'   => Image::find('Placeholder.jpg'),
+            'Image'   => Image::find('placeholder.jpg'),
             'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Ipsum dolor sit</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
         ]);
         return $arrayData->renderWith('Toast\Blocks\ImageTextBlock');
@@ -289,7 +289,7 @@ class StyleGuideController extends Controller
     public function ImageTextBlockReversed()
     {
         $arrayData = new ArrayData([
-            'Image'   => Image::find('Placeholder.jpg'),
+            'Image'   => Image::find('placeholder.jpg'),
             'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Adipiscing elit</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
             'ReverseLayout' => true
         ]);
@@ -327,13 +327,13 @@ class StyleGuideController extends Controller
     {
         $files     = new ArrayList([
             new ArrayData([
-                'File' => Image::find('Placeholder.jpg'),
+                'File' => Image::find('placeholder.jpg'),
             ]),
             new ArrayData([
-                'File' => Image::find('Placeholder.jpg'),
+                'File' => Image::find('placeholder.jpg'),
             ]),
             new ArrayData([
-                'File' => Image::find('Placeholder.jpg'),
+                'File' => Image::find('placeholder.jpg'),
             ])
         ]);
         $arrayData = new ArrayData([

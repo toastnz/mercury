@@ -556,6 +556,9 @@ https://flickity.metafizzy.co
   border-bottom: 1px solid #f7f7f7;
   margin-bottom: 4rem;
   padding: 0 2rem; }
+  @media only screen and (max-width: 767px) {
+    .breadCrumbs {
+      padding: 0; } }
   .breadCrumbs__wrap {
     max-width: 1280px;
     margin: 0 auto;
@@ -563,6 +566,9 @@ https://flickity.metafizzy.co
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis; }
+    @media only screen and (max-width: 767px) {
+      .breadCrumbs__wrap {
+        padding: 0 2rem; } }
     .breadCrumbs__wrap p {
       display: inline-block;
       margin: 0 !important;
@@ -612,6 +618,9 @@ https://flickity.metafizzy.co
       transform: translateY(-50%);
       position: absolute;
       right: 0.2rem; }
+      @media only screen and (max-width: 767px) {
+        .breadCrumbs__wrap__social {
+          right: 1.2rem; } }
       @media only screen and (max-width: 639px) {
         .breadCrumbs__wrap__social {
           display: none; } }
@@ -660,8 +669,6 @@ https://flickity.metafizzy.co
   color: #fff !important;
   transition: all 111ms ease;
   border: 0; }
-  .button + .button, input[type='submit'] + .button, .button + input[type='submit'], input[type='submit'] + input[type='submit'] {
-    margin-left: 1rem; }
   .button:hover, input:hover[type='submit'] {
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2); }
   .button:active, input:active[type='submit'] {
@@ -1516,6 +1523,7 @@ ol:not([class]) {
 
 @media only screen and (min-width: 968px) {
   .js-sticky-sidebar {
+    position: -webkit-sticky;
     position: sticky;
     top: 3rem;
     margin-bottom: 0;
@@ -1871,17 +1879,7 @@ Blog
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start; }
-    .heroBlock__wrap__content {
-      background: #fff;
-      padding: 6rem;
-      max-width: 50rem; }
-  .heroBlock__container {
-    position: absolute;
-    top: -30%;
-    left: 0;
-    height: 160%;
-    width: 100%; }
-    .heroBlock__container__background {
+    .heroBlock__wrap__background {
       position: absolute;
       top: 0;
       left: 0;
@@ -1890,6 +1888,18 @@ Blog
       background-size: cover;
       background-position: 50% 50%;
       background-repeat: no-repeat; }
+    .heroBlock__wrap__content {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 6rem;
+      max-width: 50rem;
+      position: relative;
+      z-index: 3; }
+  .heroBlock__container {
+    position: absolute;
+    top: -30%;
+    left: 0;
+    height: 160%;
+    width: 100%; }
 
 .imageText + .imageText[data-parallax] {
   margin-top: 20rem !important; }
@@ -1995,6 +2005,12 @@ body .imageBlock {
       padding: 1rem 4rem;
       box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086);
       transform: translateX(-1rem); }
+      @media only screen and (max-width: 767px) {
+        body .imageBlock__wrap__caption {
+          position: relative;
+          bottom: 2rem; }
+          body .imageBlock__wrap__caption p {
+            font-size: 1.2rem; } }
       body .imageBlock__wrap__caption p {
         color: #fff;
         margin: 0; }
@@ -2187,11 +2203,14 @@ body .imageBlock {
       cursor: pointer;
       transform: scale(1.1); }
     .videoBlock__wrap__background {
-      width: 100%;
-      height: auto;
       position: absolute;
       top: 0;
+      right: 0;
+      bottom: 0;
       left: 0;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
       transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1); }
     .videoBlock__wrap__icon {
       position: relative;

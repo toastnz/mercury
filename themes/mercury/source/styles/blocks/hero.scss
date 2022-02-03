@@ -13,20 +13,6 @@
         flex-wrap: wrap;
         justify-content: flex-start;
 
-        &__content {
-            background: $white;
-            padding: 6rem;
-            max-width: 50rem;
-        }
-    }
-
-    &__container {
-        position: absolute;
-        top: -30%;
-        left: 0;
-        height: 160%;
-        width: 100%;
-
         &__background {
             position: absolute;
             top: 0;
@@ -37,5 +23,21 @@
             background-position: 50% 50%;
             background-repeat: no-repeat;
         }
+
+        &__content {
+            background: rgba($white, 0.9);
+            padding: 6rem;
+            max-width: 50rem;
+            position: relative;
+            z-index: 3;
+        }
+    }
+
+    &__container {
+        position: absolute;
+        top: -30%;
+        left: 0;
+        height: 160%;
+        width: 100%;
     }
 }
