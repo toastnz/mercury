@@ -34,11 +34,10 @@ $FoundTags
 Favicons Template
 -------------------------------------------------------------- -->
 
-<% if SiteConfig.FaviconImage %>
-    <link rel="shortcut icon" href="$SiteConfig.FaviconImage.Link" type="image/x-icon"/>
-<% else %>
-    <% include Toast\Favicons %>
-<% end_if %>
+$FaviconMetaTags
+
+<meta name="msapplication-TileColor" content="#000000">
+<meta name="theme-color" content="#000000">
 
 <!-- --------------------------------------------------------------
 Google Tag manager

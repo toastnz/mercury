@@ -2,6 +2,7 @@
 
 namespace Toast\Helpers;
 
+use SilverStripe\Core\Environment;
 use SilverStripe\Security\Security;
 use SilverStripe\Security\Permission;
 
@@ -43,7 +44,12 @@ class Helper
 
     static function isSuperAdmin()
     {
-        return (Security::getCurrentUser()->ID == 1) && Permission::check('ADMIN');
+        if ($defaultUser = Environment::getEnv('SS_DEFAULT_ADMIN_USERNAME')) {
+            if ($currentUser = Security::getCurrentUser()) {
+                return $currentUser->Email == $defaultUser;
+            }
+        }
+        return false;
     }
 
 

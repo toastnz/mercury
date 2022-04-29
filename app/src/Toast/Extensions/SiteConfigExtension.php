@@ -38,12 +38,10 @@ class SiteConfigExtension extends DataExtension
         'Logo' => File::class,
         'TermsLink' => Link::class,
         'PrivacyLink' => Link::class,
-        'FaviconImage' => Image::class
     ];
 
     private static $owns = [
-        'Logo',
-        'FaviconImage'
+        'Logo'
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -76,8 +74,7 @@ class SiteConfigExtension extends DataExtension
 
             $fields->addFieldsToTab('Root.Theme', [
                 UploadField::create('Logo', 'Logo')
-                    ->setDescription('Upload an SVG logo for your site'),
-                UploadField::create('FaviconImage', 'Favicon Image')
+                    ->setDescription('Upload an SVG logo for your site')
             ]);
         }
 
