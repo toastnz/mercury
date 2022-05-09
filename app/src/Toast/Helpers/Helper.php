@@ -29,7 +29,9 @@ class Helper
     static function getTemplates()
     {
         $cwd = getcwd();
-        $themeFolder = 'themes/mercury';
+        $config = SiteConfig::current_site_config();
+        $themeName = $config->Theme;
+        $themeFolder = 'themes/' .  $themeName;
         $themesPath = $cwd . '/' . $themeFolder . '/templates';
         $list = self::getDirContents($themesPath);
         $output = [];

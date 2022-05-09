@@ -1,0 +1,64 @@
+//------------------------------------------------------------------
+// Login Page
+//------------------------------------------------------------------
+
+.login {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__image {
+    @include cover;
+    background-color: $black;
+    width: 50%;
+
+    background-color: #000000;
+    opacity: 0.1;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 14px), repeating-linear-gradient(#ffffff55, #ffffff);
+    -image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 14px), repeating-linear-gradient(#ffffff55, #ffffff);
+
+    @include media($xmd, max) {
+      display: none;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding: 4rem;
+
+    @include media($xmd, max) {
+      width: 100%;
+      position: relative;
+    }
+
+    &__wrap {
+      max-width: 50rem;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+
+      &__logo {
+        margin: 6rem auto auto;
+        align-self: flex-start;
+      }
+
+      &__copy {
+        width: 100%;
+
+        h4 {
+          text-align: center;
+        }
+
+        p {
+          text-align: center;
+        }
+
+        #ForgotPassword {
+          display: none;
+        }
+      }
+    }
+  }
+}

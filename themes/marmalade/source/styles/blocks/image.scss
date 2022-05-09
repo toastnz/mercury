@@ -1,0 +1,55 @@
+//------------------------------------------------------------------
+// Accordion Block
+//------------------------------------------------------------------
+body {
+  .imageBlock {
+    margin-bottom: 6rem;
+
+    &__wrap {
+      margin: 0 auto;
+      max-width: $xl;
+      padding: 0 2rem;
+      position: relative;
+      transition: all 888ms ease;
+      opacity: 0;
+      will-change: opacity, transform;
+      transform: matrix(1, 0, 0, 1, 0, 20);
+
+      &.inView {
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        opacity: 1;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      &__caption {
+        background: $primary;
+        position: absolute;
+        bottom: 3rem;
+        left: 2rem;
+        padding: 1rem 4rem;
+        box-shadow: $shadow;
+        transform: translateX(-1rem);
+
+        @include media($md, max) {
+          position: relative;
+          bottom: 2rem;
+
+          p {
+            font-size: 1.2rem;
+          }
+        }
+
+        p {
+          color: $white;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

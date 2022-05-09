@@ -1,0 +1,259 @@
+//------------------------------------------------------------------
+// Header - Styles
+//------------------------------------------------------------------
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $white;
+  padding: 0 2rem;
+  z-index: 9999999;
+  box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
+  transition: all $fast;
+
+  &--transparent {
+    box-shadow: none;
+    background: transparent;
+
+    + .banner {
+      margin-top: 0;
+    }
+  }
+
+  &.nav-down {
+    transform: translateY(0%);
+    background: $white;
+    box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
+  }
+
+  &.nav-up {
+    transform: translateY(-110%);
+  }
+
+  &__wrap {
+    position: relative;
+    height: 8rem;
+    max-width: $xl;
+    margin: 0 auto;
+
+    &--full {
+      max-width: 100%;
+    }
+
+    &__menu {
+      @include vertical-align;
+      left: 0;
+      text-align: right;
+      right: 0;
+
+      @include media($lg, max) {
+        right: 6rem;
+      }
+
+      &__item {
+        display: inline-block;
+        vertical-align: middle;
+
+        @include media($lg, max) {
+          display: none !important;
+        }
+
+        &__link {
+          padding: 2rem 0.5rem;
+          display: block;
+          margin: 0;
+          color: $text;
+          position: relative;
+
+          p {
+            margin: 0 !important;
+          }
+
+          &:hover .nav,
+          &.section .nav,
+          &.current .nav {
+            color: $primary !important;
+          }
+        }
+      }
+    }
+
+    &__logo {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+
+      img {
+        width: auto;
+        height: 6rem;
+      }
+    }
+
+    &__navburger {
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      right: -5.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+
+      @include media($lg) {
+        display: none;
+      }
+
+      &__ring {
+        width: 3.6rem;
+        height: 0.2rem;
+        position: absolute;
+        transition: all 333ms ease;
+
+        &--1 {
+          margin-top: 0.5rem;
+          background: $primary;
+        }
+
+        &--2 {
+          margin-top: 1.5rem;
+          background: $primary;
+        }
+
+        &--3 {
+          margin-top: 2.5rem;
+          background: $primary;
+        }
+      }
+    }
+  }
+}
+
+//------------------------------------------------------------------
+// Header Sub Menus
+//------------------------------------------------------------------
+
+.header__wrap__nav__link__subnav {
+  position: absolute;
+  background: $primary;
+  background: $white;
+  width: 26rem;
+  left: 50%;
+  padding: 1rem 0;
+  box-shadow: 0px 2px 3px 0 rgba($black, 0.2);
+  transform: rotateX(-40deg) translateX(-50%);
+  transform-origin: 50% 0;
+  will-change: all;
+  transition: all 333ms ease;
+  visibility: hidden;
+  opacity: 0;
+  perspective: 600px;
+  top: calc(100% + 0rem);
+
+  &:before {
+    @include pseudo;
+    display: block;
+    border-bottom-color: $primary;
+    left: 50%;
+    transform: translate(-50%);
+    width: 100%;
+    height: 1rem;
+    top: -1rem;
+  }
+
+  &__item {
+    display: block;
+    color: $white;
+    color: $primary;
+    font-size: 1.4rem;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    line-height: 1.4;
+    transition: all 111ms ease;
+    text-align: left;
+
+    p {
+      font-size: 1.8rem !important;
+      margin: 0 !important;
+    }
+
+    &.current,
+    &:hover {
+      background: $primary;
+
+      p {
+        transition: all 111ms ease;
+        color: $white !important;
+      }
+    }
+  }
+}
+
+.header__wrap__menu__item {
+  position: relative;
+  display: inline-block;
+  perspective: 600px;
+
+  &:hover {
+    z-index: 99;
+
+    .header__wrap__nav__link__subnav {
+      transform: translateX(-50%);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+//------------------------------------------------------------------
+// xoxo
+//------------------------------------------------------------------
+
+.header__wrap__nav__link__subnav__item__third {
+  position: absolute;
+  width: 26rem;
+  right: 100%;
+  padding: 1rem 0;
+  box-shadow: -1px 2px 3px 0 rgba($black, 0.2);
+  transform: rotateY(-20deg);
+  transform-origin: 100% 0;
+  will-change: all;
+  top: 0;
+  transition: all 333ms ease;
+  visibility: hidden;
+  opacity: 0;
+  background: $white;
+  text-align: left;
+
+  &__item {
+    display: block;
+    color: $white;
+    color: $primary;
+    font-size: 1.4rem;
+    text-decoration: none;
+    padding: 0.5rem 2rem;
+    line-height: 1.4;
+    transition: all 111ms ease;
+    text-align: left;
+
+    &:hover {
+      background: $primary;
+      color: $white;
+    }
+  }
+}
+
+.relative {
+  position: relative;
+
+  &:hover {
+    .header__wrap__nav__link__subnav__item__third {
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

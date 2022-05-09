@@ -1,0 +1,256 @@
+//------------------------------------------------------------------
+// Input Styling
+//------------------------------------------------------------------
+
+button,
+input,
+select,
+textarea {
+  -webkit-appearance: none;
+}
+
+%input {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  padding: 0.75rem 1.5rem 0.8rem !important;
+  width: 100%;
+  line-height: 1.5;
+  background-color: $white;
+  background-image: none;
+  border: 1px solid $grey-light;
+  border-radius: 0;
+  transition: all 0.3s;
+
+  @include placeholder {
+    opacity: 0.5;
+  }
+
+  &:hover {
+    border-color: $primary;
+  }
+
+  &:focus {
+    border-color: $primary;
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba($primary, 0.2);
+  }
+}
+
+form {
+  %field,
+  .field {
+    position: relative;
+    display: block;
+    float: left;
+    width: 100%;
+    margin-bottom: 1rem;
+
+    .optionset,
+    legend,
+    label {
+      margin: 1rem 0 0.5rem;
+      display: block;
+    }
+
+    &.half {
+      width: calc(50% - 1rem);
+
+      @include media($md, max) {
+        width: 100%;
+      }
+    }
+
+    &.textarea {
+      @extend %field;
+
+      textarea {
+        @extend %input;
+        min-height: 10rem;
+        resize: none;
+      }
+    }
+
+    &.text {
+      @extend %field;
+
+      input {
+        @extend %input;
+      }
+    }
+
+    &.dropdown {
+      @extend %field;
+
+      select {
+        @extend %input;
+        background-image: url('data:image/svg+xml; utf8, <svg width="16" height="9" viewBox="0 0 16 9" xmlns="http://www.w3.org/2000/svg"><path d="M7.839 5.96L13.936.108a.399.399 0 01.553.007l1.07 1.047a.38.38 0 01.008.542L8.122 8.851a.365.365 0 01-.283.105.387.387 0 01-.284-.105L.111 1.704a.38.38 0 01.007-.542L1.188.115a.399.399 0 01.554-.007L7.839 5.96z" fill="%23333" fill-rule="evenodd"/></svg>');
+        background-repeat: no-repeat;
+        background-position: 99% 50%;
+      }
+    }
+  }
+}
+
+input[type='submit'] {
+  @extend .button;
+  margin-top: 2rem;
+}
+
+/*------------------------------------------------------------------
+Checkbox
+------------------------------------------------------------------*/
+
+input[type='checkbox'] {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+
+  + label {
+    position: relative;
+    padding-left: 3rem;
+    user-select: none;
+    cursor: pointer;
+
+    &:before {
+      @include pseudo;
+      display: block;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 333ms ease;
+      background: $white;
+      border: 1px solid $grey-light;
+      width: 20px;
+      height: 20px;
+      border-radius: 0;
+    }
+
+    &:after {
+      @include pseudo;
+      transform: rotate(43deg);
+      width: 5px;
+      height: 9px;
+      border: 2px solid $white;
+      border-top: 0;
+      border-left: 0;
+      left: 7px;
+      top: 50%;
+      transition: all 333ms ease;
+      margin-top: -1px;
+      transform: translateY(-50%) rotate(20deg);
+    }
+  }
+
+  &:checked {
+    + label {
+      &:before {
+        background: $primary;
+        border-color: $primary;
+      }
+
+      &:after {
+        transform: translateY(-50%) rotate(43deg);
+      }
+    }
+  }
+}
+
+/*------------------------------------------------------------------
+Radio
+------------------------------------------------------------------*/
+
+input[type='radio'] {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+
+  + label {
+    position: relative;
+    padding-left: 3rem;
+    user-select: none;
+    cursor: pointer;
+
+    &:before {
+      @include pseudo;
+      display: block;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: all 222ms ease;
+      background: $white;
+      border: 1px solid $grey-light;
+      width: 20px;
+      height: 20px;
+      border-radius: 2rem;
+    }
+
+    &:after {
+      @include pseudo;
+      left: 0;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      background: $white;
+      transition: all 222ms ease;
+      border-radius: 2rem;
+      transform: translateY(-50%) scale(0.9);
+    }
+  }
+
+  &:checked {
+    + label {
+      &:before {
+        background: $primary;
+        border-color: $primary;
+      }
+
+      &:after {
+        transform: translateY(-50%) scale(0.5);
+      }
+    }
+  }
+}
+
+/*------------------------------------------------------------------
+User form specifics
+------------------------------------------------------------------*/
+
+form {
+  .userformsstep,
+  .userform-fields {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+/*------------------------------------------------------------------
+File field
+------------------------------------------------------------------*/
+
+.field.file {
+  .middleColumn {
+    position: relative;
+    border: 2px dashed $grey-light;
+    border-radius: 0.4rem;
+    height: 7rem;
+
+    input {
+      position: absolute;
+      width: 100%;
+      top: 0;
+      padding: 2rem 1rem;
+      bottom: 0;
+      line-height: 1;
+      outline: none;
+      margin: 0;
+      cursor: pointer;
+      transition: all 333ms ease;
+
+      &:hover {
+        background: $off-white;
+      }
+    }
+  }
+}

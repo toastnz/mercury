@@ -7,6 +7,7 @@ use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\Security\PasswordValidator;
 use SilverStripe\ORM\Search\FulltextSearchable;
 use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
+use SilverStripe\View\SSViewer;
 
 
 // remove PasswordValidator for SilverStripe 5.0
@@ -14,6 +15,23 @@ $validator = PasswordValidator::create();
 // Settings are registered via Injector configuration - see passwords.yml in framework
 Member::set_password_validator($validator);
 
+$config = SiteConfig::current_site_config();
+
+if ($theme = $config->Theme ){
+    // Our Base Theme Folder
+    SSViewer::config()->set('themes', [
+        '$public',
+        $theme,
+        '$default'
+    ]);
+    // apply theme to tinymce
+    $filename = '/themes/' . $theme .'/dist/styles/editor.css';
+
+    if (file_exists($filename)) {
+        TinyMCEConfig::get('cms')->setContentCSS([$filename]);
+    }
+}
+    
 
 $formats = [
     [

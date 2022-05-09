@@ -13,6 +13,7 @@ use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\DropdownField;
 use Sheadawson\Linkable\Forms\LinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
@@ -32,6 +33,7 @@ class SiteConfigExtension extends DataExtension
         'InstagramPage' => 'Varchar(255)',
         'YoutubePage' => 'Varchar(255)',
         'TwitterPage' => 'Varchar(255)',
+        'Theme' =>'Enum("mercury,marmalade","mercury")'
     ];
 
     private static $has_one = [
@@ -73,6 +75,11 @@ class SiteConfigExtension extends DataExtension
             $fields->findOrMakeTab('Root.Theme');
 
             $fields->addFieldsToTab('Root.Theme', [
+                DropdownField::create(
+                    'Theme',
+                    'Theme',
+                    $this->owner->dbObject('Theme')->enumValues(),
+                ),
                 UploadField::create('Logo', 'Logo')
                     ->setDescription('Upload an SVG logo for your site')
             ]);

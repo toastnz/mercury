@@ -1,0 +1,41 @@
+//------------------------------------------------------------------
+// Download Block
+//------------------------------------------------------------------
+
+.videoBlock {
+  max-width: $xl;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  &__wrap {
+    margin: 0 auto;
+    @include aspect(1920, 1080);
+    overflow: hidden;
+    display: block;
+
+    &:hover {
+      .videoBlock__wrap__background {
+        cursor: pointer;
+        transform: scale(1.1);
+      }
+    }
+
+    &__background {
+      @include full;
+      @include cover;
+      transition: all $slow;
+    }
+
+    &__icon {
+      @include svg(1, 1);
+      @include vertical-center;
+      width: 8rem;
+      z-index: 2;
+      cursor: pointer;
+
+      circle {
+        fill: $primary;
+      }
+    }
+  }
+}

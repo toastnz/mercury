@@ -1,0 +1,73 @@
+//------------------------------------------------------------------
+// Download Block
+//------------------------------------------------------------------
+
+.downloadBlock {
+  &__wrap {
+    margin: 0 auto;
+    max-width: $xl;
+    padding: 0 2rem;
+
+    &__list {
+      &__item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: inherit;
+        padding: 1.75rem 2rem 1.75rem;
+        border-bottom: 1px solid $grey-light;
+        text-decoration: none;
+
+        &:first-of-type {
+          border-top: 1px solid $grey-light;
+        }
+
+        &__details {
+          &__summary,
+          &__info,
+          &__title {
+            width: 100%;
+            transition: all 222ms ease;
+          }
+
+          &__title {
+            margin-bottom: 0.5rem !important;
+          }
+
+          &__extension {
+            margin-bottom: 0 !important;
+          }
+        }
+
+        &__icon {
+          margin-right: 2rem;
+          position: relative;
+          top: 0.4rem;
+
+          svg {
+            overflow: visible;
+
+            path {
+              transition: all 222ms ease;
+            }
+          }
+        }
+
+        &:hover {
+          .downloadBlock__wrap__list__item__details__summary,
+          .downloadBlock__wrap__list__item__details__title {
+            color: $primary;
+          }
+
+          path {
+            fill: $primary;
+
+            &:last-of-type {
+              transform: translateY(3px);
+            }
+          }
+        }
+      }
+    }
+  }
+}

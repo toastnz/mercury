@@ -1,0 +1,135 @@
+//------------------------------------------------------------------
+// Image Text Block
+//------------------------------------------------------------------
+
+.linkBlock {
+  max-width: $xl;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+
+  &__wrap {
+    padding: 4rem 2rem;
+    margin: 0 -2rem;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include media($md, max) {
+      margin: 0 auto;
+    }
+
+    &__item {
+      box-shadow: $shadow;
+      margin: 2rem;
+      background: $white;
+      overflow: hidden;
+      position: relative;
+      transition: opacity 800ms cubic-bezier(0.4, 0, 0.2, 1), transform 800ms cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: opacity, transform;
+      opacity: 0;
+      transform: matrix(1, 0, 0, 1, 0, 20);
+
+      @for $i from 0 through 12 {
+        &:nth-child(#{$i}) {
+          transform: matrix(1, 0, 0, 1, 0, #{($i * 10)});
+        }
+      }
+
+      &.inView {
+        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+      }
+
+      &:hover {
+        .linkBlock__wrap__item__content__link svg {
+          transform: translateX(0.5rem);
+        }
+      }
+
+      &__image {
+        width: 100%;
+      }
+
+      &__icon {
+        text-align: center;
+        display: block;
+
+        img {
+          margin: 2rem auto 0;
+          display: inline-block;
+          max-width: 100%;
+          height: auto;
+        }
+      }
+
+      &__content {
+        padding: 1rem 3rem 2rem;
+
+        &__heading {
+          position: relative;
+          margin: 2rem auto 1rem;
+        }
+      }
+
+      &__content {
+        padding-bottom: 6rem;
+
+        &__link {
+          color: $primary;
+          position: absolute;
+          bottom: 2rem;
+          left: 3rem;
+
+          svg {
+            transition: all 333ms ease;
+
+            path {
+              fill: $primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//------------------------------------------------------------------
+// Variations
+//------------------------------------------------------------------
+
+.linkBlock__wrap .linkBlock__wrap__item {
+  width: calc(33.33333% - 4rem);
+
+  @include media($md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}
+
+.linkBlock__wrap--2 .linkBlock__wrap__item {
+  width: calc(50% - 4rem);
+
+  @include media($md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}
+
+.linkBlock__wrap--3 .linkBlock__wrap__item {
+  width: calc(33.333% - 4rem);
+
+  @include media($md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}
+
+.linkBlock__wrap--4 .linkBlock__wrap__item {
+  width: calc(25% - 4rem);
+
+  @include media($md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}

@@ -1,0 +1,130 @@
+/*------------------------------------------------------------------
+Blog
+------------------------------------------------------------------*/
+
+.SilverStripe\\Blog\\Model\\Blog {
+  background: $off-white;
+}
+
+.blog {
+  padding: 0 2rem;
+  width: 100%;
+
+  &__wrap {
+    max-width: $xl;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    &__grid {
+      display: flex;
+      flex-wrap: wrap;
+      width: calc(100% - 36rem);
+
+      @include media($xmd, max) {
+        width: 100%;
+        order: 1;
+      }
+
+      &__item {
+        background: $white;
+        box-shadow: $shadow;
+        border-radius: 0.5rem;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 6rem;
+
+        &__image {
+          width: 25rem;
+          @include cover;
+        }
+
+        &__content {
+          width: calc(100% - 25rem);
+          padding: 3rem 3rem 4rem;
+        }
+      }
+    }
+
+    &__sidebar {
+      padding: 0 4rem;
+      width: 36rem;
+
+      @include media($xmd, max) {
+        width: 100%;
+        order: 2;
+        padding: 0 ;
+      }
+
+      &__categories {
+        &__heading {
+          border-bottom: 1px solid $grey-light;
+        }
+      }
+
+      &__recent {
+        margin-top: 4rem;
+
+        &__heading {
+          border-bottom: 1px solid $grey-light;
+          margin-bottom: 2rem;
+        }
+
+        &__list {
+          &__item {
+            h6 {
+              margin-bottom: 0 !important;
+              transition: all $fast;
+            }
+
+            svg {
+              display: inline-block;
+              position: relative;
+              top: -1px;
+              transition: all $slow;
+              margin-left: 0.8rem;
+            }
+
+            &:hover h6 {
+              color: $primary;
+
+              svg {
+                transform: translateX(0.5rem);
+
+                path {
+                  fill: $primary;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem 0 0;
+
+  .tag {
+    font-size: 1.4rem;
+    padding: 0.4rem 2rem;
+    background: $grey-light;
+    color: $primary;
+    border-radius: 10rem;
+    margin: 0 0.5rem 0.5rem 0;
+    display: inline-block;
+    transition: all $fast;
+
+    &:hover {
+      color: $white;
+      background: $primary;
+    }
+  }
+}

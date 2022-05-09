@@ -14,6 +14,8 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use Toast\Pages\SearchResultsPage;
 use SilverStripe\ORM\DB;
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\View\Requirements;
 
 class Page extends SiteTree
 {
@@ -75,6 +77,19 @@ class Page extends SiteTree
 
 class PageController extends ContentController
 {
+
+    protected function init()
+    {
+        parent::init();
+        $config = SiteConfig::current_site_config();
+
+        if ($theme = $config->Theme) {
+            $filename = 'themes/' . $theme . '/dist/styles/critical.css';
+            if (file_exists($filename)) {
+                Requirements::customCSS(file_get_contents($filename));
+            }
+        }
+    }
 
     public function getViewer($action)
     {
