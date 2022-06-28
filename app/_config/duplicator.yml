@@ -1,9 +1,7 @@
 ---
 Name: duplicator
+After: silverstripe-duplicator
 ---
-SilverStripe\ORM\DataObject:
-  extensions:
-    - Toast\Extensions\DuplicatorExtension
 
 Page:
   duplicator_relations:
