@@ -43,7 +43,7 @@ class StyleGuideController extends Controller
     public function TextBlock()
     {
         $arrayData = new ArrayData([
-            'Content' => DBField::create_field(DBHTMLText::class, '<h1>This is an H1, the most important heading on a page</h1>
+            'Content' => DBField::create_field(DBHTMLText::class, '<h1>This is an H1, an important heading on a page</h1>
             <h2>This is an H2, the second most important heading on a page</h2>
             <h3>This is an H3, the third most important heading on a page</h3>
             <h4>This is an H4, the fourth most important heading on a page</h4>

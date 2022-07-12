@@ -8,7 +8,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: $white;
+  background: white;
   padding: 0 2rem;
   z-index: 9999999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
@@ -25,7 +25,7 @@
 
   &.nav-down {
     transform: translateY(0%);
-    background: $white;
+    background: white;
     box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   }
 
@@ -50,15 +50,18 @@
       right: 0;
 
       @include media($lg, max) {
-        right: 6rem;
+        right: 5rem;
       }
 
+      &__search,
       &__item {
         display: inline-block;
         vertical-align: middle;
 
         @include media($lg, max) {
-          display: none !important;
+          &:not(.header__wrap__menu__search) {
+            display: none !important;
+          }
         }
 
         &__link {
@@ -98,9 +101,8 @@
       width: 3rem;
       height: 3rem;
       position: absolute;
-      right: -5.5rem;
-      top: 50%;
-      transform: translateY(-50%);
+      right: -4.5rem;
+      top: 1.8rem;
       cursor: pointer;
 
       @include media($lg) {
@@ -139,11 +141,11 @@
 .header__wrap__nav__link__subnav {
   position: absolute;
   background: $primary;
-  background: $white;
+  background: white;
   width: 26rem;
   left: 50%;
   padding: 1rem 0;
-  box-shadow: 0px 2px 3px 0 rgba($black, 0.2);
+  box-shadow: 0px 2px 3px 0 rgba(black, 0.2);
   transform: rotateX(-40deg) translateX(-50%);
   transform-origin: 50% 0;
   will-change: all;
@@ -166,7 +168,7 @@
 
   &__item {
     display: block;
-    color: $white;
+    color: white;
     color: $primary;
     font-size: 1.4rem;
     text-decoration: none;
@@ -186,7 +188,7 @@
 
       p {
         transition: all 111ms ease;
-        color: $white !important;
+        color: white !important;
       }
     }
   }
@@ -217,7 +219,7 @@
   width: 26rem;
   right: 100%;
   padding: 1rem 0;
-  box-shadow: -1px 2px 3px 0 rgba($black, 0.2);
+  box-shadow: -1px 2px 3px 0 rgba(black, 0.2);
   transform: rotateY(-20deg);
   transform-origin: 100% 0;
   will-change: all;
@@ -225,12 +227,12 @@
   transition: all 333ms ease;
   visibility: hidden;
   opacity: 0;
-  background: $white;
+  background: white;
   text-align: left;
 
   &__item {
     display: block;
-    color: $white;
+    color: white;
     color: $primary;
     font-size: 1.4rem;
     text-decoration: none;
@@ -241,7 +243,7 @@
 
     &:hover {
       background: $primary;
-      color: $white;
+      color: white;
     }
   }
 }

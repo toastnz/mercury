@@ -37,6 +37,72 @@ Banner
                 ----------------------------------------------------------------- -->    
                 <% if $BannerVideo %>
                     <div class="banner__wrap__item__video [ js-banner-video ]" data-video-id="$BannerVideo.VideoID"><div id="video-player"></div></div>
+
+                    <script>            
+                    var throttle = function (callback, limit) {
+                        var wait = false;
+                        return function () {
+                            if (!wait) {
+                                callback.call();
+                                wait = true;
+                                setTimeout(function () { wait = false }, limit);
+                            }
+                        }
+                    }
+
+                    var resizeVideo = function () {
+                        let bannerVideo = document.querySelector('.js-banner-video');
+                        let banner = document.querySelector('.js-banner');
+                        let bw = banner.clientWidth;
+                        let bh = banner.clientHeight;
+                        let ratio = 1920 / 1080;
+
+                        console.log(bannerVideo);
+                        if (bw / bh < ratio) {
+                            bannerVideo.style.height = bh + 'px';
+                            bannerVideo.style.width = bh * ratio + 'px';
+                        } else {
+                            bannerVideo.style.height = bh * ratio + 'px';
+                            bannerVideo.style.width = bw + 'px';
+                        }
+                    }
+
+                    var tag = document.createElement('script');
+                    tag.src = "https://www.youtube.com/iframe_api";
+                    var firstScriptTag = document.getElementsByTagName('script')[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                    var player;
+
+                    function onYouTubeIframeAPIReady() {
+                        player = new YT.Player('video-player', {
+                            color: 'white',
+                            controls: 0,
+                            videoId: '$BannerVideo.VideoID',
+                            events: {
+                              'onReady': onPlayerReady,
+                              'onStateChange': onPlayerStateChange
+                            }
+                        });
+
+                        function onPlayerReady(event) {
+                            event.target.mute()
+                            event.target.playVideo()
+                        }
+
+                        function onPlayerStateChange(event) {
+                          if (event.data == YT.PlayerState.ENDED) {
+                            setTimeout(player.playVideo(), 60);
+                          }
+                        }
+                         
+                        window.addEventListener('resize', throttle(resizeVideo, 100));
+                        resizeVideo();
+                    
+                    }
+                    
+                </script>
+
                 <% end_if %>    
 
                 <!-- ----------------------------------------------------------------
@@ -65,3 +131,26 @@ Banner
 
     </div>
 </div>
+
+
+
+<% if $BannerSlides.count > 1 %>
+
+<script>
+  tns({
+    container:".js-banner-slider" ,
+    items: 1,
+    mouseDrag: true,
+    nav: false,
+    controls: true,
+    slideBy: 1,
+    loop: false
+  });
+</script>
+
+<style> 
+  .tns-slider {
+      display: flex;
+  }
+</style>
+<% end_if %>

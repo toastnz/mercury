@@ -17,7 +17,9 @@
                 
                 <div class="blur">
                     $Layout
-                    <% include Toast\Footer %>
+                    <% cached 'Footer' %>
+                        <% include Toast\Footer %>
+                    <% end_cached %>
                 </div>
                 
             </div>
@@ -31,8 +33,6 @@
             <% require javascript("themes/mercury/dist/scripts/main.js") %>
 
         </div>
-
-        <% include Toast\Grid %>
 
     </body>
 

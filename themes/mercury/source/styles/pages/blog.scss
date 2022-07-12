@@ -28,7 +28,7 @@ Blog
       }
 
       &__item {
-        background: $white;
+        background: white;
         box-shadow: $shadow;
         border-radius: 0.5rem;
         position: relative;
@@ -123,7 +123,7 @@ Blog
     transition: all $fast;
 
     &:hover {
-      color: $white;
+      color: white;
       background: $primary;
     }
   }

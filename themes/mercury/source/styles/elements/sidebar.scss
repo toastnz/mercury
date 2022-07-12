@@ -35,14 +35,13 @@
       padding: 0.5rem 0;
       margin-bottom: 1rem;
       transition: all 111ms ease;
-      @include bold;
 
       &--indented {
         padding-left: 2rem;
       }
 
       &--alt {
-        color: $black;
+        color: black;
       }
 
       &:hover {
@@ -77,7 +76,7 @@
       }
 
       &__link {
-        color: $black !important;
+        color: black !important;
         transition: all 222ms ease;
 
         svg {

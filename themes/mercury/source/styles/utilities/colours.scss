@@ -2,12 +2,10 @@
 // Site wide colour variables
 //------------------------------------------------------------------
 
-$white: #fff;
-$off-white: #f7f7f7;
+$off-white: #f4f4f7;
 $grey-light: #ebebeb;
 $grey-mid: #7a7a7a;
 $grey-dark: #333;
-$black: #000;
 
 //------------------------------------------------------------------
 // Base Colurs
@@ -27,11 +25,11 @@ $secondary: var(--secondary-colour);
 // Font Colurs
 //------------------------------------------------------------------
 
-$text: $black;
+$text: black;
 $text-light: $grey-mid;
 
 .colour--white {
-  color: $white !important;
+  color: white !important;
 }
 
 .colour--primary {
@@ -39,5 +37,6 @@ $text-light: $grey-mid;
 }
 
 .colour--secondary {
-  color: $secondary !important; 
+  color: $secondary !important;
 }
+

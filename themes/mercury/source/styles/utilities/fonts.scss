@@ -67,7 +67,7 @@ h5,
 .h5 {
   @include bold;
   font-size: 2rem;
-} 
+}
 
 h6,
 .h6 {
@@ -89,14 +89,14 @@ em {
   font-style: italic !important;
 }
 
+.smaller {
+  font-size: 80% !important;
+}
+
 .text-center {
   text-align: center;
 }
 
 .text-right {
   text-align: right;
-}
-
-.smaller {
-  font-size: 80% !important;
 }

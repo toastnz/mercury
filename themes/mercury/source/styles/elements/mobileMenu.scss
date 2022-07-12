@@ -1,16 +1,16 @@
-//------------------------------------------------------------------
-// Mobile Menu
-//------------------------------------------------------------------
+/* -------------------------------------------- 
+Mobile menu
+-------------------------------------------- */
 
-.mobileMenu {
+.mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: $primary;
-  z-index: 999999;
+  background: white;
+  z-index: 999;
   bottom: 0;
-  padding: 3rem 0 10rem;
+  padding: 3rem 0;
   overflow: auto;
   transition: all $fast;
   visibility: hidden;
@@ -19,48 +19,99 @@
   -webkit-overflow-scrolling: touch;
 
   &__wrap {
+    @include full;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     margin: 0 auto;
     position: absolute;
-    @include full;
-    align-items: center;
-    align-content: center;
+    align-content: flex-start;
+    padding-top: 8rem;
 
     &__item {
       width: 100%;
-      color: $white;
-      font-size: 2.4rem;
-      font-weight: bold;
-      text-align: center;
-      padding: 1rem;
+      display: block;
+      position: relative;
+      margin-bottom: -1px;
+
+      &.active .mobile-menu__wrap__item__arrow svg {
+        transform: rotate(-180deg);
+      }
+
+      &:first-of-type {
+        border-top: 1px solid $off-white;
+      }
+
+      &__link {
+        @include semi;
+        display: block;
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
+        border-bottom: 1px solid $off-white;
+      }
+
+      &__arrow {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 4.5rem;
+        height: 4.5rem;
+        border-left: 1px solid $off-white;
+        cursor: pointer;
+
+        svg {
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          position: absolute;
+          top: 2rem;
+          transition: all $fast;
+
+          path {
+            fill: $primary;
+          }
+        }
+      }
+
+      &__group {
+        transition: all $medium;
+        overflow: hidden;
+        background: $off-white;
+
+        &:not(.active) {
+          display: none;
+        }
+
+        &__items {
+          padding: 1rem;
+        }
+
+        &__link {
+          @include light;
+          display: block;
+          padding: 1rem 2rem;
+          font-size: 1.6rem;
+        }
+      }
     }
   }
 }
 
 .mobileMenuActive {
   overflow: hidden;
-  
+
   .header {
-    background: $primary;
     box-shadow: none !important;
     transform: translateY(0%) !important;
-
-    .header__wrap__logo {
-      path {
-        fill: $white;
-      }
-    }
   }
 
-  .mobileMenu {
+  .mobile-menu {
     visibility: visible !important;
     opacity: 1 !important;
   }
+
   .header__wrap__navburger__ring--1 {
     transform: rotate(45deg) translateX(0.7rem) translateY(0.7rem);
-    background: $white;
   }
 
   .header__wrap__navburger__ring--2 {
@@ -69,6 +120,5 @@
 
   .header__wrap__navburger__ring--3 {
     transform: rotate(-45deg) translateX(0.7rem) translateY(-0.7rem);
-    background: $white;
   }
 }

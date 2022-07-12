@@ -11,56 +11,25 @@ Web Vitals
 /*------------------------------------------------------------------
 Import styles
 ------------------------------------------------------------------*/
-import 'lazysizes';
-import 'lazysizes/plugins/bgset/ls.bgset';
-
-document.addEventListener('lazybeforeunveil', function (e) {
-    var bg = e.target.getAttribute('data-bg');
-    if (bg) e.target.style.backgroundImage = 'url(' + bg + ')';
-});
 
 import './../styles/style.scss';
 
-window.onload = () => {
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js');
-    }
-}
-
-/*------------------------------------------------------------------
-Helpers
-------------------------------------------------------------------*/
-
-const query = document.querySelector.bind(document);
-const queryAll = document.querySelectorAll.bind(document);
-
-/*------------------------------------------------------------------
-Import modules
-------------------------------------------------------------------*/
-
-import './components/imageText';
-import './components/inview';
-import './components/mobileMenu';
-import './components/search';
-import './components/grid';
-import './components/banner';
-
-/*------------------------------------------------------------------
-Components
-------------------------------------------------------------------*/
-
-document.addEventListener('DOMContentLoaded', () => {
-    if ([...queryAll('.js-video-modal')].length) import('./components/videoModal');
-    if ([...queryAll('.js-accordion-trigger')].length) import('./components/accordionBlock');
-    if ([...queryAll('.js-tabs')].length) import('./components/tabbed');
-});
+import { $, $$ } from './lib'
 
 /*------------------------------------------------------------------
 Import external
 ------------------------------------------------------------------*/
 
-
 document.addEventListener('DOMContentLoaded', () => {
+
+    /*------------------------------------------------------------------
+    Post Load classname removal
+    ------------------------------------------------------------------*/
+
+    $$('.js-postload').forEach(element => {
+        element.classList.remove('js-postload');
+    });
+
 
     /*------------------------------------------------------------------
     Sticky header  
@@ -68,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let previousScrollPosition = 0;
     let scrollDelta = 5;
-    let header = query('.header');
+    let header = $('.header');
     let headerHeight = (header) ? header.clientHeight / 3 : 0;
 
     const stickyHeader = () => {
@@ -90,22 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', stickyHeader);
-
-    [...queryAll('.js-hero-block')].forEach(heroBlock => {
-        let speed = 7;
-        let image = heroBlock.querySelector('.js-hero-block-image');
-        let elementTop = heroBlock.getBoundingClientRect();
-        window.addEventListener('scroll', () => {
-            var scrolled = window.scrollY;
-            var shiftDistance = (elementTop.top - scrolled) / speed;
-            image.style.transform = `translate3d(0, ${shiftDistance}px, 0)`;
-        });
-
-    });
-
-    [...queryAll('.js-postload')].forEach(item => {
-        item.classList.remove('js-postload');
-    });
 
 });
 

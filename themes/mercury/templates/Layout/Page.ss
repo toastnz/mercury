@@ -1,6 +1,8 @@
-<% include Toast\Banner %>
 
-$Breadcrumbs
+<% cached 'Banner' %>
+    <% include Toast\Banner %>
+    $Breadcrumbs
+<% end_cached %>
 
 
 <% loop $ContentBlocks.Sort('SortOrder') %>

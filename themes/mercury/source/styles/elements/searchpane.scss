@@ -18,7 +18,7 @@
 .searchPane {
   @include full;
   position: fixed;
-  background: rgba($white, 0.95);
+  background: rgba(white, 0.95);
   transition: all 555ms ease;
   z-index: 9999999999;
   opacity: 0;
@@ -37,7 +37,7 @@
       transition: all $fast;
       cursor: pointer;
       @include svg(1, 1);
-      width: 6rem;
+      width: 4rem;
       position: absolute;
 
       svg {
@@ -82,6 +82,7 @@
           box-shadow: none !important;
           font-size: 5rem;
           padding-left: 0 !important;
+          font-weight: light;
 
           @include media($md, max) {
             font-size: 3rem;
@@ -92,7 +93,8 @@
           }
 
           @include placeholder {
-            opacity: 0.8 !important;
+            color: $text;
+            opacity: 1 !important;
           }
         }
       }
@@ -102,7 +104,6 @@
       }
 
       &__direction {
-        color: $primary !important;
         display: block;
         text-align: right;
 

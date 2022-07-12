@@ -33,7 +33,8 @@
         "toastnz/favicon": "dev-main"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.7"
+        "phpunit/phpunit": "^5.7",
+        "lekoala/silverstripe-debugbar": "^2.0"
     },
     "extra": {
         "resources-dir": "_resources",
