@@ -12,19 +12,20 @@ $HeroBlock
 
 
 
-$TextBlock
+$AccordionBlock
+
 $ImageBlock
+$DownloadBlock
 
 
 $VideoBlock
 
-$AccordionBlock
 
 $LinkBlock
 
+$TextBlock
 
 
-$DownloadBlock
 
 
 

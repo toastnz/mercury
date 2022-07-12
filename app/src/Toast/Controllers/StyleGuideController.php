@@ -69,11 +69,7 @@ class StyleGuideController extends Controller
                 <a href="#" onclick="event.preventDefault();" class="button button--secondary">Secondary Button</a>
                 <a href="#" onclick="event.preventDefault();" class="button button--outline">Outline Button</a>
                 </p>
-                <p>
-                <a href="#" onclick="event.preventDefault();" class="button button--rounded">Normal Button Rounded</a>
-                <a href="#" onclick="event.preventDefault();" class="button button--secondary button--rounded">Secondary Button Rounded</a>
-                <a href="#" onclick="event.preventDefault();" class="button button--outline button--rounded">Outline Button Rounded</a>
-                <p>&nbsp;</p>
+                <br>
                 <ul>
                     <li>This is an unordered list item</li>
                     <li>This is an unordered list item that has a slightly longer amount of text that may run over more than one line</li>

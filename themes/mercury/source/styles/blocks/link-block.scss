@@ -2,14 +2,15 @@
 // Image Text Block
 //------------------------------------------------------------------
 
-.linkBlock {
-  max-width: $xl;
+.link-block {
+  max-width: $lg;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
+  margin: 8rem auto;
 
   &__wrap {
-    padding: 4rem 2rem;
+    padding: 0 2rem 2rem;
     margin: 0 -2rem;
     position: relative;
     display: flex;
@@ -25,24 +26,10 @@
       background: white;
       overflow: hidden;
       position: relative;
-      transition: opacity 800ms cubic-bezier(0.4, 0, 0.2, 1), transform 800ms cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: opacity, transform;
-      opacity: 0;
-      transform: matrix(1, 0, 0, 1, 0, 20);
-
-      @for $i from 0 through 12 {
-        &:nth-child(#{$i}) {
-          transform: matrix(1, 0, 0, 1, 0, #{($i * 10)});
-        }
-      }
-
-      &.inView {
-        opacity: 1;
-        transform: matrix(1, 0, 0, 1, 0, 0);
-      }
+      border-radius: 0.2rem;
 
       &:hover {
-        .linkBlock__wrap__item__content__link svg {
+        .link-block__wrap__item__content__link svg {
           transform: translateX(0.5rem);
         }
       }
@@ -98,7 +85,7 @@
 // Variations
 //------------------------------------------------------------------
 
-.linkBlock__wrap .linkBlock__wrap__item {
+.link-block__wrap .link-block__wrap__item {
   width: calc(33.33333% - 4rem);
 
   @include media($md, max) {
@@ -107,7 +94,7 @@
   }
 }
 
-.linkBlock__wrap--2 .linkBlock__wrap__item {
+.link-block__wrap--2 .link-block__wrap__item {
   width: calc(50% - 4rem);
 
   @include media($md, max) {
@@ -116,7 +103,7 @@
   }
 }
 
-.linkBlock__wrap--3 .linkBlock__wrap__item {
+.link-block__wrap--3 .link-block__wrap__item {
   width: calc(33.333% - 4rem);
 
   @include media($md, max) {
@@ -125,7 +112,7 @@
   }
 }
 
-.linkBlock__wrap--4 .linkBlock__wrap__item {
+.link-block__wrap--4 .link-block__wrap__item {
   width: calc(25% - 4rem);
 
   @include media($md, max) {

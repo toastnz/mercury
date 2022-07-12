@@ -5,9 +5,8 @@ Video block
 .video-block {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
-  max-width: $xl;
-  padding: 4rem 0;
+  max-width: $lg;
+  margin: 8rem auto;
 
   &__constraint {
     position: relative;
