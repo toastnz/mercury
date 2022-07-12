@@ -51,6 +51,7 @@ form {
     label {
       margin: 1rem 0 0.5rem;
       display: block;
+      @include semi;
     }
 
     &.half {

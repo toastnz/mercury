@@ -4,8 +4,8 @@ $Breadcrumbs
 
 <div class="sidebarWrapper">
     <div class="sidebarWrapper__content">
-        <div class="contentBlock imageBlock">
-            <div class="contentBlock__wrap imageBlock__wrap row">
+        <div class="contentBlock image-block">
+            <div class="contentBlock__wrap image-block__wrap row">
                 <div class="column">
 
                     <picture>

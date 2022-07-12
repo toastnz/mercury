@@ -9,16 +9,21 @@
 
   &__image {
     @include cover;
-    background-color: black;
+    overflow: hidden;
     width: 50%;
-
-    background-color: #000000;
-    opacity: 0.1;
-    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 14px), repeating-linear-gradient(#ffffff55, #ffffff);
-    -image: repeating-radial-gradient(circle at 0 0, transparent 0, #000000 14px), repeating-linear-gradient(#ffffff55, #ffffff);
+    position: relative;
 
     @include media($xmd, max) {
       display: none;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -38,6 +43,7 @@
       margin: 0 auto;
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
 
       &__logo {
         margin: 6rem auto auto;
@@ -46,17 +52,12 @@
 
       &__copy {
         width: 100%;
+        position: relative;
 
-        h4 {
-          text-align: center;
-        }
-
-        p {
-          text-align: center;
-        }
-
-        #ForgotPassword {
-          display: none;
+        a {
+          position: absolute;
+          right: 0;
+          bottom: 3rem;
         }
       }
     }

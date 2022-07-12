@@ -2,22 +2,7 @@
 // Image Text Block
 //------------------------------------------------------------------
 
-.imageText {
-  + .imageText {
-    &[data-parallax] {
-      margin-top: 20rem !important;
-    }
-  }
-
-  [data-parallax] .imageText__wrap {
-    align-items: flex-start;
-    margin: 10rem auto;
-
-    @include media($md, max) {
-      margin: 10rem auto;
-    }
-  }
-
+.image-text {
   &__wrap {
     padding: 0 2rem;
     position: relative;
@@ -25,24 +10,16 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin: 6rem auto;
+    margin: 12rem auto;
     justify-content: space-between;
-    align-items: center;
 
     &__image {
-      width: 45%;
+      width: 50%;
       position: relative;
       display: flex;
       flex-wrap: wrap;
       align-content: center;
       text-align: center;
-      justify-content: space-around;
-      padding: 0;
-      z-index: 4;
-
-      &[data-parallax] {
-        box-shadow: $shadow;
-      }
 
       @include media($md, max) {
         width: 100%;
@@ -53,52 +30,41 @@
       img {
         width: 100%;
         height: auto;
-      }
 
-      &__text {
-        @include full;
-        background: rgba($text, 0.4);
-        z-index: 333;
-        align-items: center;
-        align-content: center;
-
-        h4 {
-          @include vertical-align;
-          padding: 4rem;
+        @include media($md) {
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
         }
       }
     }
 
     &__text {
       width: 50%;
-      padding: 6rem 5rem;
+      padding: 10rem;
       position: relative;
-
-      &[data-parallax] {
-        background: $off-white;
-      }
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
 
       @include media($md, max) {
         width: 100%;
-        order: 2 !important;
-        transform: none !important;
+        order: 2;
         padding: 3rem 3rem;
       }
-    } 
+    }
   }
 }
 
-.imageText--reversed {
-  .imageText__wrap__image {
+.image-text--reversed {
+  .image-text__wrap__image {
     order: 2;
   }
 
-  .imageText__wrap__text {
+  .image-text__wrap__text {
     order: 1;
-
-    &:after {
-      left: 99%;
-      right: auto;
-    }
   }
 }

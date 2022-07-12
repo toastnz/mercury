@@ -1,10 +1,20 @@
 <div class="banner__push"></div>
 
-$TextBlock
+$IntroBlock
+
+$ImageTextBlock
+
+$ImageTextBlockReversed
+
+$TabbedContentBlock
 
 $HeroBlock
 
-$TabbedContentBlock
+
+
+$TextBlock
+$ImageBlock
+
 
 $VideoBlock
 
@@ -12,16 +22,14 @@ $AccordionBlock
 
 $LinkBlock
 
-$ImageBlock
+
 
 $DownloadBlock
 
-$ImageTextBlock
 
-$ImageTextBlockReversed
 
-<section class="textBlock">
-    <div class="textBlock__wrap">
+<section class="text-block">
+    <div class="text-block__wrap">
         <form id="UserForm_Form_6" action="/new-user-defined-form/Form?stage=Stage" method="post" enctype="multipart/form-data" class=" userform">
             <p id="UserForm_Form_6_error" class="message " aria-hidden="true" style="display: none;"></p>
             <div class="userform-fields">

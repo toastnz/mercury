@@ -1,11 +1,13 @@
-//------------------------------------------------------------------
-// Accordion Block
-//------------------------------------------------------------------
+/*------------------------------------------------------------------
+Accordion Block
+------------------------------------------------------------------*/
 
-.accordionBlock {
+.accordion {
+  padding: 4rem 0;
+
   &__wrap {
     margin: 0 auto;
-    max-width: $xl;
+    max-width: $xmd;
     padding: 0 2rem;
 
     &__item {
@@ -14,76 +16,54 @@
       border-bottom: 1px solid $grey-light;
       margin-bottom: -1px;
 
-      &.active {
-        .accordionBlock__wrap__item__heading:before,
-        .accordionBlock__wrap__item__heading:after {
-          transform: rotate(180deg);
-        }
-      }
-
       &__heading {
         position: relative;
         padding: 2rem 0;
         cursor: pointer;
 
-        &.active,
-        &:hover {
-          * {
-            color: $primary;
-          }
-
-          &:before,
-          &:after {
-            background: $primary;
-          }
-        }
-
         h5 {
           margin-bottom: 0 !important;
           padding-right: 2.5rem;
-
-          * {
-            will-change: transform;
-            transition: all $slow;
-          }
         }
 
-        &:before {
-          @include pseudo;
-          width: 2.2rem;
-          height: 0.3rem;
-          background: $grey-dark;
-          position: absolute;
-          right: 0;
-          top: 50%;
-          margin-top: -1px;
-          transform: rotate(90deg);
-          transition: transform 444ms ease, background 111ms ease;
-        }
-
+        &:before,
         &:after {
           @include pseudo;
           width: 2.2rem;
           height: 0.3rem;
-          background: $grey-dark;
+          background: $primary;
           position: absolute;
           right: 0;
           top: 50%;
           margin-top: -1px;
           transition: transform 444ms ease, background 111ms ease;
         }
+
+        &:after {
+          transform: rotate(90deg);
+        }
+      }
+
+      &:not(.active) .accordion__wrap__item__content {
+        display: none;
       }
 
       &__content {
-        transition: all $slow;
+        transition: height 0.35s ease-in-out;
         overflow: hidden;
-
-        &:not(.active) {
-          display: none;
-        }
 
         &__inner {
           padding: 1rem 0 2rem;
+        }
+      }
+
+      /*------------------------------------------------------------------
+      Active styles
+      ------------------------------------------------------------------*/
+
+      &.active {
+        .accordion__wrap__item__heading:after {
+          transform: rotate(0) !important;
         }
       }
     }

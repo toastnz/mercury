@@ -14,6 +14,10 @@
   font-weight: 500;
 }
 
+@mixin semi {
+  font-weight: 700;
+}
+
 @mixin bold {
   font-weight: 700;
 }
@@ -41,37 +45,37 @@ body {
 
 h1,
 .h1 {
-  @include bold;
+  @include semi;
   font-size: 4rem;
 }
 
 h2,
 .h2 {
-  @include bold;
+  @include semi;
   font-size: 3.2rem;
 }
 
 h3,
 .h3 {
-  @include bold;
+  @include semi;
   font-size: 2.8rem;
 }
 
 h4,
 .h4 {
-  @include bold;
+  @include semi;
   font-size: 2.4rem;
 }
 
 h5,
 .h5 {
-  @include bold;
+  @include semi;
   font-size: 2rem;
 }
 
 h6,
 .h6 {
-  @include bold;
+  @include semi;
   font-size: 1.8rem;
 }
 
@@ -81,7 +85,7 @@ p {
 
 b,
 strong {
-  @include bold;
+  @include semi;
 }
 
 i,

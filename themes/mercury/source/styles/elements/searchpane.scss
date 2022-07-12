@@ -1,5 +1,5 @@
 .searchActive {
-  .searchPane {
+  .search-pane {
     opacity: 1;
     visibility: visible;
 
@@ -10,12 +10,12 @@
     }
   }
 
-  .searchPane__wrap__close {
+  .search-pane__wrap__close {
     transform: translateY(0%);
   }
 }
 
-.searchPane {
+.search-pane {
   @include full;
   position: fixed;
   background: rgba(white, 0.95);

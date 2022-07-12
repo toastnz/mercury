@@ -1,8 +1,8 @@
 
 <div class="banner__push"></div>
 
-<section class="textBlock">
-    <div class="textBlock__wrap">
+<section class="text-block">
+    <div class="text-block__wrap">
         <h1>$Title</h1>
         <% if $Query %>
             <p>You searched for <span class="colour--primary">"{$Query}"</span></p>
@@ -47,8 +47,8 @@
     </div>
 </section>
 <% else %>
-    <section class="textBlock">
-        <div class="textBlock__wrap">
+    <section class="text-block">
+        <div class="text-block__wrap">
             <h5>Sorry there are no results for that query</h5>
         </div>
     </section>

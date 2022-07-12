@@ -39,11 +39,20 @@ class StyleGuideController extends Controller
 
         parent::init();
     }
+    public function IntroBlock()
+    {
+        $arrayData = new ArrayData([
+            'Content' => DBField::create_field(DBHTMLText::class, '<h2 class="text-center">A simple narrow text block.</h2><p class="text-center">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
+            'Width' => 'very-narrow'
+        ]);
+        return $arrayData->renderWith('Toast\Blocks\Block');
+    }
+
 
     public function TextBlock()
     {
         $arrayData = new ArrayData([
-            'Content' => DBField::create_field(DBHTMLText::class, '<h1>This is an H1, an important heading on a page</h1>
+            'Content' => DBField::create_field(DBHTMLText::class, '<h1>This is an H1, an important heading</h1>
             <h2>This is an H2, the second most important heading on a page</h2>
             <h3>This is an H3, the third most important heading on a page</h3>
             <h4>This is an H4, the fourth most important heading on a page</h4>
@@ -270,8 +279,9 @@ class StyleGuideController extends Controller
     public function HeroBlock()
     {
         $arrayData = new ArrayData([
+            'Width' => 'very-narrow',
             'BackgroundImage'   => Image::find('placeholder.jpg'),
-            'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Ipsum dolor sit</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
+            'Content'      => DBField::create_field(DBHTMLText::class, '<h2 class="text-center colour--white">Now a hero block</h2><p class="text-center colour--white">An abstratc image <b>doesn\'t distract</b> the user from reading what is in this text box. You now have their attention to tell them anything that may be <i>important</i> to your brand mission.</p><p class="text-center"><a href="#" class="button">READ MORE</a></p>')
         ]);
         return $arrayData->renderWith('Toast\Blocks\HeroBlock');
     }
@@ -280,7 +290,7 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Image'   => Image::find('placeholder.jpg'),
-            'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Ipsum dolor sit</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
+            'Content'      => DBField::create_field(DBHTMLText::class, '<h3>An image and text block to show a page or service</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
         ]);
         return $arrayData->renderWith('Toast\Blocks\ImageTextBlock');
     }
@@ -290,7 +300,7 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Image'   => Image::find('placeholder.jpg'),
-            'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Adipiscing elit</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
+            'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Or a an image on the other side</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
             'ReverseLayout' => true
         ]);
         return $arrayData->renderWith('Toast\Blocks\ImageTextBlock');
