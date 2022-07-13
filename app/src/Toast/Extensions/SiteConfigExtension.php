@@ -4,16 +4,15 @@ namespace Toast\Extensions;
 
 use Toast\Helpers\Helper;
 use SilverStripe\Assets\File;
-use SilverStripe\Assets\Image;
+use gorriecoe\Link\Models\Link;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
+use gorriecoe\LinkField\LinkField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\ORM\DataExtension;
-use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextareaField;
-use Sheadawson\Linkable\Forms\LinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class SiteConfigExtension extends DataExtension
@@ -54,8 +53,8 @@ class SiteConfigExtension extends DataExtension
         $fields->findOrMakeTab('Root.Links');
 
         $fields->addFieldsToTab('Root.Links', [
-            LinkField::create('TermsLinkID', 'Terms and Conditions Page'),
-            LinkField::create('PrivacyLinkID', 'Privacy Policy Page'),
+            LinkField::create('TermsLink', 'Terms and Conditions Page', $this->owner),
+            LinkField::create('PrivacyLink', 'Privacy Policy Page', $this->owner),
             TextField::create('FacebookPage', 'Facebook Page'),
             TextField::create('LinkedinPage', 'Linkedin Page'),
             TextField::create('PinterestPage', 'Pinterest Page'),
