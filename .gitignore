@@ -9,3 +9,6 @@
 /blocks
 /silverstripe.log
 /shop-api
+_graphql/
+.graphql-generated/
+

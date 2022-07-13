@@ -2,15 +2,6 @@
 
 namespace Toast\Pages;
 
-
-use Sheadawson\Linkable\Forms\LinkField;
-use Sheadawson\Linkable\Models\Link;
-use SilverStripe\AssetAdmin\Forms\UploadField;
-use SilverStripe\Assets\Image;
-use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\HeaderField;
-use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
-
 class HomePage extends \Page
 {
     private static $singular_name = 'Home Page';
