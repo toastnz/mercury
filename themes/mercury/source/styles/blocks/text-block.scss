@@ -8,12 +8,39 @@ Text block
     padding: 0 2rem;
     margin: 8rem auto;
 
-    &--narrow {
+    &--narrow { 
       max-width: $lg;
     }
 
     &--very-narrow {
       max-width: $sm;
+    }
+
+    &--column {
+      display: flex;
+      flex-wrap: wrap;
+
+      @include media($lg) {
+        &__left {
+          width: 50%;
+          padding-right: 4rem;
+          position: relative;
+
+          &:after {
+            @include pseudo;
+            top: 2rem;
+            bottom: 2rem;
+            width: 1px;
+            right: 0;
+            background: $grey-light;
+          }
+        }
+
+        &__right {
+          width: 50%;
+          padding-left: 4rem;
+        }
+      }
     }
 
     img {

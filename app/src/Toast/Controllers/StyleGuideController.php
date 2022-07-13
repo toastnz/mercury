@@ -39,6 +39,76 @@ class StyleGuideController extends Controller
 
         parent::init();
     }
+
+
+    public function SplitText()
+    {
+        $arrayData = new ArrayData([
+            'LeftContent'      => DBField::create_field(DBHTMLText::class, '<h4>A split tex block can have text on the left and right hand sides</h4><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p>Paulus, ut erat in conplicandis negotiis artifex dirus, unde ei catenae inditum est cognomentum, vicarium ipsum eos quibus praeerat adhuc defensantem ad sortem.</p>'),
+            'RightContent'      => DBField::create_field(DBHTMLText::class, '<p>Paulus, ut erat in conplicandis negotiis artifex dirus, unde ei catenae inditum est cognomentum, vicarium ipsum eos quibus praeerat adhuc defensantem ad sortem.</p><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>'),
+        ]);
+        return $arrayData->renderWith('Toast\Blocks\SplitText');
+    }
+
+    public function Slider()
+    {
+        $Slides = new ArrayList([
+            new ArrayData([
+                'Image' => Image::find('placeholder.jpg'),
+                'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
+                'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
+            ]),
+            new ArrayData([
+                'Image' => Image::find('placeholder.jpg'),
+                'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
+                'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
+            ]),
+            new ArrayData([
+                'Image' => Image::find('placeholder.jpg'),
+                'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
+                'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
+            ]),
+            new ArrayData([
+                'Image' => Image::find('placeholder.jpg'),
+                'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
+                'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
+            ])
+        ]);
+
+        $arrayData = new ArrayData([
+            'Heading' => 'A Slider block for slides',
+            'Slides' => $Slides
+        ]);
+
+        return $arrayData->renderWith('Toast\Blocks\Slider');
+    }
+
+
+
+    public function Banner()
+    {
+        $BannerSlides = new ArrayList([
+            new ArrayData([
+                'BackgroundImage' => Image::find('placeholder.jpg'),
+                'Content' => DBField::create_field(DBHTMLText::class, '<h1 class="colour--white">A simple narrow text block.</h1><p class="colour--white">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
+            ]),
+            new ArrayData([
+                'BackgroundImage' => Image::find('placeholder.jpg'),
+                'Content' => DBField::create_field(DBHTMLText::class, '<h1 class="colour--white">A simple narrow text block.</h1><p class="colour--white">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
+            ]),
+            new ArrayData([
+                'BackgroundImage' => Image::find('placeholder.jpg'),
+                'Content' => DBField::create_field(DBHTMLText::class, '<h1 class="colour--white">A simple narrow text block.</h1><p class="colour--white">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
+            ])
+        ]);
+
+        $arrayData = new ArrayData([
+            'BannerSlides' => $BannerSlides
+        ]);
+
+        return $arrayData->renderWith('Toast\Includes\Banner');
+    }
+
     public function IntroBlock()
     {
         $arrayData = new ArrayData([

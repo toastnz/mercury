@@ -16,7 +16,7 @@ Banner
     <!-- ----------------------------------------------------------------
     If more than one slide, let's make a slider
     ----------------------------------------------------------------- -->
-    <div class="banner__wrap <% if $BannerSlides.count > 1 %>[ js-banner-slider ]<% end_if %>">
+    <div class="banner__wrap <% if $BannerSlides.count > 1 %>[ js-banner-slider-{$ID} ]<% end_if %>">
 
         <% loop $BannerSlides %>
     
@@ -133,19 +133,24 @@ Banner
 </div>
 
 
-
 <% if $BannerSlides.count > 1 %>
 
+<script defer async src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" media="print" onload="this.media='all'">
+
 <script>
-  tns({
-    container:".js-banner-slider" ,
-    items: 1,
-    mouseDrag: true,
-    nav: false,
-    controls: true,
-    slideBy: 1,
-    loop: false
+document.addEventListener("DOMContentLoaded", function() {
+    tns({
+      container:".js-banner-slider-{$ID}" ,
+      items: 1,
+      mouseDrag: true,
+      nav: true,
+      controls: true,
+      slideBy: 1,
+      loop: true
+    });
   });
+
 </script>
 
 <style> 
