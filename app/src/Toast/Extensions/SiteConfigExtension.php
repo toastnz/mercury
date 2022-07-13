@@ -4,15 +4,15 @@ namespace Toast\Extensions;
 
 use Toast\Helpers\Helper;
 use SilverStripe\Assets\File;
-use gorriecoe\Link\Models\Link;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
-use gorriecoe\LinkField\LinkField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\ORM\DataExtension;
+use Sheadawson\Linkable\Models\Link;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextareaField;
+use Sheadawson\Linkable\Forms\LinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class SiteConfigExtension extends DataExtension
@@ -50,11 +50,9 @@ class SiteConfigExtension extends DataExtension
          * Branding
          * ----------------------------------------*/
 
-        $fields->findOrMakeTab('Root.Links');
-
         $fields->addFieldsToTab('Root.Links', [
-            LinkField::create('TermsLink', 'Terms and Conditions Page', $this->owner),
-            LinkField::create('PrivacyLink', 'Privacy Policy Page', $this->owner),
+            LinkField::create('TermsLinkID', 'Terms and Conditions Page'),
+            LinkField::create('PrivacyLinkID', 'Privacy Policy Page'),
             TextField::create('FacebookPage', 'Facebook Page'),
             TextField::create('LinkedinPage', 'Linkedin Page'),
             TextField::create('PinterestPage', 'Pinterest Page'),
@@ -64,12 +62,10 @@ class SiteConfigExtension extends DataExtension
         ]);
 
         /** -----------------------------------------
-         * Branding
+         * Theme
          * ----------------------------------------*/
 
         if (Helper::isSuperAdmin()) {
-
-            $fields->findOrMakeTab('Root.Theme');
 
             $fields->addFieldsToTab('Root.Theme', [
                 UploadField::create('Logo', 'Logo')
@@ -78,12 +74,10 @@ class SiteConfigExtension extends DataExtension
         }
 
         /** -----------------------------------------
-         * Code Injection
+         * Code Injection & Theme
          * ----------------------------------------*/
 
         if (Helper::isSuperAdmin()) {
-
-            $fields->findOrMakeTab('Root.CodeInjection');
 
             $fields->addFieldsToTab('Root.CodeInjection', [
                 HeaderField::create('CodeInjection', 'Code Injection'),
@@ -93,7 +87,6 @@ class SiteConfigExtension extends DataExtension
                     ->setDescription('Enter code that will be injected into the footer on every page of your site.'),
                 LiteralField::create('CodeInjectionWarning', '<div class="message warning"><strong>Note:</strong> Only <strong>Default Admin</strong> can view these settings</div>')
             ]);
-            $fields->findOrMakeTab('Root.Theme');
 
             $fields->addFieldsToTab('Root.Theme', [
                 CheckboxField::create('MakeHeaderFullWidth', 'Make Header Full Width')
@@ -101,11 +94,10 @@ class SiteConfigExtension extends DataExtension
         }
 
         /** -----------------------------------------
-         * Code Injection
+         * Keys
          * ----------------------------------------*/
 
         if (Helper::isSuperAdmin()) {
-            $fields->findOrMakeTab('Root.APIKeys');
 
             $fields->addFieldsToTab('Root.APIKeys', [
                 HeaderField::create('APIKeys', 'External API Keys'),
