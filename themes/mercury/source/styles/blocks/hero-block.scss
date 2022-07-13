@@ -27,6 +27,12 @@ Hero block
                 height: 100%;
                 object-fit: cover;
             }
+
+            &:after {
+                @include pseudo;
+                @include full;
+                background: rgba(black, 0.2);
+            }
         }
 
         &__content {
@@ -48,6 +54,11 @@ Hero block
                 padding: 18rem 6rem;
                 position: relative;
                 z-index: 3;
+                
+                @include media($md, max) {
+                    
+                    padding: 8rem 2rem;
+                }
             }
         }
     }

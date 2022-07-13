@@ -230,7 +230,7 @@ em {
     .breadCrumbs {
       padding: 0; } }
   .breadCrumbs__wrap {
-    max-width: 1280px;
+    max-width: 1024px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
@@ -361,99 +361,6 @@ em {
       background: var(--primary-colour) !important;
       color: white !important;
       box-shadow: none; }
-
-.debug {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  z-index: 9999999999;
-  pointer-events: none;
-  display: none; }
-  .debug.active {
-    display: block; }
-  .debug__wrap {
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    max-width: 1440px;
-    bottom: 0;
-    top: 0;
-    border-left: 1px solid var(--primary-colour);
-    border-right: 1px solid var(--primary-colour); }
-    .debug__wrap__center {
-      display: block;
-      margin: 0 auto;
-      position: absolute;
-      left: 0;
-      right: 0;
-      max-width: 1px;
-      bottom: 0;
-      top: 0;
-      background: rgba(255, 192, 203, 0.5);
-      border-right: 1px solid var(--primary-colour); }
-    .debug__wrap__left {
-      display: block;
-      position: absolute;
-      left: 2rem;
-      max-width: 1px;
-      bottom: 0;
-      top: 0;
-      background: rgba(255, 192, 203, 0.5);
-      border-left: 1px solid var(--primary-colour); }
-    .debug__wrap__right {
-      display: block;
-      position: absolute;
-      right: 2rem;
-      max-width: 1px;
-      bottom: 0;
-      top: 0;
-      background: rgba(255, 192, 203, 0.5);
-      border-right: 1px solid var(--primary-colour); }
-  .debug__outer {
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    left: 0;
-    right: 0;
-    max-width: 1280px;
-    bottom: 0;
-    top: 0;
-    border-left: 1px solid var(--secondary-colour);
-    border-right: 1px solid var(--secondary-colour); }
-    .debug__outer__center {
-      display: block;
-      margin: 0 auto;
-      position: absolute;
-      left: 0;
-      right: 0;
-      max-width: 1px;
-      bottom: 0;
-      top: 0;
-      background: rgba(255, 192, 203, 0.5);
-      border-right: 1px solid var(--secondary-colour); }
-    .debug__outer__left {
-      display: block;
-      position: absolute;
-      left: 2rem;
-      max-width: 1px;
-      bottom: 0;
-      top: 0;
-      background: rgba(255, 192, 203, 0.5);
-      border-left: 1px solid var(--secondary-colour); }
-    .debug__outer__right {
-      display: block;
-      position: absolute;
-      right: 2rem;
-      max-width: 1px;
-      bottom: 0;
-      top: 0;
-      background: rgba(255, 192, 203, 0.5);
-      border-right: 1px solid var(--secondary-colour); }
 
 /*------------------------------------------------------------------
 footer
@@ -923,11 +830,11 @@ a:not([class]) {
 
 ul:not([class]) {
   list-style: none;
-  margin: 1rem auto; }
+  margin: 1rem auto 3rem; }
   ul:not([class]) > li {
     position: relative;
-    padding-left: 2rem;
-    margin-bottom: 0.5rem; }
+    padding-left: 2.5rem;
+    margin-bottom: 0.2rem; }
     ul:not([class]) > li:before {
       position: absolute;
       display: block;
@@ -937,25 +844,24 @@ ul:not([class]) {
       border-radius: 50%;
       top: 1rem;
       left: 0.5rem;
-      background: var(--primary-colour); }
+      background: currentColor; }
 
 ol:not([class]) {
-  margin: 1rem auto;
-  list-style: none; }
+  list-style: none;
+  margin: 1rem auto 3rem; }
   ol:not([class]) > li {
-    padding-left: 2rem;
-    margin-bottom: 0.5rem;
+    padding-left: 2.5rem;
+    margin-bottom: 0.2rem;
     position: relative;
     counter-increment: counter; }
     ol:not([class]) > li:before {
       position: absolute;
       display: block;
       content: '';
-      top: 0.3rem;
+      top: 0;
       left: 0.5rem;
       content: counter(counter) ".";
-      font-size: 75%;
-      color: var(--primary-colour); }
+      color: inherit; }
     ol:not([class]) > li li {
       counter-increment: internalcounter; }
       ol:not([class]) > li li:before {
@@ -1437,27 +1343,6 @@ Blog
           right: 0;
           bottom: 3rem; }
 
-.styleguide {
-  margin: 0 auto;
-  max-width: 1280px;
-  padding: 10rem 0; }
-  .styleguide__content__section {
-    padding-bottom: 4rem; }
-    .styleguide__content__section__heading {
-      margin-bottom: 5rem !important;
-      position: relative;
-      text-transform: uppercase;
-      padding: 0 2rem; }
-      .styleguide__content__section__heading:after {
-        position: absolute;
-        display: block;
-        content: '';
-        left: 2rem;
-        top: 120%;
-        height: 0.4rem;
-        width: 5rem;
-        background: var(--primary-colour); }
-
 /*------------------------------------------------------------------
 Accordion Block
 ------------------------------------------------------------------*/
@@ -1572,6 +1457,16 @@ Hero block
         height: 100%;
         -o-object-fit: cover;
            object-fit: cover; }
+      .hero-block__wrap__background:after {
+        position: absolute;
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.2); }
     .hero-block__wrap__content {
       display: flex;
       flex-wrap: wrap;
@@ -1586,6 +1481,9 @@ Hero block
         padding: 18rem 6rem;
         position: relative;
         z-index: 3; }
+        @media only screen and (max-width: 767px) {
+          .hero-block__wrap__content__constraint {
+            padding: 8rem 2rem; } }
 
 /*------------------------------------------------------------------
 Image Block
@@ -1602,7 +1500,7 @@ body .image-block {
       height: auto;
       display: block; }
     body .image-block__wrap__caption {
-      background: var(--primary-colour);
+      background: var(--secondary-colour);
       position: absolute;
       bottom: 3rem;
       left: 2rem;
@@ -1664,7 +1562,7 @@ body .image-block {
       .image-text__wrap__text {
         width: 100%;
         order: 2;
-        padding: 3rem 3rem; } }
+        padding: 3rem 0; } }
 
 .image-text--reversed .image-text__wrap__image {
   order: 2; }
@@ -1686,7 +1584,8 @@ body .image-block {
     flex-wrap: wrap; }
     @media only screen and (max-width: 767px) {
       .link-block__wrap {
-        margin: 0 auto; } }
+        margin: 0 auto;
+        padding: 0 1rem 2rem; } }
     .link-block__wrap__item {
       box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 23, 42, 0.1) 0px 20px 25px -5px, rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
       margin: 2rem;
@@ -1844,13 +1743,13 @@ Video block
   display: flex;
   flex-wrap: wrap;
   max-width: 1024px;
-  margin: 8rem auto; }
+  margin: 8rem auto;
+  padding: 0 2rem; }
   .video-block__constraint {
     position: relative;
     width: 100%;
     overflow: hidden;
-    cursor: pointer;
-    padding: 0 2rem; }
+    cursor: pointer; }
     .video-block__constraint__player {
       position: absolute;
       width: 100%;

@@ -7,13 +7,13 @@ Video block
   flex-wrap: wrap;
   max-width: $lg;
   margin: 8rem auto;
+  padding: 0 2rem;
 
   &__constraint {
     position: relative;
     width: 100%;
     overflow: hidden;
     cursor: pointer;
-    padding: 0 2rem;
 
     &__player {
       position: absolute;
