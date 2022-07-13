@@ -36,13 +36,18 @@
 document.addEventListener("DOMContentLoaded", function() {
     tns({
       container:".js-slider-block-{$ID}" ,
-      items: 3,
+      items: 2,
       mouseDrag: true,
-      nav: true,
+      nav: false,
       center:true,
       controls: true,
       slideBy: 1,
-      loop: true
+      loop: true,
+      responsive:{
+        768:{
+          items:3
+        }
+      }
     });
   });
 
