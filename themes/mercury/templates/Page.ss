@@ -17,9 +17,11 @@
                 
                 <div class="blur">
                     $Layout
+
                     <% cached 'Footer' %>
                         <% include Toast\Footer %>
                     <% end_cached %>
+                    
                 </div>
                 
             </div>

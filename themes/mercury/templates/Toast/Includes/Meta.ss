@@ -36,9 +36,7 @@ $FoundTags
 Favicons Template
 -------------------------------------------------------------- --%>
 
-<% cached 'Meta' %>
-    $FaviconMetaTags
-<% end_cached %>
+$FaviconMetaTags
 
 
 <%-- --------------------------------------------------------------

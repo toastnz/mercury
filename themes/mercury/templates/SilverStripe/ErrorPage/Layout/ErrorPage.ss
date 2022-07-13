@@ -6,7 +6,7 @@
         </div>
 
         <div class="fourOhFour__wrap__sentence">
-            <h4 class="colour--white"><strong>UH OH.</strong> SOMETHING WENT WRONG.</h4>
+            <h4 class="colour--white">We couldn't find that page sorry.</h4>
         </div>
 
         <div class="fourOhFour__wrap__button">

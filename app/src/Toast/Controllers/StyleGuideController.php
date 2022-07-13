@@ -139,7 +139,7 @@ class StyleGuideController extends Controller
         $Tabs = new ArrayList([
             new ArrayData([
                 'Title' => 'Dolor sit dolor',
-                'Content' => DBField::create_field(DBHTMLText::class, '<h4>Aute amet sit ex mollit non dolor do tempor do dolor culpa.</h4><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p>'),
+                'Content' => DBField::create_field(DBHTMLText::class, '<h4>A tabbed content block helps show a lot of information in a small area</h4><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p><p>Qui voluptate culpa in cupidatat incididunt occaecat amet amet aliqua est cillum culpa proident sunt. Esse minim eiusmod aliquip elit est incididunt et. Consectetur laborum irure eu amet non.</p>'),
             ]),
             new ArrayData([
                 'Title' => 'Adipisicing sunt',
@@ -217,13 +217,38 @@ class StyleGuideController extends Controller
     public function index()
     {
         if (is_null(Security::getCurrentUser())) {
-            return $this->renderWith(['StyleGuideController', 'Page']);
-            // return $this->redirect('Security/login?BackURL=_styleguide');
+            return $this->redirect('Security/login?BackURL=_styleguide');
         } else {
             return $this->renderWith(['StyleGuideController', 'Page']);
         }
     }
 
+    public function decodedTypeCSS()
+    {
+        $config = SiteConfig::current_site_config();
+        return $this->internetExplorerFallback(@unserialize($config->typeCSS));
+    }
+
+
+    function internetExplorerFallback($css)
+    {
+        preg_match_all('/^\s*([^:]+)(:\s*(.+))?;\s*$/m', str_replace(';', ";\n", $css), $matches, PREG_SET_ORDER);
+        foreach ($matches as $match) {
+            if (count($match) >= 4) {
+                $orig = $match[0];
+                $attr = trim($match[1]);
+                $value = trim($match[3]);
+                if (in_array($attr, ['color', 'background', 'background-color', '--primary-colour', '--secondary-colour'])) {
+                    if (strstr($value, '#') && (strlen($value) > 7)) {
+                        $newValue = substr($value, 0, -2);
+                        $css = str_replace($orig, $attr . ': ' . $newValue . ';' . $orig, $css);
+                    }
+                }
+            }
+        }
+        $css = preg_replace('/[\s\+]/', ' ', $css);
+        return $css;
+    }
 
     public function TestimonialBlock()
     {

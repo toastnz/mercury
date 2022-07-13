@@ -28,7 +28,8 @@ body {
 
         @include media($md, max) {
           position: relative;
-          bottom: 2rem;
+          width: calc(100% - 2rem);
+          padding: 1rem 2rem;
 
           p {
             font-size: 1.2rem;

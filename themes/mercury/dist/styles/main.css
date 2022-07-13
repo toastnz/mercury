@@ -81,32 +81,32 @@ body {
 
 h1,
 .h1 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 4rem; }
 
 h2,
 .h2 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 3.2rem; }
 
 h3,
 .h3 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 2.8rem; }
 
 h4,
 .h4 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 2.4rem; }
 
 h5,
 .h5 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 2rem; }
 
 h6,
 .h6 {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 1.8rem; }
 
 p {
@@ -114,7 +114,7 @@ p {
 
 b,
 strong {
-  font-weight: 700; }
+  font-weight: 500; }
 
 i,
 em {
@@ -758,7 +758,7 @@ form .field {
   form .field label {
     margin: 1rem 0 0.5rem;
     display: block;
-    font-weight: 700; }
+    font-weight: 500; }
   
   form .half.field.textarea,
   form .half.field.text,
@@ -812,7 +812,7 @@ input[type='checkbox'] {
       border: 1px solid #ebebeb;
       width: 20px;
       height: 20px;
-      border-radius: 0; }
+      border-radius: 0.2rem; }
     input[type='checkbox'] + label:after {
       position: absolute;
       display: block;
@@ -1003,7 +1003,7 @@ Mobile menu
       .mobile-menu__wrap__item:first-of-type {
         border-top: 1px solid #f4f4f7; }
       .mobile-menu__wrap__item__link {
-        font-weight: 700;
+        font-weight: 500;
         display: block;
         padding: 1rem 2rem;
         font-size: 1.6rem;
@@ -1368,9 +1368,6 @@ Blog
       color: white;
       background: var(--primary-colour); }
 
-.SilverStripe\\ErrorPage\\ErrorPage .header {
-  display: none; }
-
 .fourOhFour {
   position: absolute;
   top: 0;
@@ -1468,7 +1465,7 @@ Accordion Block
   margin: 8rem auto; }
   .accordion__wrap {
     margin: 0 auto;
-    max-width: 968px;
+    max-width: 1024px;
     padding: 0 2rem; }
     .accordion__wrap__item {
       position: relative;
@@ -1615,7 +1612,8 @@ body .image-block {
       @media only screen and (max-width: 767px) {
         body .image-block__wrap__caption {
           position: relative;
-          bottom: 2rem; }
+          width: calc(100% - 2rem);
+          padding: 1rem 2rem; }
           body .image-block__wrap__caption p {
             font-size: 1.2rem; } }
       body .image-block__wrap__caption p {

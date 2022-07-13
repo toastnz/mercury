@@ -2,15 +2,9 @@
 // Error Page
 //------------------------------------------------------------------
 
-.SilverStripe\\ErrorPage\\ErrorPage {
-  .header {
-    display: none;
-  }
-}
-
 .fourOhFour {
   @include full;
-  background: $primary; 
+  background: $primary;
 
   &__wrap {
     @include vertical-center;
@@ -24,7 +18,7 @@
         text-shadow: 0em 0.16em 0.24em rgba(0, 0, 0, 0.32);
       }
     }
-    
+
     &__button {
       a {
         font-weight: bold !important;
