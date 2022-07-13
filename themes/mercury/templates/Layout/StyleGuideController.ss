@@ -1,6 +1,11 @@
-<div class="banner__push"></div>
+
+
+$Banner
 
 $IntroBlock
+
+$Slider
+
 
 $ImageTextBlock
 
@@ -10,11 +15,12 @@ $TabbedContentBlock
 
 $HeroBlock
 
-
+$SplitText
 
 $AccordionBlock
 
 $ImageBlock
+
 $DownloadBlock
 
 

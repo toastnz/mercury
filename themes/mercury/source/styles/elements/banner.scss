@@ -25,6 +25,11 @@
       width: 100%;
       position: relative;
       overflow: hidden;
+      display: none;
+
+      &:first-of-type {
+        display: block;
+      }
 
       &__background {
         object-fit: cover;
@@ -67,49 +72,94 @@
 
       &__content {
         width: 100%;
-        max-width: $xl;
-        padding: 2rem;
+        max-width: $xxl;
         z-index: 5;
         margin: 0 auto;
         position: relative;
-        padding: 0 2rem;
+        padding: 0 10rem;
+
+        @include media($md, max) {
+          padding: 0 2rem;
+        }
 
         &__inner {
           padding: 20rem 0;
+
+          @include media($md, max) {
+            padding: 10rem 0;
+          }
         }
       }
     }
   }
 
-  .slick-dots {
+  .tns-controls {
     position: absolute;
-    bottom: 0rem;
-    right: 2rem;
+    z-index: 4;
+    top: 50%;
+    transform: translateY(-50%);
     width: 100%;
-    text-align: right;
 
     @include media($md, max) {
-      padding-right: 2rem !important;
+      bottom: 6rem;
+      top: auto;
     }
 
-    li {
-      margin-left: 1rem;
-      display: inline-block;
+    [data-controls] {
+      border: 0;
+      font-size: 0;
+      background: transparent;
+      width: 4rem;
+      height: 4rem;
+      border: 2px solid white;
+      border-radius: 100rem;
+      position: absolute;
+      background-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10"><path fill="%23fff" fill-rule="evenodd" d="M8.423.015 13.408 5 8.422 9.985 7.38 8.943l3.2-3.2H.09V4.257H10.58l-3.2-3.2L8.424.016Z"/></svg>');
+      background-size: 14px 10px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      opacity: 0.5;
+      transition: opacity 333ms ease;
 
-      span {
-        width: 1rem;
-        height: 1rem;
-        border-radius: 1rem;
-        background: $grey-light;
-        display: block;
-        transition: all $slow;
+      &:hover {
+        opacity: 1;
       }
+    }
 
-      &.slick-active {
-        span {
-          background: $primary;
-          width: 3rem;
-        }
+    [data-controls='prev'] {
+      left: 1rem;
+      transform: rotate(-180deg);
+    }
+
+    [data-controls='next'] {
+      right: 1rem;
+    }
+  }
+
+  .tns-nav {
+    position: absolute;
+    bottom: 3rem;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    text-align: center;
+
+    button {
+      background: white;
+      width: 0.7rem;
+      height: 0.7rem;
+      border-radius: 1rem;
+      border: 0;
+      padding: 0;
+      display: inline-block;
+      margin: 0.1rem;
+      transform: scale(0.6);
+      opacity: 0.5;
+      transition: opacity 333ms ease, transform 333ms ease;
+
+      &.tns-nav-active {
+        transform: scale(1);
+        opacity: 1;
       }
     }
   }
