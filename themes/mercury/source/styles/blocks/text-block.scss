@@ -3,12 +3,32 @@ Text block
 ------------------------------------------------------------------*/
 
 .text-block {
+  position: relative;
+
+  &--off-white {
+    padding: 8rem 0;
+    background: $off-white;
+
+    .text-block__wrap {
+      margin: 0 auto;
+    }
+  }
+
+  &--primary {
+    padding: 8rem 0;
+    background: $primary;
+
+    .text-block__wrap {
+      margin: 0 auto;
+    }
+  }
+
   &__wrap {
     max-width: $lg;
     padding: 0 2rem;
     margin: 8rem auto;
 
-    &--narrow { 
+    &--narrow {
       max-width: $lg;
     }
 

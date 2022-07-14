@@ -402,6 +402,23 @@ em {
       color: white !important;
       box-shadow: none; }
 
+.arrow-link {
+  position: relative; }
+  .arrow-link:after {
+    content: '';
+    position: relative;
+    display: inline-block;
+    background-image: url("data:image/svg+xml; utf8, <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"10\" viewBox=\"0 0 14 10\"><path fill=\"%23000\" fill-rule=\"evenodd\" d=\"M8.423.015 13.408 5 8.422 9.985 7.38 8.943l3.2-3.2H.09V4.257H10.58l-3.2-3.2L8.424.016Z\"/></svg>");
+    background-size: 14px 10px;
+    background-repeat: no-repeat;
+    width: 14px;
+    height: 10px;
+    margin-left: 0.8rem;
+    top: -1px;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
+  .arrow-link:hover:after {
+    transform: translateX(0.3rem); }
+
 /*------------------------------------------------------------------
 footer
 ------------------------------------------------------------------*/
@@ -1382,6 +1399,11 @@ Blog
           position: absolute;
           right: 0;
           bottom: 3rem; }
+      .login__form__wrap #ForgotPassword {
+        position: relative;
+        top: -0.5rem; }
+      .login__form__wrap #LostPasswordForm_lostPasswordForm + a {
+        transform: translateY(-1rem); }
 
 /*------------------------------------------------------------------
 Accordion Block
@@ -1886,51 +1908,63 @@ Tabbed block
 /*------------------------------------------------------------------
 Text block
 ------------------------------------------------------------------*/
-.text-block__wrap {
-  max-width: 1024px;
-  padding: 0 2rem;
-  margin: 8rem auto; }
-  .text-block__wrap--narrow {
-    max-width: 1024px; }
-  .text-block__wrap--very-narrow {
-    max-width: 640px; }
-  .text-block__wrap--column {
-    display: flex;
-    flex-wrap: wrap; }
-    @media only screen and (min-width: 1024px) {
-      .text-block__wrap--column__left {
-        width: 50%;
-        padding-right: 4rem;
-        position: relative; }
-        .text-block__wrap--column__left:after {
-          position: absolute;
-          display: block;
-          content: '';
-          top: 2rem;
-          bottom: 2rem;
-          width: 1px;
-          right: 0;
-          background: #ebebeb; }
-      .text-block__wrap--column__right {
-        width: 50%;
-        padding-left: 4rem; } }
-  .text-block__wrap img {
-    display: block;
-    height: auto;
-    max-width: 100%; }
-    @media only screen and (min-width: 1024px) {
-      .text-block__wrap img.left, .text-block__wrap img.leftALone {
-        float: left;
-        margin-right: 1.5rem;
-        margin-bottom: 1.5rem; }
-      .text-block__wrap img.right, .text-block__wrap img.rightAlone {
-        float: right;
-        margin-left: 1.5rem;
-        margin-bottom: 1.5rem; }
-      .text-block__wrap img:not([width]) {
-        max-width: 100%; }
-      .text-block__wrap img:not([height]) {
-        height: auto; } }
+.text-block {
+  position: relative; }
+  .text-block--off-white {
+    padding: 8rem 0;
+    background: #f4f4f7; }
+    .text-block--off-white .text-block__wrap {
+      margin: 0 auto; }
+  .text-block--primary {
+    padding: 8rem 0;
+    background: var(--primary-colour); }
+    .text-block--primary .text-block__wrap {
+      margin: 0 auto; }
+  .text-block__wrap {
+    max-width: 1024px;
+    padding: 0 2rem;
+    margin: 8rem auto; }
+    .text-block__wrap--narrow {
+      max-width: 1024px; }
+    .text-block__wrap--very-narrow {
+      max-width: 640px; }
+    .text-block__wrap--column {
+      display: flex;
+      flex-wrap: wrap; }
+      @media only screen and (min-width: 1024px) {
+        .text-block__wrap--column__left {
+          width: 50%;
+          padding-right: 4rem;
+          position: relative; }
+          .text-block__wrap--column__left:after {
+            position: absolute;
+            display: block;
+            content: '';
+            top: 2rem;
+            bottom: 2rem;
+            width: 1px;
+            right: 0;
+            background: #ebebeb; }
+        .text-block__wrap--column__right {
+          width: 50%;
+          padding-left: 4rem; } }
+    .text-block__wrap img {
+      display: block;
+      height: auto;
+      max-width: 100%; }
+      @media only screen and (min-width: 1024px) {
+        .text-block__wrap img.left, .text-block__wrap img.leftALone {
+          float: left;
+          margin-right: 1.5rem;
+          margin-bottom: 1.5rem; }
+        .text-block__wrap img.right, .text-block__wrap img.rightAlone {
+          float: right;
+          margin-left: 1.5rem;
+          margin-bottom: 1.5rem; }
+        .text-block__wrap img:not([width]) {
+          max-width: 100%; }
+        .text-block__wrap img:not([height]) {
+          height: auto; } }
 
 /*------------------------------------------------------------------
 Video block

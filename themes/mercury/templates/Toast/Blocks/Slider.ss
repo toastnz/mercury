@@ -17,7 +17,7 @@
                     <div class="slider-block__slider__item__copy">
                         <h4 class="colour--secondary">$Title</h4>
                         <p>$Content</p>
-                        <a href="$AbsoluteLink" class="circleLink"><span></span>READ MORE</a>
+                        <a href="$AbsoluteLink" class="arrow-link"><span></span>READ MORE</a>
                     </div>
                 </div>
             <% end_loop %>

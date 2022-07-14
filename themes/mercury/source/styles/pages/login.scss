@@ -60,6 +60,15 @@
           bottom: 3rem;
         }
       }
+
+      #ForgotPassword {
+        position: relative;
+        top: -0.5rem;
+      }
+
+      #LostPasswordForm_lostPasswordForm + a {
+        transform: translateY(-1rem);
+      }
     }
   }
 }
