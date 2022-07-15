@@ -1,7 +1,5 @@
 <div class="login">
 
-   
-
     <div class="login__form">
         <div class="login__form__wrap">
 
@@ -14,10 +12,10 @@
             </div>
 
             <div class="login__form__wrap__copy">
+            
                 <h2>Login</h2>
-                <p>
-                    Welcome back! Log in to access your site.
-                </p>
+                
+                <p>Welcome back! Log in to access your site.</p>
 
                 $Form
 

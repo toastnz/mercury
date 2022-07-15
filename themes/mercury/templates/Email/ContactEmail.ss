@@ -4,11 +4,9 @@
 <head>
     <title>$Subject</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-       
     <meta name="viewport" content="width=device-width, initial-scale=1">
-       
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <style type="text/css">
+     <style type="text/css">
         body,
         table,
         td,
@@ -118,9 +116,6 @@
     <div role="article" aria-label="An email from Your Brand Name" lang="en" style="background-color: white; color: #2b2b2b; font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 18px; font-weight: 400; line-height: 28px; margin: 0 auto; max-width: 720px; padding: 40px 20px 40px 20px;">
 
         <header>
-            <a href="https://litmus.com/community">
-                <center><img src="https://storage.pardot.com/31032/208017/logo_2x.png" alt="" height="50" width="50"></center>
-            </a>
             <h1 style="color: #000000; font-size: 32px; font-weight: 800; line-height: 32px; margin: 48px 0; text-align: center;">
                 New Message for
             </h1>

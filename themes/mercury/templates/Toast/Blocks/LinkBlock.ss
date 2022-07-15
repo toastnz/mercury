@@ -4,7 +4,7 @@
         <div class="link-block__wrap link-block__wrap--{$Columns}">
             
             <% loop $Items.Sort('SortOrder') %>
-                <a href="$Link.LinkURL" class="link-block__wrap__item <% if not $Icon && not $image %>bordered <% end_if %>[ js-in-view ]">
+                <a href="$Link.LinkURL" class="link-block__wrap__item <% if not $Icon && not $image %>bordered <% end_if %>">
 
                     <% if $Icon %>
                         <div class="link-block__wrap__item__icon">

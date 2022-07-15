@@ -1,55 +1,62 @@
-
 <div class="banner__push"></div>
 
-<section class="text-block">
+<section class="text-block text-block--off-white">
     <div class="text-block__wrap">
         <h1>$Title</h1>
-        <% if $Query %>
-            <p>You searched for <span class="colour--primary">"{$Query}"</span></p>
-        <% end_if %>
+        <%-- <% if $Query %> --%>
+            <p>You searched for <span class="colour--primary">"{$Query}"</span>.</p>
+        <%-- <% end_if %> --%>
         <% if $Results %>
             <% if $Results.Count == 1 %>
                 <p>There is <span class="colour--primary">1</span> result.</p>
             <% else %>
-                <p>There are <span class="colour--primary">$Results.TotalItems</span> results.<% if $Results.MoreThanOnePage %> You are on page {$Results.CurrentPage} of {$Results.TotalPages}.<% end_if %></p>
+                <p>
+                    There are <span class="colour--primary">$Results.TotalItems</span> results.<% if $Results.MoreThanOnePage %> You are on page {$Results.CurrentPage} of {$Results.TotalPages}.<% end_if %>
+                    <span onclick="showSearchPane(event);" class="colour--primary" style="cursor:pointer;">Search again</span>
+                </p>
             <% end_if %>
         <% end_if %>
     </div>
 </section>
 
-<% if $Results %>
-<section class="linkBlock linkBlock--4">
-    <div class="linkBlock__wrap">
-        
-        <a href="$Link" class="linkBlock__wrap__item [ js-in-view ]">
 
-            <% if $Icon %>
-                <div class="linkBlock__wrap__item__icon">
-                    <img src="$Icon.URL">
-                </div>
-            <% else_if $Image %>
-                
-                <div class="linkBlock__wrap__item__image">
-                    <img src="$Image.FocusFill(600,360).URL" />
-                </div>
-            <% end_if %>
+<% if $Results.Count %>
+    <section class="link-block block">
 
-            <div class="linkBlock__wrap__item__content">
-                <div class="linkBlock__wrap__item__content__heading">
-                    <h6>{$MenuTitle}</h6>
-                </div>
-                <p>{$Content.Summary}</p>
-                <p class="linkBlock__wrap__item__content__link">Read More $SVG('arrow-right')</p>
-            </div>
+        <div class="link-block__wrap">
+            
+            <% loop $Results %>
+                <a href="$Link.LinkURL" class="link-block__wrap__item <% if not $Icon && not $image %>bordered <% end_if %>">
 
-        </a>
-         
-    </div>
-</section>
+                    <% if $Image %>
+                        <img  class="link-block__wrap__item__image" src="$Image.FocusFill(600,300).URL" width="600" height="300" loading="lazy">
+                    <% end_if %>
+
+                    <div class="link-block__wrap__item__content">
+                        <div class="link-block__wrap__item__content__heading">
+                            <h6>$MenuTitle.XML</h6>
+                        </div>
+                        <p>$Content.Summary</p>
+                        <p class="link-block__wrap__item__content__link arrow-link">
+                            Read More 
+                        </p>
+                    </div>
+
+                </a>
+            <% end_loop %>
+
+        </div>
+
+    </section>
+
 <% else %>
     <section class="text-block">
         <div class="text-block__wrap">
+            <p>&nbsp;</p>
             <h5>Sorry there are no results for that query</h5>
+            <p>Double check your search for any typos or spelling mistakes - or try a different <span onclick="showSearchPane(event);" class="colour--primary" style="cursor:pointer;">search term</span>.</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
         </div>
     </section>
 <% end_if %>

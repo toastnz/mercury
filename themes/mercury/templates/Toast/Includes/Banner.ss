@@ -116,7 +116,7 @@ Banner
                 Banner Content
                 ----------------------------------------------------------------- -->    
                 <div class="banner__wrap__item__content">
-                    <div class="banner__wrap__item__content__inner [ js-in-view ]">
+                    <div class="banner__wrap__item__content__inner">
                     <% if $Content %>
                         $Content
                     <% else %>

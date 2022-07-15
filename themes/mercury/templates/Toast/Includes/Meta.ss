@@ -123,3 +123,12 @@ Postload
         display: none;
     }
 </style>
+
+
+<%-- --------------------------------------------------------------
+Head code injection
+-------------------------------------------------------------- --%>
+
+<% if $SiteConfig.HeadCodeInjection %>
+    $SiteConfig.HeadCodeInjection
+<% end_if %>
