@@ -37,7 +37,7 @@ module.exports = (env, argv) => {
             path: path.resolve(__dirname, '../dist/scripts'),
             filename: '[name].js',
             sourceMapFilename: '[file].map[query]',
-            chunkFilename: '[name].[hash].js?id=[query]',
+            chunkFilename: '[name].js',
             clean: true,
         },
         module: {
