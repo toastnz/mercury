@@ -39,22 +39,22 @@ Footer
             </p>
             <div class="footer__wrap__copyright__social">
                 <% if $SiteConfig.FacebookPage  %>
-                    <a href="{$SiteConfig.FacebookPage}" class="" target="_blank" rel="noopener">$SVG('facebook-icon')</a>
+                    <a href="{$SiteConfig.FacebookPage}" class="" target="_blank" rel="noopener">$SVG('facebook')</a>
                 <% end_if %>
                 <% if $SiteConfig.LinkedinPage  %>
-                    <a href="{$SiteConfig.LinkedinPage}" class="" target="_blank" rel="noopener">$SVG('linkedin-icon')</a>
+                    <a href="{$SiteConfig.LinkedinPage}" class="" target="_blank" rel="noopener">$SVG('linkedin')</a>
                 <% end_if %>
                 <% if $SiteConfig.PinterestPage  %>
-                    <a href="{$SiteConfig.PinterestPage}" class="" target="_blank" rel="noopener">$SVG('pinterest-icon')</a>
+                    <a href="{$SiteConfig.PinterestPage}" class="" target="_blank" rel="noopener">$SVG('pinterest')</a>
                 <% end_if %>
                 <% if $SiteConfig.InstagramPage  %>
-                    <a href="{$SiteConfig.InstagramPage}" class="" target="_blank" rel="noopener">$SVG('instagram-icon')</a>
+                    <a href="{$SiteConfig.InstagramPage}" class="" target="_blank" rel="noopener">$SVG('instagram')</a>
                 <% end_if %>
                 <% if $SiteConfig.YoutubePage  %>
-                    <a href="{$SiteConfig.YoutubePage}" class="" target="_blank" rel="noopener">$SVG('youtube-icon')</a>
+                    <a href="{$SiteConfig.YoutubePage}" class="" target="_blank" rel="noopener">$SVG('youtube')</a>
                 <% end_if %>
                 <% if $SiteConfig.TwitterPage  %>
-                    <a href="{$SiteConfig.TwitterPage}" class="" target="_blank" rel="noopener">$SVG('twitter-icon')</a>
+                    <a href="{$SiteConfig.TwitterPage}" class="" target="_blank" rel="noopener">$SVG('twitter')</a>
                 <% end_if %>
             </div>
         </div>

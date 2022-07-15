@@ -58,6 +58,5 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require-dev": {
-        "lekoala/silverstripe-debugbar": "^2.0"
     }
 }
