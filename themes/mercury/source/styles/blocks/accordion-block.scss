@@ -7,8 +7,20 @@ Accordion Block
 
   &__wrap {
     margin: 0 auto;
-    max-width: $lg;
     padding: 0 2rem;
+    max-width: $lg;
+
+    &--wide {
+      max-width: $xl;
+    }
+
+    &--narrow {
+      max-width: $xmd;
+    }
+
+    &--very-narrow {
+      max-width: $sm;
+    }
 
     &__item {
       position: relative;

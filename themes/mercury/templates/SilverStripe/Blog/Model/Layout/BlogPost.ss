@@ -2,42 +2,68 @@
 
 $Breadcrumbs
 
-<div class="sidebarWrapper">
-    <div class="sidebarWrapper__content">
-        <div class="contentBlock image-block">
-            <div class="contentBlock__wrap image-block__wrap row">
-                <div class="column">
+<%-- -------------------------------------------- 
+Sidebar
+-------------------------------------------- --%>
 
-                    <picture>
-                        <source media="(min-width: 1200px)" srcset="$FeaturedImage.FocusFill(1920,1080).URL">
-                        <source media="(min-width: 800px)" srcset="$FeaturedImage.FocusFill(960,540).URL">
-                        <source media="(min-width: 320px)" srcset="$FeaturedImage.FocusFill(480,270).URL">
-                        <img src="$FeaturedImage.FocusFill(1920,1080).URL" alt="$FeaturedImage.Title">
-                    </picture>
-                </div>
+<section class="sidebar-wrap">
 
+    <%-- -------------------------------------------- 
+    Content
+    -------------------------------------------- --%>
+	<div class="sidebar-wrap__content">
+
+        <section class="image-block" style="margin:0 auto;">
+            <div class="image-block__wrap">
+                <img src="$FeaturedImage.FocusFill(940,540).URL" width="940" height="540" loading="lazy"  alt="$FeaturedImage.Title">
             </div>
-        </div>
+        </section>
 
         <% loop $ContentBlocks.Sort('SortOrder') %>
         $ForTemplate
         <% end_loop %>
 
     </div>
-    <div class="sidebarWrapper__sidebar sidebarWrapper__sidebar--no-padding [ js-sticky-sidebar ]">
 
-        <div class="minorPadding">
-            <h6>Categories</h6>
-            <p>
-                <% loop $Parent.Categories %>
-                $getCurrentCategory
-                <a href="$Link" class="tag">$Title</a>
-                <% end_loop %>
-            </p>
-        </div>
+    <%-- -------------------------------------------- 
+    Sidebar
+    -------------------------------------------- --%>
+    <div class="sidebar-wrap__sidebar">
+        
+        <div class="sidebar-wrap__sidebar__categories">
+			<div class="sidebar-wrap__sidebar__categories__heading">
+				<h4>Tags</h4>
+			</div>
+			<% if $Categories %>
+				<div class="sidebar-wrap__sidebar__categories__tags tags">
+					<% loop $Categories %>
+						<a href="{$Link}" class="sidebar-wrap__sidebar__categories__tags__tag tag">{$Title}</a>
+					<% end_loop %>
+				</div>
+			<% end_if %>
+		</div>
+
+        <%-- -------------------------------------------- 
+	    Recent posts
+	    -------------------------------------------- --%>
+    
+	    <div class="sidebar-wrap__sidebar__recent">
+	    	<div class="sidebar-wrap__sidebar__recent__heading">
+	    		<h4>Recent Posts</h4>
+	    	</div>
+	    	<div class="sidebar-wrap__sidebar__recent__list">
+	    		<% loop $LatestNews(3).Exclude('ID', $ID) %>
+	    			<a href="{$Link}" class="sidebar-wrap__sidebar__recent__list__item">
+	    				<h6><b>$Title</b>$SVG('arrow-right') </h6>
+	    				<p class="colour--primary smaller">$PublishDate.format('dd MMMM, YYYY')</p>
+	    			</a>
+	    		<% end_loop %>
+	    	</div>
+	    </div>
 
     </div>
 
+    
+
 </div>
 
-<% include SilverStripe\Blog\BlogSideBar %>

@@ -5,7 +5,7 @@
 .login {
   min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
 
   &__image {
     @include cover;

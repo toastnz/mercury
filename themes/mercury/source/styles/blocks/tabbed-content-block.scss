@@ -5,11 +5,23 @@ Tabbed block
 .tabbed-block {
   &__wrap {
     margin: 8rem auto;
-    max-width: $lg;
     padding: 0 2rem;
     position: relative;
     display: flex;
     flex-wrap: wrap;
+    max-width: $lg;
+
+    &--wide {
+      max-width: $xl;
+    }
+
+    &--narrow {
+      max-width: $xmd;
+    }
+
+    &--very-narrow {
+      max-width: $sm;
+    }
 
     &__tabs {
       width: 30rem;

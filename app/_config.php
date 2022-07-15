@@ -11,6 +11,7 @@ use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 
 // remove PasswordValidator for SilverStripe 5.0
 $validator = PasswordValidator::create();
+
 // Settings are registered via Injector configuration - see passwords.yml in framework
 Member::set_password_validator($validator);
 
@@ -52,13 +53,7 @@ $formats = [
         'selector' => 'a, button',
         'classes'  => 'button button--outline',
         'wrapper'  => false,
-    ],
-    [
-        'title'    => 'Make button round',
-        'selector' => 'a, button',
-        'classes'  => 'button--rounded',
-        'wrapper'  => false,
-    ],
+    ]
 ];
 
 TinyMCEConfig::get('cms')->enablePlugins(['hr', 'anchor']);

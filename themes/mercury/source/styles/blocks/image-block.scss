@@ -7,9 +7,22 @@ body {
 
     &__wrap {
       margin: 0 auto;
-      max-width: $lg;
       padding: 0 2rem;
       position: relative;
+      max-width: $lg;
+
+      &--wide {
+        max-width: $xl;
+      }
+  
+      &--narrow {
+        max-width: $xmd;
+      }
+  
+      &--very-narrow {
+        max-width: $sm;
+      }
+  
 
       img {
         width: 100%;

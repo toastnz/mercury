@@ -2,16 +2,28 @@
 // Download Block
 //------------------------------------------------------------------
 
-.downloadBlock {
+.download-block {
   &__wrap {
     margin: 8rem auto;
-    max-width: $lg;
     padding: 0 2rem;
+    max-width: $lg;
+
+    &--wide {
+      max-width: $xl;
+    }
+
+    &--narrow {
+      max-width: $xmd;
+    }
+
+    &--very-narrow {
+      max-width: $sm;
+    }
 
     &__list {
       &__item {
         display: flex;
-        align-items: center; 
+        align-items: center;
         width: 100%;
         color: inherit;
         padding: 1.75rem 2rem 1.75rem;
@@ -54,8 +66,8 @@
         }
 
         &:hover {
-          .downloadBlock__wrap__list__item__details__summary,
-          .downloadBlock__wrap__list__item__details__title {
+          .download-block__wrap__list__item__details__summary,
+          .download-block__wrap__list__item__details__title {
             color: $primary;
           }
 

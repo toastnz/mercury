@@ -6,12 +6,24 @@
   &__wrap {
     padding: 0 2rem;
     position: relative;
-    max-width: $xl;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin: 8rem auto;
     justify-content: space-between;
+    max-width: $lg;
+
+    &--wide {
+      max-width: $xl;
+    }
+
+    &--narrow {
+      max-width: $xmd;
+    }
+
+    &--very-narrow {
+      max-width: $sm;
+    }
 
     &__image {
       width: 50%;

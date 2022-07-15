@@ -5,9 +5,21 @@ Video block
 .video-block {
   display: flex;
   flex-wrap: wrap;
-  max-width: $lg;
   margin: 8rem auto;
   padding: 0 2rem;
+  max-width: $lg;
+
+  &--wide {
+    max-width: $xl;
+  }
+
+  &--narrow {
+    max-width: $xmd;
+  }
+
+  &--very-narrow {
+    max-width: $sm;
+  }
 
   &__constraint {
     position: relative;

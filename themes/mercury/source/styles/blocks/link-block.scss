@@ -3,11 +3,23 @@
 //------------------------------------------------------------------
 
 .link-block {
-  max-width: $lg;
   margin: 0 auto;
   position: relative;
   overflow: hidden;
   margin: 8rem auto;
+  max-width: $lg;
+
+  &--wide {
+    max-width: $xl;
+  }
+
+  &--narrow {
+    max-width: $xmd;
+  }
+
+  &--very-narrow {
+    max-width: $sm;
+  }
 
   &__wrap {
     padding: 0 2rem 2rem;
@@ -15,8 +27,6 @@
     position: relative;
     display: flex;
     flex-wrap: wrap;
-
-
 
     @include media($md, max) {
       margin: 0 auto;
@@ -30,8 +40,7 @@
       overflow: hidden;
       position: relative;
       border-radius: 0.2rem;
-      
-     
+
       &:hover {
         .link-block__wrap__item__content__link svg {
           transform: translateX(0.5rem);

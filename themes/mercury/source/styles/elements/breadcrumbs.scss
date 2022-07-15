@@ -1,14 +1,14 @@
 .breadCrumbs {
   border-bottom: 1px solid $off-white;
   margin-bottom: 4rem;
-  padding: 0 2rem;
 
   @include media($md, max) {
     padding: 0;
   }
 
   &__wrap {
-    max-width: $lg;
+    max-width: $xl;
+    padding: 0 2rem;
     margin: 0 auto;
     position: relative;
     overflow: hidden;

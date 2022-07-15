@@ -24,12 +24,16 @@ Text block
   }
 
   &__wrap {
-    max-width: $lg;
     padding: 0 2rem;
     margin: 8rem auto;
+    max-width: $lg;
+
+    &--wide {
+      max-width: $xl;
+    }
 
     &--narrow {
-      max-width: $lg;
+      max-width: $xmd;
     }
 
     &--very-narrow {

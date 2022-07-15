@@ -9,7 +9,7 @@
   left: 0;
   right: 0;
   background: white;
-  padding: 0 2rem;
+
   z-index: 9999999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   transition: all $fast;
@@ -38,6 +38,7 @@
     height: 8rem;
     max-width: $xl;
     margin: 0 auto;
+    padding: 0 2rem;
 
     &--full {
       max-width: 100%;
@@ -47,10 +48,10 @@
       @include vertical-align;
       left: 0;
       text-align: right;
-      right: 0;
+      right: 2rem;
 
       @include media($lg, max) {
-        right: 5rem;
+        right: 7rem;
       }
 
       &__search,
@@ -86,7 +87,7 @@
 
     &__logo {
       position: absolute;
-      left: 0;
+      left: 2rem;
       top: 50%;
       transform: translateY(-50%);
       z-index: 4;

@@ -1,0 +1,99 @@
+/*------------------------------------------------------------------
+Sidebar wrap
+------------------------------------------------------------------*/
+
+.sidebar-wrap {
+  width: 100%;
+  max-width: $xl;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__content {
+    width: calc(100% - 36rem);
+    padding-right: 4rem;
+
+    @include media($xmd, max) {
+      width: 100%;
+      order: 1;
+      padding-right: 0;
+    }
+  }
+
+  &__sidebar {
+    width: 36rem;
+    padding: 0 2rem;
+
+    @include media($xmd, max) {
+      width: 100%;
+      order: 2;
+      padding: 0 2rem;
+    }
+
+    &__categories {
+      &__heading {
+        border-bottom: 1px solid $grey-light;
+      }
+    }
+
+    &__recent {
+      margin-top: 4rem;
+
+      &__heading {
+        border-bottom: 1px solid $grey-light;
+        margin-bottom: 2rem;
+      }
+
+      &__list {
+        &__item {
+          h6 {
+            margin-bottom: 0 !important;
+            transition: all $fast;
+          }
+
+          svg {
+            display: inline-block;
+            position: relative;
+            top: -1px;
+            transition: all $slow;
+            margin-left: 0.8rem;
+          }
+
+          &:hover h6 {
+            color: $primary;
+
+            svg {
+              transform: translateX(0.5rem);
+
+              path {
+                fill: $primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem 0 0;
+
+  .tag {
+    font-size: 1.4rem;
+    padding: 0.4rem 2rem;
+    background: $off-white;
+    color: $primary;
+    border-radius: 10rem;
+    margin: 0 0.5rem 0.5rem 0;
+    display: inline-block;
+    transition: all $fast;
+
+    &:hover {
+      color: white;
+      background: $primary;
+    }
+  }
+}
