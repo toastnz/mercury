@@ -22,23 +22,13 @@
 
                 <% if $Children %>
                 <div class="header__wrap__nav__link__subnav">
-                    <% loop $Children %>
-
-                    <div class="relative">
-                        <a href="{$Link}" class="header__wrap__nav__link__subnav__item {$LinkingMode}">
-                            <p class="nav">{$MenuTitle}</p>
-                        </a>
-                        <% if $Children %>
-                        <div class="header__wrap__nav__link__subnav__item__third">
-                            <% loop $Children %>
-                            <a href="{$Link}" class="header__wrap__nav__link__subnav__item__third__item">
+                    <div class="header__wrap__nav__link__subnav__wrap">
+                        <% loop $Children %>
+                            <a href="{$Link}" class="header__wrap__nav__link__subnav__wrap__item {$LinkingMode}">
                                 <p class="nav">{$MenuTitle}</p>
                             </a>
-                            <% end_loop %>
-                        </div>
-                        <% end_if %>
+                        <% end_loop %>
                     </div>
-                    <% end_loop %>
                 </div>
                 <% end_if %>
 
