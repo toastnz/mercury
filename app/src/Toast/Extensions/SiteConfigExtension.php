@@ -14,6 +14,7 @@ use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextareaField;
 use Sheadawson\Linkable\Forms\LinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class SiteConfigExtension extends DataExtension
 {
@@ -31,12 +32,19 @@ class SiteConfigExtension extends DataExtension
         'InstagramPage' => 'Varchar(255)',
         'YoutubePage' => 'Varchar(255)',
         'TwitterPage' => 'Varchar(255)',
+        'ShowPopup' => 'Boolean',
+        'PopupHeading' => 'HTMLText',
+        'PopupCopy' => 'HTMLText',
+        'ShowNotification' => 'Boolean',
+        'NotificationCanBeClosed' => 'Boolean',
+        'NotificationCopy' => 'HTMLText',
     ];
 
     private static $has_one = [
         'Logo' => File::class,
         'TermsLink' => Link::class,
         'PrivacyLink' => Link::class,
+        'NotificationLink' => Link::class,
     ];
 
     private static $owns = [
@@ -92,6 +100,31 @@ class SiteConfigExtension extends DataExtension
                 CheckboxField::create('MakeHeaderFullWidth', 'Make Header Full Width')
             ]);
         }
+
+        /** -----------------------------------------
+         * Popup
+         * ----------------------------------------*/
+
+        $fields->addFieldsToTab('Root.Popup', [
+            HeaderField::create('Popup', 'Site wide popup'),
+            CheckboxField::create('ShowPopup', 'Show popup'),
+            TextField::create('PopupHeading', 'Popup heading'),
+            HTMLEditorField::create('PopupCopy', 'Popup content')
+                ->setRows(5)
+                ->setDescription('Enter the content of your popup here.'),
+        ]);
+
+        /** -----------------------------------------
+         * Notification
+         * ----------------------------------------*/
+
+        $fields->addFieldsToTab('Root.Notification', [
+            HeaderField::create('Notification', 'Site wide notification'),
+            CheckboxField::create('ShowNotification', 'Show notification'),
+            CheckboxField::create('NotificationCanBeClosed', 'Can this notification be closed?'),
+            TextareaField::create('NotificationCopy', 'Notification content'),
+            LinkField::create('NotificationLinkID', 'Notification link (optional)'),
+        ]);
 
         /** -----------------------------------------
          * Keys

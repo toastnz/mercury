@@ -5,11 +5,24 @@
        <% include Toast\Meta %>
     </head>
 
-    <body class="$Classname">
+    <body class="$Classname ">
 
+        
+        <%-- -------------------------------------------- 
+        Type settings (Module)
+        -------------------------------------------- --%>
         <% include Type %>
 
         <div class="type">
+
+            <%---------------------------------------------- 
+            Show popup
+            -------------------------------------------- --%>
+
+            <% if $Siteconfig.ShowPopup %>
+                <% include Toast\Includes\Popup %>
+            <% end_if %>
+
             
             <% include Toast\Header %>
 

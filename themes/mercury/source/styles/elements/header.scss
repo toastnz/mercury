@@ -4,12 +4,11 @@ Header styles
 
 .header {
   width: 100%;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   background: white;
-
   z-index: 9999999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   transition: all $fast;
@@ -30,7 +29,7 @@ Header styles
   }
 
   &.nav-up {
-    transform: translateY(-110%);
+    transform: translateY(-140%);
   }
 
   &__wrap {

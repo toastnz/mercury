@@ -1,4 +1,14 @@
+
 <header class="header<% if $TransparentHeader %> header--transparent<% end_if %>">
+
+<%-- -------------------------------------------- 
+Show notification
+-------------------------------------------- --%>
+<% if $Siteconfig.ShowNotification %>
+     <% include Toast\Includes\Notification %>
+<% end_if %>
+
+
     <div class="header__wrap <% if $Siteconfig.MakeHeaderFullWidth %>header__wrap--full<% end_if %>">
 
         <a href="{$BaseHref}" class="header__wrap__logo" title="$SiteConfig.Title">

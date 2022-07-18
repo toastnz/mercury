@@ -17,11 +17,13 @@ Header Search
 </section>
 
 <script>
-    // Close the search pane when the user hits the escape key
-    document.onkeydown = function(evt) {
-        evt = evt || window.event;
-        if (evt.keyCode == 27) {
-            document.body.classList.remove('searchActive');
-        }
-    };
+    document.addEventListener("DOMContentLoaded", function() {
+        // Close the search pane when the user hits the escape key
+        document.onkeydown = function(evt) {
+            evt = evt || window.event;
+            if (evt.keyCode == 27) {
+                document.body.classList.remove('searchActive');
+            }
+        };
+    });
 </script>
