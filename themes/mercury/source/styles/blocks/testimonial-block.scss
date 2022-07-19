@@ -3,7 +3,6 @@ Testimonial block
 ------------------------------------------------------------------*/
 
 .testimonials {
-  background: $off-white;
   padding: 8rem 0;
   position: relative;
   overflow: hidden;
@@ -25,6 +24,25 @@ Testimonial block
         max-width: 70rem;
         margin: 0 auto;
         text-align: center;
+        background: $primary;
+        box-shadow: $shadow;
+        border-radius: 0.5rem;
+        padding: 6rem;
+
+        img {
+          width: 4rem;
+          height: auto;
+          margin: 0 auto 4rem;
+        }
+
+        &__credit {
+          color: white;
+          margin-top: 4rem;
+
+          p {
+            margin: 0 !important;
+          }
+        }
       }
     }
   }

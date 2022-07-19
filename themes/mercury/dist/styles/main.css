@@ -2026,7 +2026,6 @@ Tabbed content block
 Testimonial block
 ------------------------------------------------------------------*/
 .testimonials {
-  background: #f4f4f7;
   padding: 8rem 0;
   position: relative;
   overflow: hidden; }
@@ -2042,7 +2041,20 @@ Testimonial block
     .testimonials__wrap__slider__item {
       max-width: 70rem;
       margin: 0 auto;
-      text-align: center; }
+      text-align: center;
+      background: var(--primary-colour);
+      box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 23, 42, 0.1) 0px 20px 25px -5px, rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
+      border-radius: 0.5rem;
+      padding: 6rem; }
+      .testimonials__wrap__slider__item img {
+        width: 4rem;
+        height: auto;
+        margin: 0 auto 4rem; }
+      .testimonials__wrap__slider__item__credit {
+        color: white;
+        margin-top: 4rem; }
+        .testimonials__wrap__slider__item__credit p {
+          margin: 0 !important; }
   .testimonials .tns-controls {
     position: absolute;
     z-index: 4;
