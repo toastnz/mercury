@@ -4,7 +4,6 @@ Breadcrumbs
 
 .breadCrumbs {
   border-bottom: 1px solid $off-white;
-  margin-bottom: 4rem;
 
   @include media($md, max) {
     padding: 0;

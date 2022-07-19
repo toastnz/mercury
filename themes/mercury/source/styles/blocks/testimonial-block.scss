@@ -3,7 +3,8 @@ Testimonial block
 ------------------------------------------------------------------*/
 
 .testimonials {
-  padding: 8rem 0;
+  margin: 8rem auto;
+
   position: relative;
   overflow: hidden;
 
@@ -21,7 +22,7 @@ Testimonial block
 
     &__slider {
       &__item {
-        max-width: 70rem;
+        max-width: $md;
         margin: 0 auto;
         text-align: center;
         background: $primary;
@@ -79,15 +80,28 @@ Testimonial block
       &:hover {
         opacity: 1;
       }
+
+      @include media($md, max) {
+        border: 2px solid white;
+        background-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10"><path fill="%23fff" fill-rule="evenodd" d="M8.423.015 13.408 5 8.422 9.985 7.38 8.943l3.2-3.2H.09V4.257H10.58l-3.2-3.2L8.424.016Z"/></svg>');
+      }
     }
 
     [data-controls='prev'] {
-      left: 1rem;
+      left: 2rem;
       transform: rotate(-180deg);
+
+      @include media($md, max) {
+        left: 4rem;
+      }
     }
 
     [data-controls='next'] {
-      right: 1rem;
+      right: 2rem;
+
+      @include media($md, max) {
+        right: 4rem;
+      }
     }
   }
 
