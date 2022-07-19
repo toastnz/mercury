@@ -113,7 +113,7 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Content' => DBField::create_field(DBHTMLText::class, '<h2 class="text-center">A simple narrow text block.</h2><p class="text-center">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
-            'Width' => 'very-narrow'
+            'Width' => 'thin'
         ]);
         return $arrayData->renderWith('Toast\Blocks\Block');
     }
@@ -370,7 +370,7 @@ class StyleGuideController extends Controller
     public function HeroBlock()
     {
         $arrayData = new ArrayData([
-            'Width' => 'very-narrow',
+            'Width' => 'thin',
             'BackgroundImage'   => Image::find('placeholder.jpg'),
             'Content'      => DBField::create_field(DBHTMLText::class, '<h2 class="text-center colour--white">Now a hero block</h2><p class="text-center colour--white">An abstratc image <b>doesn\'t distract</b> the user from reading what is in this text box. You now have their attention to tell them anything that may be <i>important</i> to your brand mission.</p><p class="text-center"><a href="#" class="button">READ MORE</a></p>')
         ]);
