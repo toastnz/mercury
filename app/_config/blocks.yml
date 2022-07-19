@@ -16,3 +16,4 @@ Toast\Blocks\Extensions\PageExtension:
     - Toast\Blocks\ImageTextBlock
     - Toast\Blocks\HeroBlock
     - Toast\Blocks\CodeBlock
+    - Toast\Blocks\TestimonialBlock
