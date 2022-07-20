@@ -4,16 +4,16 @@ After: toastblocks
 ---
 Toast\Blocks\Extensions\PageExtension:
   available_blocks:
-    - Toast\Blocks\TextBlock
-    - Toast\Blocks\ImageBlock
-    - Toast\Blocks\DownloadBlock
-    - Toast\Blocks\VideoBlock
     - Toast\Blocks\AccordionBlock
-    - Toast\Blocks\TabbedContentBlock
-    - Toast\Blocks\UserFormBlock
-    - Toast\Blocks\LinkBlock
     - Toast\Blocks\ChildLinkBlock
-    - Toast\Blocks\ImageTextBlock
-    - Toast\Blocks\HeroBlock
     - Toast\Blocks\CodeBlock
+    - Toast\Blocks\DownloadBlock
+    - Toast\Blocks\HeroBlock
+    - Toast\Blocks\ImageBlock
+    - Toast\Blocks\ImageTextBlock
+    - Toast\Blocks\LinkBlock
+    - Toast\Blocks\TabbedContentBlock
     - Toast\Blocks\TestimonialBlock
+    - Toast\Blocks\TextBlock
+    - Toast\Blocks\UserFormBlock
+    - Toast\Blocks\VideoBlock
