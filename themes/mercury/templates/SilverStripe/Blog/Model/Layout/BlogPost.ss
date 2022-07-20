@@ -13,14 +13,16 @@ Sidebar
     -------------------------------------------- --%>
 	<div class="sidebar-wrap__content">
 
-        <section class="image-block" style="margin:0 auto;">
-            <div class="image-block__wrap">
-                <img src="$FeaturedImage.FocusFill(940,540).URL" width="940" height="540" loading="lazy"  alt="$FeaturedImage.Title">
-            </div>
-        </section>
+		<% if $FeaturedImage %>
+			<section class="image-block" style="margin:0 auto;">
+				<div class="image-block__wrap">
+					<img src="$FeaturedImage.FocusFill(940,540).URL" width="940" height="540" loading="lazy"  alt="$FeaturedImage.Title">
+				</div>
+			</section>
+		<% end_if %>
 
         <% loop $ContentBlocks.Sort('SortOrder') %>
-        $ForTemplate
+        	$ForTemplate
         <% end_loop %>
 
     </div>

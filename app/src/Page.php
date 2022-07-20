@@ -1,19 +1,20 @@
 <?php
 
+use SilverStripe\ORM\DB;
 use Toast\Helpers\Helper;
-use Toast\Models\BannerSlide;
 
+use Toast\Models\BannerSlide;
 use SilverStripe\Forms\FieldGroup;
+use Toast\Pages\SearchResultsPage;
 use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Forms\DropdownField;
+use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
-use Toast\Pages\SearchResultsPage;
-use SilverStripe\ORM\DB;
 
 class Page extends SiteTree
 {
@@ -89,4 +90,10 @@ class PageController extends ContentController
     {
         return Helper::isSuperAdmin();
     }
+
+    public function LatestNews($limit)
+    {
+        return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
+    }
+
 }

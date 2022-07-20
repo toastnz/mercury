@@ -17,11 +17,6 @@ class BlogControllerExtension extends DataExtension
 {
     private static $limit = 12;
 
-    public function LatestNews($limit)
-    {
-        return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
-    }
-
     // public function afterCallActionHandler()
     // {
     //     $request = Injector::inst()->get(HTTPRequest::class);
