@@ -29,9 +29,9 @@
         "toastnz/webp": "^1.3",
         "toastnz/favicon": "dev-main",
         "toastnz/linkable": "^2",
-        "toastnz/blocks": "^2",
         "plasticstudio/iconfield": "^1.1",
-        "unclecheese/silverstripe-image-optionset": "^2.0"
+        "unclecheese/silverstripe-image-optionset": "^2.0",
+        "toastnz/blocks": "^3.0"
     },
     "extra": {
         "resources-dir": "_resources",

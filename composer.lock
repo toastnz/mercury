@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32b0f62a2918b61e8deb0f3b5cac94e2",
+    "content-hash": "d717ab02c94c96c2a9b8f3c01ca2dd8d",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -6663,16 +6663,16 @@
         },
         {
             "name": "toastnz/blocks",
-            "version": "2.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/toastnz/blocks.git",
-                "reference": "dbd5bbb431c26be5d0269438a483e65586b23c2a"
+                "reference": "1768def06b51142b2fdb5c1c3854fc085682e8c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/toastnz/blocks/zipball/dbd5bbb431c26be5d0269438a483e65586b23c2a",
-                "reference": "dbd5bbb431c26be5d0269438a483e65586b23c2a",
+                "url": "https://api.github.com/repos/toastnz/blocks/zipball/1768def06b51142b2fdb5c1c3854fc085682e8c1",
+                "reference": "1768def06b51142b2fdb5c1c3854fc085682e8c1",
                 "shasum": ""
             },
             "require": {
@@ -6683,6 +6683,7 @@
                 "silverstripe/userforms": "^5.5",
                 "symbiote/silverstripe-gridfieldextensions": "^3.1",
                 "toastnz/linkable": "^2",
+                "unclecheese/silverstripe-image-optionset": "^2.0",
                 "undefinedoffset/sortablegridfield": "^2.0.4"
             },
             "type": "silverstripe-vendormodule",
@@ -6720,9 +6721,9 @@
             ],
             "support": {
                 "issues": "https://github.com/toastnz/blocks/issues",
-                "source": "https://github.com/toastnz/blocks/tree/2.0.0"
+                "source": "https://github.com/toastnz/blocks/tree/3.0.1"
             },
-            "time": "2022-07-13T10:10:16+00:00"
+            "time": "2022-07-26T09:35:33+00:00"
         },
         {
             "name": "toastnz/duplicator",
