@@ -96,14 +96,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../styles/style.scss */ "./themes/mercury/source/styles/style.scss");
 /* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib */ "./themes/mercury/source/scripts/lib.js");
 /*------------------------------------------------------------------
-Web Vitals
-------------------------------------------------------------------*/
-// import { getLCP, getFID, getCLS } from 'web-vitals';
-// getCLS(console.log);
-// getFID(console.log);
-// getLCP(console.log);
-
-/*------------------------------------------------------------------
 Import styles
 ------------------------------------------------------------------*/
 

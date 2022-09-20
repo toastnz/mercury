@@ -1,4 +1,9 @@
 /*------------------------------------------------------------------
+Imports
+------------------------------------------------------------------*/
+@use 'sass:math';
+
+/*------------------------------------------------------------------
 Breakpoints
 ------------------------------------------------------------------*/
 
@@ -107,7 +112,7 @@ Placeholders
 }
 
 /*------------------------------------------------------------------
-Clearfix
+Clearfix 
 ------------------------------------------------------------------*/
 
 @mixin clearfix {
@@ -165,7 +170,7 @@ Dynamic Aspect Ratios
     content: '';
     position: relative;
     display: block;
-    padding-bottom: percentage($y / $x);
+    padding-bottom: math.percentage(math.div($y, $x));
   }
 }
 
@@ -190,7 +195,7 @@ Responsive SVGs
     content: '';
     position: relative;
     display: block;
-    padding-bottom: percentage($y / $x);
+    padding-bottom: math.percentage(math.div($y, $x));
   }
 
   svg {

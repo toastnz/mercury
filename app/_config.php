@@ -67,7 +67,6 @@ if (Security::database_is_ready()) {
 
         $primaryColour = substr($data, strpos($data, '--primary-colour:') + 17, 7);
         $secondaryColour = substr($data, strpos($data, '--secondary-colour:') + 19, 7);
-
         TinyMCEConfig::get('cms')
             ->addButtonsToLine(2, 'styleselect')
             ->setOptions([

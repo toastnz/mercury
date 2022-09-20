@@ -3,7 +3,7 @@
 ### Node Version
 Make sure you are on the correct node version
 ```bash
-sudo n 16
+sudo n 18
 ```
 ### Installation
 You will need to run `yarn` in your site directory before the build tasks can run.
