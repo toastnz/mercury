@@ -6,9 +6,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
-// "file-loader": "^6.2.0",
-// "url-loader": "^4.1.1",
-
 const stats = {
     colors: true,
     hash: false,
