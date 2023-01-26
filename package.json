@@ -8,28 +8,28 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "in-view": "^0.6.1",
-    "sass": "^1.54.9"
+    "sass": "^1.57.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
+    "@babel/core": "^7.20.12",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-    "@babel/preset-env": "^7.15.0",
+    "@babel/preset-env": "^7.20.2",
     "@babel/register": "^7.14.5",
-    "autoprefixer": "^10.3.1",
-    "babel-loader": "^8.2.2",
-    "css-loader": "^6.2.0",
+    "autoprefixer": "^10.4.13",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
     "friendly-errors-webpack-plugin": "^1.7.0",
-    "glob": "^8.0.3",
+    "glob": "^8.1.0",
     "image-webpack-loader": "^8.1.0",
     "import-glob-loader": "^1.1.0",
-    "mini-css-extract-plugin": "^2.6.1",
-    "npm": "^8.19.2",
+    "mini-css-extract-plugin": "^2.7.2",
+    "npm": "^9.4.0",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "path": "^0.12.7",
-    "postcss-loader": "^7.0.1",
-    "sass-loader": "^13.0.2",
-    "webpack": "^5.48.0",
-    "webpack-cli": "^4.7.2",
+    "postcss-loader": "^7.0.2",
+    "sass-loader": "^13.2.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
     "webpack-config-utils": "^2.3.1"
   }
 }
