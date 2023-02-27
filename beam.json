@@ -39,7 +39,9 @@
 			"/.vagrant",
 			"/VagrantFile",
 			"/framework/thirdparty/tinymce/error_log",
-			"/silverstripe-cacheinclude/cache/"
+			"/silverstripe-cacheinclude/cache/",
+      "/_graphql",
+      "/.graphql-generated"
 		]
 	},
 	"servers": {
