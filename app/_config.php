@@ -63,7 +63,7 @@ if (Security::database_is_ready()) {
     try {
         $config = SiteConfig::current_site_config();
 
-        $data = $config->typeCSS;
+        $data = $config->typeCSS ?: '';
 
         $primaryColour = substr($data, strpos($data, '--primary-colour:') + 17, 7);
         $secondaryColour = substr($data, strpos($data, '--secondary-colour:') + 19, 7);

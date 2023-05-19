@@ -1,38 +1,57 @@
 {
     "name": "toastnz/mercury",
-    "type": "silverstripe-vendormodule",
+    "type": "silverstripe-project",
     "description": "Toast NZ SilverStripe Installer",
     "require": {
         "php": ">=8.1",
-        "silverstripe/recipe-cms": "4.11.0@stable",
-        "undefinedoffset/silverstripe-nocaptcha": "^2.3",
-        "symbiote/silverstripe-gridfieldextensions": "^3.4",
-        "jonom/focuspoint": "^4.0",
+        "silverstripe/recipe-cms": "5.0.0@stable",
+        "undefinedoffset/silverstripe-nocaptcha": "^2.4",
+        "symbiote/silverstripe-gridfieldextensions": "^4.0",
         "drewm/mailchimp-api": "^2.5",
         "silverstripe/googlesitemaps": "^2.2",
-        "silverstripe/taxonomy": "^2.4",
-        "silverstripe/redirectedurls": "^2.1",
-        "betterbrief/silverstripe-googlemapfield": "^2.2",
-        "bummzack/sortablefile": "^2.1",
-        "symbiote/silverstripe-queuedjobs": "^4.10",
-        "silverstripe/userforms": "^5.13",
-        "silverstripe/tagfield": "^2.9",
-        "stevie-mayhew/silverstripe-svg": "^2.2",
-        "undefinedoffset/sortablegridfield": "^2.1",
-        "silverstripe/blog": "^3.10",
+        "silverstripe/taxonomy": "^3.0",
+        "symbiote/silverstripe-queuedjobs": "^5.0",
+        "silverstripe/userforms": "^6.0",
+        "silverstripe/tagfield": "^3.0",
+        "undefinedoffset/sortablegridfield": "^2.2",
+        "silverstripe/blog": "^4.0",
         "axllent/silverstripe-form-fields": "^1.6",
-        "permanentinc/found": "^1.3",
-        "permanentinc/type": "dev-master",
-        "permanentinc/beautiful": "^0.4.1",
-        "heyday/silverstripe-menumanager": "^3.2",
-        "toastnz/duplicator": "^1.0",
-        "toastnz/webp": "^1.3",
-        "toastnz/favicon": "dev-main",
-        "toastnz/linkable": "^2",
-        "plasticstudio/iconfield": "^1.1",
-        "unclecheese/silverstripe-image-optionset": "^2.0",
-        "toastnz/blocks": "^3.0"
+        "jonom/focuspoint": "^5",
+        "silverstripe/redirectedurls": "^3",
+        "bummzack/sortablefile": "2.x-dev",
+        "heyday/silverstripe-menumanager": "dev-main",
+        "plasticstudio/iconfield": "dev-master",
+        "unclecheese/silverstripe-image-optionset": "dev-master",
+        "unclecheese/display-logic": "^3.0",
+        "toastnz/duplicator": "^2.0",
+        "toastnz/favicon": "^2.0",
+        "stevie-mayhew/silverstripe-svg": "dev-master",
+        "permanentinc/found": "^2.0",
+        "permanentinc/type": "^2.0",
+        "toastnz/blocks": "^5.0"
     },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/toastnz/silverstripe-svg"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/toastnz/sortablefile"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/toastnz/silverstripe-menumanager"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/toastnz/plasticstudio-iconfield"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/toastnz/silverstripe-image-optionset"
+        }        
+    ],    
     "extra": {
         "resources-dir": "_resources",
         "project-files-installed": [
@@ -47,7 +66,10 @@
             ".htaccess",
             "index.php",
             "web.config"
-        ]
+        ],
+        "expose": [
+            "themes/mercury/dist"
+        ]        
     },
     "config": {
         "process-timeout": 600,
