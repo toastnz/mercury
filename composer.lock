@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c334444e44ce5309c097e9274fb632f4",
+    "content-hash": "58fdeeadb13c98118cbc33ef57b967b8",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -1965,16 +1965,16 @@
         },
         {
             "name": "permanentinc/found",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/permanentinc/found.git",
-                "reference": "759284ad52042b502f8d52b5c1854862b713b1d9"
+                "reference": "42beab1d81ccbeefe5ca2d0bd1fea6268f83b7eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/permanentinc/found/zipball/759284ad52042b502f8d52b5c1854862b713b1d9",
-                "reference": "759284ad52042b502f8d52b5c1854862b713b1d9",
+                "url": "https://api.github.com/repos/permanentinc/found/zipball/42beab1d81ccbeefe5ca2d0bd1fea6268f83b7eb",
+                "reference": "42beab1d81ccbeefe5ca2d0bd1fea6268f83b7eb",
                 "shasum": ""
             },
             "require": {
@@ -2013,22 +2013,22 @@
             ],
             "support": {
                 "issues": "http://github.com/permanentinc/found/issues",
-                "source": "https://github.com/permanentinc/found/tree/2.0.1"
+                "source": "https://github.com/permanentinc/found/tree/2.0.2"
             },
-            "time": "2023-05-19T01:33:35+00:00"
+            "time": "2023-05-19T02:19:14+00:00"
         },
         {
             "name": "permanentinc/type",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/permanentinc/type.git",
-                "reference": "c6328d45c2e1001cf9d406c4e854f85237e0124e"
+                "reference": "a53b650aacffbfb60b5d7b0a3137c793a3bc241f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/permanentinc/type/zipball/c6328d45c2e1001cf9d406c4e854f85237e0124e",
-                "reference": "c6328d45c2e1001cf9d406c4e854f85237e0124e",
+                "url": "https://api.github.com/repos/permanentinc/type/zipball/a53b650aacffbfb60b5d7b0a3137c793a3bc241f",
+                "reference": "a53b650aacffbfb60b5d7b0a3137c793a3bc241f",
                 "shasum": ""
             },
             "require": {
@@ -2067,9 +2067,9 @@
             ],
             "support": {
                 "issues": "http://github.com/permanentinc/type/issues",
-                "source": "https://github.com/permanentinc/type/tree/2.0.0"
+                "source": "https://github.com/permanentinc/type/tree/2.0.1"
             },
-            "time": "2023-05-18T23:47:08+00:00"
+            "time": "2023-05-19T02:18:23+00:00"
         },
         {
             "name": "plasticstudio/iconfield",
@@ -6599,6 +6599,37 @@
                 "source": "https://github.com/toastnz/linkable/tree/3.0.0"
             },
             "time": "2023-05-18T23:21:00+00:00"
+        },
+        {
+            "name": "toastnz/webp",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toastnz/webp.git",
+                "reference": "549e2751cab6470ec09165b81e215caae505196d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toastnz/webp/zipball/549e2751cab6470ec09165b81e215caae505196d",
+                "reference": "549e2751cab6470ec09165b81e215caae505196d",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "silverstripe/cms": "^5",
+                "silverstripe/framework": "^5"
+            },
+            "type": "silverstripe-vendormodule",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Silverstripe WebP",
+            "support": {
+                "issues": "https://github.com/toastnz/webp/issues",
+                "source": "https://github.com/toastnz/webp/tree/2.0.0"
+            },
+            "time": "2023-05-19T02:27:13+00:00"
         },
         {
             "name": "ua-parser/uap-php",

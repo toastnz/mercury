@@ -28,7 +28,8 @@
         "stevie-mayhew/silverstripe-svg": "dev-master",
         "permanentinc/found": "^2.0",
         "permanentinc/type": "^2.0",
-        "toastnz/blocks": "^5.0"
+        "toastnz/blocks": "^5.0",
+        "toastnz/webp": "^2.0"
     },
     "repositories": [
         {
