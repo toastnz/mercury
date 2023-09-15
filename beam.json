@@ -42,7 +42,9 @@
 			"/framework/thirdparty/tinymce/error_log",
 			"/silverstripe-cacheinclude/cache/",
       "/_graphql",
-      "/.graphql-generated"
+      "/.graphql-generated",
+      "/public/_graphql",
+      "/public/.graphql-generated"
 		]
 	},
 	"servers": {
