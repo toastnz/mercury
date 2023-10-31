@@ -4,22 +4,13 @@ namespace Toast\Forms;
 
 use DrewM\MailChimp\MailChimp;
 use SilverStripe\Control\Controller;
-use SilverStripe\Control\HTTPResponse;
-use SilverStripe\Dev\Debug;
 use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\Form;
-use SilverStripe\Control\Session;
 use SilverStripe\SiteConfig\SiteConfig;
-use Toast\Extensions\SiteConfigExtension;
-
-
-/**
- * Class SubscriptionForm
- */
 class SubscriptionForm extends Form
 {
 
@@ -78,7 +69,7 @@ class SubscriptionForm extends Form
         if ($siteConfig->MailChimpAPI && $listID) {
             try {
                 $mailChimp = new MailChimp($siteConfig->MailChimpAPI);
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 return Controller::curr()->getStandardJsonResponse([], 'Subscribe', $e->getMessage(), 500, 'error');
             }
 

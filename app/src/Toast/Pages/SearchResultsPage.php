@@ -2,10 +2,6 @@
 
 namespace Toast\Pages;
 
-use SilverStripe\CMS\Controllers\ContentController;
-use SilverStripe\ORM\DB;
-use SilverStripe\Versioned\Versioned;
-
 class SearchResultsPage extends \Page
 {
     private static $singular_name = 'Search Results';

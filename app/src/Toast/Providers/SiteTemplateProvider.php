@@ -4,7 +4,7 @@ use SilverStripe\Core\Environment;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\View\TemplateGlobalProvider;
 
-class EnvTemplateProvider implements TemplateGlobalProvider
+class SiteTemplateProvider implements TemplateGlobalProvider
 {
     public static function get_template_global_variables()
     {

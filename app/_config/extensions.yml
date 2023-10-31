@@ -9,6 +9,22 @@ SilverStripe\Admin\LeftAndMain:
   extensions:
     - Toast\Extensions\LeftAndMainExtension
 
+SilverStripe\Control\Controller:
+  extensions:
+    - Toast\Extensions\ControllerExtension
+
+SilverStripe\Blog\Model\Blog:
+  extensions:
+    - Toast\Extensions\BlogExtension
+
+SilverStripe\Blog\Model\BlogController:
+  extensions:
+    - Toast\Extensions\BlogControllerExtension
+
+SilverStripe\Blog\Model\BlogPost:
+  extensions:
+    - Toast\Extensions\BlogPostExtension
+
 StevieMayhew\SilverStripeSVG\SVGTemplate:
   base_path: "themes/mercury/dist/images/svg/"
 

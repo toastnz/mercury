@@ -2,15 +2,11 @@
 
 namespace Toast\Models;
 
-use Toast\Helpers\Helper;
-use Page;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use Axllent\FormFields\FieldType\VideoLink;
 use Axllent\FormFields\Forms\VideoLinkField;
-use SilverStripe\Control\Controller;
-use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\CheckboxField;
 
@@ -28,7 +24,7 @@ class BannerSlide extends DataObject
 
     private static $has_one = [
         'BackgroundImage' => Image::class,
-        'Parent' => Page::class
+        'Parent' => \Page::class
     ];
 
     private static $owns = [

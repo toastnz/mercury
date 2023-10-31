@@ -1,11 +1,8 @@
 <?php
 
-use SilverStripe\ORM\DB;
 use Toast\Helpers\Helper;
-
 use Toast\Models\BannerSlide;
 use SilverStripe\Forms\FieldGroup;
-use Toast\Pages\SearchResultsPage;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\Forms\CheckboxField;
@@ -91,7 +88,7 @@ class PageController extends ContentController
         return Helper::isSuperAdmin();
     }
 
-    public function LatestNews($limit)
+    public function LatestNews($limit = 12)
     {
         return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
     }

@@ -1,0 +1,6 @@
+---
+Name: sitelements
+---
+Page:
+  extensions:
+    - DNADesign\Elemental\Extensions\ElementalPageExtension

@@ -2,15 +2,13 @@
 
 namespace Toast\Helpers;
 
-use SilverStripe\Core\Environment;
+use SilverStripe\Control\Director;
 use SilverStripe\Security\Security;
-use SilverStripe\Security\Permission;
-
 
 class Helper 
 {
 
-    static function getDirContents($dir, &$results = []) {
+    public static function getDirContents($dir, &$results = []) {
         $files = scandir($dir);
 
         foreach ($files as $key => $value) {
@@ -26,7 +24,7 @@ class Helper
     }    
 
 
-    static function getTemplates()
+    public static function getTemplates()
     {
         $cwd = getcwd();
         $themeFolder = 'themes/mercury';
@@ -42,12 +40,14 @@ class Helper
         return $output;
     }
 
-    static function isSuperAdmin()
+    public static function isSuperAdmin()
     {
-        if ($defaultUser = Environment::getEnv('SS_DEFAULT_ADMIN_USERNAME')) {
-            if ($currentUser = Security::getCurrentUser()) {
-                return $currentUser->Email == $defaultUser;
-            }
+        if (Director::isDev()) {
+            return true;
+        }
+
+        if ($currentUser = Security::getCurrentUser()) {
+            return strstr($currentUser->Email, '@toast.co.nz');
         }
         return false;
     }
