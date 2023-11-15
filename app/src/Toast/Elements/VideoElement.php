@@ -7,9 +7,10 @@ use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\RequiredFields;
 use UncleCheese\Forms\ImageOptionsetField;
 use Axllent\FormFields\FieldType\VideoLink;
-use Axllent\FormFields\Forms\VideoLinkField;
 use DNADesign\Elemental\Models\BaseElement;
+use Axllent\FormFields\Forms\VideoLinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Core\Manifest\ModuleResourceLoader;
 
 class VideoElement extends BaseElement
 {
@@ -21,7 +22,9 @@ class VideoElement extends BaseElement
 
     private static $description = 'Vimeo or Youtube video';
 
-    private static $inline_editable = true;
+    private static $inline_editable = false;
+
+    private static $icon = 'font-icon-block-video';
 
     private static $db = [
         'Caption' => 'Varchar(255)',
@@ -37,6 +40,15 @@ class VideoElement extends BaseElement
         'Thumbnail'
     ];
 
+    private static $defaults = [
+        'Width' => 'standard'
+    ];
+
+    public function getType()
+    {
+        return self::$singular_name;
+    }
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -50,10 +62,10 @@ class VideoElement extends BaseElement
                 ->setDescription('Will automatically use YouTube thumbnail if this image is not uploaded. Ideal size: 960x540'),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
-                    'wide' => 'app/dist/icons/wide.svg',
-                    'standard' => 'app/dist/icons/standard.svg',
-                    'narrow' => 'app/dist/icons//narrow.svg',
-                    'thin' => 'app/dist/icons/thin.svg'    
+                    'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
+                    'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
+                    'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),
+                    'thin' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/thin.svg')
                 ])
                 ->setImageWidth(100)
                 ->setImageHeight(100)

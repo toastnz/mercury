@@ -2,11 +2,14 @@
 
 namespace Toast\Elements;
 
-use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Controller;
 use SilverStripe\UserForms\Form\UserForm;
 use UncleCheese\Forms\ImageOptionsetField;
+use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\UserForms\Model\UserDefinedForm;
+use SilverStripe\Core\Manifest\ModuleResourceLoader;
+use SilverStripe\CMS\Controllers\CMSPageEditController;
 
 class UserFormElement extends BaseElement
 {
@@ -18,11 +21,22 @@ class UserFormElement extends BaseElement
 
     private static $description = 'Add to a User Defined Form page to populate the form in a specific position';
 
-    private static $inline_editable = true;
+    private static $inline_editable = false;
+
+    private static $icon = 'font-icon-block-form';
 
     private static $db = [
         'Width' => 'Enum("standard,wide,narrow,thin", "standard")',
     ];
+
+    private static $defaults = [
+        'Width' => 'standard'
+    ];
+
+    public function getType()
+    {
+        return self::$singular_name;
+    }
 
     public function getCMSFields()
     {
@@ -31,10 +45,10 @@ class UserFormElement extends BaseElement
         $fields->addFieldsToTab('Root.Main', [
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
-                    'wide' => 'app/dist/icons/wide.svg',
-                    'standard' => 'app/dist/icons/standard.svg',
-                    'narrow' => 'app/dist/icons//narrow.svg',
-                    'thin' => 'app/dist/icons/thin.svg'    
+                    'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
+                    'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
+                    'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),
+                    'thin' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/thin.svg')
                 ])
                 ->setImageWidth(100)
                 ->setImageHeight(100)
@@ -72,6 +86,22 @@ class UserFormElement extends BaseElement
         if ($page = $this->getParentPage()) {
             if ($page->ClassName == UserDefinedForm::class) {
                 return $page->dbObject('OnCompleteMessage');
+            }
+        }
+    }
+
+    public function getParentPage()
+    {
+        if ($controller = Controller::curr()) {
+            if (!$controller instanceof CMSPageEditController) {
+                try {
+                    if ($data = $controller->data()) {
+                        if ($data->ID) {
+                            return SiteTree::get()->byID($data->ID);
+                        }
+                    }
+                } catch (\Exception $e) {
+                }
             }
         }
     }

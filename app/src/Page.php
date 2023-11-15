@@ -7,6 +7,8 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
+use SilverStripe\ORM\FieldType\DBField;
+use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
@@ -67,7 +69,19 @@ class Page extends SiteTree
         return $fields;
     }
 
-
+    public static function ElementShortCode($arguments, $content = null, $parser = null, $tagName = null) 
+    {
+        if (isset($arguments['id'])) {
+            if ($id = (int)$arguments['id']) {
+                if ($baseElement = BaseElement::get()->byID($id)) {
+                    $className = $baseElement->ClassName;
+                    if ($element = $className::get()->byID($id)) {
+                        return DBField::create_field('HTMLText', $element->forTemplate());
+                    }
+                }
+            }
+        }
+    }
    
 }
 

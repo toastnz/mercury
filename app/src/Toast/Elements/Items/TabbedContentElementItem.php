@@ -28,7 +28,7 @@ class TabbedContentElementItem extends ElementItem
 
     private static $summary_fields = [
         'Title' => 'Heading',
-        'Content.LimitCharacters(100)' => 'Content'
+        'Content.Summary' => 'Content'
     ];
 
     public function getCMSFields()
@@ -42,6 +42,16 @@ class TabbedContentElementItem extends ElementItem
         ]);
 
         return $fields;
+    }
+
+    public function onBeforeWrite()
+    {
+        parent::onBeforeWrite();
+
+        if (!$this->SortOrder) {
+            $max = (int)self::get()->filter('ParentID', $this->ParentID)->max('SortOrder');
+            $this->setField('SortOrder', $max + 1);
+        }
     }
 
 }

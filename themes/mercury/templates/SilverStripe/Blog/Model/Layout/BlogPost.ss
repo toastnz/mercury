@@ -21,9 +21,7 @@ Sidebar
 			</section>
 		<% end_if %>
 
-        <% loop $ContentBlocks.Sort('SortOrder') %>
-        	$ForTemplate
-        <% end_loop %>
+		$ElementalArea
 
     </div>
 

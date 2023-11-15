@@ -2,12 +2,10 @@
 
 namespace Toast\Elements;
 
-use Toast\Blocks\Block;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\LiteralField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\GridField\GridField;
-use Toast\Blocks\Items\TestimonialBlockItem;
 use Toast\Elements\Items\TestimonialElementItem;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
@@ -26,6 +24,8 @@ class TestimonialElement extends BaseElement
 
     private static $inline_editable = false;
 
+    private static $icon = 'font-icon-block-quote';
+
     private static $db = [
         'Heading' => 'Varchar(255)'
     ];
@@ -34,38 +34,32 @@ class TestimonialElement extends BaseElement
         'Items' => TestimonialElementItem::class
     ];
 
+    public function getType()
+    {
+        return self::$singular_name;
+    }
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-
-        $fields->removeByName([
-            'Items'
-        ]);
 
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('Heading', 'Heading')
         ]);
 
-        if ($this->exists()) {
-            $itemsConfig = GridFieldConfig_RelationEditor::create()
-                ->addComponents([
-                    GridFieldOrderableRows::create('SortOrder'),
-                    GridFieldDeleteAction::create(false)
-                ])
-                ->removeComponentsByType([
-                    GridFieldDeleteAction::class,
-                    GridFieldAddExistingAutocompleter::class
-                ]);
-
-            $fields->addFieldsToTab('Root.Items', [
-                GridField::create('Items', 'Items', $this->Items(), $itemsConfig)
+        $itemsConfig = GridFieldConfig_RelationEditor::create()
+            ->addComponents([
+                GridFieldOrderableRows::create('SortOrder'),
+                GridFieldDeleteAction::create(false)
+            ])
+            ->removeComponentsByType([
+                GridFieldDeleteAction::class,
+                GridFieldAddExistingAutocompleter::class
             ]);
 
-        } else {
-            $fields->addFieldsToTab('Root.Main', [
-                LiteralField::create('', '<div class="message">Save this block to see more options.</div>')
-            ]);
-        }
+        $fields->addFieldsToTab('Root.Items', [
+            GridField::create('Items', 'Items', $this->Items(), $itemsConfig)
+        ]);
 
         return $fields;
     }

@@ -53,7 +53,7 @@ class TestimonialElementItem extends ElementItem
         parent::onBeforeWrite();
 
         if (!$this->SortOrder) {
-            $max = (int)self::get()->filter(['ParentID' => $this->ParentID])->max('SortOrder');
+            $max = (int)self::get()->filter('ParentID', $this->ParentID)->max('SortOrder');
             $this->setField('SortOrder', $max + 1);
         }
     }

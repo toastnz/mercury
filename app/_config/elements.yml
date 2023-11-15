@@ -4,3 +4,12 @@ Name: sitelements
 Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
+
+DNADesign\Elemental\Models\BaseElement:
+  displays_title_in_template: false
+  extensions:
+    - Toast\Extensions\BaseElementExtension
+
+DNADesign\Elemental\Extensions\ElementalAreasExtension:
+  disallowed_elements:
+    - DNADesign\Elemental\Models\ElementContent

@@ -2,11 +2,12 @@
 
 namespace Toast\Elements;
 
-use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\RequiredFields;
 use UncleCheese\Forms\ImageOptionsetField;
+use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Core\Manifest\ModuleResourceLoader;
 
 class TextElement extends BaseElement
 {
@@ -18,13 +19,24 @@ class TextElement extends BaseElement
 
     private static $description = 'Text block';
 
-    private static $inline_editable = true;
+    private static $inline_editable = false;
+
+    private static $icon = 'font-icon-block-content';
 
     private static $db = [
         'Content' => 'HTMLText',
         'BackgroundColour' => 'Enum("white,off-white,primary", "white")',
         'Width' => 'Enum("standard,wide,narrow,thin", "standard")'
     ];
+
+    private static $defaults = [
+        'Width' => 'standard'
+    ];
+
+    public function getType()
+    {
+        return self::$singular_name;
+    }
 
     public function getCMSFields()
     {
@@ -35,10 +47,10 @@ class TextElement extends BaseElement
             DropdownField::create('BackgroundColour', 'Background Colour', singleton(self::class)->dbObject('BackgroundColour')->enumValues()),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
-                    'wide' => 'app/dist/icons/wide.svg',
-                    'standard' => 'app/dist/icons/standard.svg',
-                    'narrow' => 'app/dist/icons//narrow.svg',
-                    'thin' => 'app/dist/icons/thin.svg'    
+                    'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
+                    'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
+                    'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),
+                    'thin' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/thin.svg')
                 ])
                 ->setImageWidth(100)
                 ->setImageHeight(100)

@@ -15,7 +15,7 @@
 
         </div>
 
-        <% require javascript("themes/mercury/dist/scripts/main.js") %>
+        <% require javascript($ResourceURL('themes/mercury/dist/scripts/main.js')) %>
 
         <%-- --------------------------------------------------------------
         Footer code injection

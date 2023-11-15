@@ -9,7 +9,7 @@ use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
-class AccordionItem extends ElementItem
+class AccordionElementItem extends ElementItem
 {
     private static $table_name = 'AccordionElementItem';
 
@@ -43,15 +43,14 @@ class AccordionItem extends ElementItem
 
     public function getCMSFields()
     {
-        $this->beforeUpdateCMSFields(function ($fields) {
+        $fields = parent::getCMSFields();
+        
+        $fields->addFieldsToTab('Root.Main', [
+            TextField::create('Title', 'Title'),
+            HTMLEditorField::create('Content', 'Content')
+        ]);
 
-            $fields->addFieldsToTab('Root.Main', [
-                TextField::create('Title', 'Title'),
-                HTMLEditorField::create('Content', 'Content')
-            ]);
-        });
-
-        return parent::getCMSFields();
+        return $fields;
     }
 
     public function onBeforeWrite()
@@ -59,7 +58,7 @@ class AccordionItem extends ElementItem
         parent::onBeforeWrite();
 
         if (!$this->SortOrder) {
-            $max = (int)AccordionItem::get()->filter(['ParentID' => $this->ParentID])->max('SortOrder');
+            $max = (int)self::get()->filter('ParentID', $this->ParentID)->max('SortOrder');
             $this->setField('SortOrder', $max + 1);
         }
     }

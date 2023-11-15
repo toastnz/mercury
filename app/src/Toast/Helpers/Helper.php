@@ -26,7 +26,7 @@ class Helper
 
     public static function getTemplates()
     {
-        $cwd = getcwd();
+        $cwd = str_replace(PUBLIC_DIR, '', getcwd());
         $themeFolder = 'themes/mercury';
         $themesPath = $cwd . '/' . $themeFolder . '/templates';
         $list = self::getDirContents($themesPath);

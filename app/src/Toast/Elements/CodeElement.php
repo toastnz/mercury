@@ -15,11 +15,18 @@ class CodeElement extends BaseElement
 
     private static $description = 'Insert raw code into the page';
 
-    private static $inline_editable = true;
+    private static $inline_editable = false;
+
+    private static $icon = 'font-icon-code';
 
     private static $db = [
         'Content' => 'Text'
     ];
+
+    public function getType()
+    {
+        return self::$singular_name;
+    }
 
     public function getCMSFields()
     {
@@ -30,6 +37,7 @@ class CodeElement extends BaseElement
                 ->setRows(20)
                 ->setAttribute('style', 'font-family: Courier, monospace;')
         ]);
-        
+
+        return $fields;        
     }
 }

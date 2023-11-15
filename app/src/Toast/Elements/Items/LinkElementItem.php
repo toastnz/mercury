@@ -51,10 +51,11 @@ class LinkElementItem extends ElementItem
         $fields->addFieldsToTab('Root.Main', [
             UploadField::create('Icon', 'SVG Icon')
                 ->setAllowedExtensions(['svg'])
-                ->setFolderName('elements/icons'),
+                ->setFolderName('elements/icons')
+                ->setDescription('Takes precedence over image'),
             UploadField::create('Image', 'Thumbnail')
                 ->setAllowedFileCategories('image/supported')
-                ->setFolderName('elements/images'),
+                ->setFolderName('elements/images'),                
             TextField::create('Title', 'Title'),
             TextareaField::create('Summary', 'Summary')
                 ->setRows(6),
@@ -62,6 +63,16 @@ class LinkElementItem extends ElementItem
         ]);
 
         return $fields;
+    }
+
+    public function onBeforeWrite()
+    {
+        parent::onBeforeWrite();
+
+        if (!$this->SortOrder) {
+            $max = (int)self::get()->filter('ParentID', $this->ParentID)->max('SortOrder');
+            $this->setField('SortOrder', $max + 1);
+        }
     }
 
     public function getCMSValidator()

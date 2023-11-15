@@ -1,66 +1,67 @@
-<% if $Tabs %>
-<section class="tabbed-block block [ js-tabs ]">
-    <div class="tabbed-block__wrap tabbed-block__wrap--{$Width}">
+<% if $Items.Count %>
+    <section class="tabbed-block block [ js-tabs ]">
+        <div class="tabbed-block__wrap tabbed-block__wrap--{$Width}">
 
-        <div class="tabbed-block__wrap__tabs">
-            
-            <div class="tabbed-block__wrap__tabs__indicator [ js-tabbed-indicator ]"></div>
-            
-            <% loop $Tabs %>
-                <a href="#" class="tabbed-block__wrap__tabs__item [ js-tabs-link ] <% if $First %>active<% end_if %>">
-                    <h6>$Title.XML</h6>
-                </a>
-            <% end_loop %>
-        </div>
-
-        <div class="tabbed-block__wrap__content">
-            <% loop $Tabs %>
-            <div class="tabbed-block__wrap__content__item [ js-tabs-item ] <% if $First %>active<% end_if %>">
-                $Content
+            <div class="tabbed-block__wrap__tabs">
+                
+                <div class="tabbed-block__wrap__tabs__indicator [ js-tabbed-indicator ]"></div>
+                
+                <% loop $Items.Sort('SortOrder') %>
+                    <a href="#" class="tabbed-block__wrap__tabs__item [ js-tabs-link ] <% if $First %>active<% end_if %>">
+                        <h6>$Title.XML</h6>
+                    </a>
+                <% end_loop %>
             </div>
-            <% end_loop %>
+
+            <div class="tabbed-block__wrap__content">
+                <% loop $Items.Sort('SortOrder') %>
+                    <div class="tabbed-block__wrap__content__item [ js-tabs-item ] <% if $First %>active<% end_if %>">
+                        $Content
+                    </div>
+                <% end_loop %>
+            </div>
         </div>
-    </div>
-</section>
-<% end_if %>
+    </section>
 
-<script>
+    <script>
 
-const updateTabbedContent = (indicator, currentTab) => {
+        const updateTabbedContent = (indicator, currentTab) => {
 
-    let parent = currentTab.parentNode;
-    let grandparent = parent.parentNode;
-    let index = Array.prototype.indexOf.call(parent.children, currentTab);
+            let parent = currentTab.parentNode;
+            let grandparent = parent.parentNode;
+            let index = Array.prototype.indexOf.call(parent.children, currentTab);
 
-    currentTab.classList.add('active');
+            currentTab.classList.add('active');
 
-    document.querySelectorAll('.js-tabs-item', grandparent).forEach(tabbedContentItem => tabbedContentItem.style.display = 'none');
+            document.querySelectorAll('.js-tabs-item', grandparent).forEach(tabbedContentItem => tabbedContentItem.style.display = 'none');
 
-    grandparent.querySelector(`.js-tabs-item:nth-child(${index})`).style.display = 'block';
+            grandparent.querySelector(`.js-tabs-item:nth-child(${index})`).style.display = 'block';
 
-    let rect = currentTab.getBoundingClientRect();
-    indicator.style.height = `${rect.height}px`;
-    indicator.style.top = `${currentTab.offsetTop}px`;
-}
+            let rect = currentTab.getBoundingClientRect();
+            indicator.style.height = `${rect.height}px`;
+            indicator.style.top = `${currentTab.offsetTop}px`;
+        }
 
-document.querySelectorAll('.js-tabs').forEach(tabbedContent => {
+        document.querySelectorAll('.js-tabs').forEach(tabbedContent => {
 
-    let indicator = tabbedContent.querySelector('.js-tabbed-indicator');
-    let currentTab = tabbedContent.querySelector('.js-tabs-link.active');
+            let indicator = tabbedContent.querySelector('.js-tabbed-indicator');
+            let currentTab = tabbedContent.querySelector('.js-tabs-link.active');
 
-    document.querySelectorAll('.js-tabs-link', tabbedContent).forEach(tabbedContentLink => {
+            document.querySelectorAll('.js-tabs-link', tabbedContent).forEach(tabbedContentLink => {
 
-        tabbedContentLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            currentTab.classList.remove('active');
-            currentTab = tabbedContentLink;
+                tabbedContentLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    currentTab.classList.remove('active');
+                    currentTab = tabbedContentLink;
+                    updateTabbedContent(indicator, currentTab);
+                });
+
+            });
+
             updateTabbedContent(indicator, currentTab);
+
         });
 
-    });
+    </script>
 
-    updateTabbedContent(indicator, currentTab);
-
-});
-
-</script>
+<% end_if %>

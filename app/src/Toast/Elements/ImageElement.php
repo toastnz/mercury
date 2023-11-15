@@ -2,12 +2,13 @@
 
 namespace Toast\Elements;
 
-use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\RequiredFields;
 use UncleCheese\Forms\ImageOptionsetField;
+use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Core\Manifest\ModuleResourceLoader;
 
 class ImageElement extends BaseElement
 {
@@ -19,7 +20,9 @@ class ImageElement extends BaseElement
 
     private static $description = 'Single image block';
 
-    private static $inline_editable = true;
+    private static $inline_editable = false;
+
+    private static $icon = 'font-icon-image';
 
     private static $db = [
         'Caption' => 'Text',
@@ -34,12 +37,18 @@ class ImageElement extends BaseElement
         'Image'
     ];
 
+    private static $defaults = [
+        'Width' => 'standard'
+    ];
+
+    public function getType()
+    {
+        return self::$singular_name;
+    }
+
     public function getCMSFields()
     {
-
         $fields = parent::getCMSFields();
-
-        $fields->removeByName(['Image', 'Caption', 'Width']);
 
         $fields->addFieldsToTab('Root.Main', [
             UploadField::create('Image', 'Image')
@@ -49,10 +58,10 @@ class ImageElement extends BaseElement
                 ->setDescription('Optional caption for this image'),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
-                    'wide' => 'app/dist/icons/wide.svg',
-                    'standard' => 'app/dist/icons/standard.svg',
-                    'narrow' => 'app/dist/icons//narrow.svg',
-                    'thin' => 'app/dist/icons/thin.svg'    
+                    'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
+                    'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
+                    'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),
+                    'thin' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/thin.svg')
                 ])
                 ->setImageWidth(100)
                 ->setImageHeight(100)

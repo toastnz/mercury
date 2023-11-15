@@ -17,13 +17,12 @@ Testimonial block
             Testimonial slider
             ------------------------------------------------------------------%>
             <div class="testimonials__wrap__slider [ js-slider-testimonials-{$ID} ]">
-                <% loop $Items %>
-
+                <% loop $Items.Sort('SortOrder') %>
                     <%------------------------------------------------------------------
                     Testimonial item
                     ------------------------------------------------------------------%>
                     <div class="testimonials__wrap__slider__item">
-                        <img src="{$Themedir}/dist/images/svg/quotes.svg" width="88" height="72" loading="lazy">
+                        <img src="$ResourceURL('themes/mercury/dist/images/svg/quotes.svg')" width="88" height="72" loading="lazy">
 
                         <div class="testimonials__wrap__slider__item__testimonial">
                             <h6 class="colour--white">$Testimonial.XML</h6>

@@ -17,7 +17,9 @@ class HeroElement extends BaseElement
 
     private static $description = 'Hero block with content and background image';
 
-    private static $inline_editable = true;
+    private static $inline_editable = false;
+
+    private static $icon = 'font-icon-block-banner';
 
     private static $db = [
         'Content' => 'HTMLText'
@@ -30,6 +32,11 @@ class HeroElement extends BaseElement
     private static $owns = [
         'BackgroundImage'
     ];
+
+    public function getType()
+    {
+        return self::$singular_name;
+    }
 
     public function getCMSFields()
     {

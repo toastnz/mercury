@@ -53,6 +53,16 @@ class DownloadElementItem extends ElementItem
         return $fields;
     }
 
+    public function onBeforeWrite()
+    {
+        parent::onBeforeWrite();
+
+        if (!$this->SortOrder) {
+            $max = (int)self::get()->filter('ParentID', $this->ParentID)->max('SortOrder');
+            $this->setField('SortOrder', $max + 1);
+        }
+    }
+
     public function getCMSValidator()
     {
         return RequiredFields::create([
