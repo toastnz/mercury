@@ -27,7 +27,7 @@ class ImageTextElement extends BaseElement
     private static $db = [
         'Content' => 'HTMLText',
         'Alignment' => 'Enum("standard,reversed", "standard")',
-        'Width' => 'Enum("standard,wide,narrow,thin", "standard")',
+        'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")',
     ];
 
     private static $has_one = [
@@ -58,6 +58,7 @@ class ImageTextElement extends BaseElement
             DropdownField::create('Alignment', 'Alignment', singleton(self::class)->dbObject('Alignment')->enumValues()),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
+                    'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),
                     'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
                     'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
                     'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),
@@ -67,13 +68,13 @@ class ImageTextElement extends BaseElement
                 ->setImageHeight(100)
         ]);
 
-        return $fields;        
+        return $fields;
     }
 
     public function getCMSValidator()
     {
         return RequiredFields::create([
-            'Image', 
+            'Image',
             'Content'
         ]);
     }

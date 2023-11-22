@@ -12,6 +12,7 @@ Image and text block
     margin: 8rem auto;
     justify-content: space-between;
     max-width: $lg;
+    align-items: center;
 
     &--wide {
       max-width: $xl;
@@ -42,21 +43,12 @@ Image and text block
       img {
         width: 100%;
         height: auto;
-
-        @include media($md) {
-          object-fit: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
       }
     }
 
     &__text {
       width: 50%;
-      padding: 10rem;
+      padding: 8rem;
       position: relative;
       display: flex;
       flex-wrap: wrap;

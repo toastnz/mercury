@@ -26,7 +26,7 @@ class ImageElement extends BaseElement
 
     private static $db = [
         'Caption' => 'Text',
-        'Width' => 'Enum("standard,wide,narrow,thin", "standard")'
+        'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")'
     ];
 
     private static $has_one = [
@@ -58,6 +58,7 @@ class ImageElement extends BaseElement
                 ->setDescription('Optional caption for this image'),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
+                    'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),
                     'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
                     'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
                     'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),

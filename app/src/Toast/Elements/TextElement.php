@@ -25,8 +25,8 @@ class TextElement extends BaseElement
 
     private static $db = [
         'Content' => 'HTMLText',
-        'BackgroundColour' => 'Enum("white,off-white,primary", "white")',
-        'Width' => 'Enum("standard,wide,narrow,thin", "standard")'
+        'BackgroundColour' => 'Enum("none,white,off-white,primary", "none")',
+        'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")'
     ];
 
     private static $defaults = [
@@ -47,6 +47,7 @@ class TextElement extends BaseElement
             DropdownField::create('BackgroundColour', 'Background Colour', singleton(self::class)->dbObject('BackgroundColour')->enumValues()),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
+                    'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),
                     'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
                     'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
                     'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),

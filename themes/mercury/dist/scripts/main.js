@@ -10,8 +10,8 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "$": () => (/* binding */ $),
-/* harmony export */   "$$": () => (/* binding */ $$)
+/* harmony export */   $: () => (/* binding */ $),
+/* harmony export */   $$: () => (/* binding */ $$)
 /* harmony export */ });
 var $ = document.querySelector.bind(document);
 var $$ = document.querySelectorAll.bind(document);
@@ -100,6 +100,8 @@ Import styles
 ------------------------------------------------------------------*/
 
 
+
+
 /*------------------------------------------------------------------
 Import external
 ------------------------------------------------------------------*/
@@ -108,9 +110,11 @@ document.addEventListener('DOMContentLoaded', function () {
   /*------------------------------------------------------------------
   Post Load classname removal
   ------------------------------------------------------------------*/
+
   (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-postload').forEach(function (element) {
     element.classList.remove('js-postload');
   });
+
   /*------------------------------------------------------------------
   Sticky header  
   ------------------------------------------------------------------*/
@@ -119,11 +123,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var scrollDelta = 5;
   var header = (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.header');
   var headerHeight = header ? header.clientHeight / 3 : 0;
-
   var stickyHeader = function stickyHeader() {
     var st = window.scrollY;
     if (Math.abs(previousScrollPosition - st) <= scrollDelta) return;
-
     if (st === 0) {
       header.classList.remove('nav-down');
       header.classList.remove('nav-up');
@@ -136,10 +138,8 @@ document.addEventListener('DOMContentLoaded', function () {
         header.classList.remove('nav-up');
       }
     }
-
     previousScrollPosition = st;
   };
-
   window.addEventListener('scroll', stickyHeader);
 });
 })();

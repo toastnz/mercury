@@ -29,7 +29,7 @@ class VideoElement extends BaseElement
     private static $db = [
         'Caption' => 'Varchar(255)',
         'Video' => VideoLink::class,
-        'Width' => 'Enum("standard,wide,narrow,thin", "standard")'
+        'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")'
     ];
 
     private static $has_one = [
@@ -62,6 +62,7 @@ class VideoElement extends BaseElement
                 ->setDescription('Will automatically use YouTube thumbnail if this image is not uploaded. Ideal size: 960x540'),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
+                    'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),
                     'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
                     'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
                     'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),
@@ -80,5 +81,4 @@ class VideoElement extends BaseElement
             'Video'
         ]);
     }
-
 }

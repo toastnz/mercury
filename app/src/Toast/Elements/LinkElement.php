@@ -30,7 +30,7 @@ class LinkElement extends BaseElement
 
     private static $db = [
         'Columns' => 'Enum("2, 3, 4", "3")',
-        'Width' => 'Enum("standard,wide,narrow,thin", "standard")',
+        'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")',
     ];
 
     private static $has_many = [
@@ -54,6 +54,7 @@ class LinkElement extends BaseElement
             DropdownField::create('Columns', 'How many columns across', singleton(self::class)->dbObject('Columns')->enumValues()),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
+                    'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),
                     'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
                     'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
                     'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),

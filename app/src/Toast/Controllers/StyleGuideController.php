@@ -3,16 +3,17 @@
 namespace Toast\Controllers;
 
 use SilverStripe\Assets\File;
-use SilverStripe\Control\Controller;
-use SilverStripe\ORM\ArrayList;
-use SilverStripe\Security\Security;
-use SilverStripe\View\ArrayData;
-use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\View\Requirements;
 use SilverStripe\Assets\Image;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
+use SilverStripe\Security\Security;
+use SilverStripe\View\Requirements;
+use SilverStripe\Control\Controller;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\Core\Manifest\ModuleResourceLoader;
 
 class StyleGuideController extends Controller
 {
@@ -30,7 +31,7 @@ class StyleGuideController extends Controller
 
         if (!$image) {
             $file = Image::create();
-            $file->setFromLocalFile('themes/mercury/dist/images/standard/placeholder.jpg', 'placeholder.jpg');
+            $file->setFromLocalFile('_resources/themes/mercury/dist/images/standard/placeholder.jpg', 'placeholder.jpg');
             $file->write();
             if (class_exists(Versioned::class)) {
                 $file->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
@@ -41,47 +42,38 @@ class StyleGuideController extends Controller
     }
 
 
-    public function SplitText()
-    {
-        $arrayData = new ArrayData([
-            'LeftContent'      => DBField::create_field(DBHTMLText::class, '<h4>A split tex block can have text on the left and right hand sides</h4><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p>Paulus, ut erat in conplicandis negotiis artifex dirus, unde ei catenae inditum est cognomentum, vicarium ipsum eos quibus praeerat adhuc defensantem ad sortem.</p>'),
-            'RightContent'      => DBField::create_field(DBHTMLText::class, '<p>Paulus, ut erat in conplicandis negotiis artifex dirus, unde ei catenae inditum est cognomentum, vicarium ipsum eos quibus praeerat adhuc defensantem ad sortem.</p><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>'),
-        ]);
-        return $arrayData->renderWith('Toast\Blocks\SplitText');
-    }
+    // public function Slider()
+    // {
+    //     $Slides = new ArrayList([
+    //         new ArrayData([
+    //             'Image' => Image::find('placeholder.jpg'),
+    //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
+    //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
+    //         ]),
+    //         new ArrayData([
+    //             'Image' => Image::find('placeholder.jpg'),
+    //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
+    //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
+    //         ]),
+    //         new ArrayData([
+    //             'Image' => Image::find('placeholder.jpg'),
+    //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
+    //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
+    //         ]),
+    //         new ArrayData([
+    //             'Image' => Image::find('placeholder.jpg'),
+    //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
+    //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
+    //         ])
+    //     ]);
 
-    public function Slider()
-    {
-        $Slides = new ArrayList([
-            new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
-                'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
-                'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
-            ]),
-            new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
-                'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
-                'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
-            ]),
-            new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
-                'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
-                'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
-            ]),
-            new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
-                'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
-                'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
-            ])
-        ]);
+    //     $arrayData = new ArrayData([
+    //         'Heading' => 'A Slider block for slides',
+    //         'Slides' => $Slides
+    //     ]);
 
-        $arrayData = new ArrayData([
-            'Heading' => 'A Slider block for slides',
-            'Slides' => $Slides
-        ]);
-
-        return $arrayData->renderWith('Toast\Blocks\Slider');
-    }
+    //     return $arrayData->renderWith('Toast\Elements\Slider');
+    // }
 
 
 
@@ -115,7 +107,7 @@ class StyleGuideController extends Controller
             'Content' => DBField::create_field(DBHTMLText::class, '<h2 class="text-center">A simple narrow text block.</h2><p class="text-center">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
             'Width' => 'thin'
         ]);
-        return $arrayData->renderWith('Toast\Blocks\Block');
+        return $arrayData->renderWith('Toast\Elements\TextElement');
     }
 
 
@@ -201,7 +193,7 @@ class StyleGuideController extends Controller
                 </table>
                 ')
         ]);
-        return $arrayData->renderWith('Toast\Blocks\Block');
+        return $arrayData->renderWith('Toast\Elements\TextElement');
     }
 
     public function TabbedContentBlock()
@@ -237,7 +229,7 @@ class StyleGuideController extends Controller
             'Tabs' => $Tabs
         ]);
 
-        return $arrayData->renderWith('Toast\Blocks\TabbedContentBlock');
+        return $arrayData->renderWith('Toast\Elements\TabbedContentElement');
     }
 
     public function LinkBlock()
@@ -280,7 +272,7 @@ class StyleGuideController extends Controller
         ]);
 
 
-        return $arrayData->renderWith('Toast\Blocks\LinkBlock');
+        return $arrayData->renderWith('Toast\Elements\LinkElement   ');
     }
 
 
@@ -342,7 +334,7 @@ class StyleGuideController extends Controller
         ]);
 
 
-        return $arrayData->renderWith('Toast\Blocks\TestimonialBlock');
+        return $arrayData->renderWith('Toast\Elements\TestimonialElement    ');
     }
 
     public function VideoBlock()
@@ -354,7 +346,7 @@ class StyleGuideController extends Controller
             'ThumbnailID' => 12,
             'Thumbnail' => Image::find('placeholder.jpg')
         ]);
-        return $arrayData->renderWith('Toast\Blocks\VideoBlock');
+        return $arrayData->renderWith('Toast\Elements\VideoElement  ');
     }
 
     public function ImageBlock()
@@ -363,7 +355,7 @@ class StyleGuideController extends Controller
             'Image'   => Image::find('placeholder.jpg'),
             'Caption' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
         ]);
-        return $arrayData->renderWith('Toast\Blocks\ImageBlock');
+        return $arrayData->renderWith('Toast\Elements\ImageElement  ');
     }
 
 
@@ -374,7 +366,7 @@ class StyleGuideController extends Controller
             'BackgroundImage'   => Image::find('placeholder.jpg'),
             'Content'      => DBField::create_field(DBHTMLText::class, '<h2 class="text-center colour--white">Now a hero block</h2><p class="text-center colour--white">An abstratc image <b>doesn\'t distract</b> the user from reading what is in this text box. You now have their attention to tell them anything that may be <i>important</i> to your brand mission.</p><p class="text-center"><a href="#" class="button">READ MORE</a></p>')
         ]);
-        return $arrayData->renderWith('Toast\Blocks\HeroBlock');
+        return $arrayData->renderWith('Toast\Elements\HeroElement   ');
     }
 
     public function ImageTextBlock()
@@ -383,7 +375,7 @@ class StyleGuideController extends Controller
             'Image'   => Image::find('placeholder.jpg'),
             'Content'      => DBField::create_field(DBHTMLText::class, '<h3>An image and text block to show a page or service</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
         ]);
-        return $arrayData->renderWith('Toast\Blocks\ImageTextBlock');
+        return $arrayData->renderWith('Toast\Elements\ImageTextElement');
     }
 
 
@@ -394,7 +386,7 @@ class StyleGuideController extends Controller
             'Content'      => DBField::create_field(DBHTMLText::class, '<h3>Or a an image on the other side</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
             'ReverseLayout' => true
         ]);
-        return $arrayData->renderWith('Toast\Blocks\ImageTextBlock');
+        return $arrayData->renderWith('Toast\Elements\ImageTextElement');
     }
 
     public function AccordionBlock()
@@ -419,7 +411,7 @@ class StyleGuideController extends Controller
             'Items' => $accordionItems
         ]);
 
-        return $arrayData->renderWith('Toast\Blocks\AccordionBlock');
+        return $arrayData->renderWith('Toast\Elements\AccordionElement  ');
     }
 
 
@@ -440,7 +432,7 @@ class StyleGuideController extends Controller
         $arrayData = new ArrayData([
             'Items' => $files
         ]);
-        return $arrayData->renderWith('Toast\Blocks\DownloadBlock');
+        return $arrayData->renderWith('Toast\Elements\DownloadElement   ');
     }
 
     public function SplitBlock()
@@ -451,7 +443,7 @@ class StyleGuideController extends Controller
             'LeftWidth'    => '200px',
             'RightWidth'   => '200px'
         ]);
-        return $arrayData->renderWith('Toast\Blocks\SplitBlock');
+        return $arrayData->renderWith('Toast\Elements\SplitElement  ');
     }
 
     public function getTypeTags()

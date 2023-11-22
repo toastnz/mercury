@@ -26,7 +26,7 @@ class UserFormElement extends BaseElement
     private static $icon = 'font-icon-block-form';
 
     private static $db = [
-        'Width' => 'Enum("standard,wide,narrow,thin", "standard")',
+        'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")',
     ];
 
     private static $defaults = [
@@ -45,6 +45,7 @@ class UserFormElement extends BaseElement
         $fields->addFieldsToTab('Root.Main', [
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
+                    'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),
                     'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
                     'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
                     'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),
@@ -72,14 +73,14 @@ class UserFormElement extends BaseElement
         }
     }
 
-    public function getIsFinished() 
+    public function getIsFinished()
     {
         if (Controller::has_curr()) {
             if ($request = Controller::curr()->getRequest()) {
                 return $request->param('Action') == 'finished';
             }
         }
-    }    
+    }
 
     public function getFormSuccessMessage()
     {
@@ -105,5 +106,4 @@ class UserFormElement extends BaseElement
             }
         }
     }
-
 }

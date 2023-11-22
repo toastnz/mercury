@@ -504,8 +504,7 @@ Breadcrumbs
   margin-left: 0.3rem;
   width: 2.4rem;
   transition: all 222ms ease;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 .breadCrumbs__wrap__social__link:after {
   content: "";
@@ -1175,8 +1174,7 @@ Mobile menu
   transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   visibility: hidden;
   opacity: 0;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
 }
 .mobile-menu__wrap {
@@ -2055,6 +2053,7 @@ Image and text block
   margin: 8rem auto;
   justify-content: space-between;
   max-width: 1024px;
+  align-items: center;
 }
 .image-text__wrap--wide {
   max-width: 1280px;
@@ -2084,20 +2083,9 @@ Image and text block
   width: 100%;
   height: auto;
 }
-@media only screen and (min-width: 768px) {
-  .image-text__wrap__image img {
-    -o-object-fit: cover;
-       object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
 .image-text__wrap__text {
   width: 50%;
-  padding: 10rem;
+  padding: 8rem;
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -2786,11 +2774,6 @@ Video block
   z-index: 2;
   pointer-events: none;
 }
-@-webkit-keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -2801,8 +2784,7 @@ Video block
   stroke-dasharray: 4, 5;
   stroke-width: 1px;
   transform-origin: 50% 50%;
-  -webkit-animation: spin 4s infinite linear;
-          animation: spin 4s infinite linear;
+  animation: spin 4s infinite linear;
   transition: opacity 1s ease, stroke-width 1s ease;
 }
 .video-block__constraint__icon .stroke-solid {

@@ -28,7 +28,7 @@ class DownloadElement extends BaseElement
     private static $icon = 'font-icon-p-download';
 
     private static $db = [
-        'Width' => 'Enum("standard,wide,narrow,thin", "standard")'
+        'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")'
     ];
 
     private static $has_many = [
@@ -48,9 +48,10 @@ class DownloadElement extends BaseElement
     {
         $fields = parent::getCMSFields();
 
-        $fields->addFieldsToTab('Root.Main', [ 
+        $fields->addFieldsToTab('Root.Main', [
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
+                    'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),
                     'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
                     'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
                     'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),
@@ -70,11 +71,10 @@ class DownloadElement extends BaseElement
                 GridFieldAddExistingAutocompleter::class
             ]);
 
-            $fields->addFieldsToTab('Root.Items',  [
-                GridField::create('Items', 'Items', $this->Items(), $itemsConfig)
-            ]);
+        $fields->addFieldsToTab('Root.Items',  [
+            GridField::create('Items', 'Items', $this->Items(), $itemsConfig)
+        ]);
 
-        return $fields;        
+        return $fields;
     }
-
 }

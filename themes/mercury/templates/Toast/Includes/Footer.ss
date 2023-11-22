@@ -15,7 +15,7 @@ Footer
             </a>
         </div>
         
-        <div class="footer__wrap__column footer__wrap__column--2">
+        <%-- <div class="footer__wrap__column footer__wrap__column--2">
             <% loop $MenuSet('FooterLeft').MenuItems %>
                 <p class="footer__wrap__column__item"><a href="$Link" class="footer__wrap__column__item__link"><strong>$MenuTitle.XML</strong></a></p>
             <% end_loop %>
@@ -25,7 +25,7 @@ Footer
             <% loop $MenuSet('FooterRight').MenuItems %>
                 <p class="footer__wrap__column__item"><a href="$Link" class="footer__wrap__column__item__link"><strong>$MenuTitle.XML</strong></a></p>
             <% end_loop %>
-        </div>
+        </div> --%>
       
         <div class="footer__wrap__copyright">
             <p class="smaller">

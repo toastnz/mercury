@@ -29,7 +29,7 @@ class AccordionElement extends BaseElement
     private static $icon = 'font-icon-block-accordion';
 
     private static $db = [
-        'Width' => 'Enum("standard,wide,narrow,thin", "standard")'
+        'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")'
     ];
 
     private static $has_many = [
@@ -52,6 +52,7 @@ class AccordionElement extends BaseElement
         $fields->addFieldsToTab('Root.Main', [
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
+                    'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),
                     'wide' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/wide.svg'),
                     'standard' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/standard.svg'),
                     'narrow' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/narrow.svg'),
@@ -59,7 +60,7 @@ class AccordionElement extends BaseElement
                 ])
                 ->setImageWidth(100)
                 ->setImageHeight(100)
-            ]);
+        ]);
 
         $itemsConfig = GridFieldConfig_RelationEditor::create()
             ->addComponents([
