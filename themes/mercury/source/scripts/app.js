@@ -12,6 +12,13 @@ Import external
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
+    if ($('.js-accordion')) {
+        import('./components/accordion').then(module => {
+            $$('.js-accordion').forEach(element => new module.Accordion(element));
+        });
+    }
+
     /*------------------------------------------------------------------
     Post Load classname removal
     ------------------------------------------------------------------*/

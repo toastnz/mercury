@@ -1,21 +1,21 @@
 <% if $Items.Count %>
-    <section class="tabbed-block block [ js-tabs ]">
-        <div class="tabbed-block__wrap tabbed-block__wrap--{$Width}">
+    <section class="element tabbed-element block [ js-tabs ]">
+        <div class="tabbed-element__wrap tabbed-element__wrap--{$Width}">
 
-            <div class="tabbed-block__wrap__tabs">
+            <div class="tabbed-element__wrap__tabs">
                 
-                <div class="tabbed-block__wrap__tabs__indicator [ js-tabbed-indicator ]"></div>
+                <div class="tabbed-element__wrap__tabs__indicator [ js-tabbed-indicator ]"></div>
                 
                 <% loop $Items.Sort('SortOrder') %>
-                    <a href="#" class="tabbed-block__wrap__tabs__item [ js-tabs-link ] <% if $First %>active<% end_if %>">
+                    <a href="#" class="tabbed-element__wrap__tabs__item [ js-tabs-link ] <% if $First %>active<% end_if %>">
                         <h6>$Title.XML</h6>
                     </a>
                 <% end_loop %>
             </div>
 
-            <div class="tabbed-block__wrap__content">
+            <div class="tabbed-element__wrap__content">
                 <% loop $Items.Sort('SortOrder') %>
-                    <div class="tabbed-block__wrap__content__item [ js-tabs-item ] <% if $First %>active<% end_if %>">
+                    <div class="tabbed-element__wrap__content__item [ js-tabs-item ] <% if $First %>active<% end_if %>">
                         $Content
                     </div>
                 <% end_loop %>

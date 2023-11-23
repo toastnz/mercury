@@ -1,7 +1,7 @@
 <div class="banner__push"></div>
 
-<section class="text-block text-block--off-white">
-    <div class="text-block__wrap">
+<section class="text-element text-element--off-white">
+    <div class="text-element__wrap">
         <h1>$Title</h1>
         <%-- <% if $Query %> --%>
             <p>You searched for <span class="colour--primary">"{$Query}"</span>.</p>
@@ -21,23 +21,23 @@
 
 
 <% if $Results.Count %>
-    <section class="link-block block">
+    <section class="link-element block">
 
-        <div class="link-block__wrap">
+        <div class="link-element__wrap">
             
             <% loop $Results %>
-                <a href="$Link.LinkURL" class="link-block__wrap__item <% if not $Icon && not $image %>bordered <% end_if %>">
+                <a href="$Link.LinkURL" class="link-element__wrap__item <% if not $Icon && not $image %>bordered <% end_if %>">
 
                     <% if $Image %>
-                        <img  class="link-block__wrap__item__image" src="$Image.FocusFill(600,300).URL" width="600" height="300" loading="lazy">
+                        <img  class="link-element__wrap__item__image" src="$Image.FocusFill(600,300).URL" width="600" height="300" loading="lazy">
                     <% end_if %>
 
-                    <div class="link-block__wrap__item__content">
-                        <div class="link-block__wrap__item__content__heading">
+                    <div class="link-element__wrap__item__content">
+                        <div class="link-element__wrap__item__content__heading">
                             <h6>$MenuTitle.XML</h6>
                         </div>
                         <p>$Content.Summary</p>
-                        <p class="link-block__wrap__item__content__link arrow-link">
+                        <p class="link-element__wrap__item__content__link arrow-link">
                             Read More 
                         </p>
                     </div>
@@ -50,8 +50,8 @@
     </section>
 
 <% else %>
-    <section class="text-block">
-        <div class="text-block__wrap">
+    <section class="text-element">
+        <div class="text-element__wrap">
             <p>&nbsp;</p>
             <h5>Sorry there are no results for that query</h5>
             <p>Double check your search for any typos or spelling mistakes - or try a different <span onclick="showSearchPane(event);" class="colour--primary" style="cursor:pointer;">search term</span>.</p>

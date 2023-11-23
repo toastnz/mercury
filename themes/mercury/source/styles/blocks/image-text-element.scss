@@ -2,29 +2,13 @@
 Image and text block
 ------------------------------------------------------------------*/
 
-.image-text {
+.image-element {
   &__wrap {
-    padding: 0 2rem;
-    position: relative;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin: 8rem auto;
     justify-content: space-between;
-    max-width: $lg;
     align-items: center;
-
-    &--wide {
-      max-width: $xl;
-    }
-
-    &--narrow {
-      max-width: $xmd;
-    }
-
-    &--thin {
-      max-width: $sm;
-    }
 
     &__image {
       width: 50%;
@@ -63,12 +47,12 @@ Image and text block
   }
 }
 
-.image-text--reversed {
-  .image-text__wrap__image {
+.image-element--reversed {
+  .image-element__wrap__image {
     order: 2;
   }
 
-  .image-text__wrap__text {
+  .image-element__wrap__text {
     order: 1;
   }
 }

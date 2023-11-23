@@ -2,14 +2,12 @@
 Text block
 ------------------------------------------------------------------*/
 
-.text-block {
-  position: relative;
-
+.text-element {
   &--off-white {
     padding: 8rem 0;
     background: $off-white;
 
-    .text-block__wrap {
+    .text-element__wrap {
       margin: 0 auto;
     }
   }
@@ -18,28 +16,12 @@ Text block
     padding: 8rem 0;
     background: $primary;
 
-    .text-block__wrap {
+    .text-element__wrap {
       margin: 0 auto;
     }
   }
 
   &__wrap {
-    padding: 0 2rem;
-    margin: 8rem auto;
-    max-width: $lg;
-
-    &--wide {
-      max-width: $xl;
-    }
-
-    &--narrow {
-      max-width: $xmd;
-    }
-
-    &--thin {
-      max-width: $sm;
-    }
-
     &--column {
       display: flex;
       flex-wrap: wrap;

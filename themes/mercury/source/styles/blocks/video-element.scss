@@ -2,29 +2,9 @@
 Video block
 ------------------------------------------------------------------*/
 
-.video-block {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 8rem auto;
-  padding: 0 2rem;
-  max-width: $lg;
-
-  &--wide {
-    max-width: $xl;
-  }
-
-  &--narrow {
-    max-width: $xmd;
-  }
-
-  &--thin {
-    max-width: $sm;
-  }
+.video-element {
 
   &__constraint {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
     cursor: pointer;
 
     &__player {

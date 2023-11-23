@@ -2,26 +2,10 @@
 Tabbed content block
 ------------------------------------------------------------------*/
 
-.tabbed-block {
+.tabbed-element {
   &__wrap {
-    margin: 8rem auto;
-    padding: 0 2rem;
-    position: relative;
     display: flex;
     flex-wrap: wrap;
-    max-width: $lg;
-
-    &--wide {
-      max-width: $xl;
-    }
-
-    &--narrow {
-      max-width: $xmd;
-    }
-
-    &--thin {
-      max-width: $sm;
-    }
 
     &__tabs {
       width: 30rem;

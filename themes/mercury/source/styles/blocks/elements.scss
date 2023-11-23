@@ -1,0 +1,36 @@
+/*------------------------------------------------------------------
+Global element styles
+------------------------------------------------------------------*/
+
+[class*='element__wrap--'],
+[class$='element__wrap--standard'] {
+  max-width: $lg;
+}
+
+[class$='element__wrap--full'] {
+  max-width: 100%;
+}
+
+[class$='element__wrap--wide'] {
+  max-width: $xl;
+}
+
+[class$='element__wrap--narrow'] {
+  max-width: $xmd;
+}
+
+[class$='element__wrap--thin'] {
+  max-width: $sm;
+}
+
+.element {
+  margin: 8rem auto;
+  position: relative;
+}
+
+.element > [class*='-element__wrap'] {
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  width: 100%;
+}

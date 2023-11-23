@@ -3,11 +3,11 @@ Testimonial block
 ------------------------------------------------------------------%>
 
 <% if $Items.Count %>
-    <section class="testimonials">
+    <section class="element testimonials-element">
         
-        <div class="testimonials__wrap">
+        <div class="testimonials-element__wrap">
 
-            <div class="testimonials__wrap__heading">
+            <div class="testimonials-element__wrap__heading">
                 <% if $Heading %>
                     <h3>$Heading.XML</h3>
                 <% end_if %>
@@ -16,20 +16,20 @@ Testimonial block
             <%------------------------------------------------------------------
             Testimonial slider
             ------------------------------------------------------------------%>
-            <div class="testimonials__wrap__slider [ js-slider-testimonials-{$ID} ]">
+            <div class="testimonials-element__wrap__slider [ js-slider-testimonials-{$ID} ]">
                 <% loop $Items.Sort('SortOrder') %>
                     <%------------------------------------------------------------------
                     Testimonial item
                     ------------------------------------------------------------------%>
-                    <div class="testimonials__wrap__slider__item">
+                    <div class="testimonials-element__wrap__slider__item">
                         <img src="$ResourceURL('themes/mercury/dist/images/svg/quotes.svg')" width="88" height="72" loading="lazy">
 
-                        <div class="testimonials__wrap__slider__item__testimonial">
+                        <div class="testimonials-element__wrap__slider__item__testimonial">
                             <h6 class="colour--white">$Testimonial.XML</h6>
                         </div>
 
     
-                        <div class="testimonials__wrap__slider__item__credit">
+                        <div class="testimonials-element__wrap__slider__item__credit">
                             <% if $Author %>
                                 <p class="colour--white"><b>$Author.XML</b></p>
                             <% end_if %>

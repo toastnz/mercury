@@ -2,17 +2,12 @@
 Hero block
 ------------------------------------------------------------------*/
 
-.hero-block {
+.hero-element {
     width: 100%;
-    position: relative;
-    padding: 0;
     background: $off-white;
     overflow: hidden;
-    margin: 8rem auto;
 
     &__wrap {
-        margin: 0 auto;
-        position: relative;
         display: flex;
         flex-wrap: wrap;
 
@@ -42,21 +37,12 @@ Hero block
             justify-content: center;
             margin: 0 auto;
 
-            &--narrow {
-                max-width: $lg;
-            }
-
-            &--thin {
-                max-width: $sm;
-            }
-
             &__constraint {
                 padding: 18rem 6rem;
                 position: relative;
                 z-index: 3;
-                
+
                 @include media($md, max) {
-                    
                     padding: 8rem 2rem;
                 }
             }

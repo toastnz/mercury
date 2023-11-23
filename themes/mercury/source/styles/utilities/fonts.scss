@@ -40,43 +40,39 @@ body {
 }
 
 h1,
-.h1 {
+html body .h1 {
   @include semi;
   font-size: 4rem;
 }
 
 h2,
-.h2 {
+html body .h2 {
   @include semi;
   font-size: 3.2rem;
 }
 
 h3,
-.h3 {
+html body .h3 {
   @include semi;
   font-size: 2.8rem;
 }
 
 h4,
-.h4 {
+html body .h4 {
   @include semi;
   font-size: 2.4rem;
 }
 
 h5,
-.h5 {
+html body .h5 {
   @include semi;
   font-size: 2rem;
 }
 
 h6,
-.h6 {
+html body .h6 {
   @include semi;
   font-size: 1.8rem;
-}
-
-p {
-  font-size: 1.6rem;
 }
 
 b,
@@ -86,17 +82,23 @@ strong {
 
 i,
 em {
-  font-style: italic !important;
+  font-style: italic;
 }
 
-.smaller {
-  font-size: 80% !important;
-}
+html body {
+  .smaller {
+    font-size: 80%;
+  }
 
-.text-center {
-  text-align: center;
-}
+  .text-center {
+    text-align: center;
+  }
 
-.text-right {
-  text-align: right;
+  .text-right {
+    text-align: right;
+  }
+
+  .no-margin {
+    margin: 0;
+  }
 }

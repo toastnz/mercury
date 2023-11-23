@@ -2,23 +2,8 @@
 Download block
 ------------------------------------------------------------------*/
 
-.download-block {
+.download-element {
   &__wrap {
-    margin: 8rem auto;
-    padding: 0 2rem;
-    max-width: $lg;
-
-    &--wide {
-      max-width: $xl;
-    }
-
-    &--narrow {
-      max-width: $xmd;
-    }
-
-    &--thin {
-      max-width: $sm;
-    }
 
     &__list {
       &__item {
@@ -66,8 +51,8 @@ Download block
         }
 
         &:hover {
-          .download-block__wrap__list__item__details__summary,
-          .download-block__wrap__list__item__details__title {
+          .download-element__wrap__list__item__details__summary,
+          .download-element__wrap__list__item__details__title {
             color: $primary;
           }
 

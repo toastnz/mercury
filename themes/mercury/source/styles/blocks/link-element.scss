@@ -2,27 +2,9 @@
 Link block
 ------------------------------------------------------------------*/
 
-.link-block {
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
-  margin: 8rem auto;
-  max-width: $lg;
-
-  &--wide {
-    max-width: $xl;
-  }
-
-  &--narrow {
-    max-width: $xmd;
-  }
-
-  &--thin {
-    max-width: $sm;
-  }
+.link-element {
 
   &__wrap {
-    padding: 0 2rem 2rem;
     margin: 0 -2rem;
     position: relative;
     display: flex;
@@ -42,7 +24,7 @@ Link block
       border-radius: 0.2rem;
 
       &:hover {
-        .link-block__wrap__item__content__link svg {
+        .link-element__wrap__item__content__link svg {
           transform: translateX(0.5rem);
         }
       }
@@ -98,7 +80,7 @@ Link block
 // Variations
 //------------------------------------------------------------------
 
-.link-block__wrap .link-block__wrap__item {
+.link-element__wrap .link-element__wrap__item {
   width: calc(33.33333% - 4rem);
 
   @include media($md, max) {
@@ -107,7 +89,7 @@ Link block
   }
 }
 
-.link-block__wrap--2 .link-block__wrap__item {
+.link-element__wrap--2 .link-element__wrap__item {
   width: calc(50% - 4rem);
 
   @include media($md, max) {
@@ -116,7 +98,7 @@ Link block
   }
 }
 
-.link-block__wrap--3 .link-block__wrap__item {
+.link-element__wrap--3 .link-element__wrap__item {
   width: calc(33.333% - 4rem);
 
   @include media($md, max) {
@@ -125,7 +107,7 @@ Link block
   }
 }
 
-.link-block__wrap--4 .link-block__wrap__item {
+.link-element__wrap--4 .link-element__wrap__item {
   width: calc(25% - 4rem);
 
   @include media($md, max) {

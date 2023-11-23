@@ -2,27 +2,9 @@
 Image Block
 ------------------------------------------------------------------*/
 body {
-  .image-block {
-    margin: 8rem auto;
+  .image-element {
 
     &__wrap {
-      margin: 0 auto;
-      padding: 0 2rem;
-      position: relative;
-      max-width: $lg;
-
-      &--wide {
-        max-width: $xl;
-      }
-  
-      &--narrow {
-        max-width: $xmd;
-      }
-  
-      &--thin {
-        max-width: $sm;
-      }
-  
 
       img {
         width: 100%;

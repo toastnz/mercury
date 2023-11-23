@@ -1,5 +1,5 @@
-<section class="text-block">
-	<div class="text-block__wrap text-block__wrap--{$Width}">
+<section class="element text-element">
+	<div class="text-element__wrap text-element__wrap--{$Width}">
 
 		<% if $IsFinished %>
 			<div class="message success">

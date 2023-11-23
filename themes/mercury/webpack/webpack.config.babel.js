@@ -33,7 +33,7 @@ module.exports = (env, argv) => {
         stats,
         devtool: ifProduction('source-map', 'source-map'),
         output: {
-            publicPath: '/themes/mercury/dist/scripts/',
+            publicPath: '_resources/themes/mercury/dist/scripts/',
             path: path.resolve(__dirname, '../dist/scripts'),
             filename: '[name].js',
             sourceMapFilename: '[file].map[query]',
@@ -85,13 +85,8 @@ module.exports = (env, argv) => {
             minimize: ifProduction(true, false),
             minimizer: [
                 new TerserPlugin({
-                    terserOptions: {
-                        compress: {
-                            sourceMap: ifProduction(false, true),
-                            drop_console: true,
-                            extractComments: "all",
-                        },
-                    },
+                    parallel: true,
+                    extractComments: "all",
                 }),
                 new OptimizeCssAssetsPlugin({
                     cssProcessorOptions: { discardComments: { removeAll: true } },

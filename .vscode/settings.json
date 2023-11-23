@@ -1,0 +1,19 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.map": true,
+        "**/bundle.js": true,
+        "**/bundle.map.js": true,
+        "**/dist/js/app.js": true,
+        "**/pancake/": true,
+        "/assets/found.js": true,
+        "themes/mercury/dist/styles/main.css": true,
+        "themes/mercury/dist/scripts/main.js": true
+    },
+    "explorerExclude.backup": {}
+}
