@@ -353,6 +353,7 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Image'   => Image::find('placeholder.jpg'),
+            'Width'   => 'full',
             'Caption' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
         ]);
         return $arrayData->renderWith('Toast\Elements\ImageElement  ');

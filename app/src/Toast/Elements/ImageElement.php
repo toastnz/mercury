@@ -3,6 +3,8 @@
 namespace Toast\Elements;
 
 use SilverStripe\Assets\Image;
+use SilverStripe\ORM\ArrayList;
+use SilverStripe\View\ArrayData;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\RequiredFields;
 use UncleCheese\Forms\ImageOptionsetField;
@@ -45,6 +47,9 @@ class ImageElement extends BaseElement
     {
         return self::$singular_name;
     }
+
+
+
 
     public function getCMSFields()
     {

@@ -69,7 +69,7 @@ class Page extends SiteTree
         return $fields;
     }
 
-    public static function ElementShortCode($arguments, $content = null, $parser = null, $tagName = null) 
+    public static function ElementShortCode($arguments, $content = null, $parser = null, $tagName = null)
     {
         if (isset($arguments['id'])) {
             if ($id = (int)$arguments['id']) {
@@ -82,7 +82,7 @@ class Page extends SiteTree
             }
         }
     }
-   
+
 }
 
 class PageController extends ContentController
@@ -106,5 +106,4 @@ class PageController extends ContentController
     {
         return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
     }
-
 }
