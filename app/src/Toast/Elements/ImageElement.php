@@ -48,9 +48,6 @@ class ImageElement extends BaseElement
         return self::$singular_name;
     }
 
-
-
-
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
@@ -81,5 +78,22 @@ class ImageElement extends BaseElement
         return RequiredFields::create([
             'Image'
         ]);
+    }
+
+    public static function getSizes($Sizes)
+    {
+
+        $sizes = explode(',', $Sizes);
+        $sizesArray = array_map(function ($size) {
+            return new ArrayData(['Size' => $size]);
+        }, $sizes);
+
+        if (!$Sizes) {
+            $sizesArray = [
+                new ArrayData(['Size' => '1920']),
+            ];
+        }
+
+        return ArrayList::create($sizesArray);
     }
 }

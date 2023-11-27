@@ -23,7 +23,11 @@ export class Accordion {
      * 
      */
     init() {
+
+        // Get the initial state of the accordion
         this.getState();
+
+        // Add the click event handler to the accordion
         this.addEventListeners();
     }
 

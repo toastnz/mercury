@@ -1849,47 +1849,38 @@ Accordion Element
 /*------------------------------------------------------------------
 Download block
 ------------------------------------------------------------------*/
-.download-element__wrap__list__item {
+.download-element__item {
   display: flex;
   align-items: center;
   width: 100%;
-  color: inherit;
-  padding: 1.75rem 2rem 1.75rem;
+  padding: 1.75rem 2rem;
   border-bottom: 1px solid #ebebeb;
   text-decoration: none;
 }
-.download-element__wrap__list__item:first-of-type {
+.download-element__item:first-of-type {
   border-top: 1px solid #ebebeb;
 }
-.download-element__wrap__list__item__details__summary, .download-element__wrap__list__item__details__info, .download-element__wrap__list__item__details__title {
-  width: 100%;
-  transition: all 222ms ease;
-}
-.download-element__wrap__list__item__details__title {
-  margin-bottom: 0.5rem !important;
-}
-.download-element__wrap__list__item__details__extension {
-  margin-bottom: 0 !important;
-}
-.download-element__wrap__list__item__icon {
-  margin-right: 2rem;
+.download-element__item__icon {
+  width: 6rem;
   position: relative;
-  top: 0.4rem;
+  top: 0.5rem;
 }
-.download-element__wrap__list__item__icon svg {
+.download-element__item__icon svg {
   overflow: visible;
 }
-.download-element__wrap__list__item__icon svg path {
+.download-element__item__icon svg path {
   transition: all 222ms ease;
 }
-.download-element__wrap__list__item:hover .download-element__wrap__list__item__details__summary,
-.download-element__wrap__list__item:hover .download-element__wrap__list__item__details__title {
+.download-element__item__details {
+  width: calc(100% - 6rem);
+}
+.download-element__item:hover .download-element__item__details b {
   color: var(--primary-colour);
 }
-.download-element__wrap__list__item:hover path {
+.download-element__item:hover path {
   fill: var(--primary-colour);
 }
-.download-element__wrap__list__item:hover path:last-of-type {
+.download-element__item:hover path:last-of-type {
   transform: translateY(3px);
 }
 
@@ -2582,42 +2573,41 @@ Text block
 /*------------------------------------------------------------------
 Video block
 ------------------------------------------------------------------*/
-.video-element__constraint {
-  cursor: pointer;
+.video-element__wrap {
+  position: relative;
 }
-.video-element__constraint__player {
+.video-element__player {
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
   position: absolute;
+  width: calc(100% - 4rem);
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 2rem;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3;
+}
+.video-element__player iframe {
   width: 100%;
   height: 100%;
-  z-index: -1;
-  opacity: 0;
-  top: 0%;
-  left: 0%;
 }
-.video-element__constraint__player.playing ~ .video__constraint__icon .stroke-dotted {
-  stroke-width: 4px;
-  opacity: 1;
-}
-.video-element__constraint__player.playing ~ .video__constraint__icon .stroke-solid {
-  opacity: 0;
-  stroke-dashoffset: 300;
-}
-.video-element__constraint__player.playing ~ .video__constraint__icon .icon {
-  transform: scale(1.05);
-}
-.video-element__constraint__thumbnail {
+.video-element__thumbnail {
   position: relative;
-  width: 100%;
   position: relative;
   overflow: hidden;
 }
-.video-element__constraint__thumbnail:after {
+.video-element__thumbnail:after {
   content: "";
   position: relative;
   display: block;
   padding-bottom: 56.25%;
 }
-.video-element__constraint__thumbnail:before {
+.video-element__thumbnail.playing ~ .video-element__player {
+  opacity: 1;
+  visibility: visible;
+}
+.video-element__thumbnail:before {
   position: absolute;
   display: block;
   content: "";
@@ -2631,10 +2621,10 @@ Video block
   transition: all 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
   z-index: 2;
 }
-.video-element__constraint__thumbnail:hover:after {
+.video-element__thumbnail:hover:after {
   opacity: 1;
 }
-.video-element__constraint__thumbnail img {
+.video-element__thumbnail img {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -2644,7 +2634,7 @@ Video block
   -o-object-fit: cover;
      object-fit: cover;
 }
-.video-element__constraint__icon {
+.video-element__icon {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2652,27 +2642,4 @@ Video block
   position: absolute;
   z-index: 2;
   pointer-events: none;
-}
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-.video-element__constraint__icon .stroke-dotted {
-  opacity: 0;
-  stroke-dasharray: 4, 5;
-  stroke-width: 1px;
-  transform-origin: 50% 50%;
-  animation: spin 4s infinite linear;
-  transition: opacity 1s ease, stroke-width 1s ease;
-}
-.video-element__constraint__icon .stroke-solid {
-  stroke-dashoffset: 0;
-  stroke-dasharray: 300;
-  stroke-width: 4px;
-  transition: stroke-dashoffset 1s ease, opacity 1s ease;
-}
-.video-element__constraint__icon .icon {
-  transform-origin: 50% 50%;
-  transition: transform 200ms ease-out;
 }

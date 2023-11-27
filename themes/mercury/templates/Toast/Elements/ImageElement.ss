@@ -6,7 +6,6 @@ Image block
 <section class="element image-element">
     <div class="image-element__wrap image-element__wrap--$Width">
 
-
         <% if $Width = 'full' %>
             <% include Toast/Includes/ResponsiveImage Sizes="320,480,768,1024,1280,1920" %>
         <% else_if $Width = 'wide' %>

@@ -12,7 +12,7 @@ Accordion element
             Accordion element item
             -------------------------------------------- --%>
 
-            <div class="accordion-element__item [ js-accordion ]" id="accordion_{$Pos}_{$ID}">
+            <div class="accordion-element__item [ js-accordion-element ]" id="accordion_{$Pos}_{$ID}">
 
                 <button class="accordion-element__trigger [ js-trigger ]" aria-expanded="false" aria-controls="accordion_section_{$Pos}_{$ID}">
                     <p class="h5 no-margin">{$Title}</p>

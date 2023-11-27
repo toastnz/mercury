@@ -12,10 +12,21 @@ Import external
 
 document.addEventListener('DOMContentLoaded', () => {
 
-
-    if ($('.js-accordion')) {
+    /*------------------------------------------------------------------
+    Accordion Elements
+    ------------------------------------------------------------------*/
+    if ($('.js-accordion-element')) {
         import('./components/accordion').then(module => {
-            $$('.js-accordion').forEach(element => new module.Accordion(element));
+            $$('.js-accordion-element').forEach(element => new module.Accordion(element));
+        });
+    }
+
+    /*------------------------------------------------------------------
+    Video Elements
+    ------------------------------------------------------------------*/
+    if ($('.js-video-element')) {
+        import('./components/video').then(module => {
+            $$('.js-video-element').forEach(element => new module.Video(element));
         });
     }
 

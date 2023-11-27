@@ -334,19 +334,19 @@ class StyleGuideController extends Controller
         ]);
 
 
-        return $arrayData->renderWith('Toast\Elements\TestimonialElement    ');
+        return $arrayData->renderWith('Toast\Elements\TestimonialElement');
     }
 
     public function VideoBlock()
     {
         $arrayData = new ArrayData([
             'VideoType' => 'youtube',
-            'Video'     => 'ScMzIvxBSi4',
+            'VideoID'     => 'EngW7tLk6R8',
             'Caption'   => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
             'ThumbnailID' => 12,
             'Thumbnail' => Image::find('placeholder.jpg')
         ]);
-        return $arrayData->renderWith('Toast\Elements\VideoElement  ');
+        return $arrayData->renderWith('Toast\Elements\VideoElement');
     }
 
     public function ImageBlock()
@@ -354,10 +354,12 @@ class StyleGuideController extends Controller
         $arrayData = new ArrayData([
             'Image'   => Image::find('placeholder.jpg'),
             'Width'   => 'full',
+            'Sizes'   => '320,480,768,1024,1280,1920',
             'Caption' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
         ]);
         return $arrayData->renderWith('Toast\Elements\ImageElement  ');
     }
+
 
 
     public function HeroBlock()

@@ -3,66 +3,46 @@ Download block
 ------------------------------------------------------------------*/
 
 .download-element {
-  &__wrap {
+  &__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1.75rem 2rem;
+    border-bottom: 1px solid $grey-light;
+    text-decoration: none;
 
-    &__list {
-      &__item {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        color: inherit;
-        padding: 1.75rem 2rem 1.75rem;
-        border-bottom: 1px solid $grey-light;
-        text-decoration: none;
+    &:first-of-type {
+      border-top: 1px solid $grey-light;
+    }
 
-        &:first-of-type {
-          border-top: 1px solid $grey-light;
+    &__icon {
+      width: 6rem;
+      position: relative;
+      top: 0.5rem;
+
+      svg {
+        overflow: visible;
+
+        path {
+          transition: all 222ms ease;
         }
+      }
+    }
 
-        &__details {
-          &__summary,
-          &__info,
-          &__title {
-            width: 100%;
-            transition: all 222ms ease;
-          }
+    &__details {
+      width: calc(100% - 6rem);
+    }
 
-          &__title {
-            margin-bottom: 0.5rem !important;
-          }
+    &:hover {
+      .download-element__item__details b {
+        color: $primary;
+      }
 
-          &__extension {
-            margin-bottom: 0 !important;
-          }
-        }
+      path {
+        fill: $primary;
 
-        &__icon {
-          margin-right: 2rem;
-          position: relative;
-          top: 0.4rem;
-
-          svg {
-            overflow: visible;
-
-            path {
-              transition: all 222ms ease;
-            }
-          }
-        }
-
-        &:hover {
-          .download-element__wrap__list__item__details__summary,
-          .download-element__wrap__list__item__details__title {
-            color: $primary;
-          }
-
-          path {
-            fill: $primary;
-
-            &:last-of-type {
-              transform: translateY(3px);
-            }
-          }
+        &:last-of-type {
+          transform: translateY(3px);
         }
       }
     }

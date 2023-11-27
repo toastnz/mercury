@@ -282,10 +282,24 @@ Import external
 ------------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', function () {
-  if ((0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.js-accordion')) {
+  /*------------------------------------------------------------------
+  Accordion Elements
+  ------------------------------------------------------------------*/
+  if ((0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.js-accordion-element')) {
     __webpack_require__.e(/*! import() */ "themes_mercury_source_scripts_components_accordion_js").then(__webpack_require__.bind(__webpack_require__, /*! ./components/accordion */ "./themes/mercury/source/scripts/components/accordion.js")).then(function (module) {
-      (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-accordion').forEach(function (element) {
+      (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-accordion-element').forEach(function (element) {
         return new module.Accordion(element);
+      });
+    });
+  }
+
+  /*------------------------------------------------------------------
+  Video Elements
+  ------------------------------------------------------------------*/
+  if ((0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.js-video-element')) {
+    __webpack_require__.e(/*! import() */ "themes_mercury_source_scripts_components_video_js").then(__webpack_require__.bind(__webpack_require__, /*! ./components/video */ "./themes/mercury/source/scripts/components/video.js")).then(function (module) {
+      (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-video-element').forEach(function (element) {
+        return new module.Video(element);
       });
     });
   }

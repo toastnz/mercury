@@ -42,7 +42,10 @@ var Accordion = /*#__PURE__*/function () {
   _createClass(Accordion, [{
     key: "init",
     value: function init() {
+      // Get the initial state of the accordion
       this.getState();
+
+      // Add the click event handler to the accordion
       this.addEventListeners();
     }
 

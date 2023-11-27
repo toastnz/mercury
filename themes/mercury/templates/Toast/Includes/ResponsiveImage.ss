@@ -1,14 +1,12 @@
-   
-
-    
- <img 
-    src="$Image.ScaleMaxWidth(1920).URL" 
+<% if $getSizes($Sizes) %>
+<img 
+    src="<% loop $getSizes($Sizes).Last %>$Up.Image.ScaleMaxWidth($Size).URL<% end_loop %>" 
     alt="$Image.Title.ATT" 
-    srcset="$Image.ScaleMaxWidth(480).URL 480w,
-            $Image.ScaleMaxWidth(768).URL 768w,
-            $Image.ScaleMaxWidth(1440).URL 1440w,
-            $Image.ScaleMaxWidth(1920).URL 1920w" 
+    srcset="<% loop $getSizes($Sizes) %>$Up.Image.ScaleMaxWidth($Size).URL {$Size}w,<% end_loop %>"
     loading="lazy" 
-    width="1920"
-    height="$Image.ScaleMaxWidth(1920).height" 
+    width="<% loop $getSizes($Sizes).Last %>$Size<% end_loop %>"
+    height="<% loop $getSizes($Sizes).Last %>$Up.Image.ScaleMaxWidth($Size).Height<% end_loop %>" 
     sizes="100vw" />
+<% else %>
+    <img src="$Image.URL" width="$Image.Width" height="$Image.Height" alt="$Image.Title.ATT" loading="lazy">
+<% end_if %>
