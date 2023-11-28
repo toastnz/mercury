@@ -1,10 +1,10 @@
 /*------------------------------------------------------------------
-Imports
+Modules
 ------------------------------------------------------------------*/
 
-@use './../base/vars' as var;
 @use './../base/mixins' as mixin;
 @use './../base/colours' as colour;
+@use './../base/variables' as variable;
 
 /*------------------------------------------------------------------
 Header styles
@@ -16,10 +16,10 @@ Header styles
   top: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: colour.$white;
   z-index: 9999999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
-  transition: all var.$fast;
+  transition: all variable.$fast;
 
   &--transparent {
     box-shadow: none;
@@ -32,7 +32,7 @@ Header styles
 
   &.nav-down {
     transform: translateY(0%);
-    background: white;
+    background: colour.$white;
     box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   }
 
@@ -43,7 +43,7 @@ Header styles
   &__wrap {
     position: relative;
     height: 8rem;
-    max-width: var.$xl;
+    max-width: variable.$xl;
     margin: 0 auto;
     padding: 0 2rem;
 
@@ -57,7 +57,7 @@ Header styles
       text-align: right;
       right: 2rem;
 
-      @include mixin.media(var.$lg, max) {
+      @include mixin.media(variable.$lg, max) {
         right: 7rem;
       }
 
@@ -66,9 +66,9 @@ Header styles
         display: inline-block;
         vertical-align: middle;
 
-        @include mixin.media(var.$lg, max) {
+        @include mixin.media(variable.$lg, max) {
           &:not(.header__wrap__menu__search) {
-            display: none !important;
+            display: none;
           }
         }
 
@@ -80,13 +80,13 @@ Header styles
           position: relative;
 
           p {
-            margin: 0 !important;
+            margin: 0;
           }
 
           &:hover .nav,
           &.section .nav,
           &.current .nav {
-            color: colour.$primary !important;
+            color: colour.$primary;
           }
         }
       }
@@ -113,7 +113,7 @@ Header styles
       top: 1.8rem;
       cursor: pointer;
 
-      @include mixin.media(var.$lg) {
+      @include mixin.media(variable.$lg) {
         display: none;
       }
 
@@ -161,16 +161,14 @@ Header sub menus
   top: calc(100% + 0rem);
 
   &__wrap {
-    background: colour.$primary;
-    background: white;
+    background: colour.$white;
     border-top: 1px solid colour.$off-white;
     border-radius: 0 0 0.2rem 0.2rem;
     padding: 0.8rem 0;
-    // box-shadow: $shadow;
+    box-shadow: variable.$shadow9;
 
     &__item {
       display: block;
-      color: white;
       color: colour.$primary;
       font-size: 1.4rem;
       text-decoration: none;
@@ -180,7 +178,7 @@ Header sub menus
       text-align: left;
 
       p {
-        margin: 0 !important;
+        margin: 0;
       }
 
       &.current,
@@ -189,7 +187,7 @@ Header sub menus
 
         p {
           transition: all 111ms ease;
-          color: white !important;
+          color: colour.$white;
         }
       }
     }
