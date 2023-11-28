@@ -2,16 +2,19 @@
 Base imports
 ------------------------------------------------------------------*/
 
-@import 'utilities/reset';
-@import 'utilities/colours';
-@import 'utilities/mixins';
-@import 'utilities/fonts';
+@use './base/reset';
+
+// @import './base/reset.scss';
+// @import './base/colours.scss';
+// @import './base/mixins.scss';
+// @import './base/fonts.scss';
 
 /*------------------------------------------------------------------
 Base includes
 ------------------------------------------------------------------*/
 
-@import 'elements/*';
-@import 'pages/*';
-@import 'blocks/*';
- 
+// @import './elements/header.scss';
+// @import 'pages/*';
+// @import 'blocks/*';
+
+@import './elements/header.scss';

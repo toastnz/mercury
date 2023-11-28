@@ -1,4 +1,12 @@
 /*------------------------------------------------------------------
+Imports
+------------------------------------------------------------------*/
+
+@use './../base/vars' as var;
+@use './../base/mixins' as mixin;
+@use './../base/colours' as colour;
+
+/*------------------------------------------------------------------
 Header styles
 ------------------------------------------------------------------*/
 
@@ -11,7 +19,7 @@ Header styles
   background: white;
   z-index: 9999999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
-  transition: all $fast;
+  transition: all var.$fast;
 
   &--transparent {
     box-shadow: none;
@@ -35,7 +43,7 @@ Header styles
   &__wrap {
     position: relative;
     height: 8rem;
-    max-width: $xl;
+    max-width: var.$xl;
     margin: 0 auto;
     padding: 0 2rem;
 
@@ -44,12 +52,12 @@ Header styles
     }
 
     &__menu {
-      @include vertical-align;
+      @include mixin.vertical-align;
       left: 0;
       text-align: right;
       right: 2rem;
 
-      @include media($lg, max) {
+      @include mixin.media(var.$lg, max) {
         right: 7rem;
       }
 
@@ -58,7 +66,7 @@ Header styles
         display: inline-block;
         vertical-align: middle;
 
-        @include media($lg, max) {
+        @include mixin.media(var.$lg, max) {
           &:not(.header__wrap__menu__search) {
             display: none !important;
           }
@@ -68,7 +76,7 @@ Header styles
           padding: 2rem 0.5rem;
           display: block;
           margin: 0;
-          color: $text;
+          color: colour.$text;
           position: relative;
 
           p {
@@ -78,7 +86,7 @@ Header styles
           &:hover .nav,
           &.section .nav,
           &.current .nav {
-            color: $primary !important;
+            color: colour.$primary !important;
           }
         }
       }
@@ -105,7 +113,7 @@ Header styles
       top: 1.8rem;
       cursor: pointer;
 
-      @include media($lg) {
+      @include mixin.media(var.$lg) {
         display: none;
       }
 
@@ -117,17 +125,17 @@ Header styles
 
         &--1 {
           margin-top: 0.5rem;
-          background: $primary;
+          background: colour.$primary;
         }
 
         &--2 {
           margin-top: 1.5rem;
-          background: $primary;
+          background: colour.$primary;
         }
 
         &--3 {
           margin-top: 2.5rem;
-          background: $primary;
+          background: colour.$primary;
         }
       }
     }
@@ -153,17 +161,17 @@ Header sub menus
   top: calc(100% + 0rem);
 
   &__wrap {
-    background: $primary;
+    background: colour.$primary;
     background: white;
-    border-top: 1px solid $off-white;
+    border-top: 1px solid colour.$off-white;
     border-radius: 0 0 0.2rem 0.2rem;
     padding: 0.8rem 0;
-    box-shadow: $shadow;
+    // box-shadow: $shadow;
 
     &__item {
       display: block;
       color: white;
-      color: $primary;
+      color: colour.$primary;
       font-size: 1.4rem;
       text-decoration: none;
       padding: 0.5rem 2rem;
@@ -177,7 +185,7 @@ Header sub menus
 
       &.current,
       &:hover {
-        background: $primary;
+        background: colour.$primary;
 
         p {
           transition: all 111ms ease;
