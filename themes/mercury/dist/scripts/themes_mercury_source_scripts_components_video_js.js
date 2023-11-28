@@ -62,8 +62,9 @@ var Video = /*#__PURE__*/function () {
     key: "addEventListeners",
     value: function addEventListeners() {
       var _this = this;
-      this.video.addEventListener('click', function () {
-        return _this.create();
+      this.video.addEventListener('click', function (event) {
+        event.preventDefault();
+        _this.create();
       });
     }
 
@@ -185,6 +186,8 @@ var Video = /*#__PURE__*/function () {
   }, {
     key: "play",
     value: function play() {
+      // Show the video and hide the thumbnail
+      this.show();
       this.video_source === 'youtube' ? this.player.playVideo() : this.player.play();
     }
 

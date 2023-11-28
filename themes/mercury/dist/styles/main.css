@@ -2065,99 +2065,68 @@ Image and text block
 Link block
 ------------------------------------------------------------------*/
 .link-element__wrap {
-  margin: 0 -2rem;
-  position: relative;
   display: flex;
   flex-wrap: wrap;
 }
-@media only screen and (max-width: 767px) {
-  .link-element__wrap {
-    margin: 0 auto;
-    padding: 0 1rem 2rem;
-  }
-}
-.link-element__wrap__item {
+.link-element__item {
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 23, 42, 0.1) 0px 20px 25px -5px, rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
   margin: 2rem;
   background: white;
   overflow: hidden;
   position: relative;
-  border-radius: 0.2rem;
 }
-.link-element__wrap__item:hover .link-element__wrap__item__content__link svg {
-  transform: translateX(0.5rem);
-}
-.link-element__wrap__item__image {
+.link-element__image {
   width: 100%;
 }
-.link-element__wrap__item__icon {
+.link-element__icon {
   text-align: center;
   display: block;
 }
-.link-element__wrap__item__icon img {
+.link-element__icon img {
   margin: 2rem auto 0;
   display: inline-block;
   max-width: 100%;
   height: auto;
 }
-.link-element__wrap__item__content {
-  padding: 1rem 3rem 2rem;
-}
-.link-element__wrap__item__content__heading {
-  position: relative;
-  margin: 2rem auto 1rem;
-}
-.link-element__wrap__item__content {
-  padding-bottom: 6rem;
-}
-.link-element__wrap__item__content__link {
-  color: var(--primary-colour);
-  position: absolute;
-  bottom: 2rem;
-  left: 3rem;
-}
-.link-element__wrap__item__content__link svg {
-  transition: all 333ms ease;
-}
-.link-element__wrap__item__content__link svg path {
-  fill: var(--primary-colour);
+.link-element__content {
+  padding: 3rem;
 }
 
-.link-element__wrap .link-element__wrap__item {
+.link-element__item {
   width: calc(33.33333% - 4rem);
 }
 @media only screen and (max-width: 767px) {
-  .link-element__wrap .link-element__wrap__item {
+  .link-element__item {
     width: 100%;
     margin: 2rem 1rem;
   }
 }
 
-.link-element__wrap--2 .link-element__wrap__item {
+.link-element__wrap--2 .link-element__item {
   width: calc(50% - 4rem);
 }
 @media only screen and (max-width: 767px) {
-  .link-element__wrap--2 .link-element__wrap__item {
+  .link-element__wrap--2 .link-element__item {
     width: 100%;
     margin: 2rem 1rem;
   }
 }
 
-.link-element__wrap--3 .link-element__wrap__item {
+.link-element__wrap--3 .link-element__item {
   width: calc(33.333% - 4rem);
 }
 @media only screen and (max-width: 767px) {
-  .link-element__wrap--3 .link-element__wrap__item {
+  .link-element__wrap--3 .link-element__item {
     width: 100%;
     margin: 2rem 1rem;
   }
 }
 
-.link-element__wrap--4 .link-element__wrap__item {
+.link-element__wrap--4 .link-element__item {
   width: calc(25% - 4rem);
 }
 @media only screen and (max-width: 767px) {
-  .link-element__wrap--4 .link-element__wrap__item {
+  .link-element__wrap--4 .link-element__item {
     width: 100%;
     margin: 2rem 1rem;
   }

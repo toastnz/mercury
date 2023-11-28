@@ -3,76 +3,37 @@ Link block
 ------------------------------------------------------------------*/
 
 .link-element {
-
   &__wrap {
-    margin: 0 -2rem;
-    position: relative;
     display: flex;
     flex-wrap: wrap;
+  }
 
-    @include media($md, max) {
-      margin: 0 auto;
-      padding: 0 1rem 2rem;
+  &__item {
+    box-shadow: $shadow;
+    margin: 2rem;
+    background: white;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__icon {
+    text-align: center;
+    display: block;
+
+    img {
+      margin: 2rem auto 0;
+      display: inline-block;
+      max-width: 100%;
+      height: auto;
     }
+  }
 
-    &__item {
-      box-shadow: $shadow;
-      margin: 2rem;
-      background: white;
-      overflow: hidden;
-      position: relative;
-      border-radius: 0.2rem;
-
-      &:hover {
-        .link-element__wrap__item__content__link svg {
-          transform: translateX(0.5rem);
-        }
-      }
-
-      &__image {
-        width: 100%;
-      }
-
-      &__icon {
-        text-align: center;
-        display: block;
-
-        img {
-          margin: 2rem auto 0;
-          display: inline-block;
-          max-width: 100%;
-          height: auto;
-        }
-      }
-
-      &__content {
-        padding: 1rem 3rem 2rem;
-
-        &__heading {
-          position: relative;
-          margin: 2rem auto 1rem;
-        }
-      }
-
-      &__content {
-        padding-bottom: 6rem;
-
-        &__link {
-          color: $primary;
-          position: absolute;
-          bottom: 2rem;
-          left: 3rem;
-
-          svg {
-            transition: all 333ms ease;
-
-            path {
-              fill: $primary;
-            }
-          }
-        }
-      }
-    }
+  &__content {
+    padding: 3rem;
   }
 }
 
@@ -80,7 +41,7 @@ Link block
 // Variations
 //------------------------------------------------------------------
 
-.link-element__wrap .link-element__wrap__item {
+.link-element__item {
   width: calc(33.33333% - 4rem);
 
   @include media($md, max) {
@@ -89,7 +50,7 @@ Link block
   }
 }
 
-.link-element__wrap--2 .link-element__wrap__item {
+.link-element__wrap--2 .link-element__item {
   width: calc(50% - 4rem);
 
   @include media($md, max) {
@@ -98,7 +59,7 @@ Link block
   }
 }
 
-.link-element__wrap--3 .link-element__wrap__item {
+.link-element__wrap--3 .link-element__item {
   width: calc(33.333% - 4rem);
 
   @include media($md, max) {
@@ -107,7 +68,7 @@ Link block
   }
 }
 
-.link-element__wrap--4 .link-element__wrap__item {
+.link-element__wrap--4 .link-element__item {
   width: calc(25% - 4rem);
 
   @include media($md, max) {

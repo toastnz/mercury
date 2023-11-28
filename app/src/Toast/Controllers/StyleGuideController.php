@@ -340,11 +340,14 @@ class StyleGuideController extends Controller
     public function VideoBlock()
     {
         $arrayData = new ArrayData([
-            'VideoType' => 'youtube',
-            'VideoID'     => 'EngW7tLk6R8',
-            'Caption'   => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
+            'Width'       => 'standard',
+            'Video' => new ArrayData([
+                'Service'     => 'youtube',
+                'VideoID'     => 'EngW7tLk6R8'
+            ]),
+            'Caption'     => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
             'ThumbnailID' => 12,
-            'Thumbnail' => Image::find('placeholder.jpg')
+            'Thumbnail'   => Image::find('placeholder.jpg')
         ]);
         return $arrayData->renderWith('Toast\Elements\VideoElement');
     }
@@ -353,11 +356,11 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Image'   => Image::find('placeholder.jpg'),
-            'Width'   => 'full',
+            'Width'   => 'standard',
             'Sizes'   => '320,480,768,1024,1280,1920',
             'Caption' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
         ]);
-        return $arrayData->renderWith('Toast\Elements\ImageElement  ');
+        return $arrayData->renderWith('Toast\Elements\ImageElement');
     }
 
 
@@ -421,7 +424,7 @@ class StyleGuideController extends Controller
 
     public function DownloadBlock()
     {
-        $files     = new ArrayList([
+        $files = new ArrayList([
             new ArrayData([
                 'File' => Image::find('placeholder.jpg'),
             ]),

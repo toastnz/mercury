@@ -43,7 +43,10 @@ export class Video {
      * 
      */
     addEventListeners() {
-        this.video.addEventListener('click', () => this.create());
+        this.video.addEventListener('click', (event) => {
+            event.preventDefault();
+            this.create()
+        });
     }
 
 
@@ -160,6 +163,10 @@ export class Video {
      * 
      */
     play() {
+
+        // Show the video and hide the thumbnail
+        this.show();
+
         (this.video_source === 'youtube') ? this.player.playVideo() : this.player.play();
     }
 
