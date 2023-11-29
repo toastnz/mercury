@@ -2,7 +2,7 @@
 Modules
 ------------------------------------------------------------------*/
 
-@use './../base/fonts' as font;
+@use './../base/mixins' as mixin;
 @use './../base/vars' as var;
 
 /*------------------------------------------------------------------
@@ -18,49 +18,49 @@ html {
 }
 
 body {
-    @include font.regular;
+    @include mixin.regular;
     font-size: 1.6rem;
 }
 
 h1,
 html body .h1 {
-    @include font.semi;
+    @include mixin.semi;
     font-size: 4rem;
 }
 
 h2,
 html body .h2 {
-    @include font.semi;
+    @include mixin.semi;
     font-size: 3.2rem;
 }
 
 h3,
 html body .h3 {
-    @include font.semi;
+    @include mixin.semi;
     font-size: 2.8rem;
 }
 
 h4,
 html body .h4 {
-    @include font.semi;
+    @include mixin.semi;
     font-size: 2.4rem;
 }
 
 h5,
 html body .h5 {
-    @include font.semi;
+    @include mixin.semi;
     font-size: 2rem;
 }
 
 h6,
 html body .h6 {
-    @include font.semi;
+    @include mixin.semi;
     font-size: 1.8rem;
 }
 
 b,
 strong {
-    @include font.semi;
+    @include mixin.semi;
 }
 
 i,
