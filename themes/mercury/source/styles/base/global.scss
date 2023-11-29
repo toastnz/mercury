@@ -1,0 +1,101 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/fonts' as font;
+@use './../base/colors' as color;
+
+/*------------------------------------------------------------------
+Element styles
+------------------------------------------------------------------*/
+
+html {
+    font-size: 10px;
+
+    .type {
+        margin-bottom: 0;
+    }
+}
+
+body {
+    @include font.regular;
+    font-size: 1.6rem;
+}
+
+h1,
+html body .h1 {
+    @include font.semi;
+    font-size: 4rem;
+}
+
+h2,
+html body .h2 {
+    @include font.semi;
+    font-size: 3.2rem;
+}
+
+h3,
+html body .h3 {
+    @include font.semi;
+    font-size: 2.8rem;
+}
+
+h4,
+html body .h4 {
+    @include font.semi;
+    font-size: 2.4rem;
+}
+
+h5,
+html body .h5 {
+    @include font.semi;
+    font-size: 2rem;
+}
+
+h6,
+html body .h6 {
+    @include font.semi;
+    font-size: 1.8rem;
+}
+
+b,
+strong {
+    @include font.semi;
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+html body {
+    .smaller {
+        font-size: 80%;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-right {
+        text-align: right;
+    }
+
+    .no-margin {
+        margin: 0;
+    }
+}
+
+.colour--white,
+.color--white {
+    color: color.$white !important;
+}
+
+.colour--primary,
+.color--primary {
+    color: color.$primary !important;
+}
+
+.color--secondary {
+    color: color.$secondary !important;
+}

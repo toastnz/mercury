@@ -1,4 +1,12 @@
 /*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/colors' as color;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
 Image Block
 ------------------------------------------------------------------*/
 body {
@@ -13,15 +21,15 @@ body {
       }
 
       &__caption {
-        background: $secondary;
+        background: color.$secondary;
         position: absolute;
         bottom: 3rem;
         left: 2rem;
         padding: 1rem 4rem;
-        box-shadow: $shadow;
+        box-shadow: variable.$shadow9;
         transform: translateX(-1rem);
 
-        @include media($md, max) {
+        @include mixin.media(variable.$md, max) {
           position: relative;
           width: calc(100% - 2rem);
           padding: 1rem 2rem;
@@ -32,7 +40,7 @@ body {
         }
 
         p {
-          color: white;
+          color: color.$white;
           margin: 0;
         }
       }

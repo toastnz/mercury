@@ -9,7 +9,6 @@ Modules
 Buttons
 ------------------------------------------------------------------*/
 
-
 .button {
   text-align: center;
   background: color.$primary;
@@ -21,6 +20,7 @@ Buttons
   transition: all 111ms ease;
   border: 0;
   font-size: 1.4rem;
+  cursor: pointer;
   border-radius: 0.2rem;
 
   &:hover {

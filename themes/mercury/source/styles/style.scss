@@ -3,6 +3,7 @@ Global reset
 ------------------------------------------------------------------*/
 
 @use './base/reset';
+@use './base/global';
 
 /*------------------------------------------------------------------
 Plugins
@@ -19,6 +20,7 @@ Elements
 @use './elements/hero-element.scss';
 @use './elements/link-element.scss';
 @use './elements/text-element.scss';
+@use './elements/image-element.scss';
 @use './elements/video-element.scss';
 @use './elements/slider-element.scss';
 @use './elements/download-element.scss';

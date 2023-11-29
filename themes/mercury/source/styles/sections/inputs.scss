@@ -15,6 +15,7 @@ input,
 select,
 textarea {
   -webkit-appearance: none;
+  appearance: none;
 }
 
 %input {
@@ -99,7 +100,6 @@ form {
     }
   }
 }
-
 
 /*------------------------------------------------------------------
 Checkbox
