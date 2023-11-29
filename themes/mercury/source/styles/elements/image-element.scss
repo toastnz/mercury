@@ -29,7 +29,7 @@ body {
         box-shadow: var.$shadow9;
         transform: translateX(-1rem);
 
-        @include mixin.media(var.$md, max) {
+        @include mixin.media(var.$breakpoint-md, max) {
           position: relative;
           width: calc(100% - 2rem);
           padding: 1rem 2rem;

@@ -12,7 +12,7 @@ Sidebar wrap
 
 .sidebar-wrap {
   width: 100%;
-  max-width: var.$xl;
+  max-width: var.$breakpoint-xl;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +21,7 @@ Sidebar wrap
     width: calc(100% - 36rem);
     padding-right: 4rem;
 
-    @include mixin.media(var.$xmd, max) {
+    @include mixin.media(var.$breakpoint-xmd, max) {
       width: 100%;
       order: 1;
       padding-right: 0;
@@ -32,7 +32,7 @@ Sidebar wrap
     width: 36rem;
     padding: 0 2rem;
 
-    @include mixin.media(var.$xmd, max) {
+    @include mixin.media(var.$breakpoint-xmd, max) {
       width: 100%;
       order: 2;
       padding: 0 2rem;

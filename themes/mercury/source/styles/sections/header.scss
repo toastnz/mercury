@@ -25,7 +25,7 @@ Styles
     box-shadow: none;
     background: transparent;
 
-    + .banner {
+    +.banner {
       margin-top: 0;
     }
   }
@@ -43,7 +43,7 @@ Styles
   &__wrap {
     position: relative;
     height: 8rem;
-    max-width: var.$xl;
+    max-width: var.$breakpoint-xl;
     margin: 0 auto;
     padding: 0 2rem;
 
@@ -57,16 +57,16 @@ Styles
       text-align: right;
       right: 2rem;
 
-      @include mixin.media(var.$lg, max) {
+      @include mixin.media(var.$breakpoint-lg, max) {
         right: 7rem;
       }
 
       &__search,
       &__item {
-        display: inline-block;  
+        display: inline-block;
         vertical-align: middle;
 
-        @include mixin.media(var.$lg, max) {
+        @include mixin.media(var.$breakpoint-lg, max) {
           &:not(.header__wrap__menu__search) {
             display: none;
           }
@@ -113,7 +113,7 @@ Styles
       top: 1.8rem;
       cursor: pointer;
 
-      @include mixin.media(var.$lg) {
+      @include mixin.media(var.$breakpoint-lg) {
         display: none;
       }
 

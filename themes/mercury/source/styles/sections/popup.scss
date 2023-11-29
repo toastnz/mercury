@@ -13,6 +13,7 @@ Popup
 .popupActive {
   position: relative;
   overflow: hidden;
+
   .popup {
     opacity: 1;
     visibility: visible;
@@ -40,7 +41,7 @@ Popup
   overflow: auto;
 
   &__wrap {
-    max-width: var.$sm;
+    max-width: var.$breakpoint-sm;
     margin: 0 auto;
     position: relative;
     padding: 0 2rem;

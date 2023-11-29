@@ -12,12 +12,16 @@ Media queries
     @media only screen and (min-width: $size1) {
       @content;
     }
-  } @else if $size2 ==max {
-    @media only screen and (max-width: $size1 - 1) {
+  }
+
+  @else if $size2 ==max {
+    @media only screen and (max-width: ($size1 - 1)) {
       @content;
     }
-  } @else {
-    @media only screen and (min-width: $size1) and (max-width: $size2 - 1) {
+  }
+
+  @else {
+    @media only screen and (min-width: $size1) and (max-width: ($size2 - 1)) {
       @content;
     }
   }
@@ -67,6 +71,7 @@ Clearfix
 ------------------------------------------------------------------*/
 
 @mixin clearfix {
+
   &:before,
   &:after {
     content: '';

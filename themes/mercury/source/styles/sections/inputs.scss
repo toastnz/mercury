@@ -47,6 +47,7 @@ textarea {
 }
 
 form {
+
   %field,
   .field {
     position: relative;
@@ -65,7 +66,7 @@ form {
     &.half {
       width: calc(50% - 1rem);
 
-      @include mixin.media(var.$md, max) {
+      @include mixin.media(var.$breakpoint-md, max) {
         width: 100%;
       }
     }
@@ -110,7 +111,7 @@ input[type='checkbox'] {
   z-index: -1;
   position: absolute;
 
-  + label {
+  +label {
     position: relative;
     padding-left: 3rem;
     user-select: none;
@@ -147,7 +148,7 @@ input[type='checkbox'] {
   }
 
   &:checked {
-    + label {
+    +label {
       &:before {
         background: color.$primary;
         border-color: color.$primary;
@@ -169,7 +170,7 @@ input[type='radio'] {
   z-index: -1;
   position: absolute;
 
-  + label {
+  +label {
     position: relative;
     padding-left: 3rem;
     user-select: none;
@@ -203,7 +204,7 @@ input[type='radio'] {
   }
 
   &:checked {
-    + label {
+    +label {
       &:before {
         background: color.$primary;
         border-color: color.$primary;
@@ -221,6 +222,7 @@ User form specifics
 ------------------------------------------------------------------*/
 
 form {
+
   .userformsstep,
   .userform-fields {
     display: flex;

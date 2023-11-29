@@ -10,7 +10,7 @@ Global element styles
 
 [class*='element__wrap--'],
 [class$='element__wrap--standard'] {
-  max-width: var.$lg;
+  max-width: var.$breakpoint-lg;
 }
 
 [class$='element__wrap--full'] {
@@ -18,15 +18,15 @@ Global element styles
 }
 
 [class$='element__wrap--wide'] {
-  max-width: var.$xl;
+  max-width: var.$breakpoint-xl;
 }
 
 [class$='element__wrap--narrow'] {
-  max-width: var.$xmd;
+  max-width: var.$breakpoint-xmd;
 }
 
 [class$='element__wrap--thin'] {
-  max-width: var.$sm;
+  max-width: var.$breakpoint-sm;
 }
 
 .element {
@@ -34,7 +34,7 @@ Global element styles
   position: relative;
 }
 
-.element > [class*='-element__wrap'] {
+.element>[class*='-element__wrap'] {
   margin: 0 auto;
   padding: 0 2rem;
   position: relative;

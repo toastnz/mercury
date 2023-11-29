@@ -78,20 +78,20 @@ Banner
 
       &__content {
         width: 100%;
-        max-width: var.$xxl;
+        max-width: var.$breakpoint-xxl;
         z-index: 5;
         margin: 0 auto;
         position: relative;
         padding: 0 10rem;
 
-        @include mixin.media(var.$md, max) {
+        @include mixin.media(var.$breakpoint-md, max) {
           padding: 0 2rem;
         }
 
         &__inner {
           padding: 20rem 0;
 
-          @include mixin.media(var.$md, max) {
+          @include mixin.media(var.$breakpoint-md, max) {
             padding: 10rem 0;
           }
         }
@@ -106,7 +106,7 @@ Banner
     transform: translateY(-50%);
     width: 100%;
 
-    @include mixin.media(var.$md, max) {
+    @include mixin.media(var.$breakpoint-md, max) {
       bottom: 6rem;
       top: auto;
     }

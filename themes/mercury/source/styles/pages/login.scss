@@ -20,7 +20,7 @@ Login page
     width: 50%;
     position: relative;
 
-    @include mixin.media(var.$xmd, max) {
+    @include mixin.media(var.$breakpoint-xmd, max) {
       display: none;
     }
 
@@ -40,7 +40,7 @@ Login page
     width: 50%;
     padding: 4rem;
 
-    @include mixin.media(var.$xmd, max) {
+    @include mixin.media(var.$breakpoint-xmd, max) {
       width: 100%;
       position: relative;
     }
@@ -73,7 +73,7 @@ Login page
         top: -0.5rem;
       }
 
-      #LostPasswordForm_lostPasswordForm + a {
+      #LostPasswordForm_lostPasswordForm+a {
         transform: translateY(-1rem);
       }
     }

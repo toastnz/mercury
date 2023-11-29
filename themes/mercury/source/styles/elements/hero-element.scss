@@ -50,7 +50,7 @@ Hero block
                 position: relative;
                 z-index: 3;
 
-                @include mixin.media(var.$md, max) {
+                @include mixin.media(var.$breakpoint-md, max) {
                     padding: 8rem 2rem;
                 }
             }
