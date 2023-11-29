@@ -1,10 +1,18 @@
 /*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/colors' as color;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
 Sidebar wrap
 ------------------------------------------------------------------*/
 
 .sidebar-wrap {
   width: 100%;
-  max-width: $xl;
+  max-width: variable.$xl;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -13,7 +21,7 @@ Sidebar wrap
     width: calc(100% - 36rem);
     padding-right: 4rem;
 
-    @include media($xmd, max) {
+    @include mixin.media(variable.$xmd, max) {
       width: 100%;
       order: 1;
       padding-right: 0;
@@ -24,7 +32,7 @@ Sidebar wrap
     width: 36rem;
     padding: 0 2rem;
 
-    @include media($xmd, max) {
+    @include mixin.media(variable.$xmd, max) {
       width: 100%;
       order: 2;
       padding: 0 2rem;
@@ -32,7 +40,7 @@ Sidebar wrap
 
     &__categories {
       &__heading {
-        border-bottom: 1px solid $grey-light;
+        border-bottom: 1px solid color.$grey-light;
       }
     }
 
@@ -40,7 +48,7 @@ Sidebar wrap
       margin-top: 4rem;
 
       &__heading {
-        border-bottom: 1px solid $grey-light;
+        border-bottom: 1px solid color.$grey-light;
         margin-bottom: 2rem;
       }
 
@@ -48,25 +56,25 @@ Sidebar wrap
         &__item {
           h6 {
             margin-bottom: 0 !important;
-            transition: all $fast;
+            transition: all variable.$fast;
           }
 
           svg {
             display: inline-block;
             position: relative;
             top: -1px;
-            transition: all $slow;
+            transition: all variable.$slow;
             margin-left: 0.8rem;
           }
 
           &:hover h6 {
-            color: $primary;
+            color: color.$primary;
 
             svg {
               transform: translateX(0.5rem);
 
               path {
-                fill: $primary;
+                fill: color.$primary;
               }
             }
           }
@@ -84,16 +92,16 @@ Sidebar wrap
   .tag {
     font-size: 1.4rem;
     padding: 0.4rem 2rem;
-    background: $off-white;
-    color: $primary;
+    background: color.$off-white;
+    color: color.$primary;
     border-radius: 10rem;
     margin: 0 0.5rem 0.5rem 0;
     display: inline-block;
-    transition: all $fast;
+    transition: all variable.$fast;
 
     &:hover {
       color: white;
-      background: $primary;
+      background: color.$primary;
     }
   }
 }

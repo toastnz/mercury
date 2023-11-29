@@ -2,20 +2,25 @@
   "name": "mercury",
   "private": true,
   "scripts": {
-    "dev": "node themes/mercury/parcel/parcel.mjs",
-    "dev3": "node themes/mercury/esbuild/esbuild.mjs",
-    "build": "webpack --mode production --progress --config themes/mercury/webpack/webpack.config.babel.js",
-    "dev2": "webpack --mode development --progress --watch --config themes/mercury/webpack/webpack.config.babel.js"
+    "build": "webpack --mode production --config themes/mercury/webpack/webpack.config.babel.js",
+    "dev": "webpack --mode development --watch --config themes/mercury/webpack/webpack.config.babel.js"
   },
   "license": "BSD-3-Clause",
   "dependencies": {
-    "in-view": "^0.6.1"
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "in-view": "^0.6.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "sass": "^1.69.5",
+    "webpack-messages": "^2.0.4"
   },
   "devDependencies": {
-    "@parcel/core": "^2.10.3",
-    "@parcel/reporter-cli": "^2.10.3",
-    "@parcel/resolver-glob": "^2.10.3",
-    "@parcel/config-default": "^2.10.3",
-    "@parcel/transformer-sass": "^2.10.3"
+    "@babel/core": "^7.23.3",
+    "@babel/preset-env": "^7.23.3",
+    "@babel/register": "^7.22.15",
+    "css-loader": "^6.8.1",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
   }
 }

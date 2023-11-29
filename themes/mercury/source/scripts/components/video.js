@@ -4,17 +4,16 @@ export class Video {
      * 
      * Constructor
      * 
-     * @param {element} element video parent
+     * @param {element} element video
      */
     constructor(element) {
 
         this.video = element;
-        this.player = undefined;
         this.video_id = this.video.dataset.videoId;
+        this.video_element = this.video.dataset.id;
         this.video_source = this.video.dataset.videoSource;
         window.loaded_scripts = window.loaded_scripts || [];
         this.script_src = (this.video_source === 'youtube') ? 'https://www.youtube.com/iframe_api' : 'https://player.vimeo.com/api/player.js';
-        this.video_element = this.video.dataset.id;
 
         // Initialise the video
         this.init();
@@ -28,10 +27,10 @@ export class Video {
      */
     init() {
 
-        // Load the scripts
+        // Load the scripts for the respective API
         this.loadScripts();
 
-        // Attach the event listeners
+        // Attach the needed event listeners
         this.addEventListeners();
 
     }

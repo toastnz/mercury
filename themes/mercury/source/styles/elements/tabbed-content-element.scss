@@ -1,0 +1,79 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/colors' as color;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
+Tabbed content block
+------------------------------------------------------------------*/
+
+.tabbed-element {
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__tabs {
+      width: 30rem;
+      border-right: 1px solid color.$grey-light;
+      position: relative;
+
+      @include mixin.media(variable.$xmd, max) {
+        width: 100%;
+        border-right: 0 solid color.$grey-light;
+        border-left: 1px solid color.$grey-light;
+        padding-left: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      &__indicator {
+        position: absolute;
+        width: 4px;
+        right: -1px;
+        min-height: 2rem;
+        background: color.$primary;
+        transition: variable.$medium;
+
+        @include mixin.media(variable.$xmd, max) {
+          right: auto;
+          left: -1px;
+        }
+      }
+
+      &__item {
+        padding: 1rem 2rem 1rem 0;
+        display: block;
+
+        @include mixin.media(variable.$xmd, max) {
+          padding: 0;
+        }
+
+        &.active {
+          h6 {
+            color: color.$primary;
+          }
+        }
+      }
+    }
+
+    &__content {
+      width: calc(100% - 30rem);
+      padding: 0 4rem;
+
+      @include mixin.media(variable.$xmd, max) {
+        width: 100%;
+        padding: 0;
+      }
+
+      &__item {
+        display: none;
+
+        &.active {
+          display: block;
+        }
+      }
+    }
+  }
+}

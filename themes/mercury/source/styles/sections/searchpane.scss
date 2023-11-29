@@ -1,0 +1,120 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/colors' as color;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
+Searchpane
+------------------------------------------------------------------*/
+
+.search-pane {
+  @include mixin.full;
+  position: fixed;
+  background: rgba(color.$white, 0.95);
+  transition: all 555ms ease;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+
+  &__wrap {
+    max-width: variable.$lg;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2rem;
+  }
+
+  &__close {
+    @include mixin.svg(1, 1);
+    top: 4rem;
+    right: 2rem;
+    transform: translateY(-100%);
+    transition: all variable.$fast;
+    cursor: pointer;
+    width: 4rem;
+    position: absolute;
+
+    svg {
+      path {
+        fill: color.$primary;
+      }
+    }
+  }
+
+  &__form {
+    padding-top: 30rem;
+
+    .field {
+      label {
+        display: none !important;
+      }
+
+      &.text {
+        margin-bottom: 2rem;
+        position: relative;
+
+        &:after {
+          @include mixin.pseudo;
+          border-bottom: 0.4rem solid color.$primary;
+          bottom: 0;
+          width: 100%;
+          transition: all variable.$slow;
+          transform: scaleX(0);
+          transform-origin: 0 0;
+        }
+      }
+
+      .text {
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+        box-shadow: none !important;
+        font-size: 5rem;
+        padding-left: 0 !important;
+        font-weight: light;
+
+        @include mixin.media(variable.$md, max) {
+          font-size: 3rem;
+        }
+
+        @include mixin.media(variable.$sm, max) {
+          font-size: 2.4rem;
+        }
+
+        @include mixin.placeholder {
+          color: color.$text;
+          opacity: 1 !important;
+        }
+      }
+    }
+
+    .action {
+      display: none;
+    }
+  }
+
+  &__direction {
+    display: block;
+    text-align: right;
+  }
+}
+
+.searchActive {
+  .search-pane {
+    opacity: 1;
+    visibility: visible;
+
+    .text {
+      &:after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  .search-pane__wrap__close {
+    transform: translateY(0%);
+  }
+}

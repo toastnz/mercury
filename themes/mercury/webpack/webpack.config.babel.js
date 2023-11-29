@@ -1,10 +1,6 @@
-const path = require('path');
-const webpack = require('webpack');
-const { getIfUtils, removeEmpty } = require('webpack-config-utils');
-const TerserPlugin = require('terser-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+import path from 'path';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import WebpackMessages from 'webpack-messages';
 
 const stats = {
     colors: true,
@@ -23,81 +19,32 @@ const stats = {
     publicPath: false,
 };
 
-module.exports = (env, argv) => {
-
-    const { ifProduction } = getIfUtils(argv.mode);
-
-    return {
-        entry: path.resolve(__dirname, '../source/scripts/app.js'),
-        mode: ifProduction('production', 'development'),
-        stats,
-        devtool: ifProduction('source-map', 'source-map'),
-        output: {
-            publicPath: '_resources/themes/mercury/dist/scripts/',
-            path: path.resolve(__dirname, '../dist/scripts'),
-            filename: '[name].js',
-            sourceMapFilename: '[file].map[query]',
-            chunkFilename: '[name].js',
-            clean: true,
-        },
-        module: {
-            rules: [
-                {
-                    test: /\.js$/,
-                    exclude: /node_modules/,
-                    loader: 'babel-loader'
-                },
-                {
-                    test: /\.scss$/,
-                    use: [
-                        MiniCssExtractPlugin.loader,
-                        {
-                            loader: 'css-loader',
-                            options: { sourceMap: ifProduction(true, false) }
-                        },
-                        'postcss-loader',
-                        {
-                            loader: 'sass-loader',
-                            options: { sourceMap: ifProduction(true, false) }
-                        },
-                        {
-                            loader: 'import-glob-loader',
-                            options: { sourceMap: ifProduction(true, false) }
-                        },
-                    ]
-                },
-                {
-                    test: /\.(jpg|png|gif|svg)$/,
-                    loader: 'image-webpack-loader',
-                    enforce: 'pre'
-                },
-                {
-                    test: /\.(png|jpg|gif|eot|ttf|woff|woff2)$/,
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name][hash].[ext]',
-                        outputPath: '../images/generated/'
-                    }
-                },
-            ]
-        },
-        optimization: {
-            minimize: ifProduction(true, false),
-            minimizer: [
-                new TerserPlugin({
-                    parallel: true,
-                    extractComments: "all",
-                }),
-                new OptimizeCssAssetsPlugin({
-                    cssProcessorOptions: { discardComments: { removeAll: true } },
-                    canPrint: true
-                })
-            ]
-        },
-        plugins: removeEmpty([
-            new FriendlyErrorsWebpackPlugin(),
-            new webpack.PrefetchPlugin(path.resolve(__dirname, '../source/styles/style.scss')),
-            new MiniCssExtractPlugin({ filename: '../styles/[name].css', chunkFilename: '[id].css' })
-        ])
-    };
-};
+module.exports = {
+    entry: [
+        path.resolve(__dirname, '../source/scripts/app.js')
+    ],
+    stats,
+    output: {
+        publicPath: '_resources/themes/mercury/dist/scripts/',
+        path: path.resolve(__dirname, '../dist/scripts'),
+        filename: '[name].js',
+        chunkFilename: '[name].js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.s[ac]ss$/i,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+            },
+        ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '../styles/[name].css',
+        }),
+        new WebpackMessages({
+            name: 'client',
+            logger: str => console.log(`>> ${str}`)
+        })
+    ],
+} 

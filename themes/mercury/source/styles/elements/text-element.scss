@@ -1,0 +1,90 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/colors' as color;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
+Text block
+------------------------------------------------------------------*/
+
+.text-element {
+  &--off-white {
+    padding: 8rem 0;
+    background: color.$off-white;
+
+    .text-element__wrap {
+      margin: 0 auto;
+    }
+  }
+
+  &--primary {
+    padding: 8rem 0;
+    background: color.$primary;
+
+    .text-element__wrap {
+      margin: 0 auto;
+    }
+  }
+
+  &__wrap {
+    &--column {
+      display: flex;
+      flex-wrap: wrap;
+
+      @include mixin.media(variable.$lg) {
+        &__left {
+          width: 50%;
+          padding-right: 4rem;
+          position: relative;
+
+          &:after {
+            @include mixin.pseudo;
+            top: 2rem;
+            bottom: 2rem;
+            width: 1px;
+            right: 0;
+            background: color.$grey-light;
+          }
+        }
+
+        &__right {
+          width: 50%;
+          padding-left: 4rem;
+        }
+      }
+    }
+
+    img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+
+      @include mixin.media(variable.$lg) {
+        &.left,
+        &.leftALone {
+          float: left;
+          margin-right: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        &.right,
+        &.rightAlone {
+          float: right;
+          margin-left: 1.5rem;
+          margin-bottom: 1.5rem;
+        }
+
+        &:not([width]) {
+          max-width: 100%;
+        }
+
+        &:not([height]) {
+          height: auto;
+        }
+      }
+    }
+  }
+}

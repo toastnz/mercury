@@ -1,0 +1,85 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
+Link block
+------------------------------------------------------------------*/
+
+.link-element {
+  &__wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    box-shadow: variable.$shadow9;
+    margin: 2rem;
+    background: white;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__icon {
+    text-align: center;
+    display: block;
+
+    img {
+      margin: 2rem auto 0;
+      display: inline-block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__content {
+    padding: 3rem;
+  }
+}
+
+//------------------------------------------------------------------
+// Variations
+//------------------------------------------------------------------
+
+.link-element__item {
+  width: calc(33.33333% - 4rem);
+
+  @include mixin.media(variable.$md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}
+
+.link-element__wrap--2 .link-element__item {
+  width: calc(50% - 4rem);
+
+  @include mixin.media(variable.$md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}
+
+.link-element__wrap--3 .link-element__item {
+  width: calc(33.333% - 4rem);
+
+  @include mixin.media(variable.$md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}
+
+.link-element__wrap--4 .link-element__item {
+  width: calc(25% - 4rem);
+
+  @include mixin.media(variable.$md, max) {
+    width: calc(100%);
+    margin: 2rem 1rem;
+  }
+}

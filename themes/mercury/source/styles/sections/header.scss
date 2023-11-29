@@ -1,0 +1,211 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/colors' as color;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
+Styles
+------------------------------------------------------------------*/
+
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: color.$white;
+  z-index: 9999999;
+  box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
+  transition: all variable.$fast;
+
+  &--transparent {
+    box-shadow: none;
+    background: transparent;
+
+    + .banner {
+      margin-top: 0;
+    }
+  }
+
+  &.nav-down {
+    transform: translateY(0%);
+    background: color.$white;
+    box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
+  }
+
+  &.nav-up {
+    transform: translateY(-140%);
+  }
+
+  &__wrap {
+    position: relative;
+    height: 8rem;
+    max-width: variable.$xl;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    &--full {
+      max-width: 100%;
+    }
+
+    &__menu {
+      @include mixin.vertical-align;
+      left: 0;
+      text-align: right;
+      right: 2rem;
+
+      @include mixin.media(variable.$lg, max) {
+        right: 7rem;
+      }
+
+      &__search,
+      &__item {
+        display: inline-block;  
+        vertical-align: middle;
+
+        @include mixin.media(variable.$lg, max) {
+          &:not(.header__wrap__menu__search) {
+            display: none;
+          }
+        }
+
+        &__link {
+          padding: 2rem 0.5rem;
+          display: block;
+          margin: 0;
+          color: color.$text;
+          position: relative;
+
+          p {
+            margin: 0;
+          }
+
+          &:hover .nav,
+          &.section .nav,
+          &.current .nav {
+            color: color.$primary;
+          }
+        }
+      }
+    }
+
+    &__logo {
+      position: absolute;
+      left: 2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 4;
+
+      img {
+        width: auto;
+        height: 6rem;
+      }
+    }
+
+    &__navburger {
+      width: 3rem;
+      height: 3rem;
+      position: absolute;
+      right: -4.5rem;
+      top: 1.8rem;
+      cursor: pointer;
+
+      @include mixin.media(variable.$lg) {
+        display: none;
+      }
+
+      &__ring {
+        width: 3.6rem;
+        height: 0.2rem;
+        position: absolute;
+        transition: all 333ms ease;
+
+        &--1 {
+          margin-top: 0.5rem;
+          background: color.$primary;
+        }
+
+        &--2 {
+          margin-top: 1.5rem;
+          background: color.$primary;
+        }
+
+        &--3 {
+          margin-top: 2.5rem;
+          background: color.$primary;
+        }
+      }
+    }
+  }
+}
+
+/*------------------------------------------------------------------
+Header sub menus
+------------------------------------------------------------------*/
+
+.header__wrap__nav__link__subnav {
+  padding-top: 1.1rem;
+  position: absolute;
+  width: 26rem;
+  left: 50%;
+  transform: rotateX(-40deg) translateX(-50%);
+  transform-origin: 50% 0;
+  will-change: all;
+  transition: all 333ms ease;
+  visibility: hidden;
+  opacity: 0;
+  perspective: 600px;
+  top: calc(100% + 0rem);
+
+  &__wrap {
+    background: color.$white;
+    border-top: 1px solid color.$off-white;
+    border-radius: 0 0 0.2rem 0.2rem;
+    padding: 0.8rem 0;
+    box-shadow: variable.$shadow9;
+
+    &__item {
+      display: block;
+      color: color.$primary;
+      font-size: 1.4rem;
+      text-decoration: none;
+      padding: 0.5rem 2rem;
+      line-height: 1.4;
+      transition: all 111ms ease;
+      text-align: left;
+
+      p {
+        margin: 0;
+      }
+
+      &.current,
+      &:hover {
+        background: color.$primary;
+
+        p {
+          transition: all 111ms ease;
+          color: color.$white;
+        }
+      }
+    }
+  }
+}
+
+.header__wrap__menu__item {
+  position: relative;
+  display: inline-block;
+  perspective: 600px;
+
+  &:hover {
+    z-index: 99;
+
+    .header__wrap__nav__link__subnav {
+      transform: translateX(-50%);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

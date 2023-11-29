@@ -1,0 +1,87 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/colors' as color;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
+Popup
+------------------------------------------------------------------*/
+
+.popupActive {
+  position: relative;
+  overflow: hidden;
+  .popup {
+    opacity: 1;
+    visibility: visible;
+
+    .text {
+      &:after {
+        transform: scaleX(1) !important;
+      }
+    }
+  }
+
+  .popup__wrap__close {
+    transform: translateY(0%);
+  }
+}
+
+.popup {
+  @include mixin.full;
+  position: fixed;
+  background: rgba(white, 0.95);
+  transition: all 555ms ease;
+  z-index: 9999999999;
+  opacity: 0;
+  visibility: hidden;
+  overflow: auto;
+
+  &__wrap {
+    max-width: variable.$sm;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 2rem;
+
+    &__close {
+      top: 4rem;
+      right: 2rem;
+      transform: translateY(-100%);
+      transition: all variable.$fast;
+      cursor: pointer;
+      @include mixin.svg(1, 1);
+      width: 4rem;
+      position: absolute;
+
+      svg {
+        path {
+          fill: color.$primary;
+        }
+      }
+    }
+
+    &__content {
+      position: relative;
+      top: 10rem;
+      background: color.$white;
+      box-shadow: variable.$shadow9;
+      overflow: hidden;
+      border-radius: 0.2rem;
+
+      &__heading {
+        background: color.$primary;
+        padding: 4rem;
+
+        h2 {
+          margin: 0 !important;
+        }
+      }
+
+      &__copy {
+        padding: 4rem;
+      }
+    }
+  }
+}

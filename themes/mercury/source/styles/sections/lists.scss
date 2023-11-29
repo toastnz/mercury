@@ -1,0 +1,66 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+
+/*------------------------------------------------------------------
+List items
+------------------------------------------------------------------*/
+
+ul:not([class]) {
+  list-style: none;
+  margin-bottom: 2rem;
+
+  ul {
+    margin: 0;
+  }
+
+  > li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 0.2rem;
+
+    &:before {
+      @include mixin.pseudo;
+      width: 0.4rem;
+      height: 0.4rem;
+      border-radius: 50%;
+      top: 1rem;
+      left: 0rem;
+      background: currentColor;
+    }
+  }
+}
+
+ol:not([class]) {
+  list-style: none;
+  margin-bottom: 2rem;
+
+  ol {
+    margin: 0;
+  }
+
+  > li {
+    padding-left: 2rem;
+    margin-bottom: 0.2rem;
+    position: relative;
+    counter-increment: counter;
+
+    &:before {
+      @include mixin.pseudo;
+      top: 0;
+      left: 0rem;
+      content: counter(counter) '.';
+      color: inherit;
+    }
+
+    li {
+      counter-increment: internalcounter;
+
+      &:before {
+        content: counter(internalcounter) '.';
+      }
+    }
+  }
+}

@@ -1,20 +1,54 @@
 /*------------------------------------------------------------------
-Base imports
+Global reset
 ------------------------------------------------------------------*/
 
 @use './base/reset';
 
-// @import './base/reset.scss';
-// @import './base/colours.scss';
-// @import './base/mixins.scss';
-// @import './base/fonts.scss';
-
 /*------------------------------------------------------------------
-Base includes
+Plugins
 ------------------------------------------------------------------*/
 
-// @import './elements/header.scss';
-// @import 'pages/*';
-// @import 'blocks/*';
+@use './plugins/tingle.js.scss';
+@use './plugins/tinyslider.scss';
 
-@import './elements/header.scss';
+/*------------------------------------------------------------------
+Elements
+------------------------------------------------------------------*/
+
+@use './elements/elements.scss';
+@use './elements/hero-element.scss';
+@use './elements/link-element.scss';
+@use './elements/text-element.scss';
+@use './elements/video-element.scss';
+@use './elements/slider-element.scss';
+@use './elements/download-element.scss';
+@use './elements/accordion-element.scss';
+@use './elements/image-text-element.scss';
+@use './elements/testimonial-element.scss';
+@use './elements/tabbed-content-element.scss';
+
+/*------------------------------------------------------------------
+Sections
+------------------------------------------------------------------*/
+
+@use './sections/breadcrumbs.scss';
+@use './sections/banner.scss';
+@use './sections/buttons.scss';
+@use './sections/footer.scss';
+@use './sections/header.scss';
+@use './sections/inputs.scss';
+@use './sections/links.scss';
+@use './sections/lists.scss';
+@use './sections/mobile-menu.scss';
+@use './sections/notification.scss';
+@use './sections/popup.scss';
+@use './sections/searchpane.scss';
+@use './sections/tables.scss';
+
+/*------------------------------------------------------------------
+Pages
+------------------------------------------------------------------*/
+
+@use './pages/login.scss';
+@use './pages/blog.scss';
+@use './pages/sidebar.scss';

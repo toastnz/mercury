@@ -1,0 +1,59 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/colors' as color;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
+Hero block
+------------------------------------------------------------------*/
+
+.hero-element {
+    width: 100%;
+    background: color.$off-white;
+    overflow: hidden;
+
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+
+        &__background {
+            @include mixin.full;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &:after {
+                @include mixin.pseudo;
+                @include mixin.full;
+                background: rgba(color.$black, 0.2);
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-wrap: wrap;
+            z-index: 3;
+            justify-content: center;
+            margin: 0 auto;
+
+            &__constraint {
+                padding: 18rem 6rem;
+                position: relative;
+                z-index: 3;
+
+                @include mixin.media(variable.$md, max) {
+                    padding: 8rem 2rem;
+                }
+            }
+        }
+    }
+}

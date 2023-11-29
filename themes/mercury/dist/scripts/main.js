@@ -1,22 +1,14 @@
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
-
-/***/ "./themes/mercury/source/scripts/lib.js":
-/*!**********************************************!*\
-  !*** ./themes/mercury/source/scripts/lib.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   $: () => (/* binding */ $),
-/* harmony export */   $$: () => (/* binding */ $$)
-/* harmony export */ });
-var $ = document.querySelector.bind(document);
-var $$ = document.querySelectorAll.bind(document);
-
-/***/ }),
 
 /***/ "./themes/mercury/source/styles/style.scss":
 /*!*************************************************!*\
@@ -24,9 +16,27 @@ var $$ = document.querySelectorAll.bind(document);
   \*************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://mercury/./themes/mercury/source/styles/style.scss?");
 
+/***/ }),
+
+/***/ "./themes/mercury/source/scripts/app.js":
+/*!**********************************************!*\
+  !*** ./themes/mercury/source/scripts/app.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../styles/style.scss */ \"./themes/mercury/source/styles/style.scss\");\n/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib */ \"./themes/mercury/source/scripts/lib.js\");\n/*------------------------------------------------------------------ \nImport styles\n------------------------------------------------------------------*/\n\n  \n \n \n\n/*------------------------------------------------------------------\nImport external\n------------------------------------------------------------------*/\n\ndocument.addEventListener('DOMContentLoaded', () => {\n\n    /*------------------------------------------------------------------\n    Accordion Elements\n    ------------------------------------------------------------------*/\n    if ((0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.js-accordion-element')) {\n        __webpack_require__.e(/*! import() */ \"themes_mercury_source_scripts_components_accordion_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./components/accordion */ \"./themes/mercury/source/scripts/components/accordion.js\")).then(module => {\n            (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-accordion-element').forEach(element => new module.Accordion(element));\n        });\n    }\n\n    /*------------------------------------------------------------------\n    Video Elements\n    ------------------------------------------------------------------*/\n    if ((0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.js-video-element')) {\n        __webpack_require__.e(/*! import() */ \"themes_mercury_source_scripts_components_video_js\").then(__webpack_require__.bind(__webpack_require__, /*! ./components/video */ \"./themes/mercury/source/scripts/components/video.js\")).then(module => {\n            (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-video-element').forEach(element => new module.Video(element));\n        });\n    }\n\n    /*------------------------------------------------------------------\n    Post Load classname removal\n    ------------------------------------------------------------------*/\n\n    (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-postload').forEach(element => {\n        element.classList.remove('js-postload');\n    });\n\n\n    /*------------------------------------------------------------------\n    Sticky header  \n    ------------------------------------------------------------------*/\n\n    let previousScrollPosition = 0;\n    let scrollDelta = 5;\n    let header = (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.header');\n    let headerHeight = (header) ? header.clientHeight / 3 : 0;\n\n    const stickyHeader = () => {\n        let st = window.scrollY;\n        if (Math.abs(previousScrollPosition - st) <= scrollDelta) return;\n        if (st === 0) {\n            header.classList.remove('nav-down');\n            header.classList.remove('nav-up');\n        } else if (st > previousScrollPosition && st > headerHeight) {\n            header.classList.remove('nav-down');\n            header.classList.add('nav-up');\n        } else {\n            if (st + window.innerHeight < document.body.clientHeight) {\n                header.classList.add('nav-down');\n                header.classList.remove('nav-up');\n            }\n        }\n        previousScrollPosition = st;\n    }\n\n    window.addEventListener('scroll', stickyHeader);\n\n});\n\n\n\n//# sourceURL=webpack://mercury/./themes/mercury/source/scripts/app.js?");
+
+/***/ }),
+
+/***/ "./themes/mercury/source/scripts/lib.js":
+/*!**********************************************!*\
+  !*** ./themes/mercury/source/scripts/lib.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   $: () => (/* binding */ $),\n/* harmony export */   $$: () => (/* binding */ $$)\n/* harmony export */ });\n\nconst $ = document.querySelector.bind(document)\n\nconst $$ = document.querySelectorAll.bind(document)\n\n//# sourceURL=webpack://mercury/./themes/mercury/source/scripts/lib.js?");
 
 /***/ })
 
@@ -261,86 +271,11 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	})();
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-/*!**********************************************!*\
-  !*** ./themes/mercury/source/scripts/app.js ***!
-  \**********************************************/
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../styles/style.scss */ "./themes/mercury/source/styles/style.scss");
-/* harmony import */ var _lib__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lib */ "./themes/mercury/source/scripts/lib.js");
-/*------------------------------------------------------------------
-Import styles
-------------------------------------------------------------------*/
-
-
-
-
-/*------------------------------------------------------------------
-Import external
-------------------------------------------------------------------*/
-
-document.addEventListener('DOMContentLoaded', function () {
-  /*------------------------------------------------------------------
-  Accordion Elements
-  ------------------------------------------------------------------*/
-  if ((0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.js-accordion-element')) {
-    __webpack_require__.e(/*! import() */ "themes_mercury_source_scripts_components_accordion_js").then(__webpack_require__.bind(__webpack_require__, /*! ./components/accordion */ "./themes/mercury/source/scripts/components/accordion.js")).then(function (module) {
-      (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-accordion-element').forEach(function (element) {
-        return new module.Accordion(element);
-      });
-    });
-  }
-
-  /*------------------------------------------------------------------
-  Video Elements
-  ------------------------------------------------------------------*/
-  if ((0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.js-video-element')) {
-    __webpack_require__.e(/*! import() */ "themes_mercury_source_scripts_components_video_js").then(__webpack_require__.bind(__webpack_require__, /*! ./components/video */ "./themes/mercury/source/scripts/components/video.js")).then(function (module) {
-      (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-video-element').forEach(function (element) {
-        return new module.Video(element);
-      });
-    });
-  }
-
-  /*------------------------------------------------------------------
-  Post Load classname removal
-  ------------------------------------------------------------------*/
-
-  (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$$)('.js-postload').forEach(function (element) {
-    element.classList.remove('js-postload');
-  });
-
-  /*------------------------------------------------------------------
-  Sticky header  
-  ------------------------------------------------------------------*/
-
-  var previousScrollPosition = 0;
-  var scrollDelta = 5;
-  var header = (0,_lib__WEBPACK_IMPORTED_MODULE_1__.$)('.header');
-  var headerHeight = header ? header.clientHeight / 3 : 0;
-  var stickyHeader = function stickyHeader() {
-    var st = window.scrollY;
-    if (Math.abs(previousScrollPosition - st) <= scrollDelta) return;
-    if (st === 0) {
-      header.classList.remove('nav-down');
-      header.classList.remove('nav-up');
-    } else if (st > previousScrollPosition && st > headerHeight) {
-      header.classList.remove('nav-down');
-      header.classList.add('nav-up');
-    } else {
-      if (st + window.innerHeight < document.body.clientHeight) {
-        header.classList.add('nav-down');
-        header.classList.remove('nav-up');
-      }
-    }
-    previousScrollPosition = st;
-  };
-  window.addEventListener('scroll', stickyHeader);
-});
-})();
-
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./themes/mercury/source/scripts/app.js");
+/******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=main.js.map

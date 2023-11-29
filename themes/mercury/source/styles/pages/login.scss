@@ -1,4 +1,11 @@
 /*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
 Login page
 ------------------------------------------------------------------*/
 
@@ -8,12 +15,12 @@ Login page
   flex-wrap: wrap;
 
   &__image {
-    @include cover;
+    @include mixin.cover;
     overflow: hidden;
     width: 50%;
     position: relative;
 
-    @include media($xmd, max) {
+    @include mixin.media(variable.$xmd, max) {
       display: none;
     }
 
@@ -33,7 +40,7 @@ Login page
     width: 50%;
     padding: 4rem;
 
-    @include media($xmd, max) {
+    @include mixin.media(variable.$xmd, max) {
       width: 100%;
       position: relative;
     }

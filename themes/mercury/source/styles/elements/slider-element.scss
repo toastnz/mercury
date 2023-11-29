@@ -1,0 +1,170 @@
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+
+@use './../base/mixins' as mixin;
+@use './../base/colors' as color;
+@use './../base/variables' as variable;
+
+/*------------------------------------------------------------------
+Slider block
+------------------------------------------------------------------*/
+
+.slider-block {
+  &__arrows {
+    position: absolute;
+    top: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 33;
+    width: 100%;
+
+    @include mixin.media(variable.$xmd, max) {
+      top: 17.5%;
+    }
+
+    &__next,
+    &__prev {
+      position: absolute;
+      cursor: pointer;
+      transition: all variable.$fast;
+      left: 0;
+    }
+
+    &__next {
+      right: 0;
+      left: auto;
+    }
+  }
+
+  &__heading {
+    margin: 0 auto;
+    max-width: variable.$xl;
+    padding: 0 2rem;
+    position: relative;
+  }
+
+  &__slider {
+    position: relative;
+
+    @include mixin.media(variable.$md, max) {
+      margin-left: 0;
+      padding-left: 0;
+    }
+
+    &__item {
+      padding-top: 4rem;
+
+      @include mixin.media(variable.$md, max) {
+        width: 49%;
+      }
+
+      &__image {
+        @include mixin.aspect(450, 350);
+        background: color.$primary;
+        transition: all variable.$fast;
+        margin-bottom: 3m;
+        position: relative;
+
+        &:before {
+          @include mixin.pseudo;
+          @include mixin.full;
+          box-shadow: variable.$shadow9;
+          opacity: 0;
+        }
+
+        @include mixin.media(variable.$md, max) {
+          @include mixin.aspect(450, 400);
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          position: absolute;
+          top: 0;
+          left: 0;
+          object-fit: cover;
+        }
+      }
+
+      &__copy {
+        padding: 4rem 0 2rem;
+        transition: all mixin.$fast;
+        opacity: 0;
+        transform: translateY(2rem);
+
+        @include mixin.media(variable.$md, max) {
+          margin: 0 -6rem;
+          width: auto;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .tns-item:not(.tns-slide-active) + .tns-slide-active + .tns-slide-active {
+    .slider-block__slider__item__image {
+      z-index: 3;
+      transform: scale(1.05);
+
+      @include mixin.media(variable.$md, max) {
+        transform: scale(1.1);
+      }
+
+      &:before {
+        opacity: 1;
+      }
+    }
+
+    .slider-block__slider__item__copy {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .tns-controls {
+    position: absolute;
+    z-index: 4;
+    top: -6rem;
+    right: 2rem;
+
+    @include mixin.media(variable.$md, max) {
+      top: 0;
+      position: relative;
+      right: 0;
+      text-align: center;
+    }
+
+    [data-controls] {
+      border: 0;
+      font-size: 0;
+      background: transparent;
+      width: 4rem;
+      height: 4rem;
+      border: 2px solid color.$primary;
+      border-radius: 100rem;
+      background-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10"><path fill="%23000" fill-rule="evenodd" d="M8.423.015 13.408 5 8.422 9.985 7.38 8.943l3.2-3.2H.09V4.257H10.58l-3.2-3.2L8.424.016Z"/></svg>');
+      background-size: 14px 10px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      transition: transform 333ms ease;
+    }
+
+    [data-controls='prev'] {
+      transform: rotate(-180deg);
+
+      &:hover {
+        transform: rotate(-180deg) translateX(0.2rem);
+      }
+    }
+
+    [data-controls='next'] {
+      margin-left: 1rem;
+
+      &:hover {
+        transform: translateX(0.2rem);
+      }
+    }
+  }
+}
