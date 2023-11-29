@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Breadcrumbs
@@ -13,12 +13,12 @@ Breadcrumbs
 .breadCrumbs {
   border-bottom: 1px solid color.$off-white;
 
-  @include mixin.media(variable.$md, max) {
+  @include mixin.media(var.$md, max) {
     padding: 0;
   }
 
   &__wrap {
-    max-width: variable.$xl;
+    max-width: var.$xl;
     padding: 0 2rem;
     margin: 0 auto;
     position: relative;
@@ -26,7 +26,7 @@ Breadcrumbs
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    @include mixin.media(variable.$md, max) {
+    @include mixin.media(var.$md, max) {
       padding: 0 2rem;
     }
 
@@ -45,7 +45,7 @@ Breadcrumbs
       padding: 2.4rem 1rem;
       color: color.$primary;
 
-      @include mixin.media(variable.$md, max) {
+      @include mixin.media(var.$md, max) {
         padding-left: 0.2rem;
         padding-right: 0.2rem;
         font-size: 1rem;
@@ -105,11 +105,11 @@ Breadcrumbs
       @include mixin.vertical-align;
       right: 2rem;
 
-      @include mixin.media(variable.$md, max) {
+      @include mixin.media(var.$md, max) {
         right: 1.2rem;
       }
 
-      @include mixin.media(variable.$sm, max) {
+      @include mixin.media(var.$sm, max) {
         display: none;
       }
 
@@ -119,7 +119,7 @@ Breadcrumbs
         vertical-align: middle;
         font-size: 1.2rem !important;
 
-        @include mixin.media(variable.$md, max) {
+        @include mixin.media(var.$md, max) {
           display: none;
         }
       }

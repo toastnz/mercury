@@ -2,7 +2,7 @@
 Modules
 ------------------------------------------------------------------*/
 
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Global element styles
@@ -10,7 +10,7 @@ Global element styles
 
 [class*='element__wrap--'],
 [class$='element__wrap--standard'] {
-  max-width: variable.$lg;
+  max-width: var.$lg;
 }
 
 [class$='element__wrap--full'] {
@@ -18,15 +18,15 @@ Global element styles
 }
 
 [class$='element__wrap--wide'] {
-  max-width: variable.$xl;
+  max-width: var.$xl;
 }
 
 [class$='element__wrap--narrow'] {
-  max-width: variable.$xmd;
+  max-width: var.$xmd;
 }
 
 [class$='element__wrap--thin'] {
-  max-width: variable.$sm;
+  max-width: var.$sm;
 }
 
 .element {

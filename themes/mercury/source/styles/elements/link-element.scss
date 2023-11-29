@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Link block
@@ -16,7 +16,7 @@ Link block
   }
 
   &__item {
-    box-shadow: variable.$shadow9;
+    box-shadow: var.$shadow9;
     margin: 2rem;
     background: white;
     overflow: hidden;
@@ -51,7 +51,7 @@ Link block
 .link-element__item {
   width: calc(33.33333% - 4rem);
 
-  @include mixin.media(variable.$md, max) {
+  @include mixin.media(var.$md, max) {
     width: calc(100%);
     margin: 2rem 1rem;
   }
@@ -60,7 +60,7 @@ Link block
 .link-element__wrap--2 .link-element__item {
   width: calc(50% - 4rem);
 
-  @include mixin.media(variable.$md, max) {
+  @include mixin.media(var.$md, max) {
     width: calc(100%);
     margin: 2rem 1rem;
   }
@@ -69,7 +69,7 @@ Link block
 .link-element__wrap--3 .link-element__item {
   width: calc(33.333% - 4rem);
 
-  @include mixin.media(variable.$md, max) {
+  @include mixin.media(var.$md, max) {
     width: calc(100%);
     margin: 2rem 1rem;
   }
@@ -78,7 +78,7 @@ Link block
 .link-element__wrap--4 .link-element__item {
   width: calc(25% - 4rem);
 
-  @include mixin.media(variable.$md, max) {
+  @include mixin.media(var.$md, max) {
     width: calc(100%);
     margin: 2rem 1rem;
   }

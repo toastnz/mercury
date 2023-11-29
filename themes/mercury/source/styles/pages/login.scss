@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Login page
@@ -20,7 +20,7 @@ Login page
     width: 50%;
     position: relative;
 
-    @include mixin.media(variable.$xmd, max) {
+    @include mixin.media(var.$xmd, max) {
       display: none;
     }
 
@@ -40,7 +40,7 @@ Login page
     width: 50%;
     padding: 4rem;
 
-    @include mixin.media(variable.$xmd, max) {
+    @include mixin.media(var.$xmd, max) {
       width: 100%;
       position: relative;
     }

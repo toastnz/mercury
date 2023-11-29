@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Notification
@@ -21,7 +21,7 @@ Notification
   position: relative;
 
   &__wrap {
-    max-width: variable.$xl;
+    max-width: var.$xl;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;

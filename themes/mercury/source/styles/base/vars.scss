@@ -1,0 +1,58 @@
+/*------------------------------------------------------------------
+Easing functions
+------------------------------------------------------------------*/
+
+$slower: 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+$slow: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+$medium: 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+$fast: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+$faster: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+/*------------------------------------------------------------------
+Breakpoints
+------------------------------------------------------------------*/
+
+$xxxs: 375px;
+$xxs: 480px;
+$xs: 540px;
+$sm: 640px;
+$md: 768px;
+$xmd: 968px;
+$lg: 1024px;
+$xl: 1280px;
+$xxl: 1440px;
+$xxxl: 1920px;
+
+/*------------------------------------------------------------------
+Box shadows
+------------------------------------------------------------------*/
+
+$shadow1:
+    0 1px 3px rgba(black, 0.12),
+    0 1px 2px rgba(black, 0.24);
+$shadow2:
+    0 3px 6px rgba(black, 0.16),
+    0 3px 6px rgba(black, 0.23);
+$shadow3:
+    0 10px 20px rgba(black, 0.19),
+    0 6px 6px rgba(black, 0.23);
+$shadow4:
+    0 14px 28px rgba(black, 0.25),
+    0 10px 10px rgba(black, 0.22);
+$shadow5:
+    0 19px 38px rgba(black, 0.3),
+    0 15px 12px rgba(black, 0.22);
+$shadow6:
+    0 15px 35px rgba(50, 50, 93, 0.2),
+    0 5px 15px rgba(black, 0.14);
+$shadow7:
+    0 15px 35px rgba(50, 50, 93, 0.1),
+    0 5px 15px rgba(black, 0.07);
+$shadow8:
+    0 38.4px 38.4px -25.6px rgba(50, 50, 93, 0.2),
+    0 76.8px 76.8px -51.2px rgba(50, 50, 93, 0.4);
+$shadow9:
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+    rgba(15, 23, 42, 0.1) 0px 20px 25px -5px,
+    rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;

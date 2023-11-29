@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Image Block
@@ -26,10 +26,10 @@ body {
         bottom: 3rem;
         left: 2rem;
         padding: 1rem 4rem;
-        box-shadow: variable.$shadow9;
+        box-shadow: var.$shadow9;
         transform: translateX(-1rem);
 
-        @include mixin.media(variable.$md, max) {
+        @include mixin.media(var.$md, max) {
           position: relative;
           width: calc(100% - 2rem);
           padding: 1rem 2rem;

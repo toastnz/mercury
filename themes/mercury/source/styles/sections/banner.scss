@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Banner 
@@ -78,20 +78,20 @@ Banner
 
       &__content {
         width: 100%;
-        max-width: variable.$xxl;
+        max-width: var.$xxl;
         z-index: 5;
         margin: 0 auto;
         position: relative;
         padding: 0 10rem;
 
-        @include mixin.media(variable.$md, max) {
+        @include mixin.media(var.$md, max) {
           padding: 0 2rem;
         }
 
         &__inner {
           padding: 20rem 0;
 
-          @include mixin.media(variable.$md, max) {
+          @include mixin.media(var.$md, max) {
             padding: 10rem 0;
           }
         }
@@ -106,7 +106,7 @@ Banner
     transform: translateY(-50%);
     width: 100%;
 
-    @include mixin.media(variable.$md, max) {
+    @include mixin.media(var.$md, max) {
       bottom: 6rem;
       top: auto;
     }

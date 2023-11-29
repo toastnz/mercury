@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Buttons
@@ -78,7 +78,7 @@ input[type='submit'] {
     height: 10px;
     margin-left: 0.8rem;
     top: -1px;
-    transition: all variable.$fast;
+    transition: all var.$fast;
   }
 
   &:hover {

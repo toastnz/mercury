@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Popup
@@ -40,7 +40,7 @@ Popup
   overflow: auto;
 
   &__wrap {
-    max-width: variable.$sm;
+    max-width: var.$sm;
     margin: 0 auto;
     position: relative;
     padding: 0 2rem;
@@ -49,7 +49,7 @@ Popup
       top: 4rem;
       right: 2rem;
       transform: translateY(-100%);
-      transition: all variable.$fast;
+      transition: all var.$fast;
       cursor: pointer;
       @include mixin.svg(1, 1);
       width: 4rem;
@@ -66,7 +66,7 @@ Popup
       position: relative;
       top: 10rem;
       background: color.$white;
-      box-shadow: variable.$shadow9;
+      box-shadow: var.$shadow9;
       overflow: hidden;
       border-radius: 0.2rem;
 

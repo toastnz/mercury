@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Slider block
@@ -19,7 +19,7 @@ Slider block
     z-index: 33;
     width: 100%;
 
-    @include mixin.media(variable.$xmd, max) {
+    @include mixin.media(var.$xmd, max) {
       top: 17.5%;
     }
 
@@ -27,7 +27,7 @@ Slider block
     &__prev {
       position: absolute;
       cursor: pointer;
-      transition: all variable.$fast;
+      transition: all var.$fast;
       left: 0;
     }
 
@@ -39,7 +39,7 @@ Slider block
 
   &__heading {
     margin: 0 auto;
-    max-width: variable.$xl;
+    max-width: var.$xl;
     padding: 0 2rem;
     position: relative;
   }
@@ -47,7 +47,7 @@ Slider block
   &__slider {
     position: relative;
 
-    @include mixin.media(variable.$md, max) {
+    @include mixin.media(var.$md, max) {
       margin-left: 0;
       padding-left: 0;
     }
@@ -55,25 +55,25 @@ Slider block
     &__item {
       padding-top: 4rem;
 
-      @include mixin.media(variable.$md, max) {
+      @include mixin.media(var.$md, max) {
         width: 49%;
       }
 
       &__image {
         @include mixin.aspect(450, 350);
         background: color.$primary;
-        transition: all variable.$fast;
+        transition: all var.$fast;
         margin-bottom: 3m;
         position: relative;
 
         &:before {
           @include mixin.pseudo;
           @include mixin.full;
-          box-shadow: variable.$shadow9;
+          box-shadow: var.$shadow9;
           opacity: 0;
         }
 
-        @include mixin.media(variable.$md, max) {
+        @include mixin.media(var.$md, max) {
           @include mixin.aspect(450, 400);
         }
 
@@ -90,11 +90,11 @@ Slider block
 
       &__copy {
         padding: 4rem 0 2rem;
-        transition: all mixin.$fast;
+        transition: all var.$fast;
         opacity: 0;
         transform: translateY(2rem);
 
-        @include mixin.media(variable.$md, max) {
+        @include mixin.media(var.$md, max) {
           margin: 0 -6rem;
           width: auto;
           text-align: center;
@@ -108,7 +108,7 @@ Slider block
       z-index: 3;
       transform: scale(1.05);
 
-      @include mixin.media(variable.$md, max) {
+      @include mixin.media(var.$md, max) {
         transform: scale(1.1);
       }
 
@@ -129,7 +129,7 @@ Slider block
     top: -6rem;
     right: 2rem;
 
-    @include mixin.media(variable.$md, max) {
+    @include mixin.media(var.$md, max) {
       top: 0;
       position: relative;
       right: 0;

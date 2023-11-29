@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Blog post
@@ -11,7 +11,7 @@ Blog post
 
 .blog-post {
     background: white;
-    box-shadow: variable.$shadow9;
+    box-shadow: var.$shadow9;
     border-radius: 0.5rem;
     position: relative;
     overflow: hidden;

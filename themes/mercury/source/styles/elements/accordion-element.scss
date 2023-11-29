@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Accordion Element
@@ -50,7 +50,7 @@ Accordion Element
       right: 0;
       top: 50%;
       margin-top: -1px;
-      transition: all variable.$fast;
+      transition: all var.$fast;
     }
 
     &:after {

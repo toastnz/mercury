@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Hero block
@@ -50,7 +50,7 @@ Hero block
                 position: relative;
                 z-index: 3;
 
-                @include mixin.media(variable.$md, max) {
+                @include mixin.media(var.$md, max) {
                     padding: 8rem 2rem;
                 }
             }

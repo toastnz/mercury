@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Tabbed content block
@@ -20,7 +20,7 @@ Tabbed content block
       border-right: 1px solid color.$grey-light;
       position: relative;
 
-      @include mixin.media(variable.$xmd, max) {
+      @include mixin.media(var.$xmd, max) {
         width: 100%;
         border-right: 0 solid color.$grey-light;
         border-left: 1px solid color.$grey-light;
@@ -34,9 +34,9 @@ Tabbed content block
         right: -1px;
         min-height: 2rem;
         background: color.$primary;
-        transition: variable.$medium;
+        transition: var.$medium;
 
-        @include mixin.media(variable.$xmd, max) {
+        @include mixin.media(var.$xmd, max) {
           right: auto;
           left: -1px;
         }
@@ -46,7 +46,7 @@ Tabbed content block
         padding: 1rem 2rem 1rem 0;
         display: block;
 
-        @include mixin.media(variable.$xmd, max) {
+        @include mixin.media(var.$xmd, max) {
           padding: 0;
         }
 
@@ -62,7 +62,7 @@ Tabbed content block
       width: calc(100% - 30rem);
       padding: 0 4rem;
 
-      @include mixin.media(variable.$xmd, max) {
+      @include mixin.media(var.$xmd, max) {
         width: 100%;
         padding: 0;
       }

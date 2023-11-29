@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Styles
@@ -19,7 +19,7 @@ Styles
   background: color.$white;
   z-index: 9999999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
-  transition: all variable.$fast;
+  transition: all var.$fast;
 
   &--transparent {
     box-shadow: none;
@@ -43,7 +43,7 @@ Styles
   &__wrap {
     position: relative;
     height: 8rem;
-    max-width: variable.$xl;
+    max-width: var.$xl;
     margin: 0 auto;
     padding: 0 2rem;
 
@@ -57,7 +57,7 @@ Styles
       text-align: right;
       right: 2rem;
 
-      @include mixin.media(variable.$lg, max) {
+      @include mixin.media(var.$lg, max) {
         right: 7rem;
       }
 
@@ -66,7 +66,7 @@ Styles
         display: inline-block;  
         vertical-align: middle;
 
-        @include mixin.media(variable.$lg, max) {
+        @include mixin.media(var.$lg, max) {
           &:not(.header__wrap__menu__search) {
             display: none;
           }
@@ -113,7 +113,7 @@ Styles
       top: 1.8rem;
       cursor: pointer;
 
-      @include mixin.media(variable.$lg) {
+      @include mixin.media(var.$lg) {
         display: none;
       }
 
@@ -165,7 +165,7 @@ Header sub menus
     border-top: 1px solid color.$off-white;
     border-radius: 0 0 0.2rem 0.2rem;
     padding: 0.8rem 0;
-    box-shadow: variable.$shadow9;
+    box-shadow: var.$shadow9;
 
     &__item {
       display: block;

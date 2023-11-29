@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Testimonial element
@@ -20,11 +20,11 @@ Testimonial element
 
     &__slider {
       &__item {
-        max-width: variable.$md;
+        max-width: var.$md;
         margin: 0 auto;
         text-align: center;
         background: color.$primary;
-        box-shadow: variable.$shadow9;
+        box-shadow: var.$shadow9;
         border-radius: 0.5rem;
         padding: 6rem;
 
@@ -54,7 +54,7 @@ Testimonial element
     width: 100%;
     left: 0;
 
-    @include mixin.media(variable.$md, max) {
+    @include mixin.media(var.$md, max) {
       bottom: 6rem;
       top: auto;
     }
@@ -79,7 +79,7 @@ Testimonial element
         opacity: 1;
       }
 
-      @include mixin.media(variable.$md, max) {
+      @include mixin.media(var.$md, max) {
         border: 2px solid white;
         background-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10"><path fill="%23fff" fill-rule="evenodd" d="M8.423.015 13.408 5 8.422 9.985 7.38 8.943l3.2-3.2H.09V4.257H10.58l-3.2-3.2L8.424.016Z"/></svg>');
       }
@@ -89,7 +89,7 @@ Testimonial element
       left: 2rem;
       transform: rotate(-180deg);
 
-      @include mixin.media(variable.$md, max) {
+      @include mixin.media(var.$md, max) {
         left: 4rem;
       }
     }
@@ -97,7 +97,7 @@ Testimonial element
     [data-controls='next'] {
       right: 2rem;
 
-      @include mixin.media(variable.$md, max) {
+      @include mixin.media(var.$md, max) {
         right: 4rem;
       }
     }

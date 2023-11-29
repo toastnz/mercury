@@ -4,7 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/colors' as color;
-@use './../base/variables' as variable;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Text block
@@ -34,7 +34,7 @@ Text block
       display: flex;
       flex-wrap: wrap;
 
-      @include mixin.media(variable.$lg) {
+      @include mixin.media(var.$lg) {
         &__left {
           width: 50%;
           padding-right: 4rem;
@@ -62,7 +62,7 @@ Text block
       height: auto;
       max-width: 100%;
 
-      @include mixin.media(variable.$lg) {
+      @include mixin.media(var.$lg) {
         &.left,
         &.leftALone {
           float: left;
