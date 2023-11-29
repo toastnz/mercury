@@ -3,8 +3,8 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Popup
@@ -52,13 +52,13 @@ Popup
       transform: translateY(-100%);
       transition: all var.$fast;
       cursor: pointer;
-      @include mixin.svg(1, 1);
+      @include util.svg(1, 1);
       width: 4rem;
       position: absolute;
 
       svg {
         path {
-          fill: color.$primary;
+          fill: var.$primary;
         }
       }
     }
@@ -66,13 +66,13 @@ Popup
     &__content {
       position: relative;
       top: 10rem;
-      background: color.$white;
+      background: var.$white;
       box-shadow: var.$shadow9;
       overflow: hidden;
       border-radius: 0.2rem;
 
       &__heading {
-        background: color.$primary;
+        background: var.$primary;
         padding: 4rem;
 
         h2 {

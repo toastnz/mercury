@@ -3,8 +3,8 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Video block
@@ -34,12 +34,12 @@ Video block
   }
 
   &__thumbnail {
-    @include mixin.aspect(1920, 1080);
+    @include util.aspect(1920, 1080);
     position: relative;
     overflow: hidden;
 
     &.playing {
-      ~ .video-element__player {
+      ~.video-element__player {
         opacity: 1;
         visibility: visible;
       }

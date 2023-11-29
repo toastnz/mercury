@@ -1,12 +1,34 @@
 /*------------------------------------------------------------------
-Easing functions
+Sitewide colors
 ------------------------------------------------------------------*/
 
-$slower: 2s cubic-bezier(0.165, 0.84, 0.44, 1);
-$slow: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-$medium: 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
-$fast: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-$faster: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+$off-white: #f4f4f7;
+$white: #ffffff;
+$grey-light: #ebebeb;
+$grey-mid: #7a7a7a;
+$grey-dark: #0F172A;
+$black: #000000;
+
+/*------------------------------------------------------------------
+Base colors
+------------------------------------------------------------------*/
+
+:root {
+    --primary-color: #008bd1;
+    --secondary-color: #0f1b25;
+}
+
+$primary: #008bd1 !default;
+$primary: var(--primary-color);
+$secondary: #0f1b25 !default;
+$secondary: var(--secondary-color);
+
+/*------------------------------------------------------------------
+Font colors
+------------------------------------------------------------------*/
+
+$text: black;
+$text-light: $grey-mid;
 
 /*------------------------------------------------------------------
 Breakpoints
@@ -47,3 +69,13 @@ $shadow9: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
     rgba(0, 0, 0, 0) 0px 0px 0px 0px,
     rgba(15, 23, 42, 0.1) 0px 20px 25px -5px,
     rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
+
+/*------------------------------------------------------------------
+Easing functions
+------------------------------------------------------------------*/
+
+$slower: 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+$slow: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+$medium: 0.75s cubic-bezier(0.165, 0.84, 0.44, 1);
+$fast: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+$faster: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);

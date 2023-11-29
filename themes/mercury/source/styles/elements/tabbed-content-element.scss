@@ -3,8 +3,8 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Tabbed content block
@@ -17,13 +17,13 @@ Tabbed content block
 
     &__tabs {
       width: 30rem;
-      border-right: 1px solid color.$grey-light;
+      border-right: 1px solid var.$grey-light;
       position: relative;
 
-      @include mixin.media(var.$breakpoint-xmd, max) {
+      @include util.media(var.$breakpoint-xmd, max) {
         width: 100%;
-        border-right: 0 solid color.$grey-light;
-        border-left: 1px solid color.$grey-light;
+        border-right: 0 solid var.$grey-light;
+        border-left: 1px solid var.$grey-light;
         padding-left: 2rem;
         margin-bottom: 4rem;
       }
@@ -33,10 +33,10 @@ Tabbed content block
         width: 4px;
         right: -1px;
         min-height: 2rem;
-        background: color.$primary;
+        background: var.$primary;
         transition: var.$medium;
 
-        @include mixin.media(var.$breakpoint-xmd, max) {
+        @include util.media(var.$breakpoint-xmd, max) {
           right: auto;
           left: -1px;
         }
@@ -46,13 +46,13 @@ Tabbed content block
         padding: 1rem 2rem 1rem 0;
         display: block;
 
-        @include mixin.media(var.$breakpoint-xmd, max) {
+        @include util.media(var.$breakpoint-xmd, max) {
           padding: 0;
         }
 
         &.active {
           h6 {
-            color: color.$primary;
+            color: var.$primary;
           }
         }
       }
@@ -62,7 +62,7 @@ Tabbed content block
       width: calc(100% - 30rem);
       padding: 0 4rem;
 
-      @include mixin.media(var.$breakpoint-xmd, max) {
+      @include util.media(var.$breakpoint-xmd, max) {
         width: 100%;
         padding: 0;
       }

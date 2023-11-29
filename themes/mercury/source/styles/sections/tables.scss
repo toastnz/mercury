@@ -2,7 +2,7 @@
 Modules
 ------------------------------------------------------------------*/
 
-@use './../base/colors' as color;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Table styles
@@ -16,7 +16,7 @@ table {
   margin: 0 auto 3rem;
   position: relative;
   overflow: hidden;
-  border: 1px solid color.$grey-light;
+  border: 1px solid var.$grey-light;
 
   li {
     margin-bottom: 0 !important;
@@ -24,7 +24,7 @@ table {
 
   tr {
     background: white;
-    border-bottom: 1px solid color.$grey-light;
+    border-bottom: 1px solid var.$grey-light;
     margin-bottom: 5px;
 
     &:last-of-type {
@@ -33,14 +33,14 @@ table {
   }
 
   tr:nth-child(even) {
-    background: color.$off-white;
+    background: var.$off-white;
   }
 
   th,
   td {
     text-align: left;
     padding: 1rem;
-    border-right: 1px solid color.$grey-light;
+    border-right: 1px solid var.$grey-light;
 
     p {
       margin: 0;
@@ -52,7 +52,7 @@ table {
   }
 
   th {
-    background: color.$primary;
-    color: color.$white;
+    background: var.$primary;
+    color: var.$white;
   }
 }

@@ -3,7 +3,6 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
 
 /*------------------------------------------------------------------
@@ -12,8 +11,8 @@ Accordion Element
 
 .accordion-element {
   &__item {
-    border-top: 1px solid color.$grey-light;
-    border-bottom: 1px solid color.$grey-light;
+    border-top: 1px solid var.$grey-light;
+    border-bottom: 1px solid var.$grey-light;
     margin-bottom: -1px;
 
     &.active {
@@ -45,7 +44,7 @@ Accordion Element
       @include mixin.pseudo;
       width: 2.2rem;
       height: 0.3rem;
-      background: color.$primary;
+      background: var.$primary;
       position: absolute;
       right: 0;
       top: 50%;

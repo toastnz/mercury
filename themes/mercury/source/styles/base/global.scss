@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/fonts' as font;
-@use './../base/colors' as color;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Element styles
@@ -88,14 +88,14 @@ html body {
 
 .colour--white,
 .color--white {
-    color: color.$white !important;
+    color: var.$white !important;
 }
 
 .colour--primary,
 .color--primary {
-    color: color.$primary !important;
+    color: var.$primary !important;
 }
 
 .color--secondary {
-    color: color.$secondary !important;
+    color: var.$secondary !important;
 }

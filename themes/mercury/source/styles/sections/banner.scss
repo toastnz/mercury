@@ -3,8 +3,8 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Banner 
@@ -57,7 +57,7 @@ Banner
         &:after {
           @include mixin.pseudo;
           @include mixin.full;
-          background: rgba(color.$black, 0.4);
+          background: rgba(var.$black, 0.4);
         }
 
         iframe {
@@ -84,14 +84,14 @@ Banner
         position: relative;
         padding: 0 10rem;
 
-        @include mixin.media(var.$breakpoint-md, max) {
+        @include util.media(var.$breakpoint-md, max) {
           padding: 0 2rem;
         }
 
         &__inner {
           padding: 20rem 0;
 
-          @include mixin.media(var.$breakpoint-md, max) {
+          @include util.media(var.$breakpoint-md, max) {
             padding: 10rem 0;
           }
         }
@@ -106,7 +106,7 @@ Banner
     transform: translateY(-50%);
     width: 100%;
 
-    @include mixin.media(var.$breakpoint-md, max) {
+    @include util.media(var.$breakpoint-md, max) {
       bottom: 6rem;
       top: auto;
     }

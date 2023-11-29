@@ -3,8 +3,8 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Styles
@@ -16,7 +16,7 @@ Styles
   top: 0;
   left: 0;
   right: 0;
-  background: color.$white;
+  background: var.$white;
   z-index: 9999999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   transition: all var.$fast;
@@ -32,7 +32,7 @@ Styles
 
   &.nav-down {
     transform: translateY(0%);
-    background: color.$white;
+    background: var.$white;
     box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   }
 
@@ -57,7 +57,7 @@ Styles
       text-align: right;
       right: 2rem;
 
-      @include mixin.media(var.$breakpoint-lg, max) {
+      @include util.media(var.$breakpoint-lg, max) {
         right: 7rem;
       }
 
@@ -66,7 +66,7 @@ Styles
         display: inline-block;
         vertical-align: middle;
 
-        @include mixin.media(var.$breakpoint-lg, max) {
+        @include util.media(var.$breakpoint-lg, max) {
           &:not(.header__wrap__menu__search) {
             display: none;
           }
@@ -76,7 +76,7 @@ Styles
           padding: 2rem 0.5rem;
           display: block;
           margin: 0;
-          color: color.$text;
+          color: var.$text;
           position: relative;
 
           p {
@@ -86,7 +86,7 @@ Styles
           &:hover .nav,
           &.section .nav,
           &.current .nav {
-            color: color.$primary;
+            color: var.$primary;
           }
         }
       }
@@ -113,7 +113,7 @@ Styles
       top: 1.8rem;
       cursor: pointer;
 
-      @include mixin.media(var.$breakpoint-lg) {
+      @include util.media(var.$breakpoint-lg) {
         display: none;
       }
 
@@ -125,17 +125,17 @@ Styles
 
         &--1 {
           margin-top: 0.5rem;
-          background: color.$primary;
+          background: var.$primary;
         }
 
         &--2 {
           margin-top: 1.5rem;
-          background: color.$primary;
+          background: var.$primary;
         }
 
         &--3 {
           margin-top: 2.5rem;
-          background: color.$primary;
+          background: var.$primary;
         }
       }
     }
@@ -161,15 +161,15 @@ Header sub menus
   top: calc(100% + 0rem);
 
   &__wrap {
-    background: color.$white;
-    border-top: 1px solid color.$off-white;
+    background: var.$white;
+    border-top: 1px solid var.$off-white;
     border-radius: 0 0 0.2rem 0.2rem;
     padding: 0.8rem 0;
     box-shadow: var.$shadow9;
 
     &__item {
       display: block;
-      color: color.$primary;
+      color: var.$primary;
       font-size: 1.4rem;
       text-decoration: none;
       padding: 0.5rem 2rem;
@@ -183,11 +183,11 @@ Header sub menus
 
       &.current,
       &:hover {
-        background: color.$primary;
+        background: var.$primary;
 
         p {
           transition: all 111ms ease;
-          color: color.$white;
+          color: var.$white;
         }
       }
     }

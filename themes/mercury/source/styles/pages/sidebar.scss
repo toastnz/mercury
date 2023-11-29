@@ -3,8 +3,8 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Sidebar wrap
@@ -21,7 +21,7 @@ Sidebar wrap
     width: calc(100% - 36rem);
     padding-right: 4rem;
 
-    @include mixin.media(var.$breakpoint-xmd, max) {
+    @include util.media(var.$breakpoint-xmd, max) {
       width: 100%;
       order: 1;
       padding-right: 0;
@@ -32,7 +32,7 @@ Sidebar wrap
     width: 36rem;
     padding: 0 2rem;
 
-    @include mixin.media(var.$breakpoint-xmd, max) {
+    @include util.media(var.$breakpoint-xmd, max) {
       width: 100%;
       order: 2;
       padding: 0 2rem;
@@ -40,7 +40,7 @@ Sidebar wrap
 
     &__categories {
       &__heading {
-        border-bottom: 1px solid color.$grey-light;
+        border-bottom: 1px solid var.$grey-light;
       }
     }
 
@@ -48,7 +48,7 @@ Sidebar wrap
       margin-top: 4rem;
 
       &__heading {
-        border-bottom: 1px solid color.$grey-light;
+        border-bottom: 1px solid var.$grey-light;
         margin-bottom: 2rem;
       }
 
@@ -68,13 +68,13 @@ Sidebar wrap
           }
 
           &:hover h6 {
-            color: color.$primary;
+            color: var.$primary;
 
             svg {
               transform: translateX(0.5rem);
 
               path {
-                fill: color.$primary;
+                fill: var.$primary;
               }
             }
           }
@@ -92,8 +92,8 @@ Sidebar wrap
   .tag {
     font-size: 1.4rem;
     padding: 0.4rem 2rem;
-    background: color.$off-white;
-    color: color.$primary;
+    background: var.$off-white;
+    color: var.$primary;
     border-radius: 10rem;
     margin: 0 0.5rem 0.5rem 0;
     display: inline-block;
@@ -101,7 +101,7 @@ Sidebar wrap
 
     &:hover {
       color: white;
-      background: color.$primary;
+      background: var.$primary;
     }
   }
 }

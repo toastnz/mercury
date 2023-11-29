@@ -4,6 +4,7 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Image and text block
@@ -25,7 +26,7 @@ Image and text block
       align-content: center;
       text-align: center;
 
-      @include mixin.media(var.$breakpoint-md, max) {
+      @include util.media(var.$breakpoint-md, max) {
         width: 100%;
         transform: none !important;
         order: 1 !important;
@@ -45,7 +46,7 @@ Image and text block
       flex-wrap: wrap;
       align-content: center;
 
-      @include mixin.media(var.$breakpoint-md, max) {
+      @include util.media(var.$breakpoint-md, max) {
         width: 100%;
         order: 2;
         padding: 3rem 0 0;

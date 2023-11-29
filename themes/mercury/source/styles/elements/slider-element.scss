@@ -3,8 +3,8 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Slider block
@@ -19,7 +19,7 @@ Slider block
     z-index: 33;
     width: 100%;
 
-    @include mixin.media(var.$breakpoint-xmd, max) {
+    @include util.media(var.$breakpoint-xmd, max) {
       top: 17.5%;
     }
 
@@ -47,7 +47,7 @@ Slider block
   &__slider {
     position: relative;
 
-    @include mixin.media(var.$breakpoint-md, max) {
+    @include util.media(var.$breakpoint-md, max) {
       margin-left: 0;
       padding-left: 0;
     }
@@ -55,13 +55,13 @@ Slider block
     &__item {
       padding-top: 4rem;
 
-      @include mixin.media(var.$breakpoint-md, max) {
+      @include util.media(var.$breakpoint-md, max) {
         width: 49%;
       }
 
       &__image {
-        @include mixin.aspect(450, 350);
-        background: color.$primary;
+        @include util.aspect(450, 350);
+        background: var.$primary;
         transition: all var.$fast;
         margin-bottom: 3m;
         position: relative;
@@ -73,8 +73,8 @@ Slider block
           opacity: 0;
         }
 
-        @include mixin.media(var.$breakpoint-md, max) {
-          @include mixin.aspect(450, 400);
+        @include util.media(var.$breakpoint-md, max) {
+          @include util.aspect(450, 400);
         }
 
         img {
@@ -94,7 +94,7 @@ Slider block
         opacity: 0;
         transform: translateY(2rem);
 
-        @include mixin.media(var.$breakpoint-md, max) {
+        @include util.media(var.$breakpoint-md, max) {
           margin: 0 -6rem;
           width: auto;
           text-align: center;
@@ -108,7 +108,7 @@ Slider block
       z-index: 3;
       transform: scale(1.05);
 
-      @include mixin.media(var.$breakpoint-md, max) {
+      @include util.media(var.$breakpoint-md, max) {
         transform: scale(1.1);
       }
 
@@ -129,7 +129,7 @@ Slider block
     top: -6rem;
     right: 2rem;
 
-    @include mixin.media(var.$breakpoint-md, max) {
+    @include util.media(var.$breakpoint-md, max) {
       top: 0;
       position: relative;
       right: 0;
@@ -142,7 +142,7 @@ Slider block
       background: transparent;
       width: 4rem;
       height: 4rem;
-      border: 2px solid color.$primary;
+      border: 2px solid var.$primary;
       border-radius: 100rem;
       background-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10"><path fill="%23000" fill-rule="evenodd" d="M8.423.015 13.408 5 8.422 9.985 7.38 8.943l3.2-3.2H.09V4.257H10.58l-3.2-3.2L8.424.016Z"/></svg>');
       background-size: 14px 10px;

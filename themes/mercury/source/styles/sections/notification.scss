@@ -2,7 +2,6 @@
 Modules
 ------------------------------------------------------------------*/
 
-@use './../base/colors' as color;
 @use './../base/vars' as var;
 
 /*------------------------------------------------------------------
@@ -16,7 +15,7 @@ Notification
 }
 
 .notification {
-  background: color.$primary;
+  background: var.$primary;
   display: none;
   position: relative;
 

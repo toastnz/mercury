@@ -3,8 +3,8 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Image Block
@@ -21,7 +21,7 @@ body {
       }
 
       &__caption {
-        background: color.$secondary;
+        background: var.$secondary;
         position: absolute;
         bottom: 3rem;
         left: 2rem;
@@ -29,7 +29,7 @@ body {
         box-shadow: var.$shadow9;
         transform: translateX(-1rem);
 
-        @include mixin.media(var.$breakpoint-md, max) {
+        @include util.media(var.$breakpoint-md, max) {
           position: relative;
           width: calc(100% - 2rem);
           padding: 1rem 2rem;
@@ -40,7 +40,7 @@ body {
         }
 
         p {
-          color: color.$white;
+          color: var.$white;
           margin: 0;
         }
       }

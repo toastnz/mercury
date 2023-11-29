@@ -2,7 +2,7 @@
 Modules
 ------------------------------------------------------------------*/
 
-@use './../base/colors' as color;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Download block
@@ -14,11 +14,11 @@ Download block
     align-items: center;
     width: 100%;
     padding: 1.75rem 2rem;
-    border-bottom: 1px solid color.$grey-light;
+    border-bottom: 1px solid var.$grey-light;
     text-decoration: none;
 
     &:first-of-type {
-      border-top: 1px solid color.$grey-light;
+      border-top: 1px solid var.$grey-light;
     }
 
     &__icon {
@@ -41,11 +41,11 @@ Download block
 
     &:hover {
       .download-element__item__details b {
-        color: color.$primary;
+        color: var.$primary;
       }
 
       path {
-        fill: color.$primary;
+        fill: var.$primary;
 
         &:last-of-type {
           transform: translateY(3px);

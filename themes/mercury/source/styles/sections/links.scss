@@ -2,13 +2,13 @@
 Modules
 ------------------------------------------------------------------*/
 
-@use './../base/colors' as color;
+@use './../base/vars' as var;
 
 /*------------------------------------------------------------------
 Link hovers
 ------------------------------------------------------------------*/
 
-$link: color.$primary;
+$link: var.$primary;
 
 a:not([class]) {
   text-decoration: none;
@@ -17,7 +17,7 @@ a:not([class]) {
     0 1px 0 $link;
   transition: all 333ms ease;
   overflow: hidden;
-  color: color.$primary;
+  color: var.$primary;
 
   &:hover {
     box-shadow:

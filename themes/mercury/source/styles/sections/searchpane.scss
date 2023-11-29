@@ -3,8 +3,8 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/mixins' as mixin;
-@use './../base/colors' as color;
 @use './../base/vars' as var;
+@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Searchpane
@@ -13,7 +13,7 @@ Searchpane
 .search-pane {
   @include mixin.full;
   position: fixed;
-  background: rgba(color.$white, 0.95);
+  background: rgba(var.$white, 0.95);
   transition: all 555ms ease;
   z-index: 999;
   opacity: 0;
@@ -27,7 +27,7 @@ Searchpane
   }
 
   &__close {
-    @include mixin.svg(1, 1);
+    @include util.svg(1, 1);
     top: 4rem;
     right: 2rem;
     transform: translateY(-100%);
@@ -38,7 +38,7 @@ Searchpane
 
     svg {
       path {
-        fill: color.$primary;
+        fill: var.$primary;
       }
     }
   }
@@ -57,7 +57,7 @@ Searchpane
 
         &:after {
           @include mixin.pseudo;
-          border-bottom: 0.4rem solid color.$primary;
+          border-bottom: 0.4rem solid var.$primary;
           bottom: 0;
           width: 100%;
           transition: all var.$slow;
@@ -76,16 +76,16 @@ Searchpane
         padding-left: 0 !important;
         font-weight: light;
 
-        @include mixin.media(var.$breakpoint-md, max) {
+        @include util.media(var.$breakpoint-md, max) {
           font-size: 3rem;
         }
 
-        @include mixin.media(var.$breakpoint-sm, max) {
+        @include util.media(var.$breakpoint-sm, max) {
           font-size: 2.4rem;
         }
 
         @include mixin.placeholder {
-          color: color.$text;
+          color: var.$text;
           opacity: 1 !important;
         }
       }
