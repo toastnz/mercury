@@ -2,8 +2,8 @@
 Modules
 ------------------------------------------------------------------*/
 
-@use './../base/mixins' as mixin;
 @use './../base/vars' as var;
+@use './../base/mixins' as mixin;
 
 /*------------------------------------------------------------------
 Styles
@@ -45,6 +45,7 @@ Styles
     max-width: var.$breakpoint-xl;
     margin: 0 auto;
     padding: 0 2rem;
+        
 
     &--full {
       max-width: 100%;
@@ -208,4 +209,3 @@ Header sub menus
     }
   }
 }
-  
