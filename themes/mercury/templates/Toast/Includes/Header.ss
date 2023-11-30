@@ -77,7 +77,6 @@ function showSearchPane(event){
 
     // Change the placeholder and focus on the input
     setTimeout(function(){
-        document.getElementById('SearchForm_SearchForm_Search').placeholder ='What are you looking for?';
         document.getElementById('SearchForm_SearchForm_Search').focus();
     }, 100);
 }

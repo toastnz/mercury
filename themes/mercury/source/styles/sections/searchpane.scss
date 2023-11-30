@@ -14,7 +14,7 @@ Searchpane
   position: fixed;
   background: rgba(var.$white, 0.95);
   transition: all 555ms ease;
-  z-index: 999;
+  z-index: 9999;
   opacity: 0;
   visibility: hidden;
 
@@ -113,7 +113,7 @@ Searchpane
     }
   }
 
-  .search-pane__wrap__close {
+  .search-pane__close {
     transform: translateY(0%);
   }
 }

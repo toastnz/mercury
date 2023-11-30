@@ -1905,7 +1905,7 @@ Styles
   left: 0;
   right: 0;
   background: #ffffff;
-  z-index: 9999999;
+  z-index: 999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -2657,7 +2657,7 @@ Searchpane
   position: fixed;
   background: rgba(255, 255, 255, 0.95);
   transition: all 555ms ease;
-  z-index: 999;
+  z-index: 9999;
   opacity: 0;
   visibility: hidden;
 }
@@ -2765,7 +2765,7 @@ Searchpane
 .searchActive .search-pane .text:after {
   transform: scaleX(1);
 }
-.searchActive .search-pane__wrap__close {
+.searchActive .search-pane__close {
   transform: translateY(0%);
 }
 
