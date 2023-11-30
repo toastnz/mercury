@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Banner 
@@ -84,14 +83,14 @@ Banner
         position: relative;
         padding: 0 10rem;
 
-        @include util.media(var.$breakpoint-md, max) {
+        @include mixin.media(var.$breakpoint-md, max) {
           padding: 0 2rem;
         }
 
         &__inner {
           padding: 20rem 0;
 
-          @include util.media(var.$breakpoint-md, max) {
+          @include mixin.media(var.$breakpoint-md, max) {
             padding: 10rem 0;
           }
         }
@@ -106,7 +105,7 @@ Banner
     transform: translateY(-50%);
     width: 100%;
 
-    @include util.media(var.$breakpoint-md, max) {
+    @include mixin.media(var.$breakpoint-md, max) {
       bottom: 6rem;
       top: auto;
     }

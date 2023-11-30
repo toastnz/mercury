@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Searchpane
@@ -27,7 +26,7 @@ Searchpane
   }
 
   &__close {
-    @include util.svg(1, 1);
+    @include mixin.svg(1, 1);
     top: 4rem;
     right: 2rem;
     transform: translateY(-100%);
@@ -76,11 +75,11 @@ Searchpane
         padding-left: 0 !important;
         font-weight: light;
 
-        @include util.media(var.$breakpoint-md, max) {
+        @include mixin.media(var.$breakpoint-md, max) {
           font-size: 3rem;
         }
 
-        @include util.media(var.$breakpoint-sm, max) {
+        @include mixin.media(var.$breakpoint-sm, max) {
           font-size: 2.4rem;
         }
 

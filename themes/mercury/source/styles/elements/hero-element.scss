@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Hero block
@@ -50,7 +49,7 @@ Hero block
                 position: relative;
                 z-index: 3;
 
-                @include util.media(var.$breakpoint-md, max) {
+                @include mixin.media(var.$breakpoint-md, max) {
                     padding: 8rem 2rem;
                 }
             }

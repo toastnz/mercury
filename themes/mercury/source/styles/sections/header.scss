@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Styles
@@ -25,7 +24,7 @@ Styles
     box-shadow: none;
     background: transparent;
 
-    +.banner {
+    + .banner {
       margin-top: 0;
     }
   }
@@ -57,7 +56,7 @@ Styles
       text-align: right;
       right: 2rem;
 
-      @include util.media(var.$breakpoint-lg, max) {
+      @include mixin.media(var.$breakpoint-lg, max) {
         right: 7rem;
       }
 
@@ -66,7 +65,7 @@ Styles
         display: inline-block;
         vertical-align: middle;
 
-        @include util.media(var.$breakpoint-lg, max) {
+        @include mixin.media(var.$breakpoint-lg, max) {
           &:not(.header__wrap__menu__search) {
             display: none;
           }
@@ -113,7 +112,7 @@ Styles
       top: 1.8rem;
       cursor: pointer;
 
-      @include util.media(var.$breakpoint-lg) {
+      @include mixin.media(var.$breakpoint-lg) {
         display: none;
       }
 
@@ -209,3 +208,4 @@ Header sub menus
     }
   }
 }
+  

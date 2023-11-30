@@ -2,8 +2,8 @@
 Modules
 ------------------------------------------------------------------*/
 
-@use './../base/mixins' as mixin;
 @use './../base/vars' as var;
+@use './../base/mixins' as mixin;
 
 /*------------------------------------------------------------------
 Element styles
@@ -96,6 +96,7 @@ html body {
     color: var.$primary !important;
 }
 
+.colour--secondary,
 .color--secondary {
     color: var.$secondary !important;
 }

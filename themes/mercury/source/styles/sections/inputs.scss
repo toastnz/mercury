@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Inputs
@@ -66,7 +65,7 @@ form {
     &.half {
       width: calc(50% - 1rem);
 
-      @include util.media(var.$breakpoint-md, max) {
+      @include mixin.media(var.$breakpoint-md, max) {
         width: 100%;
       }
     }

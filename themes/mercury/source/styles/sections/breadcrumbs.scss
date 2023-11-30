@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Breadcrumbs
@@ -13,7 +12,7 @@ Breadcrumbs
 .breadCrumbs {
   border-bottom: 1px solid var.$off-white;
 
-  @include util.media(var.$breakpoint-md, max) {
+  @include mixin.media(var.$breakpoint-md, max) {
     padding: 0;
   }
 
@@ -26,7 +25,7 @@ Breadcrumbs
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    @include util.media(var.$breakpoint-md, max) {
+    @include mixin.media(var.$breakpoint-md, max) {
       padding: 0 2rem;
     }
 
@@ -45,7 +44,7 @@ Breadcrumbs
       padding: 2.4rem 1rem;
       color: var.$primary;
 
-      @include util.media(var.$breakpoint-md, max) {
+      @include mixin.media(var.$breakpoint-md, max) {
         padding-left: 0.2rem;
         padding-right: 0.2rem;
         font-size: 1rem;
@@ -106,11 +105,11 @@ Breadcrumbs
       @include mixin.vertical-align;
       right: 2rem;
 
-      @include util.media(var.$breakpoint-md, max) {
+      @include mixin.media(var.$breakpoint-md, max) {
         right: 1.2rem;
       }
 
-      @include util.media(var.$breakpoint-sm, max) {
+      @include mixin.media(var.$breakpoint-sm, max) {
         display: none;
       }
 
@@ -120,13 +119,13 @@ Breadcrumbs
         vertical-align: middle;
         font-size: 1.2rem !important;
 
-        @include util.media(var.$breakpoint-md, max) {
+        @include mixin.media(var.$breakpoint-md, max) {
           display: none;
         }
       }
 
       &__link {
-        @include util.svg(1, 1);
+        @include mixin.svg(1, 1);
         display: inline-block;
         vertical-align: middle;
         text-decoration: none;

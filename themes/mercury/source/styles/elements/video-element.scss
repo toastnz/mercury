@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Video block
@@ -34,7 +33,7 @@ Video block
   }
 
   &__thumbnail {
-    @include util.aspect(1920, 1080);
+    @include mixin.aspect(1920, 1080);
     position: relative;
     overflow: hidden;
 

@@ -2,12 +2,17 @@
 Import styles
 ------------------------------------------------------------------*/
 
-import './../styles/style.scss';  
- 
-import { $, $$ } from './lib' 
+import './../styles/style.scss';
+
+/*------------------------------------------------------------------ 
+Import scripts
+------------------------------------------------------------------*/
+
+import { $, $$ } from './lib'
+
 
 /*------------------------------------------------------------------
-Import external
+Start the app
 ------------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,20 +20,24 @@ document.addEventListener('DOMContentLoaded', () => {
     /*------------------------------------------------------------------
     Accordion Elements
     ------------------------------------------------------------------*/
+
     if ($('.js-accordion-element')) {
         import('./components/accordion').then(module => {
             $$('.js-accordion-element').forEach(element => new module.Accordion(element));
         });
     }
 
+
     /*------------------------------------------------------------------
     Video Elements
     ------------------------------------------------------------------*/
+
     if ($('.js-video-element')) {
         import('./components/video').then(module => {
             $$('.js-video-element').forEach(element => new module.Video(element));
         });
     }
+
 
     /*------------------------------------------------------------------
     Post Load classname removal

@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Image Block
@@ -29,7 +28,7 @@ body {
         box-shadow: var.$shadow9;
         transform: translateX(-1rem);
 
-        @include util.media(var.$breakpoint-md, max) {
+        @include mixin.media(var.$breakpoint-md, max) {
           position: relative;
           width: calc(100% - 2rem);
           padding: 1rem 2rem;

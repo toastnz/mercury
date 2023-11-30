@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Popup
@@ -52,7 +51,7 @@ Popup
       transform: translateY(-100%);
       transition: all var.$fast;
       cursor: pointer;
-      @include util.svg(1, 1);
+      @include mixin.svg(1, 1);
       width: 4rem;
       position: absolute;
 

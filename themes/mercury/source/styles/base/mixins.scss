@@ -1,4 +1,9 @@
 /*------------------------------------------------------------------
+Imports
+------------------------------------------------------------------*/
+@use 'sass:math';
+
+/*------------------------------------------------------------------
 Font face
 ------------------------------------------------------------------*/
 
@@ -14,14 +19,17 @@ Font face
   font-weight: 500;
 }
 
+@mixin medium {
+  font-weight: 700;
+}
+
 @mixin bold {
   font-weight: 700;
 }
 
 @mixin black {
-  font-weight: 700;
+  font-weight: 900;
 }
-
 
 /*------------------------------------------------------------------
 Vertical align
@@ -33,11 +41,36 @@ Vertical align
   position: absolute;
 }
 
+/*------------------------------------------------------------------
+Vertical center
+------------------------------------------------------------------*/
+
 @mixin vertical-center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
+}
+
+/*------------------------------------------------------------------
+Cover
+------------------------------------------------------------------*/
+
+@mixin cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 /*------------------------------------------------------------------
@@ -67,7 +100,6 @@ Clearfix
 ------------------------------------------------------------------*/
 
 @mixin clearfix {
-
   &:before,
   &:after {
     content: '';
@@ -77,16 +109,6 @@ Clearfix
   &:after {
     clear: both;
   }
-}
-
-.clearfix:before,
-.clearfix:after {
-  content: '';
-  display: table;
-}
-
-.clearfix:after {
-  clear: both;
 }
 
 /*------------------------------------------------------------------
@@ -112,11 +134,59 @@ Full positioning
 }
 
 /*------------------------------------------------------------------
-Background Cover
+Media queries
 ------------------------------------------------------------------*/
 
-@mixin cover {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+@mixin media($size1, $size2: min) {
+  @if $size2 ==min {
+    @media only screen and (min-width: $size1) {
+      @content;
+    }
+  } @else if $size2 ==max {
+    @media only screen and (max-width: ($size1 - 1)) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: $size1) and (max-width: ($size2 - 1)) {
+      @content;
+    }
+  }
+}
+
+/*------------------------------------------------------------------
+Dynamic Aspect Ratios
+------------------------------------------------------------------*/
+
+@mixin aspect($x, $y) {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: relative;
+    display: block;
+    padding-bottom: math.percentage(math.div($y, $x));
+  }
+}
+
+/*------------------------------------------------------------------
+Responsive SVGs
+------------------------------------------------------------------*/
+
+@mixin svg($x, $y) {
+  position: relative;
+
+  &:after {
+    content: '';
+    position: relative;
+    display: block;
+    padding-bottom: math.percentage(math.div($y, $x));
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }

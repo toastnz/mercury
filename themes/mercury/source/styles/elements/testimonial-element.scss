@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Testimonial element
@@ -54,7 +53,7 @@ Testimonial element
     width: 100%;
     left: 0;
 
-    @include util.media(var.$breakpoint-md, max) {
+    @include mixin.media(var.$breakpoint-md, max) {
       bottom: 6rem;
       top: auto;
     }
@@ -79,7 +78,7 @@ Testimonial element
         opacity: 1;
       }
 
-      @include util.media(var.$breakpoint-md, max) {
+      @include mixin.media(var.$breakpoint-md, max) {
         border: 2px solid white;
         background-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10"><path fill="%23fff" fill-rule="evenodd" d="M8.423.015 13.408 5 8.422 9.985 7.38 8.943l3.2-3.2H.09V4.257H10.58l-3.2-3.2L8.424.016Z"/></svg>');
       }
@@ -89,7 +88,7 @@ Testimonial element
       left: 2rem;
       transform: rotate(-180deg);
 
-      @include util.media(var.$breakpoint-md, max) {
+      @include mixin.media(var.$breakpoint-md, max) {
         left: 4rem;
       }
     }
@@ -97,7 +96,7 @@ Testimonial element
     [data-controls='next'] {
       right: 2rem;
 
-      @include util.media(var.$breakpoint-md, max) {
+      @include mixin.media(var.$breakpoint-md, max) {
         right: 4rem;
       }
     }

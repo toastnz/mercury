@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Text block
@@ -34,7 +33,7 @@ Text block
       display: flex;
       flex-wrap: wrap;
 
-      @include util.media(var.$breakpoint-lg) {
+      @include mixin.media(var.$breakpoint-lg) {
         &__left {
           width: 50%;
           padding-right: 4rem;
@@ -62,7 +61,7 @@ Text block
       height: auto;
       max-width: 100%;
 
-      @include util.media(var.$breakpoint-lg) {
+      @include mixin.media(var.$breakpoint-lg) {
 
         &.left,
         &.leftALone {

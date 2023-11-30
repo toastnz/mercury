@@ -4,7 +4,6 @@ Modules
 
 @use './../base/mixins' as mixin;
 @use './../base/vars' as var;
-@use './../base/utils' as util;
 
 /*------------------------------------------------------------------
 Sidebar wrap
@@ -21,7 +20,7 @@ Sidebar wrap
     width: calc(100% - 36rem);
     padding-right: 4rem;
 
-    @include util.media(var.$breakpoint-xmd, max) {
+    @include mixin.media(var.$breakpoint-xmd, max) {
       width: 100%;
       order: 1;
       padding-right: 0;
@@ -32,7 +31,7 @@ Sidebar wrap
     width: 36rem;
     padding: 0 2rem;
 
-    @include util.media(var.$breakpoint-xmd, max) {
+    @include mixin.media(var.$breakpoint-xmd, max) {
       width: 100%;
       order: 2;
       padding: 0 2rem;
