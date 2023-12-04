@@ -1,21 +1,21 @@
 <%-- -------------------------------------------- 
-Hero block
+Hero element
 -------------------------------------------- --%>
 
-<section class="element hero-element">
+<div class="hero-element [ element {$Width} ]">
     <div class="hero-element__wrap">
 
         <% if $BackgroundImage %>
-            <div class="hero-element__wrap__background">
-                <img src="$BackgroundImage.FocusFill(1920,1080).URL" width="1920" height="1080" loading="lazy" alt="$BackgroundImage.alt">
+            <div class="hero-element__background">
+                <img src="$BackgroundImage.FocusFill(1920,700).URL" width="1920" height="700" loading="lazy" alt="$BackgroundImage.alt">
             </div>
         <% end_if %>
 
-        <div class="hero-element__wrap__content hero-element__wrap__content--{$Width}">
-            <div class="hero-element__wrap__content__constraint">
+        <div class="hero-element__content">
+            <div class="hero-element__constraint">
                 $Content
             </div>
         </div>
 
     </div>
-</section>
+</div>

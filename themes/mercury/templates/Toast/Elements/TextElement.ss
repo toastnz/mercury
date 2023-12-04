@@ -1,6 +1,6 @@
 <% if $Content %>
-	<section class="element text-element text-element--{$BackgroundColour}">
-		<div class="text-element__wrap text-element__wrap--{$Width}">
+	<section class="text-element [ element {$Width} {$BackgroundColour} ]">
+		<div class="text-element__wrap">
 			{$Content}
 		</div>
 	</section>

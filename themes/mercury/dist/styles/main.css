@@ -220,6 +220,42 @@ Modules
 Modules
 ------------------------------------------------------------------*/
 /*------------------------------------------------------------------
+Global element styles
+------------------------------------------------------------------*/
+.element {
+  margin: 8rem auto;
+  position: relative;
+  max-width: 1024px;
+}
+.element.full {
+  max-width: 100%;
+}
+.element.wide {
+  max-width: 1280px;
+}
+.element.standard {
+  max-width: 1024px;
+}
+.element.narrow {
+  max-width: 968px;
+}
+.element.thin {
+  max-width: 640px;
+}
+.element > [class*=__wrap] {
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  width: 100%;
+}
+
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+/*------------------------------------------------------------------
+Modules
+------------------------------------------------------------------*/
+/*------------------------------------------------------------------
 Accordion Element
 ------------------------------------------------------------------*/
 .accordion-element__item {
@@ -290,21 +326,7 @@ Download block
 .download-element__item:first-of-type {
   border-top: 1px solid #ebebeb;
 }
-.download-element__item__icon {
-  width: 6rem;
-  position: relative;
-  top: 0.5rem;
-}
-.download-element__item__icon svg {
-  overflow: visible;
-}
-.download-element__item__icon svg path {
-  transition: all 222ms ease;
-}
-.download-element__item__details {
-  width: calc(100% - 6rem);
-}
-.download-element__item:hover .download-element__item__details b {
+.download-element__item:hover .download-element__details b {
   color: var(--primary-color);
 }
 .download-element__item:hover path {
@@ -312,6 +334,23 @@ Download block
 }
 .download-element__item:hover path:last-of-type {
   transform: translateY(3px);
+}
+.download-element__icon {
+  width: 6rem;
+  position: relative;
+  top: 0.5rem;
+}
+.download-element__icon svg {
+  overflow: visible;
+}
+.download-element__icon svg path {
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.download-element__details {
+  width: calc(100% - 6rem);
+}
+.download-element__details b {
+  transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /*------------------------------------------------------------------
@@ -324,22 +363,16 @@ Modules
 Hero block
 ------------------------------------------------------------------*/
 .hero-element {
-  width: 100%;
-  background: #f4f4f7;
   overflow: hidden;
 }
-.hero-element__wrap {
-  display: flex;
-  flex-wrap: wrap;
-}
-.hero-element__wrap__background {
+.hero-element__background {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-.hero-element__wrap__background img {
+.hero-element__background img {
   position: absolute;
   top: 0;
   left: 0;
@@ -347,7 +380,7 @@ Hero block
   height: 100%;
   object-fit: cover;
 }
-.hero-element__wrap__background:after {
+.hero-element__background:after {
   position: absolute;
   display: block;
   content: "";
@@ -356,22 +389,23 @@ Hero block
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
 }
-.hero-element__wrap__content {
+.hero-element__content {
   display: flex;
   flex-wrap: wrap;
   z-index: 3;
   justify-content: center;
   margin: 0 auto;
 }
-.hero-element__wrap__content__constraint {
-  padding: 18rem 6rem;
+.hero-element__constraint {
+  padding: 24rem 2rem;
   position: relative;
   z-index: 3;
+  max-width: 768px;
 }
 @media only screen and (max-width: 767px) {
-  .hero-element__wrap__content__constraint {
+  .hero-element__constraint {
     padding: 8rem 2rem;
   }
 }
@@ -385,33 +419,27 @@ Modules
 /*------------------------------------------------------------------
 Image Block
 ------------------------------------------------------------------*/
-body .image-element__wrap img {
+body .image-element img {
   width: 100%;
   height: auto;
   display: block;
+  margin-bottom: -3rem;
 }
-body .image-element__wrap__caption {
+body .image-element__caption {
   background: var(--secondary-color);
   position: absolute;
-  bottom: 3rem;
+  bottom: 0;
   left: 2rem;
   padding: 1rem 4rem;
   box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(15, 23, 42, 0.1) 0px 20px 25px -5px, rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
   transform: translateX(-1rem);
 }
 @media only screen and (max-width: 767px) {
-  body .image-element__wrap__caption {
+  body .image-element__caption {
     position: relative;
     width: calc(100% - 2rem);
     padding: 1rem 2rem;
   }
-  body .image-element__wrap__caption p {
-    font-size: 1.2rem;
-  }
-}
-body .image-element__wrap__caption p {
-  color: #ffffff;
-  margin: 0;
 }
 
 /*------------------------------------------------------------------

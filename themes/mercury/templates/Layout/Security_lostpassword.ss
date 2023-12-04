@@ -13,7 +13,7 @@
 
             <div class="login__form__wrap__copy">
                 
-                <h2>Lost your password?</h2>
+                <h1>Lost your password?</h1>
                 
                 <p>Enter your email andress to receive a reset link.</p>
 

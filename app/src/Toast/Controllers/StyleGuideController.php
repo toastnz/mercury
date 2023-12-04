@@ -101,7 +101,7 @@ class StyleGuideController extends Controller
         return $arrayData->renderWith('Toast\Includes\Banner');
     }
 
-    public function IntroBlock()
+    public function IntroElement()
     {
         $arrayData = new ArrayData([
             'Content' => DBField::create_field(DBHTMLText::class, '<h2 class="text-center">A simple narrow text block.</h2><p class="text-center">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
@@ -352,7 +352,7 @@ class StyleGuideController extends Controller
         return $arrayData->renderWith('Toast\Elements\VideoElement');
     }
 
-    public function ImageBlock()
+    public function ImageElement()
     {
         $arrayData = new ArrayData([
             'Image'   => Image::find('placeholder.jpg'),
@@ -365,19 +365,20 @@ class StyleGuideController extends Controller
 
 
 
-    public function HeroBlock()
+    public function HeroElement()
     {
         $arrayData = new ArrayData([
-            'Width' => 'thin',
-            'BackgroundImage'   => Image::find('placeholder.jpg'),
-            'Content'      => DBField::create_field(DBHTMLText::class, '<h2 class="text-center colour--white">Now a hero block</h2><p class="text-center colour--white">An abstratc image <b>doesn\'t distract</b> the user from reading what is in this text box. You now have their attention to tell them anything that may be <i>important</i> to your brand mission.</p><p class="text-center"><a href="#" class="button">READ MORE</a></p>')
+            'Width'           => 'full',
+            'BackgroundImage' => Image::find('placeholder.jpg'),
+            'Content'         => DBField::create_field(DBHTMLText::class, '<h2 class="text-center colour--white">Now a hero block</h2><p class="text-center colour--white">An abstratc image <b>doesn\'t distract</b> the user from reading what is in this text box. You now have their attention to tell them anything that may be <i>important</i> to your brand mission.</p><p class="text-center"><a href="#" class="button">READ MORE</a></p>')
         ]);
         return $arrayData->renderWith('Toast\Elements\HeroElement   ');
     }
 
-    public function ImageTextBlock()
+    public function ImageTextElement()
     {
         $arrayData = new ArrayData([
+            'Width'           => 'full',
             'Image'   => Image::find('placeholder.jpg'),
             'Content'      => DBField::create_field(DBHTMLText::class, '<h3>An image and text block to show a page or service</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>')
         ]);
@@ -385,7 +386,7 @@ class StyleGuideController extends Controller
     }
 
 
-    public function ImageTextBlockReversed()
+    public function ImageTextElementReversed()
     {
         $arrayData = new ArrayData([
             'Image'   => Image::find('placeholder.jpg'),
@@ -395,7 +396,7 @@ class StyleGuideController extends Controller
         return $arrayData->renderWith('Toast\Elements\ImageTextElement');
     }
 
-    public function AccordionBlock()
+    public function AccordionElement()
     {
 
         $accordionItems = new ArrayList([
@@ -422,7 +423,7 @@ class StyleGuideController extends Controller
 
 
 
-    public function DownloadBlock()
+    public function DownloadElement()
     {
         $files = new ArrayList([
             new ArrayData([

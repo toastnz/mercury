@@ -8,35 +8,35 @@ Modules
 Global element styles
 ------------------------------------------------------------------*/
 
-[class*='element__wrap--'],
-[class$='element__wrap--standard'] {
-  max-width: var.$breakpoint-lg;
-}
-
-[class$='element__wrap--full'] {
-  max-width: 100%;
-}
-
-[class$='element__wrap--wide'] {
-  max-width: var.$breakpoint-xl;
-}
-
-[class$='element__wrap--narrow'] {
-  max-width: var.$breakpoint-xmd;
-}
-
-[class$='element__wrap--thin'] {
-  max-width: var.$breakpoint-sm;
-}
-
 .element {
   margin: 8rem auto;
   position: relative;
-}
+  max-width: var.$breakpoint-lg;
 
-.element>[class*='-element__wrap'] {
-  margin: 0 auto;
-  padding: 0 2rem;
-  position: relative;
-  width: 100%;
+  &.full {
+    max-width: 100%;
+  }
+
+  &.wide {
+    max-width: var.$breakpoint-xl;
+  }
+
+  &.standard {
+    max-width: var.$breakpoint-lg;
+  }
+
+  &.narrow {
+    max-width: var.$breakpoint-xmd;
+  }
+
+  &.thin {
+    max-width: var.$breakpoint-sm;
+  }
+
+  > [class*='__wrap'] {
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    width: 100%;
+  }
 }

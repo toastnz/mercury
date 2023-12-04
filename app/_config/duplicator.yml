@@ -8,6 +8,6 @@ Page:
     - BannerSlides
     - ContentBlocks
 
-Toast\Blocks\AccordionBlock:
+Toast\Blocks\AccordionElement:
   duplicator_relations:
     - Items

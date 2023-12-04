@@ -10,38 +10,26 @@ Image Block
 ------------------------------------------------------------------*/
 body {
   .image-element {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: -3rem;
+    }
 
-    &__wrap {
+    &__caption {
+      background: var.$secondary;
+      position: absolute;
+      bottom: 0;
+      left: 2rem;
+      padding: 1rem 4rem;
+      box-shadow: var.$shadow9;
+      transform: translateX(-1rem);
 
-      img {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-
-      &__caption {
-        background: var.$secondary;
-        position: absolute;
-        bottom: 3rem;
-        left: 2rem;
-        padding: 1rem 4rem;
-        box-shadow: var.$shadow9;
-        transform: translateX(-1rem);
-
-        @include mixin.media(var.$breakpoint-md, max) {
-          position: relative;
-          width: calc(100% - 2rem);
-          padding: 1rem 2rem;
-
-          p {
-            font-size: 1.2rem;
-          }
-        }
-
-        p {
-          color: var.$white;
-          margin: 0;
-        }
+      @include mixin.media(var.$breakpoint-md, max) {
+        position: relative;
+        width: calc(100% - 2rem);
+        padding: 1rem 2rem;
       }
     }
   }

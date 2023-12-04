@@ -2,14 +2,14 @@
 Accordion element
 -------------------------------------------- --%>
 
-<section class="accordion-element [ element ]">
+<div class="accordion-element [ element {$Width} ]">
 
-    <div class="accordion-element__wrap accordion-element__wrap--{$Width}">
+    <div class="accordion-element__wrap">
 
         <% loop $Items %>
 
             <%-- -------------------------------------------- 
-            Accordion element item
+            Item
             -------------------------------------------- --%>
 
             <div class="accordion-element__item [ js-accordion-element ]" id="accordion_{$Pos}_{$ID}">
@@ -30,4 +30,4 @@ Accordion element
 
     </div>
     
-</section>
+</div>

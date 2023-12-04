@@ -13,7 +13,7 @@
 
             <div class="login__form__wrap__copy">
             
-                <h2>Login</h2>
+                <h1>Login</h1>
                 
                 <p>Welcome back! Log in to access your site.</p>
 
@@ -25,7 +25,7 @@
     </div>
 
     <div class="login__image">
-        <img src="$ResourceURL('themes/mercury/dist/images/standard/placeholder.jpg')" loading="lazy">
+        <img src="$ResourceURL('themes/mercury/dist/images/standard/placeholder.jpg')" loading="lazy" alt="abstract placeholder">
     </div>
 
 </div>

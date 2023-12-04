@@ -21,26 +21,8 @@ Download block
       border-top: 1px solid var.$grey-light;
     }
 
-    &__icon {
-      width: 6rem;
-      position: relative;
-      top: 0.5rem;
-
-      svg {
-        overflow: visible;
-
-        path {
-          transition: all 222ms ease;
-        }
-      }
-    }
-
-    &__details {
-      width: calc(100% - 6rem);
-    }
-
     &:hover {
-      .download-element__item__details b {
+      .download-element__details b {
         color: var.$primary;
       }
 
@@ -51,6 +33,28 @@ Download block
           transform: translateY(3px);
         }
       }
+    }
+  }
+
+  &__icon {
+    width: 6rem;
+    position: relative;
+    top: 0.5rem;
+
+    svg {
+      overflow: visible;
+
+      path {
+        transition: all var.$fast;
+      }
+    }
+  }
+
+  &__details {
+    width: calc(100% - 6rem);
+
+    b {
+      transition: all var.$fast;
     }
   }
 }

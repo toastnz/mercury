@@ -62,7 +62,6 @@ Text block
       max-width: 100%;
 
       @include mixin.media(var.$breakpoint-lg) {
-
         &.left,
         &.leftALone {
           float: left;

@@ -1,39 +1,41 @@
 
-
 $Banner
 
-$IntroBlock
+$IntroElement
+
+$AccordionElement
+
+$DownloadElement
+
+$HeroElement
+
+$ImageElement
+
+$ImageTextElement
+
 
 $Slider
 
 
-$ImageTextBlock
 
-$ImageTextBlockReversed
+$ImageTextElementReversed
 
 $TabbedContentBlock
 
-$HeroBlock
 
 $SplitText
 
-$AccordionBlock
 
-$ImageBlock
 
-$DownloadBlock
+
+
 
 
 $VideoBlock
 
-
 $LinkBlock
 
 $TextBlock
-
-
-
-
 
 <section class="element text-element text-element--">
     <div class="text-element__wrap text-element__wrap--">
