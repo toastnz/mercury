@@ -9,39 +9,34 @@ Modules
 Testimonial element
 ------------------------------------------------------------------*/
 
-.testimonials-element {
-  &__wrap {
-    &__heading {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 4rem;
+.testimonial-element {
+  &__heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  &__item {
+    max-width: var.$breakpoint-md;
+    margin: 0 auto;
+    text-align: center;
+    background: var.$secondary;
+    box-shadow: var.$shadow9;
+    border-radius: 0.5rem;
+    padding: 6rem;
+
+    img {
+      width: 4rem;
+      height: auto;
+      margin: 0 auto 4rem;
     }
+  }
+  &__credit {
+    color: white;
+    margin-top: 4rem;
 
-    &__slider {
-      &__item {
-        max-width: var.$breakpoint-md;
-        margin: 0 auto;
-        text-align: center;
-        background: var.$primary;
-        box-shadow: var.$shadow9;
-        border-radius: 0.5rem;
-        padding: 6rem;
-
-        img {
-          width: 4rem;
-          height: auto;
-          margin: 0 auto 4rem;
-        }
-
-        &__credit {
-          color: white;
-          margin-top: 4rem;
-
-          p {
-            margin: 0 !important;
-          }
-        }
-      }
+    p {
+      margin: 0 !important;
     }
   }
 

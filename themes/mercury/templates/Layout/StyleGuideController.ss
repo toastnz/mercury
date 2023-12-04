@@ -3,6 +3,10 @@ $Banner
 
 $IntroElement
 
+$TabbedElement
+
+$TestimonialElement
+
 $AccordionElement
 
 $DownloadElement
@@ -13,27 +17,13 @@ $ImageElement
 
 $ImageTextElement
 
-
-$Slider
-
-
-
 $ImageTextElementReversed
 
-$TabbedContentBlock
+$VideoElement
 
+$LinkElement
 
-$SplitText
-
-
-
-
-
-
-
-$VideoBlock
-
-$LinkBlock
+$Slider
 
 $TextBlock
 

@@ -1,41 +1,44 @@
 <%------------------------------------------------------------------
-Testimonial block
+Testimonial element
 ------------------------------------------------------------------%>
 
 <% if $Items.Count %>
-    <section class="element testimonials-element">
+    <div class="testimonial-element [ element {$Width} ]">
         
-        <div class="testimonials-element__wrap">
+        <div class="testimonial-element__wrap">
 
-            <div class="testimonials-element__wrap__heading">
-                <% if $Heading %>
+            <% if $Heading %>
+                <div class="testimonial-element__heading">
                     <h3>$Heading.XML</h3>
-                <% end_if %>
-            </div>
+                </div>
+            <% end_if %>
             
             <%------------------------------------------------------------------
-            Testimonial slider
+            Slider
             ------------------------------------------------------------------%>
-            <div class="testimonials-element__wrap__slider [ js-slider-testimonials-{$ID} ]">
+            <div class="testimonial-element__slider [ js-slider-testimonial-{$ID} ]">
                 <% loop $Items.Sort('SortOrder') %>
                     <%------------------------------------------------------------------
-                    Testimonial item
+                    Item
                     ------------------------------------------------------------------%>
-                    <div class="testimonials-element__wrap__slider__item">
+                    <div class="testimonial-element__item">
+
                         <img src="$ResourceURL('themes/mercury/dist/images/svg/quotes.svg')" width="88" height="72" loading="lazy">
 
-                        <div class="testimonials-element__wrap__slider__item__testimonial">
+                        <div class="testimonial-element__testimonial">
                             <h6 class="colour--white">$Testimonial.XML</h6>
                         </div>
-
     
-                        <div class="testimonials-element__wrap__slider__item__credit">
-                            <% if $Author %>
-                                <p class="colour--white"><b>$Author.XML</b></p>
+                        <div class="testimonial-element__credit">
+                            
+                            <% if $Attribution %>
+                                <p class="colour--white"><b>$Attribution.XML</b></p>
                             <% end_if %>
+
                             <% if $Description %>
                                 <p class="colour--white smaller">$Description.XML</p>
                             <% end_if %>
+
                         </div>
 
                     </div>
@@ -45,31 +48,29 @@ Testimonial block
 
         </div>
 
-    </section>
+        <script defer async src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" media="print" onload="this.media='all'">
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            tns({
+              container:'.js-slider-testimonial-{$ID}' ,
+              items: 1,
+              mouseDrag: true,
+              nav: true,
+              controls: true,
+              slideBy: 1,
+              loop: true
+            });
+          });
+
+        </script>
+
+        <style> 
+          .tns-slider {
+              display: flex;
+          }
+        </style>
+    </div>
 <% end_if %>
 
-
-<script defer async src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" media="print" onload="this.media='all'">
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    tns({
-      container:".js-slider-testimonials-{$ID}" ,
-      items: 1,
-      mouseDrag: true,
-      nav: true,
-      controls: true,
-      slideBy: 1,
-      mode: 'gallery',
-      loop: true
-    });
-  });
-
-</script>
-
-<style> 
-  .tns-slider {
-      display: flex;
-  }
-</style>

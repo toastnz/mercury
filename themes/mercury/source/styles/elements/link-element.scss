@@ -13,6 +13,8 @@ Link block
   &__wrap {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 -2rem !important;
+    width: auto !important;
   }
 
   &__item {

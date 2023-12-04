@@ -26,7 +26,7 @@ class ImageTextElement extends BaseElement
 
     private static $db = [
         'Content' => 'HTMLText',
-        'Alignment' => 'Enum("standard,reversed", "standard")',
+        'Alignment' => 'Enum("image-left,image-right", "image-left")',
         'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")',
     ];
 

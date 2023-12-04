@@ -29,33 +29,6 @@ Text block
   }
 
   &__wrap {
-    &--column {
-      display: flex;
-      flex-wrap: wrap;
-
-      @include mixin.media(var.$breakpoint-lg) {
-        &__left {
-          width: 50%;
-          padding-right: 4rem;
-          position: relative;
-
-          &:after {
-            @include mixin.pseudo;
-            top: 2rem;
-            bottom: 2rem;
-            width: 1px;
-            right: 0;
-            background: var.$grey-light;
-          }
-        }
-
-        &__right {
-          width: 50%;
-          padding-left: 4rem;
-        }
-      }
-    }
-
     img {
       display: block;
       height: auto;
