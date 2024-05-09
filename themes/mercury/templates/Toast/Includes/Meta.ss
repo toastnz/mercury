@@ -34,18 +34,26 @@ Favicons Template
 $FaviconMetaTags
 
 
-<%-- --------------------------------------------------------------
-Google Tag manager
--------------------------------------------------------------- --%>
+<!-- --------------------------------------------------------------
+Google tracking
+-------------------------------------------------------------- -->
 
-<% if $SiteConfig.GoogleTagManagerID %>
-    <script async src="https://www.googletagmanager.com/gtag/js?id={$SiteConfig.GoogleTagManagerID}"></script>
+<% if not $getDoNotTrack %>
+    <% if $SiteConfig.GoogleAnalytics %>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id={$SiteConfig.GoogleAnalytics}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '{$SiteConfig.GoogleAnalytics}');
+        </script>
+    <% end_if %>
+<% else %>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '{$SiteConfig.GoogleTagManagerID}');
+        // Avoid any errors
+        window.dataLayer = [];
     </script>
 <% end_if %>
 
@@ -64,20 +72,6 @@ Bugherd
     </script>
 <% end_if %>
 
-<%-- --------------------------------------------------------------
-Google tracking
--------------------------------------------------------------- --%>
-
-<% if $SiteConfig.GoogleAnalytics %>
-    <script async src="https://www.googletagmanager.com/gtag/js?id={$SiteConfig.GoogleAnalytics}"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', '{$SiteConfig.GoogleAnalytics}');
-    </script>
-<% end_if %>
 
 <%-- --------------------------------------------------------------
 Styles

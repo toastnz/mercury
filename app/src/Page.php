@@ -96,4 +96,13 @@ class PageController extends ContentController
         return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
     }
 
+    // Function to check page headers and look for HTTP_DNT
+    public function getDoNotTrack()
+    {
+        if (isset($_SERVER['HTTP_DNT']) && $_SERVER['HTTP_DNT'] == 1) {
+            return true;
+        }
+        return false;
+    }
+
 }
