@@ -134,12 +134,8 @@ class SiteConfigExtension extends DataExtension
 
             $fields->addFieldsToTab('Root.APIKeys', [
                 HeaderField::create('APIKeys', 'External API Keys'),
-                TextField::create('GoogleAnalytics', 'Google Analytics Account Number')
-                    ->setAttribute('placeholder', 'UA-XXXXXX-Y')
-                    ->setDescription('Enter your <a href="https://support.google.com/analytics/answer/1008080?hl=en#GAID" target="_blank">Google Analytics Account Number</a> to enable Google Analytics on your site.'),
-                TextField::create('GoogleTagManagerID', 'Google Tag Manager ID')
-                    ->setAttribute('placeholder', 'GTM-XXXXXX')
-                    ->setDescription('Enter your <a href="https://support.google.com/analytics/answer/1008080?hl=en#GAID" target="_blank">Google Tag Manager ID</a> to enable Google Tag Manager on your site.'),
+                TextField::create('GoogleAnalytics', 'Google Analytics Measurement ID or GTM ID')
+                    ->setAttribute('placeholder', 'G-XXXXXXXXXXX or GTM-XXXXXX')
                 TextField::create('BugherdProjectKey', 'Bugherd Project Key')
                     ->setAttribute('placeholder', 'xxxxxxxxxxxxxxxxxxxxxx')
                     ->setDescription('Enter your <a href="https://support.bugherd.com/hc/en-us/articles/204171450-Installing-the-Script" target="_blank">Bugherd Project Key</a> to enable Bugherd tracking for you site.'),
