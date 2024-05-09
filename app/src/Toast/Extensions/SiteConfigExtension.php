@@ -134,9 +134,9 @@ class SiteConfigExtension extends DataExtension
 
             $fields->addFieldsToTab('Root.APIKeys', [
                 HeaderField::create('APIKeys', 'External API Keys'),
-                TextField::create('GoogleAnalytics', 'Google Analytics Account Number')
-                    ->setAttribute('placeholder', 'UA-XXXXXX-Y')
-                    ->setDescription('Enter your <a href="https://support.google.com/analytics/answer/1008080?hl=en#GAID" target="_blank">Google Analytics Account Number</a> to enable Google Analytics on your site.'),
+                TextField::create('GoogleAnalytics', 'Google Analytics Measurement ID')
+                    ->setAttribute('placeholder', 'G-XXXXXXXXXXX')
+                    ->setDescription('Enter your <a href="https://support.google.com/analytics/topic/9303319?hl=en&ref_topic=9143232" target="_blank">Google Analytics 4 Measurement ID</a> to enable Google Analytics 4 on your site.'),
                 TextField::create('GoogleTagManagerID', 'Google Tag Manager ID')
                     ->setAttribute('placeholder', 'GTM-XXXXXX')
                     ->setDescription('Enter your <a href="https://support.google.com/analytics/answer/1008080?hl=en#GAID" target="_blank">Google Tag Manager ID</a> to enable Google Tag Manager on your site.'),
