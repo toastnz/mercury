@@ -39,7 +39,7 @@ Google Tag manager
 -------------------------------------------------------------- --%>
 
 <% if $SiteConfig.GoogleTagManagerID %>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNQ3EJR02"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={$SiteConfig.GoogleTagManagerID}"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -69,7 +69,7 @@ Google tracking
 -------------------------------------------------------------- --%>
 
 <% if $SiteConfig.GoogleAnalytics %>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YKNQ3EJR02"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id={$SiteConfig.GoogleAnalytics}"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
