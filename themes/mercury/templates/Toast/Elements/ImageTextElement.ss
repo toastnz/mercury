@@ -7,7 +7,7 @@ Image and text block
 
         <% if $Image %>
             <div class="image-element__image">
-                <img src="$Image.FocusFill(1200,800).URL" width="1200" height="800" loading="lazy">
+                <img src="$Image.FocusFill(1200,800).URL" width="1200" height="800" loading="lazy" alt="$Image.title">
             </div>
         <% end_if %>
         

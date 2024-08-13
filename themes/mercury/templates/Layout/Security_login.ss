@@ -25,7 +25,7 @@
     </div>
 
     <div class="login__image">
-        <img src="$ResourceURL('themes/mercury/dist/images/standard/placeholder.jpg')" loading="lazy" alt="abstract placeholder">
+        <img src="$ResourceURL('themes/mercury/dist/images/standard/placeholder.webp')" loading="lazy" alt="abstract placeholder">
     </div>
 
 </div>

@@ -23,7 +23,7 @@ Testimonial element
                     ------------------------------------------------------------------%>
                     <div class="testimonial-element__item">
 
-                        <img src="$ResourceURL('themes/mercury/dist/images/svg/quotes.svg')" width="88" height="72" loading="lazy">
+                        <img src="$ResourceURL('themes/mercury/dist/images/svg/quotes.svg')" width="88" height="72" loading="lazy" alt="quote marks">
 
                         <div class="testimonial-element__testimonial">
                             <h6 class="colour--white">$Testimonial.XML</h6>

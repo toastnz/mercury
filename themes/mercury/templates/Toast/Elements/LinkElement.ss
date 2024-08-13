@@ -10,7 +10,7 @@
                             <img src="$Icon.URL" loading="lazy" alt="$Icon.Title">
                         </div>
                     <% else_if $Image %>
-                        <img  class="link-element__image" src="$Image.FocusFill(600,400).URL" width="600" height="300" loading="lazy">
+                        <img  class="link-element__image" src="$Image.FocusFill(600,400).URL" width="600" height="300" loading="lazy" alt="$Image.title">
                     <% end_if %>
 
                     <div class="link-element__content">

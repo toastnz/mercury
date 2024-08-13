@@ -7,9 +7,9 @@ Video element
 
         <a href="#" class="video-element__thumbnail [ js-video-element ]" data-video-id="{$Video.VideoID}" data-video-source="$Video.Service.LowerCase" data-id="video-element--{$ID}">
             <% if $Thumbnail %>
-                <img src="$Thumbnail.FocusFill(1920,1080).URL" width="1920" height="1080" loading="lazy">
+                <img src="$Thumbnail.FocusFill(1920,1080).URL" width="1920" height="1080" loading="lazy" alt="$Thumbnail.title">
             <% else %>
-                <img src="$Video.ThumbnailURL" width="1920" height="1080" loading="lazy">
+                <img src="$Video.ThumbnailURL" width="1920" height="1080" loading="lazy" alt="$Video.ID">
             <% end_if %>                
         </a>
 

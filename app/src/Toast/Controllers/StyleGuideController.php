@@ -27,11 +27,11 @@ class StyleGuideController extends Controller
     public function init()
     {
 
-        $image = File::find('placeholder.jpg');
+        $image = File::find('placeholder.webp');
 
         if (!$image) {
             $file = Image::create();
-            $file->setFromLocalFile('_resources/themes/mercury/dist/images/standard/placeholder.jpg', 'placeholder.jpg');
+            $file->setFromLocalFile('_resources/themes/mercury/dist/images/standard/placeholder.webp', 'placeholder.webp');
             $file->write();
             if (class_exists(Versioned::class)) {
                 $file->copyVersionToStage(Versioned::DRAFT, Versioned::LIVE);
@@ -46,22 +46,22 @@ class StyleGuideController extends Controller
     // {
     //     $Slides = new ArrayList([
     //         new ArrayData([
-    //             'Image' => Image::find('placeholder.jpg'),
+    //             'Image' => Image::find('placeholder.webp'),
     //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
     //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
     //         ]),
     //         new ArrayData([
-    //             'Image' => Image::find('placeholder.jpg'),
+    //             'Image' => Image::find('placeholder.webp'),
     //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
     //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
     //         ]),
     //         new ArrayData([
-    //             'Image' => Image::find('placeholder.jpg'),
+    //             'Image' => Image::find('placeholder.webp'),
     //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
     //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
     //         ]),
     //         new ArrayData([
-    //             'Image' => Image::find('placeholder.jpg'),
+    //             'Image' => Image::find('placeholder.webp'),
     //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
     //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
     //         ])
@@ -81,15 +81,15 @@ class StyleGuideController extends Controller
     {
         $BannerSlides = new ArrayList([
             new ArrayData([
-                'BackgroundImage' => Image::find('placeholder.jpg'),
+                'BackgroundImage' => Image::find('placeholder.webp'),
                 'Content' => DBField::create_field(DBHTMLText::class, '<h1 class="colour--white">A simple narrow text block.</h1><p class="colour--white">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
             ]),
             new ArrayData([
-                'BackgroundImage' => Image::find('placeholder.jpg'),
+                'BackgroundImage' => Image::find('placeholder.webp'),
                 'Content' => DBField::create_field(DBHTMLText::class, '<h1 class="colour--white">A simple narrow text block.</h1><p class="colour--white">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
             ]),
             new ArrayData([
-                'BackgroundImage' => Image::find('placeholder.jpg'),
+                'BackgroundImage' => Image::find('placeholder.webp'),
                 'Content' => DBField::create_field(DBHTMLText::class, '<h1 class="colour--white">A simple narrow text block.</h1><p class="colour--white">If you are wanting to grab the attention of your user, you are best to keep it short and sharp to avoid confusion.</p>'),
             ])
         ]);
@@ -236,32 +236,32 @@ class StyleGuideController extends Controller
     {
         $Items = new ArrayList([
             new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
+                'Image' => Image::find('placeholder.webp'),
                 'Title' => 'Dolor sit dolor',
                 'Summary' => 'Esse officia consectetur sit proident ipsum mollit fugiat amet veniam ipsum velit.'
             ]),
             new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
+                'Image' => Image::find('placeholder.webp'),
                 'Title' => 'Adipisicing sunt',
                 'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut fugiat non in nisi occaecat ut aliquip.'
             ]),
             new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
+                'Image' => Image::find('placeholder.webp'),
                 'Title' => 'Occaecat eiusmod qui',
                 'Summary' => 'Adipisicing sunt fugiat tempor elit Lorem ullamco mollit sit veniam.'
             ]),
             new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
+                'Image' => Image::find('placeholder.webp'),
                 'Title' => 'Dolor sit dolor',
                 'Summary' => 'Esse officia consectetur sit proident ipsum mollit fugiat amet veniam ipsum velit.'
             ]),
             new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
+                'Image' => Image::find('placeholder.webp'),
                 'Title' => 'Adipisicing sunt',
                 'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut fugiat non in nisi occaecat ut aliquip.'
             ]),
             new ArrayData([
-                'Image' => Image::find('placeholder.jpg'),
+                'Image' => Image::find('placeholder.webp'),
                 'Title' => 'Occaecat eiusmod qui',
                 'Summary' => 'Adipisicing sunt fugiat tempor elit Lorem ullamco mollit sit veniam.'
             ]),
@@ -278,11 +278,11 @@ class StyleGuideController extends Controller
 
     public function index()
     {
-        if (is_null(Security::getCurrentUser())) {
-            return $this->redirect('Security/login?BackURL=_styleguide');
-        } else {
+        // if (is_null(Security::getCurrentUser())) {
+            // return $this->redirect('Security/login?BackURL=_styleguide');
+        // } else {
             return $this->renderWith(['StyleGuideController', 'Page']);
-        }
+        // }
     }
 
     public function decodedTypeCSS()
@@ -351,7 +351,7 @@ class StyleGuideController extends Controller
             ]),
             'Caption'     => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
             'ThumbnailID' => 12,
-            'Thumbnail'   => Image::find('placeholder.jpg')
+            'Thumbnail'   => Image::find('placeholder.webp')
         ]);
         return $arrayData->renderWith('Toast\Elements\VideoElement');
     }
@@ -359,7 +359,7 @@ class StyleGuideController extends Controller
     public function ImageElement()
     {
         $arrayData = new ArrayData([
-            'Image'   => Image::find('placeholder.jpg'),
+            'Image'   => Image::find('placeholder.webp'),
             'Width'   => 'standard',
             'Sizes'   => '320,480,768,1024,1280,1920',
             'Caption' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
@@ -373,7 +373,7 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Width'           => 'full',
-            'BackgroundImage' => Image::find('placeholder.jpg'),
+            'BackgroundImage' => Image::find('placeholder.webp'),
             'Content'         => DBField::create_field(DBHTMLText::class, '<h2 class="text-center colour--white">Now a hero block</h2><p class="text-center colour--white">An abstratc image <b>doesn\'t distract</b> the user from reading what is in this text box. You now have their attention to tell them anything that may be <i>important</i> to your brand mission.</p><p class="text-center"><a href="#" class="button">READ MORE</a></p>')
         ]);
         return $arrayData->renderWith('Toast\Elements\HeroElement   ');
@@ -383,7 +383,7 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Width'   => 'wide',
-            'Image'   => Image::find('placeholder.jpg'),
+            'Image'   => Image::find('placeholder.webp'),
             'Content' => DBField::create_field(DBHTMLText::class, '<h3>An image and text block to show a page or service</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
             'Alignment'     => 'image-right'
         ]);
@@ -395,7 +395,7 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Width'         => 'wide',
-            'Image'         => Image::find('placeholder.jpg'),
+            'Image'         => Image::find('placeholder.webp'),
             'Content'       => DBField::create_field(DBHTMLText::class, '<h3>Or a an image on the other side</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
             'Alignment'     => 'image-left'
         ]);
@@ -433,13 +433,13 @@ class StyleGuideController extends Controller
     {
         $files = new ArrayList([
             new ArrayData([
-                'File' => Image::find('placeholder.jpg'),
+                'File' => Image::find('placeholder.webp'),
             ]),
             new ArrayData([
-                'File' => Image::find('placeholder.jpg'),
+                'File' => Image::find('placeholder.webp'),
             ]),
             new ArrayData([
-                'File' => Image::find('placeholder.jpg'),
+                'File' => Image::find('placeholder.webp'),
             ])
         ]);
         $arrayData = new ArrayData([
