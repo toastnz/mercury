@@ -55,6 +55,7 @@ Breadcrumbs
         top: 2px;
         opacity: 0.2;
 
+
         polygon,
         path {
           fill: inherit;
@@ -104,6 +105,9 @@ Breadcrumbs
     &__social {
       @include mixin.vertical-align;
       right: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
 
       @include mixin.media(var.$breakpoint-md, max) {
         right: 1.2rem;
@@ -125,7 +129,7 @@ Breadcrumbs
       }
 
       &__link {
-        @include mixin.svg(1, 1);
+        aspect-ratio: 1 / 1;
         display: inline-block;
         vertical-align: middle;
         text-decoration: none;
@@ -134,8 +138,14 @@ Breadcrumbs
         transition: all 222ms ease;
         backface-visibility: hidden;
 
-        path {
-          fill: var.$primary;
+        svg {
+          width: 100%;
+          height: auto;
+          display: block;
+
+          path {
+            fill: var.$primary;
+          }
         }
 
         &:hover {

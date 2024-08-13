@@ -25,15 +25,15 @@ Image and text block
     align-content: center;
     text-align: center;
 
+    img {
+      width: 100%;
+      height: auto;
+    }
+
     @include mixin.media(var.$breakpoint-xmd, max) {
       width: 100%;
       transform: none !important;
       order: 1 !important;
-    }
-
-    img {
-      width: 100%;
-      height: auto;
     }
   }
 

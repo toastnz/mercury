@@ -12,6 +12,7 @@ Video block
 .video-element {
   &__wrap {
     position: relative;
+    width: 100%;
   }
 
   &__player {
@@ -33,9 +34,11 @@ Video block
   }
 
   &__thumbnail {
-    @include mixin.aspect(1920, 1080);
+    aspect-ratio: 1920 / 1080;
+    width: 100%;
     position: relative;
     overflow: hidden;
+    display: block;
 
     &.playing {
       ~.video-element__player {
