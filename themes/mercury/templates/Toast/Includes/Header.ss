@@ -6,7 +6,8 @@ Show notification
 -------------------------------------------- --%>
 <% if $Siteconfig.ShowNotification %>
      <% include Toast\Includes\Notification %>
-<% end_if %>
+<% end_if %> 
+
 
 
     <div class="header__wrap <% if $Siteconfig.MakeHeaderFullWidth %>header__wrap--full<% end_if %>">

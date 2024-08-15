@@ -32,7 +32,8 @@
         "dnadesign/silverstripe-elemental": "^5.1",
         "symfony/sendgrid-mailer": "^6.3",
         "symfony/http-client": "^6.3",
-        "toastnz/linkable": "^3.0"
+        "toastnz/linkable": "^3.0",
+        "atwx/silverstripe-vitehelper": "^0.1.0"
     },
     "repositories": [
         {

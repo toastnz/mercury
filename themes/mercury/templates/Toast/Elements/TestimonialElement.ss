@@ -36,7 +36,7 @@ Testimonial element
                             <% end_if %>
 
                             <% if $Description %>
-                                <p class="colour--white smaller">$Description.XML</p>
+                                <p class="colour--white smaller no-margin">$Description.XML</p>
                             <% end_if %>
 
                         </div>

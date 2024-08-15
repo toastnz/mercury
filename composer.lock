@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a9b6ea0b42c5a1863bd11852c11d5d63",
+    "content-hash": "803b92172c603e656e1dcf8350797d3e",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -45,6 +45,44 @@
                 "source": "https://github.com/silverstripe/doorman/tree/4.0.0"
             },
             "time": "2023-03-30T00:40:44+00:00"
+        },
+        {
+            "name": "atwx/silverstripe-vitehelper",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/atwx/silverstripe-vitehelper.git",
+                "reference": "69a623c1042e523c8a0e099f43d2c73dcc48188b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/atwx/silverstripe-vitehelper/zipball/69a623c1042e523c8a0e099f43d2c73dcc48188b",
+                "reference": "69a623c1042e523c8a0e099f43d2c73dcc48188b",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^5.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "Atwx\\ViteHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "A helper to use vitejs with silverstripe cms",
+            "keywords": [
+                "cms",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/atwx/silverstripe-vitehelper/issues",
+                "source": "https://github.com/atwx/silverstripe-vitehelper/tree/0.1.0"
+            },
+            "time": "2024-01-22T10:50:55+00:00"
         },
         {
             "name": "axllent/silverstripe-form-fields",
@@ -7386,5 +7424,5 @@
         "php": ">=8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

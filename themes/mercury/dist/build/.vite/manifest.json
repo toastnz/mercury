@@ -1,0 +1,29 @@
+{
+  "themes/mercury/src/js/components/accordion.js": {
+    "file": "accordion-DpEiqn1p.js",
+    "name": "accordion",
+    "src": "themes/mercury/src/js/components/accordion.js",
+    "isDynamicEntry": true
+  },
+  "themes/mercury/src/js/components/video.js": {
+    "file": "video-btIRJfZk.js",
+    "name": "video",
+    "src": "themes/mercury/src/js/components/video.js",
+    "isDynamicEntry": true
+  },
+  "themes/mercury/src/js/main.js": {
+    "file": "main.js",
+    "name": "main.js",
+    "src": "themes/mercury/src/js/main.js",
+    "isEntry": true,
+    "dynamicImports": [
+      "themes/mercury/src/js/components/accordion.js",
+      "themes/mercury/src/js/components/video.js"
+    ]
+  },
+  "themes/mercury/src/styles/main.scss": {
+    "file": "main.css",
+    "src": "themes/mercury/src/styles/main.scss",
+    "isEntry": true
+  }
+}

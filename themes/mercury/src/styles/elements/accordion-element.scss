@@ -17,7 +17,7 @@ Accordion Element
 
     &.active {
       .accordion-element__trigger:after {
-        transform: rotate(0) !important;
+        transform: rotate(0);
       }
     }
 

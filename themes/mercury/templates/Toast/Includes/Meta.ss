@@ -102,8 +102,12 @@ Styles
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<% require css("themes/mercury/dist/styles/main.css") %>
+<%-- <% require css("themes/mercury/dist/styles/main.css") %> --%>
 
+
+    $ViteClient.RAW
+    <link rel="stylesheet" href="$Vite("themes/mercury/dist/scss/main.scss")">
+    <script type="module" src="$Vite("themes/mercury/dist/js/main.js")"></script>
 <%-- --------------------------------------------------------------
 Postload 
 -------------------------------------------------------------- --%>

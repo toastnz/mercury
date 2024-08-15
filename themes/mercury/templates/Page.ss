@@ -32,7 +32,7 @@
 
         </div>
 
-        <% require javascript("themes/mercury/dist/scripts/main.js") %>
+        <%-- <% require javascript("themes/mercury/dist/scripts/main.js") %> --%>
 
         <%-- --------------------------------------------------------------
         Footer code injection

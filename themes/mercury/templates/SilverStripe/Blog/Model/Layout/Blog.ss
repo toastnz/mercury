@@ -76,7 +76,7 @@ Sidebar
 				<div class="sidebar-wrap__sidebar__recent__list">
 					<% loop $LatestNews(3).Exclude('ID', $ID) %>
 						<a href="{$Link}" class="sidebar-wrap__sidebar__recent__list__item">
-							<h6><b>$Title</b>$SVG('arrow-right') </h6>
+							<h6 class="no-margin"><b>$Title</b>$SVG('arrow-right') </h6>
 							<p class="colour--primary smaller">$PublishDate.format('dd MMMM, YYYY')</p>
 						</a>
 					<% end_loop %>

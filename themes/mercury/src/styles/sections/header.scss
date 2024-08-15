@@ -24,7 +24,7 @@ Styles
     box-shadow: none;
     background: transparent;
 
-    + .banner {
+    +.banner {
       margin-top: 0;
     }
   }
@@ -45,7 +45,7 @@ Styles
     max-width: var.$breakpoint-xl;
     margin: 0 auto;
     padding: 0 2rem;
-        
+
 
     &--full {
       max-width: 100%;

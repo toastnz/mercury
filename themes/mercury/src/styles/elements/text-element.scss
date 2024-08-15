@@ -10,7 +10,7 @@ Text block
 ------------------------------------------------------------------*/
 
 .text-element {
-  &--off-white {
+  &.off-white {
     padding: 8rem 0;
     background: var.$off-white;
 
@@ -19,7 +19,7 @@ Text block
     }
   }
 
-  &--primary {
+  &.primary {
     padding: 8rem 0;
     background: var.$primary;
 
@@ -35,6 +35,7 @@ Text block
       max-width: 100%;
 
       @include mixin.media(var.$breakpoint-lg) {
+
         &.left,
         &.leftALone {
           float: left;

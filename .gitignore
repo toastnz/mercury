@@ -14,3 +14,4 @@
 /.graphql-generated/
 /public/_graphql/
 /public/.graphql-generated/
+.ddev

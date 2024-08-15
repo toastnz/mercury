@@ -1,7 +1,7 @@
 <% if $Content %>
-	<section class="text-element [ element {$Width} {$BackgroundColour} ]">
+	<div class="text-element [ element {$Width} {$BackgroundColour} ]">
 		<div class="text-element__wrap">
 			{$Content}
 		</div>
-	</section>
+	</div>
 <% end_if %>
