@@ -23,11 +23,11 @@ Download block
 
     &:hover {
       .download-element__details b {
-        color: var.$primary;
+        color: var(--color-primary);
       }
 
       path {
-        fill: var.$primary;
+        fill: var(--color-primary);
 
         &:last-of-type {
           transform: translateY(3px);

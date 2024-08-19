@@ -21,7 +21,7 @@ Text block
 
   &.primary {
     padding: 8rem 0;
-    background: var.$primary;
+    background: var(--color-primary);
 
     .text-element__wrap {
       margin: 0 auto;

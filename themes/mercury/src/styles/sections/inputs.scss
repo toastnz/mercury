@@ -35,13 +35,13 @@ textarea {
   }
 
   &:hover {
-    border-color: var.$primary;
+    border-color: var(--color-primary);
   }
 
   &:focus {
-    border-color: var.$primary;
+    border-color: var(--color-primary);
     outline: 0;
-    box-shadow: 0 0 0 2px rgba(var.$primary, 0.2);
+    box-shadow: 0 0 0 2px rgba(var(--color-primary), 0.2);
   }
 }
 
@@ -149,8 +149,8 @@ input[type='checkbox'] {
   &:checked {
     +label {
       &:before {
-        background: var.$primary;
-        border-color: var.$primary;
+        background: var(--color-primary);
+        border-color: var(--color-primary);
       }
 
       &:after {
@@ -205,8 +205,8 @@ input[type='radio'] {
   &:checked {
     +label {
       &:before {
-        background: var.$primary;
-        border-color: var.$primary;
+        background: var(--color-primary);
+        border-color: var(--color-primary);
       }
 
       &:after {

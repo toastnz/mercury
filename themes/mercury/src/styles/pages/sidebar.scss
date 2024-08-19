@@ -66,13 +66,13 @@ Sidebar wrap
           }
 
           &:hover h6 {
-            color: var.$primary;
+            color: var(--color-primary);
 
             svg {
               transform: translateX(0.5rem);
 
               path {
-                fill: var.$primary;
+                fill: var(--color-primary);
               }
             }
           }
@@ -91,7 +91,7 @@ Sidebar wrap
     font-size: 1.4rem;
     padding: 0.4rem 2rem;
     background: var.$off-white;
-    color: var.$primary;
+    color: var(--color-primary);
     border-radius: 10rem;
     margin: 0 0.5rem 0.5rem 0;
     display: inline-block;
@@ -99,7 +99,7 @@ Sidebar wrap
 
     &:hover {
       color: white;
-      background: var.$primary;
+      background: var(--color-primary);
     }
   }
 }

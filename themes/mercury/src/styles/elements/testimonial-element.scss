@@ -20,7 +20,7 @@ Testimonial element
     max-width: var.$breakpoint-md;
     margin: 0 auto;
     text-align: center;
-    background: var.$secondary;
+    background: var(--color-secondary);
     box-shadow: var.$shadow9;
     border-radius: 0.5rem;
     padding: 6rem;

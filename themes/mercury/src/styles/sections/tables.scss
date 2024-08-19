@@ -53,7 +53,7 @@ table {
   }
 
   th {
-    background: var.$primary;
-    color: var.$white;
+    background: var(--color-primary);
+    color: var(--color-white);
   }
 }

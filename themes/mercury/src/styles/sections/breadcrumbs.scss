@@ -42,7 +42,7 @@ Breadcrumbs
     display: inline-block;
     vertical-align: middle;
     padding: 2.4rem 1rem;
-    color: var.$primary;
+    color: var(--color-primary);
 
     @include mixin.media(var.$breakpoint-md, max) {
       padding-left: 0.2rem;
@@ -90,15 +90,15 @@ Breadcrumbs
     }
 
     &--link {
-      color: var.$primary;
+      color: var(--color-primary);
 
       &:hover {
-        color: var.$primary;
+        color: var(--color-primary);
       }
     }
 
     &--current {
-      color: var.$primary;
+      color: var(--color-primary);
     }
   }
 
@@ -144,7 +144,7 @@ Breadcrumbs
         display: block;
 
         path {
-          fill: var.$primary;
+          fill: var(--color-primary);
         }
       }
 

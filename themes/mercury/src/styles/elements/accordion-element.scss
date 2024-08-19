@@ -44,7 +44,7 @@ Accordion Element
       @include mixin.pseudo;
       width: 2.2rem;
       height: 0.3rem;
-      background: var.$primary;
+      background: var(--color-primary);
       position: absolute;
       right: 0;
       top: 50%;

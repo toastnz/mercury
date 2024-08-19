@@ -88,15 +88,15 @@ html body {
 
 .colour--white,
 .color--white {
-    color: var.$white !important;
+    color: var(--color-white) !important;
 }
 
 .colour--primary,
 .color--primary {
-    color: var.$primary !important;
+    color: var(--color-primary) !important;
 }
 
 .colour--secondary,
 .color--secondary {
-    color: var.$secondary !important;
+    color: var(--color-secondary) !important;
 }

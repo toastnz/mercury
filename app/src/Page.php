@@ -4,7 +4,9 @@ use Toast\Helpers\Helper;
 use Toast\Models\BannerSlide;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use SilverStripe\Control\Director;
 use SilverStripe\Forms\FieldGroup;
+use SilverStripe\View\Requirements;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\Forms\CheckboxField;
@@ -74,7 +76,7 @@ class Page extends SiteTree
     public static function ElementShortCode($arguments, $content = null, $parser = null, $tagName = null)
     {
         if (isset($arguments['id'])) {
-            if ($id = (int)$arguments['id']) {
+            if ($id = (int) $arguments['id']) {
                 if ($baseElement = BaseElement::get()->byID($id)) {
                     $className = $baseElement->ClassName;
                     if ($element = $className::get()->byID($id)) {
@@ -107,5 +109,45 @@ class PageController extends ContentController
     public function LatestNews($limit = 12)
     {
         return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
+    }
+
+    /** @var boolean */
+    protected $hot_vite_server_enabled = true;
+
+    public function IsDevHot()
+    {
+        return Director::isDev() && $this->hot_vite_server_enabled;
+    }
+
+    public function getViteBaseHref(): string
+    {
+        if (Director::is_https()) {
+            return rtrim(Director::absoluteBaseURL(), '/') . ':5174';
+        } else {
+            return rtrim(Director::absoluteBaseURL(), '/') . ':5173';
+        }
+    }
+
+
+    public function getIncludeRequirements()
+    {
+        $manifestFile = Director::baseFolder() . '/themes/mercury/dist/build/.vite/manifest.json';
+
+        if (!file_exists($manifestFile)) {
+            throw new Exception('client/dist/manifest.json does not exist. Please run `ddev yarn build` or `ddev yarn dev`');
+        }
+
+        $manifest = json_decode(file_get_contents($manifestFile), true);
+
+        if (!$manifest) {
+            throw new Exception('client/dist/manifest.json is not valid JSON. Please run `ddev yarn build` or `ddev yarn dev`');
+        }
+
+        Requirements::javascript('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['file']);
+        Requirements::css('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['css'][0]);
+
+        if ($this->hasMethod('getAdditionalRequirements')) {
+            $this->getAdditionalRequirements($manifest);
+        }
     }
 }

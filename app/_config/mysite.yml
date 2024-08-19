@@ -25,7 +25,3 @@ Symbiote\QueuedJobs\Jobs\CleanupJob:
     - "Broken"
     - "Complete"
     - "Cancelled"
-
-Atwx\ViteHelper\Helper\ViteHelper:
-    manifest_path: "/themes/mercury/dist/.vite/manifest.json"  # default
-    output_url: "/themes/mercury/dist/"  # default

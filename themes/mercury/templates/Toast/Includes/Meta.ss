@@ -102,12 +102,14 @@ Styles
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<%-- <% require css("themes/mercury/dist/styles/main.css") %> --%>
+<% if $IsDevHot %>
+<script type="module" nonce="{$Nonce}" src="{$ViteBaseHref}/@vite/client"></script>
+<script type="module" nonce="{$Nonce}" src="{$ViteBaseHref}/themes/mercury/src/js/main.js"></script>
+<% else %>
+$IncludeRequirements
+<% end_if %>
 
 
-    $ViteClient.RAW
-    <link rel="stylesheet" href="$Vite("themes/mercury/dist/scss/main.scss")">
-    <script type="module" src="$Vite("themes/mercury/dist/js/main.js")"></script>
 <%-- --------------------------------------------------------------
 Postload 
 -------------------------------------------------------------- --%>

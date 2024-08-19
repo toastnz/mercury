@@ -12,7 +12,7 @@ Searchpane
 .search-pane {
   @include mixin.full;
   position: fixed;
-  background: rgba(var.$white, 0.95);
+  background: rgba(var(--color-white), 0.95);
   transition: all 555ms ease;
   z-index: 9999;
   opacity: 0;
@@ -37,7 +37,7 @@ Searchpane
 
     svg {
       path {
-        fill: var.$primary;
+        fill: var(--color-primary);
       }
     }
   }
@@ -56,7 +56,7 @@ Searchpane
 
         &:after {
           @include mixin.pseudo;
-          border-bottom: 0.4rem solid var.$primary;
+          border-bottom: 0.4rem solid var(--color-primary);
           bottom: 0;
           width: 100%;
           transition: all var.$slow;

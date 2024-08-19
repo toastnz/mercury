@@ -14,14 +14,22 @@ Base colors
 ------------------------------------------------------------------*/
 
 :root {
-    --primary-color: #008bd1;
-    --secondary-color: #0f1b25;
+
+    --color-off-white: #f4f4f7;
+    --color-white: #ffffff;
+    --color-grey-light: #ebebeb;
+    --color-grey-mid: #7a7a7a;
+    --color-grey-dark: #0F172A;
+    --color-black: #000000;
+
+    --color-primary: #008bd1;
+    --color-secondary: #0f1b25;
 }
 
-$primary: #008bd1 !default;
-$primary: var(--primary-color);
-$secondary: #0f1b25 !default;
-$secondary: var(--secondary-color);
+
+
+$primary: var(--color-primary);
+$secondary: var(--color-secondary);
 
 /*------------------------------------------------------------------
 Font colors
