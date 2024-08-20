@@ -114,9 +114,12 @@ class PageController extends ContentController
     /** @var boolean */
     protected $hot_vite_server_enabled = true;
 
+
+
     public function IsDevHot()
     {
-        return Director::isDev() && $this->hot_vite_server_enabled;
+        $fp = @fsockopen('localhost', 5173, $errno, $errstr, 1);
+        return Director::isDev() && $fp !== false;
     }
 
     public function getViteBaseHref(): string
