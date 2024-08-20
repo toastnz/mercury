@@ -32,14 +32,14 @@ Slider block
       left: auto;
     }
 
-    @include mixin.media(var.$breakpoint-xmd, max) {
+    @include mixin.media(var(--breakpoint-xmd), max) {
       top: 17.5%;
     }
   }
 
   &__heading {
     margin: 0 auto;
-    max-width: var.$breakpoint-xl;
+    max-width: var(--breakpoint-xl);
     padding: 0 2rem;
     position: relative;
   }
@@ -47,7 +47,7 @@ Slider block
   &__slider {
     position: relative;
 
-    @include mixin.media(var.$breakpoint-md, max) {
+    @include mixin.media(var(--breakpoint-md), max) {
       margin-left: 0;
       padding-left: 0;
     }
@@ -55,7 +55,7 @@ Slider block
     &__item {
       padding-top: 4rem;
 
-      @include mixin.media(var.$breakpoint-md, max) {
+      @include mixin.media(var(--breakpoint-md), max) {
         width: 49%;
       }
 
@@ -73,7 +73,7 @@ Slider block
           opacity: 0;
         }
 
-        @include mixin.media(var.$breakpoint-md, max) {
+        @include mixin.media(var(--breakpoint-md), max) {
           aspect-ratio: 450 / 400;
         }
 
@@ -94,7 +94,7 @@ Slider block
         opacity: 0;
         transform: translateY(2rem);
 
-        @include mixin.media(var.$breakpoint-md, max) {
+        @include mixin.media(var(--breakpoint-md), max) {
           margin: 0 -6rem;
           width: auto;
           text-align: center;
@@ -108,7 +108,7 @@ Slider block
       z-index: 3;
       transform: scale(1.05);
 
-      @include mixin.media(var.$breakpoint-md, max) {
+      @include mixin.media(var(--breakpoint-md), max) {
         transform: scale(1.1);
       }
 
@@ -129,7 +129,7 @@ Slider block
     top: -6rem;
     right: 2rem;
 
-    @include mixin.media(var.$breakpoint-md, max) {
+    @include mixin.media(var(--breakpoint-md), max) {
       top: 0;
       position: relative;
       right: 0;

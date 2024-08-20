@@ -27,7 +27,8 @@ Hero block
         &:after {
             @include mixin.pseudo;
             @include mixin.full;
-            background: rgba(var.$black, 0.3);
+            background: var(--black);
+            opacity: 0.4;
         }
     }
 
@@ -43,9 +44,9 @@ Hero block
         padding: 24rem 2rem;
         position: relative;
         z-index: 3;
-        max-width: var.$breakpoint-md;
+        max-width: var(--breakpoint-md);
 
-        @include mixin.media(var.$breakpoint-md, max) {
+        @include mixin.media(var(--breakpoint-md), max) {
             padding: 8rem 2rem;
         }
     }

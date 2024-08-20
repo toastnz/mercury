@@ -11,26 +11,26 @@ Global element styles
 .element {
   margin: 8rem auto;
   position: relative;
-  max-width: var.$breakpoint-lg;
+  max-width: var(--breakpoint-lg);
 
   &.full {
     max-width: 100%;
   }
 
   &.wide {
-    max-width: var.$breakpoint-xl;
+    max-width: var(--breakpoint-xl);
   }
 
   &.standard {
-    max-width: var.$breakpoint-lg;
+    max-width: var(--breakpoint-lg);
   }
 
   &.narrow {
-    max-width: var.$breakpoint-xmd;
+    max-width: var(--breakpoint-xmd);
   }
 
   &.thin {
-    max-width: var.$breakpoint-sm;
+    max-width: var(--breakpoint-sm);
   }
 
   > [class*='__wrap'] {

@@ -9,7 +9,7 @@ Accordion element
         <% loop $Items %>
 
             <%-- -------------------------------------------- 
-            Item
+            Accordion item
             -------------------------------------------- --%>
 
             <div class="accordion-element__item [ js-accordion-element ]" id="accordion_{$Pos}_{$ID}">

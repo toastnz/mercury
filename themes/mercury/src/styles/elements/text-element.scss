@@ -12,7 +12,7 @@ Text block
 .text-element {
   &.off-white {
     padding: 8rem 0;
-    background: var.$off-white;
+    background: var(--off-white);
 
     .text-element__wrap {
       margin: 0 auto;
@@ -34,7 +34,7 @@ Text block
       height: auto;
       max-width: 100%;
 
-      @include mixin.media(var.$breakpoint-lg) {
+      @include mixin.media(var(--breakpoint-lg)) {
 
         &.left,
         &.leftALone {

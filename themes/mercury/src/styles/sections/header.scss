@@ -42,7 +42,7 @@ Styles
   &__wrap {
     position: relative;
     height: 8rem;
-    max-width: var.$breakpoint-xl;
+    max-width: var(--breakpoint-xl);
     margin: 0 auto;
     padding: 0 2rem;
 
@@ -57,7 +57,7 @@ Styles
       text-align: right;
       right: 2rem;
 
-      @include mixin.media(var.$breakpoint-lg, max) {
+      @include mixin.media(var(--breakpoint-lg), max) {
         right: 7rem;
       }
 
@@ -66,7 +66,7 @@ Styles
         display: inline-block;
         vertical-align: middle;
 
-        @include mixin.media(var.$breakpoint-lg, max) {
+        @include mixin.media(var(--breakpoint-lg), max) {
           &:not(.header__wrap__menu__search) {
             display: none;
           }
@@ -76,7 +76,7 @@ Styles
           padding: 2rem 0.5rem;
           display: block;
           margin: 0;
-          color: var.$text;
+          color: var(--text-dark);
           position: relative;
 
           p {
@@ -113,7 +113,7 @@ Styles
       top: 1.8rem;
       cursor: pointer;
 
-      @include mixin.media(var.$breakpoint-lg) {
+      @include mixin.media(var(--breakpoint-lg)) {
         display: none;
       }
 
@@ -162,7 +162,7 @@ Header sub menus
 
   &__wrap {
     background: var(--color-white);
-    border-top: 1px solid var.$off-white;
+    border-top: 1px solid var(--off-white);
     border-radius: 0 0 0.2rem 0.2rem;
     padding: 0.8rem 0;
     box-shadow: var.$shadow9;

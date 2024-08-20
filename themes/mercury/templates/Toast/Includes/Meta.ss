@@ -2,11 +2,9 @@
 Meta
 -------------------------------------------------------------- --%>
 
-
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <%-- --------------------------------------------------------------
 Base Tag
@@ -33,24 +31,20 @@ Favicons Template
 
 $FaviconMetaTags
 
-
 <%-- --------------------------------------------------------------
 Google Tag manager
 -------------------------------------------------------------- --%>
 
 <% if $SiteConfig.GoogleTagManagerID %>
-    <script>(function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-            'gtm.start': new Date().getTime(), event: 'gtm.js'
-        });
-        var f                          = d.getElementsByTagName(s)[0],
-            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async                        = true;
-        j.src                          =
-                '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', '{$SiteConfig.GoogleTagManagerID}');</script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{$SiteConfig.GoogleTagManagerID}');
+    </script>
+    <!-- End Google Tag Manager -->
 <% end_if %>
 
 <%-- --------------------------------------------------------------
@@ -58,6 +52,7 @@ Bugherd
 -------------------------------------------------------------- --%>
 
 <% if $SiteConfig.BugherdProjectKey %>
+    <!-- Bugherd -->
     <script type='text/javascript'>
         (function (d, t) {
             var bh  = d.createElement(t), s = d.getElementsByTagName(t)[0];
@@ -66,6 +61,7 @@ Bugherd
             s.parentNode.insertBefore(bh, s);
         })(document, 'script');
     </script>
+    <!-- End Bugherd -->
 <% end_if %>
 
 <%-- --------------------------------------------------------------
@@ -96,11 +92,14 @@ Google tracking
 <% end_if %>
 
 <%-- --------------------------------------------------------------
-Styles
+Fonts
 -------------------------------------------------------------- --%>
 
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<% include Toast/Fonts %>
+
+<%-- --------------------------------------------------------------
+Styles
+-------------------------------------------------------------- --%>
 
 <% if $IsDevHot %>
 <script type="module" nonce="{$Nonce}" src="{$ViteBaseHref}/@vite/client"></script>
@@ -108,23 +107,6 @@ Styles
 <% else %>
 $IncludeRequirements
 <% end_if %>
-
-
-<%-- --------------------------------------------------------------
-Postload 
--------------------------------------------------------------- --%>
-
-<style>
-    html {
-        font-size:10px;
-        font-family: Verdana, sans-serif;
-    }
-
-    .js-postload {
-        display: none;
-    }
-</style>
-
 
 <%-- --------------------------------------------------------------
 Head code injection

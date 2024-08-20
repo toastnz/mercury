@@ -1,57 +1,52 @@
 /*------------------------------------------------------------------
-Sitewide colors
-------------------------------------------------------------------*/
-
-$off-white: #f4f4f7;
-$white: #ffffff;
-$grey-light: #ebebeb;
-$grey-mid: #7a7a7a;
-$grey-dark: #0F172A;
-$black: #000000;
-
-/*------------------------------------------------------------------
 Base colors
 ------------------------------------------------------------------*/
 
 :root {
 
-    --color-off-white: #f4f4f7;
+    // Colours
     --color-white: #ffffff;
+    --color-off-white: #f7f7f7;
     --color-grey-light: #ebebeb;
     --color-grey-mid: #7a7a7a;
-    --color-grey-dark: #0F172A;
+    --color-grey-dark: #0f1b25;
     --color-black: #000000;
 
-    --color-primary: #008bd1;
+
+    // Brand design colours
+    --color-primary: #2a6cff;
     --color-secondary: #0f1b25;
+
+
+    // Text colours
+    --text-dark: var(--color-black);
+    --text-light: var(--color-grey-mid);
+
+
+    // Border radius
+    --radius-small: 4px;
+    --radius-medium: 8px;
+    --radius-large: 16px;
+
+
+    // Breakpoints
+    --breakpoint-xxxs: 375px;
+    --breakpoint-xxs: 480px;
+    --breakpoint-xs: 540px;
+    --breakpoint-sm: 640px;
+    --breakpoint-md: 768px;
+    --breakpoint-xmd: 968px;
+    --breakpoint-lg: 1024px;
+    --breakpoint-xl: 1280px;
+    --breakpoint-xxl: 1440px;
+    --breakpoint-xxxl: 1920px;
+
 }
 
 
 
-$primary: var(--color-primary);
-$secondary: var(--color-secondary);
 
-/*------------------------------------------------------------------
-Font colors
-------------------------------------------------------------------*/
 
-$text: black;
-$text-light: $grey-mid;
-
-/*------------------------------------------------------------------
-Breakpoints
-------------------------------------------------------------------*/
-
-$breakpoint-xxxs: 375px;
-$breakpoint-xxs: 480px;
-$breakpoint-xs: 540px;
-$breakpoint-sm: 640px;
-$breakpoint-md: 768px;
-$breakpoint-xmd: 968px;
-$breakpoint-lg: 1024px;
-$breakpoint-xl: 1280px;
-$breakpoint-xxl: 1440px;
-$breakpoint-xxxl: 1920px;
 
 /*------------------------------------------------------------------
 Box shadows

@@ -12,14 +12,14 @@ Searchpane
 .search-pane {
   @include mixin.full;
   position: fixed;
-  background: rgba(var(--color-white), 0.95);
+  background: var(--color-white);
   transition: all 555ms ease;
   z-index: 9999;
   opacity: 0;
   visibility: hidden;
 
   &__wrap {
-    max-width: var.$breakpoint-lg;
+    max-width: var(--breakpoint-lg);
     margin: 0 auto;
     position: relative;
     padding: 0 2rem;
@@ -55,7 +55,8 @@ Searchpane
         position: relative;
 
         &:after {
-          @include mixin.pseudo;
+          position: absolute;
+          content: '';
           border-bottom: 0.4rem solid var(--color-primary);
           bottom: 0;
           width: 100%;
@@ -75,16 +76,16 @@ Searchpane
         padding-left: 0 !important;
         font-weight: light;
 
-        @include mixin.media(var.$breakpoint-md, max) {
+        @include mixin.media(var(--breakpoint-md), max) {
           font-size: 3rem;
         }
 
-        @include mixin.media(var.$breakpoint-sm, max) {
+        @include mixin.media(var(--breakpoint-sm), max) {
           font-size: 2.4rem;
         }
 
         @include mixin.placeholder {
-          color: var.$text;
+          color: var(--text-dark);
           opacity: 1 !important;
         }
       }

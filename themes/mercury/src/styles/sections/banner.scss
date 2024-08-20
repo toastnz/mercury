@@ -1,11 +1,4 @@
 /*------------------------------------------------------------------
-Modules
-------------------------------------------------------------------*/
-
-@use './../base/vars' as var;
-@use './../base/mixins' as mixin;
-
-/*------------------------------------------------------------------
 Banner 
 ------------------------------------------------------------------*/
 
@@ -47,16 +40,24 @@ Banner
       }
 
       &__video {
-        @include mixin.vertical-center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         position: absolute;
         width: 100%;
         height: auto;
         z-index: 1;
 
         &:after {
-          @include mixin.pseudo;
-          @include mixin.full;
-          background: rgba(var.$black, 0.4);
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: var(--black);
+          opacity: 0.4;
         }
 
         iframe {
@@ -69,7 +70,11 @@ Banner
       }
 
       &__overlay {
-        @include mixin.full;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
         z-index: 3;
         background: black;
         opacity: 0.4;
@@ -77,20 +82,22 @@ Banner
 
       &__content {
         width: 100%;
-        max-width: var.$breakpoint-xxl;
+        max-width: var(--breakpoint-xxl);
         z-index: 5;
         margin: 0 auto;
         position: relative;
         padding: 0 10rem;
 
-        @include mixin.media(var.$breakpoint-md, max) {
-          padding: 0 2rem;
+        @media (max-width: var(--breakpoint-md)) {
+          .banner__content {
+            padding: 0 2rem;
+          }
         }
 
         &__inner {
           padding: 20rem 0;
 
-          @include mixin.media(var.$breakpoint-md, max) {
+          @media (max-width: var(--breakpoint-md)) {
             padding: 10rem 0;
           }
         }
@@ -99,15 +106,13 @@ Banner
   }
 
   .tns-controls {
-    position: absolute;
     z-index: 4;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
 
-    @include mixin.media(var.$breakpoint-md, max) {
-      bottom: 6rem;
-      top: auto;
+    @media (max-width: var(--breakpoint-md)) {
+      .tns-controls {
+        bottom: 6rem;
+        top: auto;
+      }
     }
 
     [data-controls] {

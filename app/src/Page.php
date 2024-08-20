@@ -111,11 +111,6 @@ class PageController extends ContentController
         return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
     }
 
-    /** @var boolean */
-    protected $hot_vite_server_enabled = true;
-
-
-
     public function IsDevHot()
     {
         $fp = @fsockopen('localhost', 5173, $errno, $errstr, 1);

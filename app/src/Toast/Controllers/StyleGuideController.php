@@ -6,6 +6,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
+use SilverStripe\Control\Director;
 use SilverStripe\Security\Security;
 use SilverStripe\View\Requirements;
 use SilverStripe\Control\Controller;
@@ -40,40 +41,6 @@ class StyleGuideController extends Controller
 
         parent::init();
     }
-
-
-    // public function Slider()
-    // {
-    //     $Slides = new ArrayList([
-    //         new ArrayData([
-    //             'Image' => Image::find('placeholder.webp'),
-    //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
-    //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
-    //         ]),
-    //         new ArrayData([
-    //             'Image' => Image::find('placeholder.webp'),
-    //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
-    //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
-    //         ]),
-    //         new ArrayData([
-    //             'Image' => Image::find('placeholder.webp'),
-    //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
-    //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
-    //         ]),
-    //         new ArrayData([
-    //             'Image' => Image::find('placeholder.webp'),
-    //             'Title' => DBField::create_field(DBHTMLText::class, 'Slider Block Heading'),
-    //             'Content' => DBField::create_field(DBHTMLText::class, 'Et indigna praefecti custodiam protectoribus mandaverat.'),
-    //         ])
-    //     ]);
-
-    //     $arrayData = new ArrayData([
-    //         'Heading' => 'A Slider block for slides',
-    //         'Slides' => $Slides
-    //     ]);
-
-    //     return $arrayData->renderWith('Toast\Elements\Slider');
-    // }
 
 
 
@@ -279,37 +246,10 @@ class StyleGuideController extends Controller
     public function index()
     {
         // if (is_null(Security::getCurrentUser())) {
-            // return $this->redirect('Security/login?BackURL=_styleguide');
+        // return $this->redirect('Security/login?BackURL=_styleguide');
         // } else {
-            return $this->renderWith(['StyleGuideController', 'Page']);
+        return $this->renderWith(['StyleGuideController', 'Page']);
         // }
-    }
-
-    public function decodedTypeCSS()
-    {
-        $config = SiteConfig::current_site_config();
-        return $this->internetExplorerFallback(@unserialize($config->typeCSS));
-    }
-
-
-    function internetExplorerFallback($css)
-    {
-        preg_match_all('/^\s*([^:]+)(:\s*(.+))?;\s*$/m', str_replace(';', ";\n", $css), $matches, PREG_SET_ORDER);
-        foreach ($matches as $match) {
-            if (count($match) >= 4) {
-                $orig = $match[0];
-                $attr = trim($match[1]);
-                $value = trim($match[3]);
-                if (in_array($attr, ['color', 'background', 'background-color', '--primary-colour', '--secondary-colour'])) {
-                    if (strstr($value, '#') && (strlen($value) > 7)) {
-                        $newValue = substr($value, 0, -2);
-                        $css = str_replace($orig, $attr . ': ' . $newValue . ';' . $orig, $css);
-                    }
-                }
-            }
-        }
-        $css = preg_replace('/[\s\+]/', ' ', $css);
-        return $css;
     }
 
     public function TestimonialElement()
@@ -333,7 +273,7 @@ class StyleGuideController extends Controller
         ]);
 
         $arrayData = new ArrayData([
-            'Width'       => 'standard',
+            'Width' => 'standard',
             'Items' => $accordionItems
         ]);
 
@@ -344,14 +284,14 @@ class StyleGuideController extends Controller
     public function VideoElement()
     {
         $arrayData = new ArrayData([
-            'Width'       => 'standard',
+            'Width' => 'standard',
             'Video' => new ArrayData([
-                'Service'     => 'youtube',
-                'VideoID'     => 'EngW7tLk6R8'
+                'Service' => 'youtube',
+                'VideoID' => 'EngW7tLk6R8'
             ]),
-            'Caption'     => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
+            'Caption' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
             'ThumbnailID' => 12,
-            'Thumbnail'   => Image::find('placeholder.webp')
+            'Thumbnail' => Image::find('placeholder.webp')
         ]);
         return $arrayData->renderWith('Toast\Elements\VideoElement');
     }
@@ -359,9 +299,9 @@ class StyleGuideController extends Controller
     public function ImageElement()
     {
         $arrayData = new ArrayData([
-            'Image'   => Image::find('placeholder.webp'),
-            'Width'   => 'standard',
-            'Sizes'   => '320,480,768,1024,1280,1920',
+            'Image' => Image::find('placeholder.webp'),
+            'Width' => 'standard',
+            'Sizes' => '320,480,768,1024,1280,1920',
             'Caption' => 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, ipsum dolor sit amet.',
         ]);
         return $arrayData->renderWith('Toast\Elements\ImageElement');
@@ -372,9 +312,9 @@ class StyleGuideController extends Controller
     public function HeroElement()
     {
         $arrayData = new ArrayData([
-            'Width'           => 'full',
+            'Width' => 'full',
             'BackgroundImage' => Image::find('placeholder.webp'),
-            'Content'         => DBField::create_field(DBHTMLText::class, '<h2 class="text-center colour--white">Now a hero block</h2><p class="text-center colour--white">An abstratc image <b>doesn\'t distract</b> the user from reading what is in this text box. You now have their attention to tell them anything that may be <i>important</i> to your brand mission.</p><p class="text-center"><a href="#" class="button">READ MORE</a></p>')
+            'Content' => DBField::create_field(DBHTMLText::class, '<h2 class="text-center colour--white">Now a hero block</h2><p class="text-center colour--white">An abstratc image <b>doesn\'t distract</b> the user from reading what is in this text box. You now have their attention to tell them anything that may be <i>important</i> to your brand mission.</p><p class="text-center"><a href="#" class="button">READ MORE</a></p>')
         ]);
         return $arrayData->renderWith('Toast\Elements\HeroElement   ');
     }
@@ -382,10 +322,10 @@ class StyleGuideController extends Controller
     public function ImageTextElement()
     {
         $arrayData = new ArrayData([
-            'Width'   => 'wide',
-            'Image'   => Image::find('placeholder.webp'),
+            'Width' => 'wide',
+            'Image' => Image::find('placeholder.webp'),
             'Content' => DBField::create_field(DBHTMLText::class, '<h3>An image and text block to show a page or service</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
-            'Alignment'     => 'image-right'
+            'Alignment' => 'image-right'
         ]);
         return $arrayData->renderWith('Toast\Elements\ImageTextElement');
     }
@@ -394,10 +334,10 @@ class StyleGuideController extends Controller
     public function ImageTextElementReversed()
     {
         $arrayData = new ArrayData([
-            'Width'         => 'wide',
-            'Image'         => Image::find('placeholder.webp'),
-            'Content'       => DBField::create_field(DBHTMLText::class, '<h3>Or a an image on the other side</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
-            'Alignment'     => 'image-left'
+            'Width' => 'wide',
+            'Image' => Image::find('placeholder.webp'),
+            'Content' => DBField::create_field(DBHTMLText::class, '<h3>Or a an image on the other side</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
+            'Alignment' => 'image-left'
         ]);
         return $arrayData->renderWith('Toast\Elements\ImageTextElement');
     }
@@ -408,15 +348,15 @@ class StyleGuideController extends Controller
         $accordionItems = new ArrayList([
             new ArrayData([
                 'Title' => 'Accordion Heading 1',
-                'Content'      => DBField::create_field(DBHTMLText::class, '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
+                'Content' => DBField::create_field(DBHTMLText::class, '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
             ]),
             new ArrayData([
                 'Title' => 'Accordion Heading 2',
-                'Content'      => DBField::create_field(DBHTMLText::class, '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
+                'Content' => DBField::create_field(DBHTMLText::class, '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
             ]),
             new ArrayData([
                 'Title' => 'Accordion Heading 3',
-                'Content'      => DBField::create_field(DBHTMLText::class, '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
+                'Content' => DBField::create_field(DBHTMLText::class, '<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>')
             ]),
         ]);
 
@@ -451,34 +391,60 @@ class StyleGuideController extends Controller
     public function SplitBlock()
     {
         $arrayData = new ArrayData([
-            'LeftContent'  => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
+            'LeftContent' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
             'RightContent' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
-            'LeftWidth'    => '200px',
-            'RightWidth'   => '200px'
+            'LeftWidth' => '200px',
+            'RightWidth' => '200px'
         ]);
         return $arrayData->renderWith('Toast\Elements\SplitElement  ');
     }
 
-    public function getTypeTags()
+
+    public function getIsSuperAdmin()
     {
-        return  new ArrayList([
-            new ArrayData(['Selector' => 'h1', 'Name' => 'Heading 1']),
-            new ArrayData(['Selector' => 'h2', 'Name' => 'Heading 2']),
-            new ArrayData(['Selector' => 'h3', 'Name' => 'Heading 3']),
-            new ArrayData(['Selector' => 'h4', 'Name' => 'Heading 4']),
-            new ArrayData(['Selector' => 'h5', 'Name' => 'Heading 5']),
-            new ArrayData(['Selector' => 'h6', 'Name' => 'Heading 6']),
-            new ArrayData(['Selector' => 'p', 'Name' => 'Paragraph'])
-        ]);
-    }
-    public function appendSizeVariants($sValue)
-    {
-        return  $sValue . ':100,300,400,500,600,700,800,900';
+        return Helper::isSuperAdmin();
     }
 
-    public function decodedFonts()
+    public function LatestNews($limit = 12)
     {
-        $config = SiteConfig::current_site_config();
-        return json_encode(array_map(array($this, 'appendSizeVariants'), array_values(array_unique(json_decode($config->typeFonts)))));
+        return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
+    }
+
+    public function IsDevHot()
+    {
+        $fp = @fsockopen('localhost', 5173, $errno, $errstr, 1);
+        return Director::isDev() && $fp !== false;
+    }
+
+    public function getViteBaseHref(): string
+    {
+        if (Director::is_https()) {
+            return rtrim(Director::absoluteBaseURL(), '/') . ':5174';
+        } else {
+            return rtrim(Director::absoluteBaseURL(), '/') . ':5173';
+        }
+    }
+
+
+    public function getIncludeRequirements()
+    {
+        $manifestFile = Director::baseFolder() . '/themes/mercury/dist/build/.vite/manifest.json';
+
+        if (!file_exists($manifestFile)) {
+            throw new Exception('client/dist/manifest.json does not exist. Please run `ddev yarn build` or `ddev yarn dev`');
+        }
+
+        $manifest = json_decode(file_get_contents($manifestFile), true);
+
+        if (!$manifest) {
+            throw new Exception('client/dist/manifest.json is not valid JSON. Please run `ddev yarn build` or `ddev yarn dev`');
+        }
+
+        Requirements::javascript('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['file']);
+        Requirements::css('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['css'][0]);
+
+        if ($this->hasMethod('getAdditionalRequirements')) {
+            $this->getAdditionalRequirements($manifest);
+        }
     }
 }

@@ -11,9 +11,10 @@ Accordion Element
 
 .accordion-element {
   &__item {
-    border-top: 1px solid var.$grey-light;
-    border-bottom: 1px solid var.$grey-light;
+    border-top: 1px solid var(--grey-light);
+    border-bottom: 1px solid var(--grey-light);
     margin-bottom: -1px;
+    
 
     &.active {
       .accordion-element__trigger:after {

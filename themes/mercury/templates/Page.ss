@@ -7,40 +7,28 @@
 
     <body class="$Classname ">
 
-        
-        <%-- -------------------------------------------- 
-        Type settings (Module)
-        -------------------------------------------- --%>
-        <% include Type %>
+    <%---------------------------------------------- 
+    Show popup
+    -------------------------------------------- --%>
 
-        <div class="type">
+    <% if $Siteconfig.ShowPopup %>
+        <% include Toast\Includes\Popup %>
+    <% end_if %>
 
-            <%---------------------------------------------- 
-            Show popup
-            -------------------------------------------- --%>
+    
+    <% include Toast\Header %>
 
-            <% if $Siteconfig.ShowPopup %>
-                <% include Toast\Includes\Popup %>
-            <% end_if %>
+    $Layout
 
-            
-            <% include Toast\Header %>
+    <% include Toast\Footer %>
 
-            $Layout
+    <%-- --------------------------------------------------------------
+    Footer code injection
+    -------------------------------------------------------------- --%>
 
-            <% include Toast\Footer %>
-
-        </div>
-
-        <%-- <% require javascript("themes/mercury/dist/scripts/main.js") %> --%>
-
-        <%-- --------------------------------------------------------------
-        Footer code injection
-        -------------------------------------------------------------- --%>
-
-        <% if $SiteConfig.FooterCodeInjection %>
-            $SiteConfig.FooterCodeInjection
-        <% end_if %>
+    <% if $SiteConfig.FooterCodeInjection %>
+        $SiteConfig.FooterCodeInjection
+    <% end_if %>
 
     </body>
 

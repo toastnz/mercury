@@ -30,7 +30,7 @@ Image and text block
       height: auto;
     }
 
-    @include mixin.media(var.$breakpoint-xmd, max) {
+    @include mixin.media(var(--breakpoint-xmd), max) {
       width: 100%;
       transform: none !important;
       order: 1 !important;
@@ -45,7 +45,7 @@ Image and text block
     flex-wrap: wrap;
     align-content: center;
 
-    @include mixin.media(var.$breakpoint-xmd, max) {
+    @include mixin.media(var(--breakpoint-xmd), max) {
       width: 100%;
       order: 2;
       padding: 0;
