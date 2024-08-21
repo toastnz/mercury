@@ -42,7 +42,9 @@ Accordion Element
 
     &:before,
     &:after {
-      @include mixin.pseudo;
+      position: absolute;
+  display: block;
+  content: '';
       width: 2.2rem;
       height: 0.3rem;
       background: var(--color-primary);
@@ -50,7 +52,7 @@ Accordion Element
       right: 0;
       top: 50%;
       margin-top: -1px;
-      transition: all var.$fast;
+      transition: all var(--timing-fast);
     }
 
     &:after {

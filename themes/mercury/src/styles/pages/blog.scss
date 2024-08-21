@@ -11,7 +11,7 @@ Blog post
 
 .blog-post {
     background: white;
-    box-shadow: var.$shadow9;
+    box-shadow: var(--shadow-large);
     border-radius: var(--radius-small);
     position: relative;
     overflow: hidden;

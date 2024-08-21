@@ -19,14 +19,18 @@ Mobile menu
   bottom: 0;
   padding: 3rem 0;
   overflow: auto;
-  transition: all var.$fast;
+  transition: all var(--timing-fast);
   visibility: hidden;
   opacity: 0;
   backface-visibility: hidden;
   -webkit-overflow-scrolling: touch;
 
   &__wrap {
-    @include mixin.full;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -71,7 +75,7 @@ Mobile menu
           margin: 0 auto;
           position: absolute;
           top: 2rem;
-          transition: all var.$fast;
+          transition: all var(--timing-fast);
 
           path {
             fill: var(--color-primary);
@@ -80,7 +84,7 @@ Mobile menu
       }
 
       &__group {
-        transition: all var.$fast;
+        transition: all var(--timing-fast);
         overflow: hidden;
         background: var(--off-white);
 

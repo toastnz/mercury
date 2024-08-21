@@ -30,7 +30,7 @@ textarea {
   border-radius: 0;
   transition: all 0.3s;
 
-  @include mixin.placeholder {
+  &::-webkit-input-placeholder {
     opacity: 0.2;
   }
 
@@ -117,7 +117,9 @@ input[type='checkbox'] {
     cursor: pointer;
 
     &:before {
-      @include mixin.pseudo;
+      position: absolute;
+      display: block;
+      content: '';
       display: block;
       left: 0;
       top: 50%;
@@ -131,7 +133,9 @@ input[type='checkbox'] {
     }
 
     &:after {
-      @include mixin.pseudo;
+      position: absolute;
+      display: block;
+      content: '';
       transform: rotate(43deg);
       width: 5px;
       height: 9px;
@@ -176,7 +180,9 @@ input[type='radio'] {
     cursor: pointer;
 
     &:before {
-      @include mixin.pseudo;
+      position: absolute;
+      display: block;
+      content: '';
       display: block;
       left: 0;
       top: 50%;
@@ -190,7 +196,9 @@ input[type='radio'] {
     }
 
     &:after {
-      @include mixin.pseudo;
+      position: absolute;
+      display: block;
+      content: '';
       left: 0;
       top: 50%;
       width: 20px;

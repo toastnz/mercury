@@ -30,7 +30,11 @@ Popup
 }
 
 .popup {
-  @include mixin.full;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   position: fixed;
   background: rgba(white, 0.95);
   transition: all 555ms ease;
@@ -49,7 +53,7 @@ Popup
       top: 4rem;
       right: 2rem;
       transform: translateY(-100%);
-      transition: all var.$fast;
+      transition: all var(--timing-fast);
       cursor: pointer;
       aspect-ratio: 1 / 1;
       width: 4rem;
@@ -66,7 +70,7 @@ Popup
       position: relative;
       top: 10rem;
       background: var(--color-white);
-      box-shadow: var.$shadow9;
+      box-shadow: var(--shadow-large);
       overflow: hidden;
       border-radius: 0.2rem;
 

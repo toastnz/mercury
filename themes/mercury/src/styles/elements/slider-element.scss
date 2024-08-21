@@ -23,7 +23,7 @@ Slider block
     &__prev {
       position: absolute;
       cursor: pointer;
-      transition: all var.$fast;
+      transition: all var(--timing-fast);
       left: 0;
     }
 
@@ -62,14 +62,20 @@ Slider block
       &__image {
         aspect-ratio: 450 / 350;
         background: var(--color-primary);
-        transition: all var.$fast;
+        transition: all var(--timing-fast);
         margin-bottom: 3m;
         position: relative;
 
         &:before {
-          @include mixin.pseudo;
-          @include mixin.full;
-          box-shadow: var.$shadow9;
+          position: absolute;
+  display: block;
+  content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          box-shadow: var(--shadow-large);
           opacity: 0;
         }
 
@@ -90,7 +96,7 @@ Slider block
 
       &__copy {
         padding: 4rem 0 2rem;
-        transition: all var.$fast;
+        transition: all var(--timing-fast);
         opacity: 0;
         transform: translateY(2rem);
 

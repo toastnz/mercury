@@ -10,7 +10,11 @@ Searchpane
 ------------------------------------------------------------------*/
 
 .search-pane {
-  @include mixin.full;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   position: fixed;
   background: var(--color-white);
   transition: all 555ms ease;
@@ -30,7 +34,7 @@ Searchpane
     top: 4rem;
     right: 2rem;
     transform: translateY(-100%);
-    transition: all var.$fast;
+    transition: all var(--timing-fast);
     cursor: pointer;
     width: 4rem;
     position: absolute;
@@ -60,7 +64,7 @@ Searchpane
           border-bottom: 0.4rem solid var(--color-primary);
           bottom: 0;
           width: 100%;
-          transition: all var.$slow;
+          transition: all --timing-slow;
           transform: scaleX(0);
           transform-origin: 0 0;
         }
@@ -84,7 +88,8 @@ Searchpane
           font-size: 2.4rem;
         }
 
-        @include mixin.placeholder {
+
+        &::-webkit-input-placeholder {
           color: var(--text-dark);
           opacity: 1 !important;
         }

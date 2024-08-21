@@ -21,7 +21,7 @@ Testimonial element
     margin: 0 auto;
     text-align: center;
     background: var(--color-secondary);
-    box-shadow: var.$shadow9;
+    box-shadow: var(--shadow-large);
     border-radius: var(--radius-small);
     padding: 6rem;
 

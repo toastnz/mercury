@@ -18,7 +18,7 @@ Styles
   background: var(--color-white);
   z-index: 999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
-  transition: all var.$fast;
+  transition: all var(--timing-fast);
 
   &--transparent {
     box-shadow: none;
@@ -52,7 +52,9 @@ Styles
     }
 
     &__menu {
-      @include mixin.vertical-align;
+      top: 50%;
+      transform: translateY(-50%);
+      position: absolute;
       left: 0;
       text-align: right;
       right: 2rem;
@@ -165,7 +167,7 @@ Header sub menus
     border-top: 1px solid var(--off-white);
     border-radius: 0 0 0.2rem 0.2rem;
     padding: 0.8rem 0;
-    box-shadow: var.$shadow9;
+    box-shadow: var(--shadow-large);
 
     &__item {
       display: block;

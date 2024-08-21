@@ -34,7 +34,7 @@ Tabbed content block
       right: -1px;
       min-height: 2rem;
       background: var(--color-primary);
-      transition: var.$medium;
+      transition: --timing-medium;
 
       @include mixin.media(var(--breakpoint-xmd), max) {
         right: auto;

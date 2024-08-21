@@ -45,7 +45,7 @@ Download block
       overflow: visible;
 
       path {
-        transition: all var.$fast;
+        transition: all var(--timing-fast);
       }
     }
   }
@@ -54,7 +54,7 @@ Download block
     width: calc(100% - 6rem);
 
     b {
-      transition: all var.$fast;
+      transition: all var(--timing-fast);
     }
   }
 }

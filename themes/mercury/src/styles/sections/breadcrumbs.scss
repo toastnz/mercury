@@ -103,7 +103,9 @@ Breadcrumbs
   }
 
   &__social {
-    @include mixin.vertical-align;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
     right: 2rem;
     display: flex;
     flex-wrap: wrap;
