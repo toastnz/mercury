@@ -7,11 +7,10 @@ export default defineConfig({
   plugins: [],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './themes/mercury/src/'),
+      '@': path.resolve(__dirname, './themes/mercury/src/js'),
     },
   },
   server: {
-    https: false,
     host: true,
   },
   build: {
@@ -22,7 +21,8 @@ export default defineConfig({
     copyPublicDir: false,
     rollupOptions: {
       input: {
-        index: './themes/mercury/src/js/main.js',
+        main: './themes/mercury/src/js/main.js',
+        extended: './themes/mercury/src/js/extended.js',
       },
     },
   },

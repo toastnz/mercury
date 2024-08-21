@@ -16,3 +16,4 @@
 /public/.graphql-generated/
 .yarn/install-state.gz
 .yarn/releases/yarn-4.4.0.cjs
+.yarn

@@ -33,7 +33,7 @@
 			"/.well-known/",
 			".htaccess",
 			"/public/assets",
-      "/public/assets/",
+			"/public/assets/",
 			"/subsites/host-map.php",
 			"/silverstripe-cacheinclude/cache/",
 			"/debug.log",
@@ -41,26 +41,26 @@
 			"/VagrantFile",
 			"/framework/thirdparty/tinymce/error_log",
 			"/silverstripe-cacheinclude/cache/",
-      "/_graphql",
-      "/.graphql-generated",
-      "/public/_graphql",
-      "/public/.graphql-generated"
+			"/_graphql",
+			"/.graphql-generated",
+			"/public/_graphql",
+			"/public/.graphql-generated"
 		]
 	},
 	"servers": {
-		"live":{
+		"live": {
 			"user": "server_user",
-            "host": "server_hostname_or_ip",
-            "webroot": "path/to/public",
-            "branch": "remotes/origin/master",
-            "syncPermissions": false
-        },
-		"uat":{
+			"host": "server_hostname_or_ip",
+			"webroot": "path/to/public",
+			"branch": "remotes/origin/master",
+			"syncPermissions": false
+		},
+		"uat": {
 			"user": "server_user",
-            "host": "server_hostname_or_ip",
-            "webroot": "path/to/public",
-            "syncPermissions": false
-		}        
+			"host": "server_hostname_or_ip",
+			"webroot": "path/to/public",
+			"syncPermissions": false
+		}
 	},
 	"commands": [
 		{

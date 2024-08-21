@@ -8,7 +8,7 @@ import '../styles/main.scss';
 Import scripts
 ------------------------------------------------------------------*/
 
-import { $, $$ } from './lib';
+import { $, $$ } from '@/utilities/helpers';
 
 /*------------------------------------------------------------------
 Start the app
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     if ($('.js-accordion-element')) {
-        import('./components/accordion').then(module => {
+        import('@/components/accordion').then(module => {
             $$('.js-accordion-element').forEach(element => new module.Accordion(element));
         });
     }
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ------------------------------------------------------------------*/
 
     if ($('.js-video-element')) {
-        import('./components/video').then(module => {
+        import('@/components/video').then(module => {
             $$('.js-video-element').forEach(element => new module.Video(element));
         });
     }
