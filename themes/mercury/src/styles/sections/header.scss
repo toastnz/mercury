@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Styles
@@ -59,7 +59,7 @@ Styles
       text-align: right;
       right: 2rem;
 
-      @include mixin.media(var(--width-lg), max) {
+      @container style(--is-width-lg: true) {
         right: 7rem;
       }
 
@@ -68,7 +68,7 @@ Styles
         display: inline-block;
         vertical-align: middle;
 
-        @include mixin.media(var(--width-lg), max) {
+        @container style(--is-width-lg: true) {
           &:not(.header__wrap__menu__search) {
             display: none;
           }
@@ -115,7 +115,7 @@ Styles
       top: 1.8rem;
       cursor: pointer;
 
-      @include mixin.media(var(--width-lg)) {
+      @container style(--is-width-lg: true) {
         display: none;
       }
 

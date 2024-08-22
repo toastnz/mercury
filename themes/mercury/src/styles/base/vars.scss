@@ -55,7 +55,37 @@ Base colors
         rgba(0, 0, 0, 0) 0px 0px 0px 0px,
         rgba(15, 23, 42, 0.1) 0px 20px 25px -5px,
         rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
+
+
+    --is-width-xxxs: false;
+    --is-width-xxs: false;
+    --is-width-xs: false;
+    --is-width-sm: false;
+    --is-width-md: false;
+    --is-width-xmd: false;
+    --is-width-lg: false;
+    --is-width-xl: false;
+    --is-width-xxl: false;
+    --is-width-xxxl: false;
+
+
+
+    @media only screen and (max-width:768px) {
+        --is-width-md: true;
+    }
+
+    @media only screen and (max-width:968px) {
+        --is-width-xmd: true;
+    }
+
+
+    @media only screen and (max-width:1024px) {
+        --is-width-lg: true;
+    }
+
 }
+
+
 
 
 // Widths

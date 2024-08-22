@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Login page
@@ -35,7 +35,7 @@ Login page
     }
 
 
-    @include mixin.media(var(--width-xmd), max) {
+    @container style(--is-width-xmd: true) {
       display: none;
     }
   }
@@ -81,7 +81,7 @@ Login page
       }
     }
 
-    @include mixin.media(var(--width-xmd), max) {
+    @container style(--is-width-xmd: true) {
       width: 100%;
       position: relative;
     }

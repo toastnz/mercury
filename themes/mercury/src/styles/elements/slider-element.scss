@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Slider block
@@ -32,7 +32,7 @@ Slider block
       left: auto;
     }
 
-    @include mixin.media(var(--width-xmd), max) {
+    @container style(--is-width-xmd: true) {
       top: 17.5%;
     }
   }
@@ -47,7 +47,7 @@ Slider block
   &__slider {
     position: relative;
 
-    @include mixin.media(var(--width-md), max) {
+    @container style(--is-width-md: true) {
       margin-left: 0;
       padding-left: 0;
     }
@@ -55,7 +55,7 @@ Slider block
     &__item {
       padding-top: 4rem;
 
-      @include mixin.media(var(--width-md), max) {
+      @container style(--is-width-md: true) {
         width: 49%;
       }
 
@@ -79,7 +79,7 @@ Slider block
           opacity: 0;
         }
 
-        @include mixin.media(var(--width-md), max) {
+        @container style(--is-width-md: true) {
           aspect-ratio: 450 / 400;
         }
 
@@ -100,7 +100,7 @@ Slider block
         opacity: 0;
         transform: translateY(2rem);
 
-        @include mixin.media(var(--width-md), max) {
+        @container style(--is-width-md: true) {
           margin: 0 -6rem;
           width: auto;
           text-align: center;
@@ -114,7 +114,7 @@ Slider block
       z-index: 3;
       transform: scale(1.05);
 
-      @include mixin.media(var(--width-md), max) {
+      @container style(--is-width-md: true) {
         transform: scale(1.1);
       }
 
@@ -135,7 +135,7 @@ Slider block
     top: -6rem;
     right: 2rem;
 
-    @include mixin.media(var(--width-md), max) {
+    @container style(--is-width-md: true) {
       top: 0;
       position: relative;
       right: 0;

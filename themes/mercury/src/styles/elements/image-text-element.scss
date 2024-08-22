@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Image and text block
@@ -30,7 +30,7 @@ Image and text block
       height: auto;
     }
 
-    @include mixin.media(var(--width-xmd), max) {
+    @container style(--is-width-xmd: true) {
       width: 100%;
       transform: none !important;
       order: 1 !important;
@@ -45,7 +45,7 @@ Image and text block
     flex-wrap: wrap;
     align-content: center;
 
-    @include mixin.media(var(--width-xmd), max) {
+    @container style(--is-width-xmd: true) {
       width: 100%;
       order: 2;
       padding: 0;

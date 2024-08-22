@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Inputs
@@ -65,7 +65,7 @@ form {
     &.half {
       width: calc(50% - 1rem);
 
-      @include mixin.media(var(--width-md), max) {
+      @container style(--is-width-md: true) {
         width: 100%;
       }
     }
@@ -122,8 +122,7 @@ input[type='checkbox'] {
       content: '';
       display: block;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0.5rem;
       transition: all 333ms ease;
       background: white;
       border: 1px solid var(--color-grey-mid);
@@ -143,10 +142,10 @@ input[type='checkbox'] {
       border-top: 0;
       border-left: 0;
       left: 7px;
-      top: 50%;
+      top: 1.5rem;
       transition: all 333ms ease;
       margin-top: -1px;
-      transform: translateY(-50%) rotate(20deg);
+      transform: rotate(20deg);
     }
   }
 
@@ -185,8 +184,7 @@ input[type='radio'] {
       content: '';
       display: block;
       left: 0;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0.5rem;
       transition: all 222ms ease;
       background: white;
       border: 1px solid var(--color-grey-mid);
@@ -200,13 +198,13 @@ input[type='radio'] {
       display: block;
       content: '';
       left: 0;
-      top: 50%;
+      top: .5rem;
       width: 20px;
       height: 20px;
       background: white;
       transition: all 222ms ease;
       border-radius: 2rem;
-      transform: translateY(-50%) scale(0.9);
+      transform: scale(0.9);
     }
   }
 
@@ -218,7 +216,7 @@ input[type='radio'] {
       }
 
       &:after {
-        transform: translateY(-50%) scale(0.5);
+        transform: scale(0.5);
       }
     }
   }

@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Breadcrumbs
@@ -11,7 +11,7 @@ Breadcrumbs
 
 .breadcrumbs {
 
-  @include mixin.media(var(--width-md), max) {
+  @container style(--is-width-md: true) {
     padding: 0;
   }
 
@@ -24,7 +24,7 @@ Breadcrumbs
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    @include mixin.media(var(--width-md), max) {
+    @container style(--is-width-md: true) {
       padding: 0 2rem;
     }
   }
@@ -44,7 +44,7 @@ Breadcrumbs
     padding: 2.4rem 1rem;
     color: var(--color-primary);
 
-    @include mixin.media(var(--width-md), max) {
+    @container style(--is-width-md: true) {
       padding-left: 0.2rem;
       padding-right: 0.2rem;
       font-size: 1rem;
@@ -111,11 +111,11 @@ Breadcrumbs
     flex-wrap: wrap;
     align-items: center;
 
-    @include mixin.media(var(--width-md), max) {
+    @container style(--is-width-md: true) {
       right: 1.2rem;
     }
 
-    @include mixin.media(var(--width-sm), max) {
+    @container style(--is-width-sm: true) {
       display: none;
     }
 
@@ -125,7 +125,7 @@ Breadcrumbs
       vertical-align: middle;
       font-size: 1.2rem !important;
 
-      @include mixin.media(var(--width-md), max) {
+      @container style(--is-width-md: true) {
         display: none;
       }
     }

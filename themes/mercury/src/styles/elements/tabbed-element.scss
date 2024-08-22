@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Tabbed content block
@@ -42,8 +42,6 @@ Tabbed content block
     width: calc(100% - 30rem);
     padding: 0 4rem;
 
-
-
     &__item {
       display: none;
 
@@ -54,7 +52,7 @@ Tabbed content block
   }
 }
 
-@media(width < 768px) {
+@container style(--is-width-md: true) {
   .tabbed-element {
 
     &__tabs {

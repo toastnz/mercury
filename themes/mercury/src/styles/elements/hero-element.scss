@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Hero block
@@ -56,7 +56,7 @@ Hero block
         z-index: 3;
         max-width: var(--width-md);
 
-        @include mixin.media(var(--width-md), max) {
+        @container style(--is-width-md: true) {
             padding: 8rem 2rem;
         }
     }

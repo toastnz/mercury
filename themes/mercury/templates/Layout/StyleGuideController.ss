@@ -50,11 +50,11 @@ $TextBlock
                         <div class="middleColumn">
                             <div class="odd valOption_1">
                                 <input id="UserForm_Form_6_EditableTextField_7c3de_Option_1" class="checkbox" name="EditableTextField_7c3de[]" type="checkbox" value="Option 1" checked="checked">
-                                <label for="UserForm_Form_6_EditableTextField_7c3de_Option_1">Option 1</label>
+                                <label for="UserForm_Form_6_EditableTextField_7c3de_Option_1">Option 1 - title is able to be as long as you want and can go over mulitple line</label>
                             </div>
                             <div class="even valOption_2">
                                 <input id="UserForm_Form_6_EditableTextField_7c3de_Option_2" class="checkbox" name="EditableTextField_7c3de[]" type="checkbox" value="Option 2">
-                                <label for="UserForm_Form_6_EditableTextField_7c3de_Option_2">Option 2</label>
+                                <label for="UserForm_Form_6_EditableTextField_7c3de_Option_2">Option 2 - title is able to be as long as you want and can go over mulitple line</label>
                             </div>
                         </div>
                     </fieldset>
@@ -94,12 +94,12 @@ $TextBlock
                         <div class="middleColumn">
                             <div class="odd valOption_1">
                                 <input id="UserForm_Form_6_EditableTextField_49d39_Option_1" class="radio" name="EditableTextField_49d39" type="radio" value="Option 1" checked="">
-                                <label for="UserForm_Form_6_EditableTextField_49d39_Option_1">Option 1</label>
+                                <label for="UserForm_Form_6_EditableTextField_49d39_Option_1">Option 1 - title is able to be as long as you want and can go over mulitple line</label>
                             </div>
 
                             <div class="even valOption_2">
                                 <input id="UserForm_Form_6_EditableTextField_49d39_Option_2" class="radio" name="EditableTextField_49d39" type="radio" value="Option 2">
-                                <label for="UserForm_Form_6_EditableTextField_49d39_Option_2">Option 2</label>
+                                <label for="UserForm_Form_6_EditableTextField_49d39_Option_2">Option 2 - title is able to be as long as you want and can go over mulitple line</label>
                             </div>
                         </div>
                     </fieldset>

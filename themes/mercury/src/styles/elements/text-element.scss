@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Text block
@@ -34,7 +34,7 @@ Text block
       height: auto;
       max-width: 100%;
 
-      @include mixin.media(var(--width-lg)) {
+      @container style(--is-width-lg: true) {
 
         &.left,
         &.leftALone {

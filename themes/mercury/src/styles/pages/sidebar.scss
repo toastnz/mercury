@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Sidebar wrap
@@ -20,7 +20,7 @@ Sidebar wrap
     width: calc(100% - 36rem);
     padding-right: 4rem;
 
-    @include mixin.media(var(--width-xmd), max) {
+    @container style(--is-width-xmd: true) {
       width: 100%;
       order: 1;
       padding-right: 0;
@@ -31,7 +31,7 @@ Sidebar wrap
     width: 36rem;
     padding: 0 2rem;
 
-    @include mixin.media(var(--width-xmd), max) {
+    @container style(--is-width-xmd: true) {
       width: 100%;
       order: 2;
       padding: 0 2rem;

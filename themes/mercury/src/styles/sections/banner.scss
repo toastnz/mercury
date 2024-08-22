@@ -88,16 +88,14 @@ Banner
         position: relative;
         padding: 0 10rem;
 
-        @media (max-width: var(--width-md)) {
-          .banner__content {
-            padding: 0 2rem;
-          }
+        @container style(--is-width-md: true) {
+          padding: 0 2rem;
         }
 
         &__inner {
           padding: 20rem 0;
 
-          @media (max-width: var(--width-md)) {
+          @container style(--is-width-md: true) {
             padding: 10rem 0;
           }
         }
@@ -108,11 +106,9 @@ Banner
   .tns-controls {
     z-index: 4;
 
-    @media (max-width: var(--width-md)) {
-      .tns-controls {
-        bottom: 6rem;
-        top: auto;
-      }
+    @container style(--is-width-md: true) {
+      bottom: 6rem;
+      top: auto;
     }
 
     [data-controls] {

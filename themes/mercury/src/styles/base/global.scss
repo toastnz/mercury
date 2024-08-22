@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Element styles
@@ -18,49 +18,54 @@ html {
 }
 
 body {
-    @include mixin.regular;
     font-size: 1.6rem;
 }
 
 h1,
 html body .h1 {
-    @include mixin.semi;
+    font-weight: 400;
     font-size: 4rem;
+    line-height: 1.1;
 }
 
 h2,
 html body .h2 {
-    @include mixin.semi;
+    font-weight: 600;
     font-size: 3.2rem;
+    line-height: 1.2;
 }
 
 h3,
 html body .h3 {
-    @include mixin.semi;
+    font-weight: 600;
     font-size: 2.8rem;
+    line-height: 1.3;
 }
 
 h4,
 html body .h4 {
-    @include mixin.semi;
+    font-weight: 600;
     font-size: 2.4rem;
+    line-height: 1.4;
 }
 
 h5,
 html body .h5 {
-    @include mixin.semi;
+    font-weight: 600;
     font-size: 2rem;
+    line-height: 1.4;
 }
 
 h6,
 html body .h6 {
-    @include mixin.semi;
+    font-weight: 600;
     font-size: 1.8rem;
+    line-height: 1.4;
 }
 
 b,
 strong {
-    @include mixin.semi;
+    font-weight: 600;
 }
 
 i,

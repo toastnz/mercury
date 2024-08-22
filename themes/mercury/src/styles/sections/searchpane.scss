@@ -3,7 +3,7 @@ Modules
 ------------------------------------------------------------------*/
 
 @use './../base/vars' as var;
-@use './../base/mixins' as mixin;
+
 
 /*------------------------------------------------------------------
 Searchpane
@@ -80,11 +80,11 @@ Searchpane
         padding-left: 0 !important;
         font-weight: light;
 
-        @include mixin.media(var(--width-md), max) {
+        @container style(--is-width-md: true) {
           font-size: 3rem;
         }
 
-        @include mixin.media(var(--width-sm), max) {
+        @container style(--is-width-sm: true) {
           font-size: 2.4rem;
         }
 
