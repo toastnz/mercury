@@ -49,6 +49,12 @@ Styles
         font-family: Poppins, sans-serif;
     }
 
+    input,
+    select,
+    textarea {  
+      font-family: Poppins, sans-serif;
+    }
+
     .js-postload {
         display: none;
     }

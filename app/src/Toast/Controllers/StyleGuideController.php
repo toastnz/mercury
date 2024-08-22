@@ -235,7 +235,7 @@ class StyleGuideController extends Controller
         ]);
 
         $arrayData = new ArrayData([
-            'Items' => $Items
+            'Items' => $Items,
         ]);
 
 

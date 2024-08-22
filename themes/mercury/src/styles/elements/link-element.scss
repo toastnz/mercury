@@ -1,11 +1,4 @@
 /*------------------------------------------------------------------
-Modules
-------------------------------------------------------------------*/
-
-@use './../base/vars' as var;
-
-
-/*------------------------------------------------------------------
 Link block
 ------------------------------------------------------------------*/
 
@@ -18,9 +11,8 @@ Link block
   }
 
   &__item {
-    box-shadow: var(--shadow-large);
     margin: 2rem;
-    background: white;
+    background: var(--colour-off-white);
     overflow: hidden;
     position: relative;
   }
@@ -43,6 +35,9 @@ Link block
 
   &__content {
     padding: 3rem;
+    z-index: 2;
+    position: relative;
+    background: var(--colour-off-white);
   }
 }
 

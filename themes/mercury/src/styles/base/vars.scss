@@ -5,22 +5,22 @@ Base colors
 :root {
 
     // Colours
-    --color-white: #ffffff;
-    --color-off-white: #f7f7f7;
-    --color-grey-light: #ebebeb;
-    --color-grey-mid: #7a7a7a;
-    --color-grey-dark: #0f1b25;
-    --color-black: #000000;
+    --colour-white: #ffffff;
+    --colour-off-white: #F0F0F0;
+    --colour-grey-light: #ebebeb;
+    --colour-grey-mid: #7a7a7a;
+    --colour-grey-dark: #0f1b25;
+    --colour-black: #000000;
 
 
     // Brand design colours
-    --color-primary: #020300;
-    --color-secondary: #2C2823;
+    --colour-primary: #111;
+    --colour-secondary: #2C2823;
 
 
     // Text colours
-    --text-dark: var(--color-black);
-    --text-light: var(--color-grey-mid);
+    --text-dark: var(--colour-black);
+    --text-light: var(--colour-grey-mid);
 
 
     // Border radius
@@ -84,18 +84,3 @@ Base colors
     }
 
 }
-
-
-
-
-// Widths
-$width-xxxs: --width-xxxs;
-$width-xxs: --width-xxs;
-$width-xs: --width-xs;
-$width-sm: --width-sm;
-$width-md: --width-md;
-$width-xmd: --width-xmd;
-$width-lg: --width-lg;
-$width-xl: --width-xl;
-$width-xxl: --width-xxl;
-$width-xxxl: --width-xxxl;

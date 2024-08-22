@@ -1,8 +1,3 @@
-/*------------------------------------------------------------------
-Modules
-------------------------------------------------------------------*/
-
-@use './../base/vars' as var;
 
 
 /*------------------------------------------------------------------
@@ -20,7 +15,7 @@ Testimonial element
     max-width: var(--width-md);
     margin: 0 auto;
     text-align: center;
-    background: var(--color-secondary);
+    background: var(--colour-secondary);
     box-shadow: var(--shadow-large);
     border-radius: var(--radius-small);
     padding: 6rem;

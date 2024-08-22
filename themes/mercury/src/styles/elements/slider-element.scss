@@ -1,8 +1,3 @@
-/*------------------------------------------------------------------
-Modules
-------------------------------------------------------------------*/
-
-@use './../base/vars' as var;
 
 
 /*------------------------------------------------------------------
@@ -61,7 +56,7 @@ Slider block
 
       &__image {
         aspect-ratio: 450 / 350;
-        background: var(--color-primary);
+        background: var(--colour-primary);
         transition: all var(--timing-fast);
         margin-bottom: 3m;
         position: relative;
@@ -148,7 +143,7 @@ Slider block
       background: transparent;
       width: 4rem;
       height: 4rem;
-      border: 2px solid var(--color-primary);
+      border: 2px solid var(--colour-primary);
       border-radius: 100rem;
       background-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10"><path fill="%23000" fill-rule="evenodd" d="M8.423.015 13.408 5 8.422 9.985 7.38 8.943l3.2-3.2H.09V4.257H10.58l-3.2-3.2L8.424.016Z"/></svg>');
       background-size: 14px 10px;

@@ -1,8 +1,3 @@
-/*------------------------------------------------------------------
-Modules
-------------------------------------------------------------------*/
-
-@use './../base/vars' as var;
 
 
 /*------------------------------------------------------------------
@@ -21,7 +16,7 @@ Text block
 
   &.primary {
     padding: 8rem 0;
-    background: var(--color-primary);
+    background: var(--colour-primary);
 
     .text-element__wrap {
       margin: 0 auto;

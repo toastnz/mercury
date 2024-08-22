@@ -1,8 +1,3 @@
-/*------------------------------------------------------------------
-Modules
-------------------------------------------------------------------*/
-
-@use './../base/vars' as var;
 
 
 /*------------------------------------------------------------------
@@ -42,7 +37,7 @@ Breadcrumbs
     display: inline-block;
     vertical-align: middle;
     padding: 2.4rem 1rem;
-    color: var(--color-primary);
+    color: var(--colour-primary);
 
     @container style(--is-width-md: true) {
       padding-left: 0.2rem;
@@ -90,15 +85,15 @@ Breadcrumbs
     }
 
     &--link {
-      color: var(--color-primary);
+      color: var(--colour-primary);
 
       &:hover {
-        color: var(--color-primary);
+        color: var(--colour-primary);
       }
     }
 
     &--current {
-      color: var(--color-primary);
+      color: var(--colour-primary);
     }
   }
 
@@ -146,7 +141,7 @@ Breadcrumbs
         display: block;
 
         path {
-          fill: var(--color-primary);
+          fill: var(--colour-primary);
         }
       }
 

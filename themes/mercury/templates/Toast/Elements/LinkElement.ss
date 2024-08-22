@@ -14,7 +14,7 @@
                     <% end_if %>
 
                     <div class="link-element__content">
-                        <h6>$Title.XML</h6>
+                        <h5>$Title.XML</h5>
                         <p>$Summary.XML</p>
                         <p class="arrow-link no-margin">Read More</p>
                     </div>

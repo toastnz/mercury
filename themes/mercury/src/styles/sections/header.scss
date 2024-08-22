@@ -1,8 +1,3 @@
-/*------------------------------------------------------------------
-Modules
-------------------------------------------------------------------*/
-
-@use './../base/vars' as var;
 
 
 /*------------------------------------------------------------------
@@ -15,7 +10,7 @@ Styles
   top: 0;
   left: 0;
   right: 0;
-  background: var(--color-white);
+  background: var(--colour-white);
   z-index: 999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   transition: all var(--timing-fast);
@@ -31,7 +26,7 @@ Styles
 
   &.nav-down {
     transform: translateY(0%);
-    background: var(--color-white);
+    background: var(--colour-white);
     box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   }
 
@@ -88,7 +83,7 @@ Styles
           &:hover .nav,
           &.section .nav,
           &.current .nav {
-            color: var(--color-primary);
+            color: var(--colour-primary);
           }
         }
       }
@@ -127,17 +122,17 @@ Styles
 
         &--1 {
           margin-top: 0.5rem;
-          background: var(--color-primary);
+          background: var(--colour-primary);
         }
 
         &--2 {
           margin-top: 1.5rem;
-          background: var(--color-primary);
+          background: var(--colour-primary);
         }
 
         &--3 {
           margin-top: 2.5rem;
-          background: var(--color-primary);
+          background: var(--colour-primary);
         }
       }
     }
@@ -163,7 +158,7 @@ Header sub menus
   top: calc(100% + 0rem);
 
   &__wrap {
-    background: var(--color-white);
+    background: var(--colour-white);
     border-top: 1px solid var(--off-white);
     border-radius: 0 0 0.2rem 0.2rem;
     padding: 0.8rem 0;
@@ -171,7 +166,7 @@ Header sub menus
 
     &__item {
       display: block;
-      color: var(--color-primary);
+      color: var(--colour-primary);
       font-size: 1.4rem;
       text-decoration: none;
       padding: 0.5rem 2rem;
@@ -185,11 +180,11 @@ Header sub menus
 
       &.current,
       &:hover {
-        background: var(--color-primary);
+        background: var(--colour-primary);
 
         p {
           transition: all 111ms ease;
-          color: var(--color-white);
+          color: var(--colour-white);
         }
       }
     }

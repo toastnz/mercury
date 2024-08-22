@@ -7,19 +7,7 @@
 
     <body class="$Classname">
 
-        <% include Type %>
-
-        <div class="type">
-
-            $Layout
-
-        </div>
-
-        <%-- <% require javascript($ResourceURL('themes/mercury/dist/scripts/main.js')) %> --%>
-
-        <%-- --------------------------------------------------------------
-        Footer code injection
-        -------------------------------------------------------------- --%>
+        $Layout
 
         <% if $SiteConfig.FooterCodeInjection %>
             $SiteConfig.FooterCodeInjection
