@@ -12,11 +12,11 @@ Footer
 .footer {
     margin-top: 10rem;
     width: 100%;
-    background: var(--grey-light);
+    background: var(--color-grey-light);
     padding: 0 2rem;
 
     &__wrap {
-        max-width: var(--breakpoint-xl);
+        max-width: var(--width-xl);
         margin: 0 auto;
         width: 100%;
         display: flex;
@@ -31,7 +31,7 @@ Footer
             width: 100%;
             justify-content: space-between;
 
-            @include mixin.media(var(--breakpoint-md), max) {
+            @include mixin.media(var(--width-md), max) {
                 padding: 0;
             }
 
@@ -48,7 +48,7 @@ Footer
                 flex-wrap: wrap;
                 padding: 0 2rem 0 0;
 
-                @include mixin.media(var(--breakpoint-xmd), max) {
+                @include mixin.media(var(--width-xmd), max) {
                     width: 100%;
                     justify-content: center;
                     margin-bottom: 3rem;
@@ -62,7 +62,7 @@ Footer
                 padding: 0 2rem;
                 justify-content: space-between;
 
-                @include mixin.media(var(--breakpoint-xmd), max) {
+                @include mixin.media(var(--width-xmd), max) {
                     width: 100%;
                     padding: 0;
                     justify-content: center;
@@ -75,7 +75,7 @@ Footer
                 padding: 0 2rem;
                 align-content: flex-start;
 
-                @include mixin.media(var(--breakpoint-xmd), max) {
+                @include mixin.media(var(--width-xmd), max) {
                     width: 100%;
                     padding: 0;
                     justify-content: center;

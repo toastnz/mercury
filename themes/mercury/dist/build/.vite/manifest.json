@@ -18,7 +18,7 @@
     "isEntry": true
   },
   "themes/mercury/src/js/main.js": {
-    "file": "assets/main-B4Yef6mJ.js",
+    "file": "assets/main-DDZf6qBM.js",
     "name": "main",
     "src": "themes/mercury/src/js/main.js",
     "isEntry": true,
@@ -27,7 +27,7 @@
       "themes/mercury/src/js/components/video.js"
     ],
     "css": [
-      "assets/main-B75TXbnV.css"
+      "assets/main-ovrF6XXq.css"
     ]
   }
 }

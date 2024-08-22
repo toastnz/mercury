@@ -11,7 +11,7 @@ Sidebar wrap
 
 .sidebar-wrap {
   width: 100%;
-  max-width: var(--breakpoint-xl);
+  max-width: var(--width-xl);
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -20,7 +20,7 @@ Sidebar wrap
     width: calc(100% - 36rem);
     padding-right: 4rem;
 
-    @include mixin.media(var(--breakpoint-xmd), max) {
+    @include mixin.media(var(--width-xmd), max) {
       width: 100%;
       order: 1;
       padding-right: 0;
@@ -31,7 +31,7 @@ Sidebar wrap
     width: 36rem;
     padding: 0 2rem;
 
-    @include mixin.media(var(--breakpoint-xmd), max) {
+    @include mixin.media(var(--width-xmd), max) {
       width: 100%;
       order: 2;
       padding: 0 2rem;
@@ -39,7 +39,7 @@ Sidebar wrap
 
     &__categories {
       &__heading {
-        border-bottom: 1px solid var(--grey-light);
+        border-bottom: 1px solid var(--color-grey-light);
       }
     }
 
@@ -47,7 +47,7 @@ Sidebar wrap
       margin-top: 4rem;
 
       &__heading {
-        border-bottom: 1px solid var(--grey-light);
+        border-bottom: 1px solid var(--color-grey-light);
         margin-bottom: 2rem;
       }
 

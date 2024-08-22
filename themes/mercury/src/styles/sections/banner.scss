@@ -82,13 +82,13 @@ Banner
 
       &__content {
         width: 100%;
-        max-width: var(--breakpoint-xxl);
+        max-width: var(--width-xxl);
         z-index: 5;
         margin: 0 auto;
         position: relative;
         padding: 0 10rem;
 
-        @media (max-width: var(--breakpoint-md)) {
+        @media (max-width: var(--width-md)) {
           .banner__content {
             padding: 0 2rem;
           }
@@ -97,7 +97,7 @@ Banner
         &__inner {
           padding: 20rem 0;
 
-          @media (max-width: var(--breakpoint-md)) {
+          @media (max-width: var(--width-md)) {
             padding: 10rem 0;
           }
         }
@@ -108,7 +108,7 @@ Banner
   .tns-controls {
     z-index: 4;
 
-    @media (max-width: var(--breakpoint-md)) {
+    @media (max-width: var(--width-md)) {
       .tns-controls {
         bottom: 6rem;
         top: auto;

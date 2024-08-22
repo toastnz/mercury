@@ -35,7 +35,7 @@ Login page
     }
 
 
-    @include mixin.media(var(--breakpoint-xmd), max) {
+    @include mixin.media(var(--width-xmd), max) {
       display: none;
     }
   }
@@ -81,7 +81,7 @@ Login page
       }
     }
 
-    @include mixin.media(var(--breakpoint-xmd), max) {
+    @include mixin.media(var(--width-xmd), max) {
       width: 100%;
       position: relative;
     }

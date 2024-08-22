@@ -14,8 +14,8 @@ Base colors
 
 
     // Brand design colours
-    --color-primary: #2a6cff;
-    --color-secondary: #0f1b25;
+    --color-primary: #020300;
+    --color-secondary: #2C2823;
 
 
     // Text colours
@@ -29,17 +29,17 @@ Base colors
     --radius-large: 16px;
 
 
-    // Breakpoints
-    --breakpoint-xxxs: 375px;
-    --breakpoint-xxs: 480px;
-    --breakpoint-xs: 540px;
-    --breakpoint-sm: 640px;
-    --breakpoint-md: 768px;
-    --breakpoint-xmd: 968px;
-    --breakpoint-lg: 1024px;
-    --breakpoint-xl: 1280px;
-    --breakpoint-xxl: 1440px;
-    --breakpoint-xxxl: 1920px;
+    // Widths
+    --width-xxxs: 375px;
+    --width-xxs: 480px;
+    --width-xs: 540px;
+    --width-sm: 640px;
+    --width-md: 768px;
+    --width-xmd: 968px;
+    --width-lg: 1024px;
+    --width-xl: 1280px;
+    --width-xxl: 1440px;
+    --width-xxxl: 1920px;
 
 
     // Timings
@@ -56,3 +56,16 @@ Base colors
         rgba(15, 23, 42, 0.1) 0px 20px 25px -5px,
         rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
 }
+
+
+// Widths
+$width-xxxs: --width-xxxs;
+$width-xxs: --width-xxs;
+$width-xs: --width-xs;
+$width-sm: --width-sm;
+$width-md: --width-md;
+$width-xmd: --width-xmd;
+$width-lg: --width-lg;
+$width-xl: --width-xl;
+$width-xxl: --width-xxl;
+$width-xxxl: --width-xxxl;

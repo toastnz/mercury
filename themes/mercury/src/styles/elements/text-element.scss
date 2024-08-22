@@ -34,7 +34,7 @@ Text block
       height: auto;
       max-width: 100%;
 
-      @include mixin.media(var(--breakpoint-lg)) {
+      @include mixin.media(var(--width-lg)) {
 
         &.left,
         &.leftALone {

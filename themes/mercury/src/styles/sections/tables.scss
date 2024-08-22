@@ -17,7 +17,7 @@ table {
   margin: 0 auto 3rem;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--grey-light);
+  border: 1px solid var(--color-grey-light);
 
   li {
     margin-bottom: 0;
@@ -25,7 +25,7 @@ table {
 
   tr {
     background: white;
-    border-bottom: 1px solid var(--grey-light);
+    border-bottom: 1px solid var(--color-grey-light);
     margin-bottom: 5px;
 
     &:last-of-type {
@@ -41,7 +41,7 @@ table {
   td {
     text-align: left;
     padding: 1rem;
-    border-right: 1px solid var(--grey-light);
+    border-right: 1px solid var(--color-grey-light);
 
     p {
       margin: 0;

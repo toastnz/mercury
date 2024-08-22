@@ -82,11 +82,11 @@ class StyleGuideController extends Controller
     {
         $arrayData = new ArrayData([
             'Content' => DBField::create_field(DBHTMLText::class, '<h1>This is an H1, an important heading</h1>
-            <h2>This is an H2, the second most important heading on a page</h2>
-            <h3>This is an H3, the third most important heading on a page</h3>
-            <h4>This is an H4, the fourth most important heading on a page</h4>
-            <h5>This is an H5, the fifth most important heading on a page</h5>
-            <h6>This is an H6, the sixth most important heading on a page</h6>
+            <h2>This is an H2, the second heading on a page</h2>
+            <h3>This is an H3, the third heading on a page</h3>
+            <h4>This is an H4, the fourth heading on a page</h4>
+            <h5>This is an H5, the fifth heading on a page</h5>
+            <h6>This is an H6, the sixth heading on a page</h6>
             <p>
                 <strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
                 <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed,

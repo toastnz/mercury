@@ -21,4 +21,4 @@ web_extra_exposed_ports:
       https_port: 5174
 hooks:
  post-start:
-   - exec: "yarn && yarn dev"
+   - exec: "npm install && npm run dev"

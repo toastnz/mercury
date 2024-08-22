@@ -26,7 +26,7 @@ textarea {
   line-height: 1.5;
   background-color: white;
   background-image: none;
-  border: 1px solid var(--grey-light);
+  border: 1px solid var(--color-grey-mid);
   border-radius: 0;
   transition: all 0.3s;
 
@@ -65,7 +65,7 @@ form {
     &.half {
       width: calc(50% - 1rem);
 
-      @include mixin.media(var(--breakpoint-md), max) {
+      @include mixin.media(var(--width-md), max) {
         width: 100%;
       }
     }
@@ -126,7 +126,7 @@ input[type='checkbox'] {
       transform: translateY(-50%);
       transition: all 333ms ease;
       background: white;
-      border: 1px solid var(--grey-light);
+      border: 1px solid var(--color-grey-mid);
       width: 20px;
       height: 20px;
       border-radius: 0.2rem;
@@ -189,7 +189,7 @@ input[type='radio'] {
       transform: translateY(-50%);
       transition: all 222ms ease;
       background: white;
-      border: 1px solid var(--grey-light);
+      border: 1px solid var(--color-grey-mid);
       width: 20px;
       height: 20px;
       border-radius: 2rem;
@@ -245,7 +245,7 @@ File field
 .field.file {
   .middleColumn {
     position: relative;
-    border: 2px dashed var(--grey-light);
+    border: 2px dashed var(--color-grey-mid);
     border-radius: 0.4rem;
     height: 7rem;
 

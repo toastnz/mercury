@@ -42,7 +42,7 @@ Styles
   &__wrap {
     position: relative;
     height: 8rem;
-    max-width: var(--breakpoint-xl);
+    max-width: var(--width-xl);
     margin: 0 auto;
     padding: 0 2rem;
 
@@ -59,7 +59,7 @@ Styles
       text-align: right;
       right: 2rem;
 
-      @include mixin.media(var(--breakpoint-lg), max) {
+      @include mixin.media(var(--width-lg), max) {
         right: 7rem;
       }
 
@@ -68,7 +68,7 @@ Styles
         display: inline-block;
         vertical-align: middle;
 
-        @include mixin.media(var(--breakpoint-lg), max) {
+        @include mixin.media(var(--width-lg), max) {
           &:not(.header__wrap__menu__search) {
             display: none;
           }
@@ -115,7 +115,7 @@ Styles
       top: 1.8rem;
       cursor: pointer;
 
-      @include mixin.media(var(--breakpoint-lg)) {
+      @include mixin.media(var(--width-lg)) {
         display: none;
       }
 

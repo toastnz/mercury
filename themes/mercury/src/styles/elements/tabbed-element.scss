@@ -10,6 +10,7 @@ Tabbed content block
 ------------------------------------------------------------------*/
 
 .tabbed-element {
+
   &__wrap {
     display: flex;
     flex-wrap: wrap;
@@ -17,40 +18,19 @@ Tabbed content block
 
   &__tabs {
     width: 30rem;
-    border-right: 1px solid var(--grey-light);
+    border-right: 1px solid var(--color-grey-light);
     position: relative;
 
-    @include mixin.media(var(--breakpoint-xmd), max) {
-      width: 100%;
-      border-right: 0 solid var(--grey-light);
-      border-left: 1px solid var(--grey-light);
-      padding-left: 2rem;
-      margin-bottom: 4rem;
-    }
-
-    &__indicator {
-      position: absolute;
-      width: 4px;
-      right: -1px;
-      min-height: 2rem;
-      background: var(--color-primary);
-      transition: --timing-medium;
-
-      @include mixin.media(var(--breakpoint-xmd), max) {
-        right: auto;
-        left: -1px;
-      }
-    }
+    padding-right: 1rem;
 
     &__item {
-      padding: 1rem 2rem 1rem 0;
+      padding: 1rem 2rem;
       display: block;
-
-      @include mixin.media(var(--breakpoint-xmd), max) {
-        padding: 0;
-      }
+      border-radius: var(--radius-small);
 
       &.active {
+        background: var(--color-grey-light);
+
         h6 {
           color: var(--color-primary);
         }
@@ -62,10 +42,7 @@ Tabbed content block
     width: calc(100% - 30rem);
     padding: 0 4rem;
 
-    @include mixin.media(var(--breakpoint-xmd), max) {
-      width: 100%;
-      padding: 0;
-    }
+
 
     &__item {
       display: none;
@@ -73,6 +50,24 @@ Tabbed content block
       &.active {
         display: block;
       }
+    }
+  }
+}
+
+@media(width < 768px) {
+  .tabbed-element {
+
+    &__tabs {
+      width: 100%;
+      border-right: 0 solid var(--color-grey-light);
+      border-left: 1px solid var(--color-grey-light);
+      padding-left: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    &__content {
+      width: 100%;
+      padding: 0 2rem;
     }
   }
 }

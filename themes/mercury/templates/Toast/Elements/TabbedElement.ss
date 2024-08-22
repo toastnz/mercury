@@ -3,12 +3,9 @@
         <div class="tabbed-element__wrap">
 
             <div class="tabbed-element__tabs">
-                
-                <div class="tabbed-element__tabs__indicator [ js-tabs-indicator ]"></div>
-                
                 <% loop $Items.Sort('SortOrder') %>
-                    <a href="#" class="tabbed-element__tabs__item [ js-tabs-link ] <% if $FirstLast = 'first' %>active<% end_if %>">
-                        <h6>$Title.XML</h6>
+                    <a href="#" class="tabbed-element__tabs__item [ js-tabs-link ] <% if $FirstLast = 'first' %>active<% end_if %>" onclick="event.preventDefault(); (function() { var tabs = document.querySelectorAll('.js-tabs-link'); var contents = document.querySelectorAll('.js-tabs-item'); tabs.forEach(function(tab, index) { tab.addEventListener('click', function() { tabs.forEach(function(t) { t.classList.remove('active'); }); tab.classList.add('active'); contents.forEach(function(content) { content.classList.remove('active'); }); contents[index].classList.add('active'); }); }); })()">
+                        <h6 class="no-margin">$Title.XML</h6>
                     </a>
                 <% end_loop %>
             </div>
@@ -21,51 +18,8 @@
                 <% end_loop %>
             </div>
         </div>
-
-        <script>
-
-            function updateTabbedContent(indicator, currentTab) {
-
-                var parent = currentTab.parentNode;
-                var grandparent = parent.parentNode;
-                var index = Array.prototype.indexOf.call(parent.children, currentTab);
-
-                currentTab.classList.add('active');
-
-                document.querySelectorAll('.js-tabs-item', grandparent).forEach(function(tabbedContentItem){ tabbedContentItem.style.display = 'none'});
-
-                grandparent.querySelector(`.js-tabs-item:nth-child(${index})`).style.display = 'block';
-
-                var rect = currentTab.getBoundingClientRect();
-                indicator.style.height = `${rect.height}px`;
-                indicator.style.top = `${currentTab.offsetTop}px`;
-            }
-
-            document.querySelectorAll('.js-tabs').forEach(function(tabbedContent) {
-
-                var indicator = tabbedContent.querySelector('.js-tabs-indicator');
-                var currentTab = tabbedContent.querySelector('.js-tabs-link.active');
-
-                document.querySelectorAll('.js-tabs-link', tabbedContent).forEach(function(tabbedContentLink) {
-
-                    tabbedContentLink.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        currentTab.classList.remove('active');
-                        currentTab = tabbedContentLink;
-                        updateTabbedContent(indicator, currentTab);
-                    });
-
-                });
-
-                updateTabbedContent(indicator, currentTab);
-
-                window.addEventListener('resize', function() {
-                    updateTabbedContent(indicator, currentTab);
-                });
-
-            });
-
-        </script>
     </div>
 
 <% end_if %>
+
+

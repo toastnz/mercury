@@ -54,9 +54,9 @@ Hero block
         padding: 24rem 2rem;
         position: relative;
         z-index: 3;
-        max-width: var(--breakpoint-md);
+        max-width: var(--width-md);
 
-        @include mixin.media(var(--breakpoint-md), max) {
+        @include mixin.media(var(--width-md), max) {
             padding: 8rem 2rem;
         }
     }
