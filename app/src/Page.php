@@ -142,6 +142,7 @@ class PageController extends ContentController
         }
 
         Requirements::javascript('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['file']);
+        Requirements::javascript('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/extended.js']['file']);
         Requirements::css('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['css'][0]);
 
         if ($this->hasMethod('getAdditionalRequirements')) {

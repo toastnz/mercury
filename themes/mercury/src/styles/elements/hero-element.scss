@@ -51,7 +51,7 @@ Hero block
         z-index: 3;
         max-width: var(--width-md);
 
-        @container style(--is-width-md: true) {
+        @container style(--is-max-width-md: true) {
             padding: 8rem 2rem;
         }
     }

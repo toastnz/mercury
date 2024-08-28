@@ -15,7 +15,7 @@ Sidebar wrap
     width: calc(100% - 36rem);
     padding-right: 4rem;
 
-    @container style(--is-width-xmd: true) {
+    @container style(--is-max-width-xmd: true) {
       width: 100%;
       order: 1;
       padding-right: 0;
@@ -26,7 +26,7 @@ Sidebar wrap
     width: 36rem;
     padding: 0 2rem;
 
-    @container style(--is-width-xmd: true) {
+    @container style(--is-max-width-xmd: true) {
       width: 100%;
       order: 2;
       padding: 0 2rem;

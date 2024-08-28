@@ -75,11 +75,11 @@ Searchpane
         padding-left: 0 !important;
         font-weight: light;
 
-        @container style(--is-width-md: true) {
+        @container style(--is-max-width-md: true) {
           font-size: 3rem;
         }
 
-        @container style(--is-width-sm: true) {
+        @container style(--is-max-width-sm: true) {
           font-size: 2.4rem;
         }
 

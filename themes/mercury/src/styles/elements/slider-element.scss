@@ -27,7 +27,7 @@ Slider block
       left: auto;
     }
 
-    @container style(--is-width-xmd: true) {
+    @container style(--is-max-width-xmd: true) {
       top: 17.5%;
     }
   }
@@ -42,7 +42,7 @@ Slider block
   &__slider {
     position: relative;
 
-    @container style(--is-width-md: true) {
+    @container style(--is-max-width-md: true) {
       margin-left: 0;
       padding-left: 0;
     }
@@ -50,7 +50,7 @@ Slider block
     &__item {
       padding-top: 4rem;
 
-      @container style(--is-width-md: true) {
+      @container style(--is-max-width-md: true) {
         width: 49%;
       }
 
@@ -74,7 +74,7 @@ Slider block
           opacity: 0;
         }
 
-        @container style(--is-width-md: true) {
+        @container style(--is-max-width-md: true) {
           aspect-ratio: 450 / 400;
         }
 
@@ -95,7 +95,7 @@ Slider block
         opacity: 0;
         transform: translateY(2rem);
 
-        @container style(--is-width-md: true) {
+        @container style(--is-max-width-md: true) {
           margin: 0 -6rem;
           width: auto;
           text-align: center;
@@ -109,7 +109,7 @@ Slider block
       z-index: 3;
       transform: scale(1.05);
 
-      @container style(--is-width-md: true) {
+      @container style(--is-max-width-md: true) {
         transform: scale(1.1);
       }
 
@@ -130,7 +130,7 @@ Slider block
     top: -6rem;
     right: 2rem;
 
-    @container style(--is-width-md: true) {
+    @container style(--is-max-width-md: true) {
       top: 0;
       position: relative;
       right: 0;

@@ -1,5 +1,3 @@
-
-
 /*------------------------------------------------------------------
 Styles
 ------------------------------------------------------------------*/
@@ -11,7 +9,6 @@ Styles
   left: 0;
   right: 0;
   background: var(--colour-white);
-  z-index: 999;
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   transition: all var(--timing-fast);
 
@@ -54,7 +51,7 @@ Styles
       text-align: right;
       right: 2rem;
 
-      @container style(--is-width-lg: true) {
+      @container style(--is-max-width-lg: true) {
         right: 7rem;
       }
 
@@ -63,7 +60,7 @@ Styles
         display: inline-block;
         vertical-align: middle;
 
-        @container style(--is-width-lg: true) {
+        @container style(--is-max-width-lg: true) {
           &:not(.header__wrap__menu__search) {
             display: none;
           }
@@ -109,9 +106,10 @@ Styles
       right: -4.5rem;
       top: 1.8rem;
       cursor: pointer;
+      display: none;
 
-      @container style(--is-width-lg: true) {
-        display: none;
+      @container style(--is-max-width-lg: true) {
+        display: block;
       }
 
       &__ring {

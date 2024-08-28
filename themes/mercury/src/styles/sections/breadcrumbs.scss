@@ -6,7 +6,7 @@ Breadcrumbs
 
 .breadcrumbs {
 
-  @container style(--is-width-md: true) {
+  @container style(--is-max-width-md: true) {
     padding: 0;
   }
 
@@ -19,7 +19,7 @@ Breadcrumbs
     white-space: nowrap;
     text-overflow: ellipsis;
 
-    @container style(--is-width-md: true) {
+    @container style(--is-max-width-md: true) {
       padding: 0 2rem;
     }
   }
@@ -39,7 +39,7 @@ Breadcrumbs
     padding: 2.4rem 1rem;
     color: var(--colour-primary);
 
-    @container style(--is-width-md: true) {
+    @container style(--is-max-width-md: true) {
       padding-left: 0.2rem;
       padding-right: 0.2rem;
       font-size: 1rem;
@@ -106,11 +106,11 @@ Breadcrumbs
     flex-wrap: wrap;
     align-items: center;
 
-    @container style(--is-width-md: true) {
+    @container style(--is-max-width-md: true) {
       right: 1.2rem;
     }
 
-    @container style(--is-width-sm: true) {
+    @container style(--is-max-width-sm: true) {
       display: none;
     }
 
@@ -120,7 +120,7 @@ Breadcrumbs
       vertical-align: middle;
       font-size: 1.2rem !important;
 
-      @container style(--is-width-md: true) {
+      @container style(--is-max-width-md: true) {
         display: none;
       }
     }

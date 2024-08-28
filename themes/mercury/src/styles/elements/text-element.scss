@@ -29,7 +29,7 @@ Text block
       height: auto;
       max-width: 100%;
 
-      @container style(--is-width-lg: true) {
+      @container style(--is-max-width-lg: true) {
 
         &.left,
         &.leftALone {

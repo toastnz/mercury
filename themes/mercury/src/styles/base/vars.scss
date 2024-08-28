@@ -14,8 +14,8 @@ Base colors
 
 
     // Brand design colours
-    --colour-primary: #111;
-    --colour-secondary: #2C2823;
+    --colour-primary: #2563EB;
+    --colour-secondary: #475569;
 
 
     // Text colours
@@ -24,6 +24,7 @@ Base colors
 
 
     // Border radius
+    --radius-tiny: 2px;
     --radius-small: 4px;
     --radius-medium: 8px;
     --radius-large: 16px;
@@ -57,30 +58,28 @@ Base colors
         rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
 
 
-    --is-width-xxxs: false;
-    --is-width-xxs: false;
-    --is-width-xs: false;
-    --is-width-sm: false;
-    --is-width-md: false;
-    --is-width-xmd: false;
-    --is-width-lg: false;
-    --is-width-xl: false;
-    --is-width-xxl: false;
-    --is-width-xxxl: false;
-
-
+    --is-max-width-xxxs: false;
+    --is-max-width-xxs: false;
+    --is-max-width-xs: false;
+    --is-max-width-sm: false;
+    --is-max-width-md: false;
+    --is-max-width-xmd: false;
+    --is-max-width-lg: false;
+    --is-max-width-xl: false;
+    --is-max-width-xxl: false;
+    --is-max-width-xxxl: false;
 
     @media only screen and (max-width:768px) {
-        --is-width-md: true;
+        --is-max-width-md: true;
     }
 
     @media only screen and (max-width:968px) {
-        --is-width-xmd: true;
+        --is-max-width-xmd: true;
     }
 
 
     @media only screen and (max-width:1024px) {
-        --is-width-lg: true;
+        --is-max-width-lg: true;
     }
 
 }

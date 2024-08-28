@@ -21,7 +21,7 @@ body {
       box-shadow: var(--shadow-large);
       transform: translateX(-1rem);
 
-      @container style(--is-width-md: true) {
+      @container style(--is-max-width-md: true) {
         position: relative;
         width: calc(100% - 2rem);
         padding: 1rem 2rem;

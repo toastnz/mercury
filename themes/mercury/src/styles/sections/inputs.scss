@@ -20,7 +20,7 @@ textarea {
   background-color: white;
   background-image: none;
   border: 1px solid var(--colour-grey-mid);
-  border-radius: 0;
+  border-radius: var(--radius-tiny);
   transition: all 0.3s;
   font-size: 1.6rem;
 

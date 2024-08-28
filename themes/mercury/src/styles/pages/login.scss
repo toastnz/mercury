@@ -30,7 +30,7 @@ Login page
     }
 
 
-    @container style(--is-width-xmd: true) {
+    @container style(--is-max-width-xmd: true) {
       display: none;
     }
   }
@@ -76,7 +76,7 @@ Login page
       }
     }
 
-    @container style(--is-width-xmd: true) {
+    @container style(--is-max-width-xmd: true) {
       width: 100%;
       position: relative;
     }
