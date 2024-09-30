@@ -14,6 +14,7 @@ export default defineConfig({
     host: true,
   },
   build: {
+    target: 'es2015',
     manifest: true,
     emptyOutDir: false,
     outDir: './themes/mercury/dist/build/',
@@ -23,6 +24,7 @@ export default defineConfig({
       input: {
         main: './themes/mercury/src/js/main.js',
         extended: './themes/mercury/src/js/extended.js',
+
       },
     },
   },

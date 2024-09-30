@@ -11,6 +11,7 @@ Styles
   background: var(--colour-white);
   box-shadow: -1px 4px 74px -16px rgba(0, 0, 0, 0.15);
   transition: all var(--timing-fast);
+  z-index: 999;
 
   &--transparent {
     box-shadow: none;

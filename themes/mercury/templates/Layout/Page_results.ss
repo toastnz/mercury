@@ -1,11 +1,9 @@
 <div class="banner__push"></div>
 
-<section class="text-element text-element--off-white">
+<div class="text-element [ element standard none ]">
     <div class="text-element__wrap">
         <h1>$Title</h1>
-        <%-- <% if $Query %> --%>
-            <p>You searched for <span class="colour--primary">"{$Query}"</span>.</p>
-        <%-- <% end_if %> --%>
+        <p>You searched for <span class="colour--primary">"{$Query}"</span>.</p>
         <% if $Results %>
             <% if $Results.Count == 1 %>
                 <p>There is <span class="colour--primary">1</span> result.</p>
@@ -17,11 +15,11 @@
             <% end_if %>
         <% end_if %>
     </div>
-</section>
+</div>
 
 
 <% if $Results.Count %>
-    <section class="link-element block">
+    <div class="link-element [ element standard none ]">
 
         <div class="link-element__wrap">
             
@@ -47,10 +45,10 @@
 
         </div>
 
-    </section>
+    </div>
 
 <% else %>
-    <section class="text-element">
+    <div class="text-element [ element standard none ]">
         <div class="text-element__wrap">
             <p>&nbsp;</p>
             <h5>Sorry there are no results for that query</h5>
@@ -58,7 +56,7 @@
             <p>&nbsp;</p>
             <p>&nbsp;</p>
         </div>
-    </section>
+    </div>
 <% end_if %>
 
 

@@ -1,13 +1,12 @@
 
 <header class="header<% if $TransparentHeader %> header--transparent<% end_if %>">
 
-<%-- -------------------------------------------- 
+<%-- --------------------------------------------
 Show notification
 -------------------------------------------- --%>
 <% if $Siteconfig.ShowNotification %>
      <% include Toast\Includes\Notification %>
-<% end_if %> 
-
+<% end_if %>
 
 
     <div class="header__wrap <% if $Siteconfig.MakeHeaderFullWidth %>header__wrap--full<% end_if %>">
@@ -26,28 +25,28 @@ Show notification
         <div class="header__wrap__menu">
 
             <% loop $MenuSet('Header').MenuItems %>
-            <div class="header__wrap__menu__item [ js-indicator-hover ]">
-                <a href="$Link" class="header__wrap__menu__item__link {$LinkingMode}">
-                    <p class="nav">$Title</p>
-                </a>
+                <div class="header__wrap__menu__item">
+                    <a href="$Link" class="header__wrap__menu__item__link {$LinkingMode}">
+                        <p class="nav">$Title</p>
+                    </a>
 
-                <% if $Children %>
-                <div class="header__wrap__nav__link__subnav">
-                    <div class="header__wrap__nav__link__subnav__wrap">
-                        <% loop $Children %>
-                            <a href="{$Link}" class="header__wrap__nav__link__subnav__wrap__item {$LinkingMode}">
-                                <p class="nav">{$MenuTitle}</p>
-                            </a>
-                        <% end_loop %>
-                    </div>
+                    <% if $Children %>
+                        <div class="header__wrap__nav__link__subnav">
+                            <div class="header__wrap__nav__link__subnav__wrap">
+                                <% loop $Children %>
+                                    <a href="{$Link}" class="header__wrap__nav__link__subnav__wrap__item {$LinkingMode}">
+                                        <p class="nav">{$MenuTitle}</p>
+                                    </a>
+                                <% end_loop %>
+                            </div>
+                        </div>
+                    <% end_if %>
+
                 </div>
-                <% end_if %>
-
-            </div>
 
             <% end_loop %>
 
-            <div class="header__wrap__menu__search [ js-indicator-hover ]">
+            <div class="header__wrap__menu__search">
                 <a href="#" class="header__wrap__menu__search__link" title="Search" onclick="showSearchPane(event)">
                     <p>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -65,11 +64,12 @@ Show notification
 
 </header>
 
+
 <script>
 
 // Show the search pane
 function showSearchPane(event){
-    
+
     //Stop the link from forcing a page jump
     event.preventDefault();
 
@@ -85,5 +85,5 @@ function showSearchPane(event){
 </script>
 
  <% include Toast\Includes\MobileMenu %>
- 
+
  <% include Toast\Includes\SearchPane %>

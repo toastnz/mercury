@@ -1,29 +1,27 @@
+/**
+ * Accordion class to handle the behavior of an accordion component.
+ */
 export class Accordion {
 
     /**
      * 
-     * Constructor
+     * Constructor to initialize the accordion.
      * 
-     * @param {element} element accordion parent
+     * @param {HTMLElement} element - The accordion parent element.
      */
     constructor(element) {
-
         this.accordion = element;
         this.trigger = this.accordion.querySelector('.js-trigger');
         this.content = this.accordion.querySelector('.js-content');
 
-        // Initialise the accordion
+        // Initialize the accordion
         this.init();
     }
 
-
     /**
-     * 
-     * Initialise the accordion item
-     * 
+     * Initialize the accordion item.
      */
     init() {
-
         // Get the initial state of the accordion
         this.getState();
 
@@ -31,59 +29,44 @@ export class Accordion {
         this.addEventListeners();
     }
 
-
     /**
-     * 
-     * Get the current state of the accordion
-     * 
+     * Get the current state of the accordion.
      */
     getState() {
         this.is_open = this.accordion.classList.contains('active');
     }
 
-
     /**
-    * 
-    * Toggle the current state of the accordion
-    * 
-    */
+     * Toggle the current state of the accordion.
+     */
     toggle() {
-        (this.is_open) ? this.close() : this.open();
+        this.is_open ? this.close() : this.open();
     }
 
     /**
-     * 
-     * Add the click event handler to the accordion
-     * 
+     * Add the click event handler to the accordion.
      */
     addEventListeners() {
         this.accordion.addEventListener('click', () => this.toggle());
     }
 
-
     /**
+     * Update the state of the accordion.
      * 
-     * Add the click event handler to the accordion
-     * 
+     * @param {boolean} state - The new state of the accordion (true for open, false for closed).
      */
     updateState(state) {
-
         // Update the current state
         this.is_open = state;
 
         // Update the aria-expanded attribute
         this.trigger.setAttribute('aria-expanded', state);
-
     }
 
-
     /**
-     * 
-     * Open the accordion
-     * 
+     * Open the accordion.
      */
     open() {
-
         // Add active class to the accordion
         this.accordion.classList.add('active');
 
@@ -91,7 +74,7 @@ export class Accordion {
         this.content.style.height = 'auto';
         var height = this.content.clientHeight + 'px';
 
-        // Revert the heioght back to nothing
+        // Revert the height back to nothing
         this.content.style.height = 0;
 
         // Animate the height once the calculations are done
@@ -99,16 +82,12 @@ export class Accordion {
 
         // Update the current state
         this.updateState(true);
-
     }
 
     /**
-     * 
-     * Close the accordion
-     * 
+     * Close the accordion.
      */
     close() {
-
         // Revert the height back to nothing
         this.content.style.height = 0;
 
@@ -119,7 +98,5 @@ export class Accordion {
 
         // Update the current state
         this.updateState(false);
-
     }
 }
-
