@@ -3,32 +3,27 @@ Base colors
 ------------------------------------------------------------------*/
 
 :root {
-
     // Colours
     --colour-white: #ffffff;
-    --colour-off-white: #F0F0F0;
+    --colour-off-white: #f6f9ff;
     --colour-grey-light: #ebebeb;
     --colour-grey-mid: #7a7a7a;
     --colour-grey-dark: #0f1b25;
     --colour-black: #000000;
 
-
     // Brand design colours
-    --colour-primary: #2563EB;
+    --colour-primary: #2563eb;
     --colour-secondary: #475569;
-
 
     // Text colours
     --text-dark: var(--colour-black);
     --text-light: var(--colour-grey-mid);
-
 
     // Border radius
     --radius-tiny: 2px;
     --radius-small: 4px;
     --radius-medium: 8px;
     --radius-large: 16px;
-
 
     // Widths
     --width-xxxs: 375px;
@@ -42,7 +37,6 @@ Base colors
     --width-xxl: 1440px;
     --width-xxxl: 1920px;
 
-
     // Timings
     --timing-slower: 2s cubic-bezier(0.165, 0.84, 0.44, 1);
     --timing-slow: 1s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -50,13 +44,9 @@ Base colors
     --timing-fast: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
     --timing-faster: 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 
-
     // Shadows
-    --shadow-large: rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-        rgba(0, 0, 0, 0) 0px 0px 0px 0px,
-        rgba(15, 23, 42, 0.1) 0px 20px 25px -5px,
-        rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
-
+    --shadow-large: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
+        rgba(15, 23, 42, 0.1) 0px 20px 25px -5px, rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
 
     --is-max-width-xxxs: false;
     --is-max-width-xxs: false;
@@ -69,17 +59,43 @@ Base colors
     --is-max-width-xxl: false;
     --is-max-width-xxxl: false;
 
-    @media only screen and (max-width:768px) {
+    @media only screen and (max-width: 375px) {
+        --is-max-width-xxxs: true;
+    }
+
+    @media only screen and (max-width: 480px) {
+        --is-max-width-xxs: true;
+    }
+
+    @media only screen and (max-width: 540px) {
+        --is-max-width-xs: true;
+    }
+
+    @media only screen and (max-width: 640px) {
+        --is-max-width-sm: true;
+    }
+
+    @media only screen and (max-width: 768px) {
         --is-max-width-md: true;
     }
 
-    @media only screen and (max-width:968px) {
+    @media only screen and (max-width: 968px) {
         --is-max-width-xmd: true;
     }
 
-
-    @media only screen and (max-width:1024px) {
+    @media only screen and (max-width: 1024px) {
         --is-max-width-lg: true;
     }
 
+    @media only screen and (max-width: 1280px) {
+        --is-max-width-xl: true;
+    }
+
+    @media only screen and (max-width: 1440px) {
+        --is-max-width-xxl: true;
+    }
+
+    @media only screen and (max-width: 1920px) {
+        --is-max-width-xxxl: true;
+    }
 }

@@ -13,6 +13,7 @@ table {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--colour-grey-light);
+  border-radius: var(--radius-large);
 
   li {
     margin-bottom: 0;
@@ -29,7 +30,7 @@ table {
   }
 
   tr:nth-child(even) {
-    background: var(--off-white);
+    background: var(--colour-off-white);
   }
 
   th,

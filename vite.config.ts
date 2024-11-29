@@ -24,7 +24,6 @@ export default defineConfig({
       input: {
         main: './themes/mercury/src/js/main.js',
         extended: './themes/mercury/src/js/extended.js',
-
       },
     },
   },

@@ -33,7 +33,8 @@
         "symfony/sendgrid-mailer": "^6.3",
         "symfony/http-client": "^6.3",
         "toastnz/linkable": "^3.0",
-        "atwx/silverstripe-vitehelper": "^0.1.0"
+        "atwx/silverstripe-vitehelper": "^0.1.0",
+        "silverstripeltd/betamask": "^0.0.1"
     },
     "repositories": [
         {

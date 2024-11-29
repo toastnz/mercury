@@ -5,8 +5,8 @@ Element styles
 html {
     font-size: 10px;
 
-    .type {
-        margin-bottom: 0;
+    * {
+        font-family: "Poppins", "Poppins-Fallback", "Verdana", "Helvetica", "Arial", sans-serif;
     }
 }
 
@@ -16,7 +16,7 @@ body {
 
 h1,
 html body .h1 {
-    font-weight: 600;
+    font-weight: 700;
     font-size: 4rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -81,6 +81,10 @@ html body {
         font-size: 80%;
     }
 
+    .text-left {
+        text-align: left;
+    }
+
     .text-center {
         text-align: center;
     }
@@ -104,4 +108,15 @@ html body {
 
 .colour--secondary {
     color: var(--colour-secondary) !important;
+}
+
+hr {
+    margin: 4rem 0;
+    border: 0;
+    border-top: 1px solid var(--colour-grey-light);
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }

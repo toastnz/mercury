@@ -17,7 +17,7 @@ Styles
     box-shadow: none;
     background: transparent;
 
-    +.banner {
+    + .banner {
       margin-top: 0;
     }
   }
@@ -38,7 +38,6 @@ Styles
     max-width: var(--width-xl);
     margin: 0 auto;
     padding: 0 2rem;
-
 
     &--full {
       max-width: 100%;
@@ -158,7 +157,7 @@ Header sub menus
 
   &__wrap {
     background: var(--colour-white);
-    border-top: 1px solid var(--off-white);
+    border-top: 1px solid var(--colour-off-white);
     border-radius: 0 0 0.2rem 0.2rem;
     padding: 0.8rem 0;
     box-shadow: var(--shadow-large);

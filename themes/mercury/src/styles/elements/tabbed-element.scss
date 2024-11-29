@@ -3,7 +3,6 @@ Tabbed content block
 ------------------------------------------------------------------*/
 
 .tabbed-element {
-
   &__wrap {
     display: flex;
     flex-wrap: wrap;
@@ -22,7 +21,7 @@ Tabbed content block
     border-radius: var(--radius-small);
 
     &.active {
-      background: var(--colour-grey-light);
+      background: var(--colour-off-white);
 
       h6 {
         color: var(--colour-primary);
@@ -46,7 +45,6 @@ Tabbed content block
 
 @container style(--is-max-width-md: true) {
   .tabbed-element {
-
     &__tabs {
       width: 100%;
       border-right: 0 solid var(--colour-grey-light);
@@ -55,7 +53,7 @@ Tabbed content block
       margin-bottom: 4rem;
     }
 
-    &__content {
+    &__items {
       width: 100%;
       padding: 0 2rem;
     }

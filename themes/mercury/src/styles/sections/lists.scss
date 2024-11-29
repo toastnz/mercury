@@ -1,4 +1,3 @@
-
 /*------------------------------------------------------------------
 List items
 ------------------------------------------------------------------*/
@@ -18,14 +17,14 @@ ul:not([class]) {
 
     &:before {
       position: absolute;
-  display: block;
-  content: '';
+      display: block;
+      content: "";
       width: 0.4rem;
       height: 0.4rem;
       border-radius: 50%;
       top: 1rem;
       left: 0rem;
-      background: currentColor;
+      background: var(--colour-primary);
     }
   }
 }
@@ -46,11 +45,11 @@ ol:not([class]) {
 
     &:before {
       position: absolute;
-  display: block;
-  content: '';
+      display: block;
+      content: "";
       top: 0;
       left: 0rem;
-      content: counter(counter) '.';
+      content: counter(counter) ".";
       color: inherit;
     }
 
@@ -58,7 +57,7 @@ ol:not([class]) {
       counter-increment: internalcounter;
 
       &:before {
-        content: counter(internalcounter) '.';
+        content: counter(internalcounter) ".";
       }
     }
   }

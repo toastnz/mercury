@@ -1,5 +1,3 @@
-
-
 /*------------------------------------------------------------------
 Text block
 ------------------------------------------------------------------*/
@@ -7,7 +5,7 @@ Text block
 .text-element {
   &.off-white {
     padding: 8rem 0;
-    background: var(--off-white);
+    background: var(--colour-off-white);
 
     .text-element__wrap {
       margin: 0 auto;
@@ -30,7 +28,6 @@ Text block
       max-width: 100%;
 
       @container style(--is-max-width-lg: true) {
-
         &.left,
         &.leftALone {
           float: left;

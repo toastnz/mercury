@@ -77,9 +77,11 @@ function showSearchPane(event){
     document.body.classList.add('searchActive');
 
     // Change the placeholder and focus on the input
-    setTimeout(function(){
-        document.getElementById('SearchForm_SearchForm_Search').focus();
-    }, 100);
+    if(document.getElementById('SearchForm_SearchForm_Search')) {
+        setTimeout(function(){
+            document.getElementById('SearchForm_SearchForm_Search').focus();
+        }, 100);
+    }
 }
 
 </script>

@@ -116,3 +116,37 @@ Head code injection
 <% if $SiteConfig.HeadCodeInjection %>
     $SiteConfig.HeadCodeInjection
 <% end_if %>
+
+<%-- --------------------------------------------------------------
+Postload 
+-------------------------------------------------------------- --%>
+
+<style>
+    html {
+        font-size:10px;
+        font-family: Verdana, sans-serif;
+    }
+
+    .js-postload {
+        display: none;
+    }
+</style>
+
+<script>
+    // Remove a class on all elements to make them visible
+    // This avoids a flash of unstyled content
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Find all elements with the class 'js-postload'
+        var elements = document.querySelectorAll('.js-postload');
+
+        // Loop through all elements and remove the class
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.remove('js-postload');
+        }
+    });
+</script>
+
+
+ <% include Toast\Includes\Fonts %> 
+
