@@ -1,0 +1,63 @@
+.embla {
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+}
+
+.embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+.embla__prev {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+.embla__next {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.embla__dots {
+    position: absolute;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.embla__progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0.5rem;
+    background: var(--colour-primary);
+    width: 100%;
+    z-index: 5;
+}
+
+.embla__dot {
+    width: 1rem;
+    height: 1rem;
+    background: var(--colour-grey-mid);
+    border: 0;
+    border-radius: var(--radius-full);
+    padding: 0;
+    margin: 0 0.3rem;
+    transition: all var(--timing-medium);
+    position: relative;
+    overflow: hidden;
+
+    &.is-selected {
+        width: 5rem;
+        background-color: var(--colour-white);
+    }
+}

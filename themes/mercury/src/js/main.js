@@ -20,6 +20,16 @@ Start the app
 document.addEventListener('DOMContentLoaded', () => {
 
     /*------------------------------------------------------------------
+    Banner Video
+    ------------------------------------------------------------------*/
+
+
+    if ($('.js-banner-video')) {
+        import('@/components/banner-video')
+            .catch(error => console.error("Banner video component failed to load", error));
+    }
+
+    /*------------------------------------------------------------------
     Accordion Elements
     ------------------------------------------------------------------*/
 

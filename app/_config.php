@@ -92,10 +92,9 @@ TinyMCEConfig::get('cms')->enablePlugins(['hr', 'anchor']);
 try {
     $config = SiteConfig::current_site_config();
 
-    $data = $config->typeCSS ?: '';
+    $primaryColour = '#2563eb';
+    $secondaryColour = '#475569';
 
-    $primaryColour = substr($data, strpos($data, '--primary-colour:') + 17, 7);
-    $secondaryColour = substr($data, strpos($data, '--secondary-colour:') + 19, 7);
     TinyMCEConfig::get('cms')
         ->addButtonsToLine(2, 'styles')
         ->setOptions([
@@ -111,13 +110,13 @@ try {
                 . '.button--outline {padding:5px 10px !important;background:transparent;color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; } '
                 . '.text-center {text-align:center;} '
                 . '.text-right {text-align:right;} '
-                . 'h1,.h1 {font-size:2.4em;margin-top: .2em;margin-bottom: .2em;} '
-                . 'h2,.h2 {font-size:2.2em;margin-top: .2em;margin-bottom: .2em;} '
-                . 'h3,.h3 {font-size:2.0em;margin-top: .2em;margin-bottom: .2em;} '
-                . 'h4,.h4 {font-size:1.8em;margin-top: .2em;margin-bottom: .2em;} '
-                . 'h5,.h5 {font-size:1.4em;margin-top: .2em;margin-bottom: .2em;} '
-                . 'h6,.h6 {font-size:1.2em;margin-top: .2em;margin-bottom: .2em;} '
-                . 'p {font-size:1em;margin-top: 1em;margin-bottom: 1em;line-height:1.4 !important} '
+                . 'h1,.h1 {font-size:2.4rem;margin-top: .2rem;margin-bottom: .2rem;} '
+                . 'h2,.h2 {font-size:2.2rem;margin-top: .2rem;margin-bottom: .2rem;} '
+                . 'h3,.h3 {font-size:2.0rem;margin-top: .2rem;margin-bottom: .2rem;} '
+                . 'h4,.h4 {font-size:1.8rem;margin-top: .2rem;margin-bottom: .2rem;} '
+                . 'h5,.h5 {font-size:1.4rem;margin-top: .2rem;margin-bottom: .2rem;} '
+                . 'h6,.h6 {font-size:1.2rem;margin-top: .2rem;margin-bottom: .2rem;} '
+                . 'p {font-size:1em;margin-top: 1rem;margin-bottom: 1rem;line-height:1.4 !important} '
         ]);
 } catch (\Exception $e) {
 }

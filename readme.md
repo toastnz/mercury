@@ -1,26 +1,27 @@
-# Site Installation
+# Mercury build process
 
 ## Frontend Development
 
 ### Node Version
-The ```.nvmrc``` file will let you know the correct Node version. Using FNM it will automatically change to the correct version.
+The current node version is set through ddev and is currently ```version 22```.
 
 ### Installation
-Install all of the front end requisites using 
+This site uses ddev & vite to run locally with HMR for styles (and scripts if using react)
 ```bash
-yarn install
+ddev config
 ```
 ---
+
 ### Tasks
 
 #### watch task
-This task will watch for changes of scss or javascript files and compile them as you work.
+This task will watch for changes of scss or javascript files and compile them as you work. NB: the ddev server must be running 
 ```bash
-yarn run watch
+ddev exec npm run dev
 ```
 #### Build task
-Once you have finished development and you are happy with your changes, compile the scss and javascript
+Before you deploy this site to a server, you must run a build task to reflect those changes. 
 ```bash
-yarn run build
+ddev exec npm run build
 ```
 ---

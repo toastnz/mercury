@@ -4,7 +4,7 @@
     "description": "Toast NZ SilverStripe Installer",
     "require": {
         "php": ">=8.1",
-        "silverstripe/recipe-cms": "5.1.0@stable",
+        "silverstripe/recipe-cms": "5.3.0@stable",
         "undefinedoffset/silverstripe-nocaptcha": "^2.4",
         "symbiote/silverstripe-gridfieldextensions": "^4.0",
         "silverstripe/googlesitemaps": "^3.0",
@@ -28,13 +28,11 @@
         "toastnz/favicon": "^2.0",
         "stevie-mayhew/silverstripe-svg": "dev-master",
         "permanentinc/found": "^2.0",
-        "permanentinc/type": "^2.0",
         "dnadesign/silverstripe-elemental": "^5.1",
         "symfony/sendgrid-mailer": "^6.3",
         "symfony/http-client": "^6.3",
         "toastnz/linkable": "^3.0",
-        "atwx/silverstripe-vitehelper": "^0.1.0",
-        "silverstripeltd/betamask": "^0.0.1"
+        "atwx/silverstripe-vitehelper": "^0.1.0"
     },
     "repositories": [
         {
@@ -56,8 +54,8 @@
         {
             "type": "git",
             "url": "https://github.com/toastnz/silverstripe-image-optionset"
-        }        
-    ],    
+        }
+    ],
     "extra": {
         "resources-dir": "_resources",
         "project-files-installed": [
@@ -75,7 +73,7 @@
         ],
         "expose": [
             "themes/mercury/dist"
-        ]        
+        ]
     },
     "config": {
         "process-timeout": 600,
