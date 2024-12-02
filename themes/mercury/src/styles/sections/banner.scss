@@ -3,6 +3,18 @@
   position: relative;
   background: var(--colour-black);
 
+  .embla__prev,
+  .embla__next {
+    display: none;
+  }
+
+  &--slider {
+    .embla__prev,
+    .embla__next {
+      display: block;
+    }
+  }
+
   &__push {
     overflow: hidden;
     position: relative;
@@ -29,8 +41,6 @@
     z-index: 5;
     opacity: 0.2;
   }
-
-
 
   &__item {
     width: 100%;

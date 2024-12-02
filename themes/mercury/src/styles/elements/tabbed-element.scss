@@ -10,21 +10,28 @@ Tabbed content block
 
   &__tabs {
     width: 30rem;
-    border-right: 1px solid var(--colour-grey-light);
+    border-right: 0.2rem solid var(--colour-grey-light);
     position: relative;
-    padding-right: 1rem;
   }
 
   &__tab {
     padding: 1rem 2rem;
     display: block;
-    border-radius: var(--radius-small);
+    position: relative;
 
     &.active {
-      background: var(--colour-off-white);
-
       h6 {
         color: var(--colour-primary);
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -0.2rem;
+        bottom: 0;
+        width: 0.2rem;
+        background: var(--colour-primary);
       }
     }
   }
@@ -44,18 +51,23 @@ Tabbed content block
 }
 
 @container style(--is-max-width-md: true) {
+  .tabbed-element__tab.active:after {
+    right: 0;
+    left: -0.2rem;
+  }
+
   .tabbed-element {
     &__tabs {
       width: 100%;
       border-right: 0 solid var(--colour-grey-light);
-      border-left: 1px solid var(--colour-grey-light);
-      padding-left: 2rem;
+      border-left: 2px solid var(--colour-grey-light);
+      padding-left: 0;
       margin-bottom: 4rem;
     }
 
     &__items {
       width: 100%;
-      padding: 0 2rem;
+      padding: 0;
     }
   }
 }

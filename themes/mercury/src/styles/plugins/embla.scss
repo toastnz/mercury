@@ -10,20 +10,78 @@
     flex: 0 0 100%;
     min-width: 0;
 }
-
-.embla__prev {
-    position: absolute;
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-}
+.embla__prev,
 .embla__next {
     position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
     z-index: 10;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 4.8rem;
+    height: 4.8rem;
+    background: transparent;
+    border: 1px solid var(--colour-white);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    overflow: hidden;
+    backdrop-filter: blur(2px);
+
+    @container style(--is-max-width-md: true) {
+        display: none !important;
+    }
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--colour-white);
+        border-radius: var(--radius-full);
+        opacity: 0.1;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--colour-white);
+        border-radius: var(--radius-full);
+        opacity: 0;
+        transform: scale(0.6);
+        transition: all var(--timing-fast);
+    }
+
+    &:hover {
+        &:after {
+            opacity: 0.1;
+            transform: scale(1);
+        }
+    }
+
+    svg {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        path {
+            stroke: var(--colour-white);
+        }
+    }
+}
+
+.embla__prev {
+    left: 1rem;
+}
+
+.embla__next {
+    right: 1rem;
 }
 
 .embla__dots {
@@ -38,16 +96,18 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    height: 0.5rem;
+    height: 100%;
     background: var(--colour-primary);
     width: 100%;
     z-index: 5;
+    transition: all var(--timing-fast);
+    border-radius: var(--radius-full);
+    opacity: 0.2;
 }
 
 .embla__dot {
-    width: 1rem;
-    height: 1rem;
-    background: var(--colour-grey-mid);
+    width: 0.9rem;
+    height: 0.9rem;
     border: 0;
     border-radius: var(--radius-full);
     padding: 0;
@@ -55,9 +115,25 @@
     transition: all var(--timing-medium);
     position: relative;
     overflow: hidden;
+    background: transparent;
+    cursor: pointer;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--colour-white);
+        opacity: 0.5;
+    }
 
     &.is-selected {
         width: 5rem;
-        background-color: var(--colour-white);
+
+        .embla__progress {
+            opacity: 1;
+        }
     }
 }

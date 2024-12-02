@@ -2,17 +2,19 @@
 Image and text block
 -------------------------------------------- --%>
 
-<div class="image-element [ element {$Width} {$Alignment} ]">
-    <div class="image-element__wrap">
+<div class="image-text-element [ element {$Width} {$Alignment} ]">
+    <div class="image-text-element__wrap">
 
         <% if $Image %>
-            <div class="image-element__image">
-                <img src="$Image.FocusFill(1200,800).URL" width="1200" height="800" loading="lazy" alt="$Image.title">
+            <div class="image-text-element__image">
+                <img src="$Image.FocusFill(1200,1200).URL" width="1200" height="1200" loading="lazy" alt="$Image.title">
             </div>
         <% end_if %>
         
-        <div class="image-element__text">
-            {$Content}
+        <div class="image-text-element__text">
+            <div class="image-text-element__constraint">
+                {$Content}
+            </div>
         </div>
 
     </div>

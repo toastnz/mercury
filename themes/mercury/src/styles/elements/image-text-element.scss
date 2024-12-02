@@ -1,28 +1,33 @@
-
-
 /*------------------------------------------------------------------
 Image and text block
 ------------------------------------------------------------------*/
 
-.image-element {
+.image-text-element {
+  overflow: hidden;
+  position: relative;
+  background: var(--colour-grey-lighter);
+  border-radius: var(--radius-large);
+  width: calc(100% - 4rem);
+
   &__wrap {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    padding: 0 !important;
   }
 
   &__image {
     width: 50%;
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    text-align: center;
+    aspect-ratio: 1/1;
 
     img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
     }
 
     @container style(--is-max-width-xmd: true) {
@@ -34,7 +39,7 @@ Image and text block
 
   &__text {
     width: 50%;
-    padding: 8rem;
+    padding: 2rem 8rem;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -43,18 +48,21 @@ Image and text block
     @container style(--is-max-width-xmd: true) {
       width: 100%;
       order: 2;
-      padding: 0;
-      margin-top: 6rem;
+      padding: 4rem;
     }
+  }
+
+  &__constraint {
+    width: 100%;
   }
 }
 
-.image-element.image-right {
-  .image-element__image {
+.image-text-element.image-right {
+  .image-text-element__image {
     order: 2;
   }
 
-  .image-element__text {
+  .image-text-element__text {
     order: 1;
   }
 }

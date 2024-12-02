@@ -17,7 +17,7 @@ body {
 h1,
 html body .h1 {
     font-weight: 700;
-    font-size: 4rem;
+    font-size: 5rem;
     line-height: 1.1;
     margin-bottom: 1.5rem;
 }
@@ -25,7 +25,7 @@ html body .h1 {
 h2,
 html body .h2 {
     font-weight: 600;
-    font-size: 3.2rem;
+    font-size: 3.8rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
 }
@@ -73,6 +73,7 @@ em {
 }
 
 p {
+    line-height: 1.7;
     margin-bottom: 2rem;
 }
 

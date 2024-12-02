@@ -324,7 +324,7 @@ class StyleGuideController extends Controller
         $arrayData = new ArrayData([
             'Width' => 'wide',
             'Image' => Image::find('placeholder.webp'),
-            'Content' => DBField::create_field(DBHTMLText::class, '<h3>An image and text block to show a page or service</h3><p>Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
+            'Content' => DBField::create_field(DBHTMLText::class, '<h6 class="text-center">Image and text block</h6><h2 class="text-center">An image and text block to show a page</h2><p class="text-center">Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>'),
             'Alignment' => 'image-right'
         ]);
         return $arrayData->renderWith('Toast\Elements\ImageTextElement');
@@ -336,7 +336,7 @@ class StyleGuideController extends Controller
         $arrayData = new ArrayData([
             'Width' => 'wide',
             'Image' => Image::find('placeholder.webp'),
-            'Content' => DBField::create_field(DBHTMLText::class, '<h3>Or a an image on the other side</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p><p><a href="#" class="button">READ MORE</a></p>'),
+            'Content' => DBField::create_field(DBHTMLText::class, '<h6 class="text-center">Image and text block reversed</h6><h2 class="text-center">An image and text block that is reversed</h2><p class="text-center">Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>'),
             'Alignment' => 'image-left'
         ]);
         return $arrayData->renderWith('Toast\Elements\ImageTextElement');
@@ -398,7 +398,4 @@ class StyleGuideController extends Controller
         ]);
         return $arrayData->renderWith('Toast\Elements\SplitElement  ');
     }
-
-
-
 }

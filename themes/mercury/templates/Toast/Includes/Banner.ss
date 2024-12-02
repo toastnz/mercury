@@ -1,7 +1,16 @@
-<div class="banner [ js-banner ][ embla ]<% if $BannerSlides.count > 1 %>[ js-embla-{$ID} ]<% end_if %> <% if $TransparentHeader %>has-transparent-header<% end_if %>">
+<div class="banner [ js-banner ][ embla ] <% if $BannerSlides.count > 1 %>banner--slider [ js-embla-{$ID} ]<% end_if %> <% if $TransparentHeader %>has-transparent-header<% end_if %>">
     
-    <button class="embla__prev">Prev</button>
-    <button class="embla__next">Next</button>
+    <button class="embla__prev" name="previous" aria-label="Slide left">
+        <svg class="icon icon-slider-prev icon--medium" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.75 16.2505L6.5 10.0005L12.75 3.75049" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </button>
+
+    <button class="embla__next" name="previous" aria-label="Slide left">
+        <svg class="icon icon-slider-prev icon--medium" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 3.74121L13.75 9.99121L7.5 16.2412" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </button>
 
     <b class="banner__count colour--white [ embla__count ]">-</b>
 
@@ -73,8 +82,9 @@
 
 
 <script type="text/javascript">
+   // Select DOM elements
 const rootNode = document.querySelector(`.js-embla-{$ID}`);
-    const viewportNode = rootNode.querySelector('.embla__viewport');
+const viewportNode = rootNode.querySelector('.embla__viewport');
 const countNode = rootNode.querySelector('.embla__count');
 const dotsNode = rootNode.querySelector('.embla__dots');
 const prevButtonNode = rootNode.querySelector('.embla__prev');
@@ -99,23 +109,13 @@ let autoplayInterval;
 const autoplaySpeed = 3000; // Set autoplay interval (in ms)
 let progressBarInterval;
 
-// Start Autoplay
-const startAutoplay = () => {
-    autoplayInterval = setInterval(() => {
-        emblaCarousel.scrollNext();
-    }, autoplaySpeed);
-};
-
-// Stop Autoplay
-const stopAutoplay = () => {
-    clearInterval(autoplayInterval);
-    clearInterval(progressBarInterval);
-};
+// Define variables for dots
+let dots = [];
 
 // Add dot controls with progress bar
 const addDots = () => {
     const snapList = emblaCarousel.scrollSnapList();
-    const dots = snapList.map((_, index) => {
+    dots = snapList.map((_, index) => {
         const dot = document.createElement('button');
         dot.className = 'embla__dot banner__dot';
         dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
@@ -139,9 +139,7 @@ const addDots = () => {
         const selectedSnap = emblaCarousel.selectedScrollSnap();
         dots.forEach(({ dot, progressBar }, index) => {
             dot.classList.toggle('is-selected', index === selectedSnap);
-
-            // Reset progress bar for non-selected dots
-            progressBar.style.width = index === selectedSnap ? '100%' : '0';
+            progressBar.style.width = '0'; // Reset all progress bars
         });
     };
 
@@ -149,30 +147,56 @@ const addDots = () => {
     emblaCarousel.on('init', updateDots);
 };
 
+// Start Autoplay
+const startAutoplay = () => {
+    autoplayInterval = setInterval(() => {
+        emblaCarousel.scrollNext();
+    }, autoplaySpeed);
+};
+
+// Stop Autoplay
+const stopAutoplay = () => {
+    clearInterval(autoplayInterval);
+    clearInterval(progressBarInterval);
+};
+
 // Update progress bar for autoplay
 const updateProgressBar = () => {
+    clearInterval(progressBarInterval); // Clear previous intervals
+
     const selectedSnap = emblaCarousel.selectedScrollSnap();
-    const totalSnaps = emblaCarousel.scrollSnapList().length;
-    const progressWidth = (100 / totalSnaps);
-    const progressBar = dots[selectedSnap].progressBar;
+    const progressBar = dots[selectedSnap]?.progressBar;
+
+    // Reset all progress bars
+    dots.forEach(({ progressBar }, index) => {
+        progressBar.style.width = index === selectedSnap ? '0%' : '0';
+    });
 
     let currentProgress = 0;
     progressBarInterval = setInterval(() => {
         if (currentProgress < 100) {
-            currentProgress += (100 / (autoplaySpeed / 100)); // Update speed to match autoplay speed
-            progressBar.style.width = `${currentProgress}%`;
+            currentProgress += (100 / (autoplaySpeed / 100));
+            if (progressBar) {
+                progressBar.style.width = `${currentProgress}%`;
+            }
         } else {
-            clearInterval(progressBarInterval); // Reset the progress once it reaches 100%
-            progressBar.style.width = '0';
+            clearInterval(progressBarInterval);
+            if (progressBar) {
+                progressBar.style.width = '0';
+            }
         }
     }, 100);
 };
 
+// Initialize event listeners and functionality
 emblaCarousel.on('select', updateCount);
 emblaCarousel.on('init', updateCount);
 
 addDots();
 startAutoplay(); // Start autoplay when initialization is complete
+
+// Handle autoplay progress on user interaction
+emblaCarousel.on('pointerDown', stopAutoplay);
 
 // Auto-play functionality
 emblaCarousel.on('select', updateProgressBar);
