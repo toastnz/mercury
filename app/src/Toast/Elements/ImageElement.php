@@ -24,7 +24,7 @@ class ImageElement extends BaseElement
 
     private static $inline_editable = false;
 
-    private static $icon = 'font-icon-image';
+    private static $icon = 'font-icon-block-file';
 
     private static $db = [
         'Caption' => 'Text',

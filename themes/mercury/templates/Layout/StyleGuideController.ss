@@ -1,11 +1,19 @@
 
 $Banner
 
+$TestimonialElement
+
+<%-- 
 $IntroElement
+
+$ImageTextElement
+
+$ImageTextElementReversed
+
+$MarqueeElement
 
 $TabbedElement
 
-$TestimonialElement
 
 $AccordionElement
 
@@ -15,18 +23,14 @@ $HeroElement
 
 $ImageElement
 
-$ImageTextElement
-
-$ImageTextElementReversed
-
 $VideoElement
 
 $LinkElement
 
 $Slider
 
-$TextBlock
-
+$TextBlock --%>
+<%-- 
 <section class="element text-element text-element--">
     <div class="text-element__wrap text-element__wrap--">
         <form id="UserForm_Form_6" action="/new-user-defined-form/Form?stage=Stage" method="post" enctype="multipart/form-data" class=" userform">
@@ -119,4 +123,4 @@ $TextBlock
             </nav>
         </form>
     </div>
-</section>
+</section> --%>

@@ -3,22 +3,26 @@ Image Block
 ------------------------------------------------------------------*/
 body {
   .image-element {
- 
-    
+    width: calc(100% - 4rem);
+
+    &__wrap {
+      padding: 0 !important;
+      border-radius: var(--radius-large);
+    }
+
     img {
       width: 100%;
       height: auto;
       display: block;
-      margin-bottom: -3rem;
+      border-radius: var(--radius-large);
     }
 
     &__caption {
-      background: var(--colour-secondary);
       position: absolute;
-      bottom: 0;
-      left: 2rem;
-      padding: 1rem 4rem;
-      box-shadow: var(--shadow-large);
+      bottom: -4rem;
+      left: 0;
+      right: 0;
+      padding: 1rem 2rem;
       transform: translateX(-1rem);
 
       @container style(--is-max-width-md: true) {

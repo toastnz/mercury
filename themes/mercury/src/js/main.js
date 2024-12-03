@@ -20,6 +20,32 @@ Start the app
 document.addEventListener('DOMContentLoaded', () => {
 
     /*------------------------------------------------------------------
+    Intersection observers for animation styles
+    ------------------------------------------------------------------*/
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('inview');
+            }
+        });
+    }, {
+        root: null, // Use the viewport as the root
+        rootMargin: '-5% 0px' // Trigger when the element is in the middle of the page
+    });
+
+    setTimeout(() => $$('.js-inview').forEach(element => observer.observe(element)), 10);
+
+    /*------------------------------------------------------------------
+    Sliders
+    ------------------------------------------------------------------*/
+
+    if ($('.embla')) {
+        import('@/components/slider')
+            .then(module => $$('.embla').forEach(element => new module.Slider(element)))
+            .catch(error => console.error("Slider video component failed to load", error));
+    }
+
+    /*------------------------------------------------------------------
     Banner Video
     ------------------------------------------------------------------*/
 

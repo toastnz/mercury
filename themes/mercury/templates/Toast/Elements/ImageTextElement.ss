@@ -12,7 +12,7 @@ Image and text block
         <% end_if %>
         
         <div class="image-text-element__text">
-            <div class="image-text-element__constraint">
+            <div class="image-text-element__constraint [ js-inview ]">
                 {$Content}
             </div>
         </div>

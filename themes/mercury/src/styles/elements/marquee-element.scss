@@ -1,0 +1,53 @@
+/*------------------------------------------------------------------
+Text block
+------------------------------------------------------------------*/
+
+.toast__elements__marqueeelement {
+  max-width: 100%;
+}
+
+.marquee-element {
+  white-space: nowrap;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  overflow: clip;
+  background-color: var(--colour-grey-lighter);
+
+  &__track {
+    display: flex;
+    width: max-content;
+    backface-visibility: hidden;
+    will-change: transform;
+    animation: marquee-move-text 1s linear infinite forwards;
+    animation-play-state: running;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+
+    span {
+      white-space: nowrap;
+      font-size: 6rem;
+      padding: 3rem 1rem;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: relative;
+        display: inline-block;
+        width: 8rem;
+        height: 1px;
+        background-color: var(--text-dark);
+        margin: 0 1rem 0 3rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+@keyframes marquee-move-text {
+  to {
+    transform: translateX(-50%);
+  }
+}

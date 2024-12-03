@@ -26,7 +26,7 @@ class LinkElement extends BaseElement
 
     private static $inline_editable = false;
 
-    private static $icon = 'font-icon-link';
+    private static $icon = 'font-icon-block-layout-2';
 
     private static $db = [
         'Columns' => 'Enum("2, 3, 4", "3")',

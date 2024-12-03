@@ -10,13 +10,15 @@
                             <img src="$Icon.URL" loading="lazy" alt="$Icon.Title">
                         </div>
                     <% else_if $Image %>
-                        <img  class="link-element__image" src="$Image.FocusFill(600,400).URL" width="600" height="300" loading="lazy" alt="$Image.title">
+                        <div class="link-element__image">
+                            <img src="$Image.FocusFill(600,500).URL" width="600" height="500" loading="lazy" alt="$Image.title">
+                        </div>
                     <% end_if %>
 
                     <div class="link-element__content">
-                        <h5>$Title.XML</h5>
+                        <h6>$Title.XML</h6>
                         <p>$Summary.XML</p>
-                        <p class="arrow-link no-margin">Read More</p>
+                        <p class="arrow-link no-margin"><b>Read more</b></p>
                     </div>
 
                 </a>

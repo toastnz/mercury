@@ -209,12 +209,12 @@ class StyleGuideController extends Controller
             ]),
             new ArrayData([
                 'Image' => Image::find('placeholder.webp'),
-                'Title' => 'Adipisicing sunt',
-                'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut fugiat non in nisi occaecat ut aliquip.'
+                'Title' => 'Adipisicing sunt fot',
+                'Summary' => 'Voluptate aliqua aliqua do occaecat eiusmod qui ut.'
             ]),
             new ArrayData([
                 'Image' => Image::find('placeholder.webp'),
-                'Title' => 'Occaecat eiusmod qui',
+                'Title' => 'Occaecat eiusmod qui for the thing of thheh dds',
                 'Summary' => 'Adipisicing sunt fugiat tempor elit Lorem ullamco mollit sit veniam.'
             ]),
             new ArrayData([
@@ -254,7 +254,7 @@ class StyleGuideController extends Controller
 
     public function TestimonialElement()
     {
-        $accordionItems = new ArrayList([
+        $testimonialItems = new ArrayList([
             new ArrayData([
                 'Testimonial' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.',
                 'Author' => 'First name, Last Name',
@@ -273,8 +273,9 @@ class StyleGuideController extends Controller
         ]);
 
         $arrayData = new ArrayData([
+            'ID' => 'testimonialss',
             'Width' => 'standard',
-            'Items' => $accordionItems
+            'Items' => $testimonialItems
         ]);
 
 
@@ -308,6 +309,16 @@ class StyleGuideController extends Controller
     }
 
 
+    public function MarqueeElement()
+    {
+        $arrayData = new ArrayData([
+            'Speed' => '30',
+            'Content' => 'A marquee element that scrolls text',
+        ]);
+        return $arrayData->renderWith('Toast\Elements\MarqueeElement');
+    }
+
+
 
     public function HeroElement()
     {
@@ -336,7 +347,7 @@ class StyleGuideController extends Controller
         $arrayData = new ArrayData([
             'Width' => 'wide',
             'Image' => Image::find('placeholder.webp'),
-            'Content' => DBField::create_field(DBHTMLText::class, '<h6 class="text-center">Image and text block reversed</h6><h2 class="text-center">An image and text block that is reversed</h2><p class="text-center">Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>'),
+            'Content' => DBField::create_field(DBHTMLText::class, '<h6 class="text-center">Image and text block reversed</h6><h2 class="text-center">An image and text block that is reversed</h2><p class="text-center">Pellentesque habitant morbi <strong>tristique</strong> senectus et <i>netus</i> et <u>malesuada</u> fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p><p class="text-center"><a href="#" class="button button--secondary">Read more</a></p>'),
             'Alignment' => 'image-left'
         ]);
         return $arrayData->renderWith('Toast\Elements\ImageTextElement');

@@ -22,7 +22,7 @@ class ImageTextElement extends BaseElement
 
     private static $inline_editable = false;
 
-    private static $icon = 'font-icon-columns';
+    private static $icon = 'font-icon-block-promo-3';
 
     private static $db = [
         'Content' => 'HTMLText',

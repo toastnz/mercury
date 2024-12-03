@@ -12,6 +12,15 @@ Text block
     }
   }
 
+  &--split {
+    .text-element__wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2rem;
+      align-items: stretch;
+    }
+  }
+
   &.primary {
     padding: 8rem 0;
     background: var(--colour-primary);

@@ -73,7 +73,7 @@ em {
 }
 
 p {
-    line-height: 1.7;
+    line-height: 1.625;
     margin-bottom: 2rem;
 }
 
@@ -120,4 +120,18 @@ hr {
 pre {
     white-space: pre-wrap;
     word-wrap: break-word;
+}
+
+.js-inview {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    transition-delay: 100ms;
+    transition:
+        opacity var(--timing-slow),
+        transform var(--timing-slow);
+
+    &.inview {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

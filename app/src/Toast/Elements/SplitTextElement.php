@@ -2,37 +2,32 @@
 
 namespace Toast\Elements;
 
-use SilverStripe\Forms\LiteralField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\RequiredFields;
 use UncleCheese\Forms\ImageOptionsetField;
 use DNADesign\Elemental\Models\BaseElement;
-use SilverStripe\Forms\GridField\GridField;
-use Toast\Elements\Items\DownloadElementItem;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
-use SilverStripe\Forms\GridField\GridFieldDeleteAction;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
-use SilverStripe\Forms\GridField\GridFieldAddExistingAutoCompleter;
 
-class DownloadElement extends BaseElement
+class SplitTextElement extends BaseElement
 {
-    private static $table_name = 'DownloadElement';
+    private static $table_name = 'SplitTextElement';
 
-    private static $singular_name = 'Download';
+    private static $singular_name = 'Split Text';
 
-    private static $plural_name = 'Downloads';
+    private static $plural_name = 'Split Text';
 
-    private static $description = 'Download one or more files';
+    private static $description = 'Split Text block';
 
     private static $inline_editable = false;
 
-    private static $icon = 'font-icon-block-external-link';
+    private static $icon = 'font-icon-block-layout-8';
 
     private static $db = [
+        'ContentLeft' => 'HTMLText',
+        'ContentRight' => 'HTMLText',
+        'BackgroundColour' => 'Enum("none,white,off-white,primary", "none")',
         'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")'
-    ];
-
-    private static $has_many = [
-        'Items' => DownloadElementItem::class
     ];
 
     private static $defaults = [
@@ -49,6 +44,8 @@ class DownloadElement extends BaseElement
         $fields = parent::getCMSFields();
 
         $fields->addFieldsToTab('Root.Main', [
+            HTMLEditorField::create('Content', 'Content'),
+            DropdownField::create('BackgroundColour', 'Background Colour', singleton(self::class)->dbObject('BackgroundColour')->enumValues()),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
                     'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),
@@ -61,20 +58,13 @@ class DownloadElement extends BaseElement
                 ->setImageHeight(100)
         ]);
 
-        $itemsConfig = GridFieldConfig_RelationEditor::create()
-            ->addComponents([
-                GridFieldOrderableRows::create('SortOrder'),
-                GridFieldDeleteAction::create(false)
-            ])
-            ->removeComponentsByType([
-                GridFieldDeleteAction::class,
-                GridFieldAddExistingAutocompleter::class
-            ]);
-
-        $fields->addFieldsToTab('Root.Items',  [
-            GridField::create('Items', 'Items', $this->Items(), $itemsConfig)
-        ]);
-
         return $fields;
+    }
+
+    public function getCMSValidator()
+    {
+        return RequiredFields::create([
+            'Content'
+        ]);
     }
 }

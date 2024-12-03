@@ -14,7 +14,7 @@ Buttons
   border: 0;
   font-size: 1.4rem;
   cursor: pointer;
-  border-radius: var(--radius-tiny);
+  border-radius: var(--radius-full);
 
   &:hover {
     box-shadow: inset 0 0 0 1000px rgba(white, 0.1);
@@ -52,7 +52,7 @@ Buttons
   }
 }
 
-input[type='submit'] {
+input[type="submit"] {
   @extend .button;
   margin-top: 2rem;
 }
@@ -61,7 +61,7 @@ input[type='submit'] {
   position: relative;
 
   &:after {
-    content: '';
+    content: "";
     position: relative;
     display: inline-block;
     background-image: url('data:image/svg+xml; utf8, <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10"><path fill="%23000" fill-rule="evenodd" d="M8.423.015 13.408 5 8.422 9.985 7.38 8.943l3.2-3.2H.09V4.257H10.58l-3.2-3.2L8.424.016Z"/></svg>');
