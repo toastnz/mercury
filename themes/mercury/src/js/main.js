@@ -19,6 +19,7 @@ Start the app
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
     /*------------------------------------------------------------------
     Intersection observers for animation styles
     ------------------------------------------------------------------*/

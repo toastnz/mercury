@@ -71,7 +71,7 @@ class DownloadElement extends BaseElement
                 GridFieldAddExistingAutocompleter::class
             ]);
 
-        $fields->addFieldsToTab('Root.Items',  [
+        $fields->addFieldsToTab('Root.Main',  [
             GridField::create('Items', 'Items', $this->Items(), $itemsConfig)
         ]);
 
