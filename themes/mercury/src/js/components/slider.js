@@ -1,4 +1,3 @@
-import { $, $$, debounce } from '@/utilities/helpers';
 import EmblaCarousel from 'embla-carousel';
 
 export class Slider {
