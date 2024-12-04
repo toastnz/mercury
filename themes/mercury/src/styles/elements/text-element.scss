@@ -18,6 +18,10 @@ Text block
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 2rem;
       align-items: stretch;
+
+      @container style(--is-max-width-md: true) {
+        grid-template-columns: 1fr;
+      }
     }
   }
 

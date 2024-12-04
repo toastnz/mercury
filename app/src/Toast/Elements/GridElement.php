@@ -2,9 +2,9 @@
 
 namespace Toast\Elements;
 
+use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\DropdownField;
-use SilverStripe\Forms\CheckboxField;
-use Toast\Elements\Items\LinkElementItem;
+use Toast\Elements\Items\GridElementItem;
 use UncleCheese\Forms\ImageOptionsetField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\GridField\GridField;
@@ -14,28 +14,26 @@ use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 
-class LinkElement extends BaseElement
+class GridElement extends BaseElement
 {
-    private static $table_name = 'LinkElement';
+    private static $table_name = 'GridElement';
 
-    private static $singular_name = 'Link';
+    private static $singular_name = 'Grid';
 
-    private static $plural_name = 'Links';
+    private static $plural_name = 'Grids';
 
-    private static $description = 'Add one or more links to the page';
+    private static $description = 'Add one or more grid items to the page';
 
     private static $inline_editable = false;
 
-    private static $icon = 'font-icon-block-layout-2';
+    private static $icon = 'font-icon-block-layout-3';
 
     private static $db = [
-        'Columns' => 'Enum("2, 3, 4", "3")',
-        'FullSizeBackground' => 'Boolean(0)',
         'Width' => 'Enum("standard,full,wide,narrow,thin", "standard")',
     ];
 
     private static $has_many = [
-        'Items' => LinkElementItem::class
+        'Items' => GridElementItem::class
     ];
 
     private static $defaults = [
@@ -52,8 +50,6 @@ class LinkElement extends BaseElement
         $fields = parent::getCMSFields();
 
         $fields->addFieldsToTab('Root.Main', [
-            DropdownField::create('Columns', 'How many columns across', singleton(self::class)->dbObject('Columns')->enumValues()),
-            CheckboxField::create('FullSizeBackground', 'Full size background images'),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
                     'full' => ModuleResourceLoader::resourceURL('themes/mercury/dist/elements/full.svg'),

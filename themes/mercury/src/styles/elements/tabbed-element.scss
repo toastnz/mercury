@@ -15,7 +15,7 @@ Tabbed content block
   }
 
   &__tab {
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     display: block;
     position: relative;
 
@@ -38,7 +38,7 @@ Tabbed content block
 
   &__items {
     width: calc(100% - 30rem);
-    padding: 0 4rem;
+    padding: 0 0 0 4rem;
   }
 
   &__item {
@@ -63,6 +63,10 @@ Tabbed content block
       border-left: 2px solid var(--colour-grey-light);
       padding-left: 0;
       margin-bottom: 4rem;
+    }
+
+    &__tab {
+      padding-left: 2rem;
     }
 
     &__items {

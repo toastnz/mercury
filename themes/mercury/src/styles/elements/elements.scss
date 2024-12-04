@@ -1,4 +1,3 @@
-
 /*------------------------------------------------------------------
 Global element styles
 ------------------------------------------------------------------*/
@@ -6,7 +5,11 @@ Global element styles
 .element {
   margin: 8rem auto;
   position: relative;
-  max-width: var(--width-lg);
+  width: 100%;
+
+  @container style(--is-max-width-md: true) {
+    margin: 4rem auto;
+  }
 
   &.full {
     max-width: 100%;
@@ -28,7 +31,7 @@ Global element styles
     max-width: var(--width-sm);
   }
 
-  > [class*='__wrap'] {
+  > [class*="__wrap"] {
     margin: 0 auto;
     padding: 0 2rem;
     position: relative;

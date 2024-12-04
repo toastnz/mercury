@@ -20,7 +20,7 @@ Image element
 
             <% if $Caption %>
                 <div class="image-element__caption ">
-                    <p class=" no-margin">$Caption</p>
+                    <p class="smaller no-margin">$Caption</p>
                 </div>
             <% end_if %>
 

@@ -44,7 +44,10 @@ class SplitTextElement extends BaseElement
         $fields = parent::getCMSFields();
 
         $fields->addFieldsToTab('Root.Main', [
-            HTMLEditorField::create('Content', 'Content'),
+            HTMLEditorField::create('ContentLeft', 'Content Left')
+                ->setRows(6),
+            HTMLEditorField::create('ContentRight', 'Content Right')
+                ->setRows(6),
             DropdownField::create('BackgroundColour', 'Background Colour', singleton(self::class)->dbObject('BackgroundColour')->enumValues()),
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([

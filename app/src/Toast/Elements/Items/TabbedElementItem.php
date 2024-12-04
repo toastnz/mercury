@@ -3,12 +3,12 @@
 namespace Toast\Elements\Items;
 
 use SilverStripe\Forms\TextField;
-use Toast\Elements\TabbedContentElement;
+use Toast\Elements\TabbedElement;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
-class TabbedContentElementItem extends ElementItem
+class TabbedElementItem extends ElementItem
 {
-    private static $table_name = 'TabbedContentElementItem';
+    private static $table_name = 'TabbedElementItem';
 
     private static $singular_name = 'Item';
 
@@ -23,7 +23,7 @@ class TabbedContentElementItem extends ElementItem
     ];
 
     private static $has_one = [
-        'Parent' => TabbedContentElement::class
+        'Parent' => TabbedElement::class
     ];
 
     private static $summary_fields = [

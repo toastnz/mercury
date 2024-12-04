@@ -58,7 +58,6 @@ export class Video {
      */
     loadScripts() {
         if (window.loaded_scripts.includes(this.script_src)) return;
-
         window.loaded_scripts.push(this.script_src);
         let script = document.createElement('script');
         script.src = this.script_src;
@@ -99,6 +98,9 @@ export class Video {
      * player or plays the existing one.
      */
     create() {
+
+        this.animate();
+
         if (this.player) {
             this.play();
         } else {
@@ -153,5 +155,15 @@ export class Video {
      */
     hide() {
         this.video.classList.remove('playing');
+        this.video.classList.remove('animate');
+    }
+
+    /**
+    * Show the video and hide the thumbnail.
+    * 
+    * Adds the 'playing' class to the video element to display the video.
+    */
+    animate() {
+        this.video.classList.add('animate');
     }
 }

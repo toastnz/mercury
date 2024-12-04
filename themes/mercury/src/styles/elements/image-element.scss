@@ -6,7 +6,6 @@ body {
     width: calc(100% - 4rem);
 
     &__wrap {
-      padding: 0 !important;
       border-radius: var(--radius-large);
     }
 
@@ -18,18 +17,10 @@ body {
     }
 
     &__caption {
-      position: absolute;
-      bottom: -4rem;
-      left: 0;
-      right: 0;
-      padding: 1rem 2rem;
-      transform: translateX(-1rem);
-
-      @container style(--is-max-width-md: true) {
-        position: relative;
-        width: calc(100% - 2rem);
-        padding: 1rem 2rem;
-      }
+      background: var(--colour-grey-lighter);
+      padding: 3rem 2rem 1rem;
+      margin-top: -2rem;
+      border-radius: 0 0 var(--radius-large) var(--radius-large);
     }
   }
 }

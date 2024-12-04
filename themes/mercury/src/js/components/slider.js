@@ -2,7 +2,7 @@ import { $, $$, debounce } from '@/utilities/helpers';
 import EmblaCarousel from 'embla-carousel';
 
 export class Slider {
-    constructor(element, speed = 3000) {
+    constructor(element, speed = 5000) {
         this.element = element;
         this.speed = speed;
         this.viewport = this.element.querySelector('.embla__viewport');

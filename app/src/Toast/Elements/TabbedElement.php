@@ -6,16 +6,16 @@ use SilverStripe\Forms\LiteralField;
 use UncleCheese\Forms\ImageOptionsetField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\GridField\GridField;
-use Toast\Elements\Items\TabbedContentElementItem;
+use Toast\Elements\Items\TabbedElementItem;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 
-class TabbedContentElement extends BaseElement
+class TabbedElement extends BaseElement
 {
-    private static $table_name = 'TabbedContentElement';
+    private static $table_name = 'TabbedElement';
 
     private static $singular_name = 'Tabbed Content';
 
@@ -32,7 +32,7 @@ class TabbedContentElement extends BaseElement
     ];
 
     private static $has_many = [
-        'Items' => TabbedContentElementItem::class
+        'Items' => TabbedElementItem::class
     ];
 
     private static $defaults = [
@@ -71,7 +71,7 @@ class TabbedContentElement extends BaseElement
                 GridFieldAddExistingAutocompleter::class
             ]);
 
-        $fields->addFieldsToTab('Root.Items', [
+        $fields->addFieldsToTab('Root.Main', [
             GridField::create('Items', 'Items', $this->Items(), $itemsConfig)
         ]);
 

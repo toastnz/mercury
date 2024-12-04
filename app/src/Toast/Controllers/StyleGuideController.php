@@ -372,6 +372,7 @@ class StyleGuideController extends Controller
         ]);
 
         $arrayData = new ArrayData([
+            'Width' => 'standard',
             'Items' => $accordionItems
         ]);
 

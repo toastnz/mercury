@@ -1,10 +1,12 @@
 
 $Banner
-
-$TestimonialElement
-
-<%-- 
 $IntroElement
+$TestimonialElement
+$AccordionElement
+
+    
+<%-- 
+
 
 $ImageTextElement
 
@@ -14,8 +16,6 @@ $MarqueeElement
 
 $TabbedElement
 
-
-$AccordionElement
 
 $DownloadElement
 

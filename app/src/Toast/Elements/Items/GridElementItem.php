@@ -2,19 +2,19 @@
 
 namespace Toast\Elements\Items;
 
-use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
-use Toast\Elements\LinkElement;
+use Toast\Elements\GridElement;
 use SilverStripe\Forms\TextField;
 use Sheadawson\Linkable\Models\Link;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\RequiredFields;
 use Sheadawson\Linkable\Forms\LinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
-class LinkElementItem extends ElementItem
+class GridElementItem extends ElementItem
 {
-    private static $table_name = 'LinkElementItem';
+    private static $table_name = 'GridElementItem';
 
     private static $singular_name = 'Item';
 
@@ -25,17 +25,20 @@ class LinkElementItem extends ElementItem
     private static $db = [
         'SortOrder' => 'Int',
         'Title' => 'Varchar(255)',
-        'Summary' => 'Text'
+        'Summary' => 'Text',
+        'Size' => 'Enum("small,medium,large", "small")'
     ];
 
     private static $has_one = [
         'Link'   => Link::class,
         'Image'  => Image::class,
-        'Parent' => LinkElement::class
+        'Parent' => GridElement::class
     ];
 
     private static $summary_fields = [
-        'Title' => 'Title'
+        'Thumbnail' => 'Image',
+        'Title' => 'Title',
+        'Size' => 'Size'
     ];
 
     private static $owns = [
@@ -46,24 +49,14 @@ class LinkElementItem extends ElementItem
     {
         $fields = parent::getCMSFields();
 
-        $fields->removeByName([
-            'ParentID',
-            'SortOrder',
-            'LinkID',
-            'ImageID',
-            'Image',
-            'Title',
-            'Summary',
-
-        ]);
-
         $fields->addFieldsToTab('Root.Main', [
+            DropdownField::create('Size', 'Size', singleton(self::class)->dbObject('Size')->enumValues()),
             UploadField::create('Image', 'Thumbnail')
                 ->setAllowedFileCategories('image/supported')
-                ->setFolderName('elements/images'),                
+                ->setFolderName('elements/images'),
             TextField::create('Title', 'Title'),
             TextareaField::create('Summary', 'Summary')
-                ->setRows(6),
+                ->setRows(3),
             LinkField::create('LinkID', 'Link')
         ]);
 
@@ -80,11 +73,11 @@ class LinkElementItem extends ElementItem
         }
     }
 
-    public function getCMSValidator()
+    public function getThumbnail()
     {
-        return RequiredFields::create([
-            'Title',
-            'LinkID'
-        ]);
+        if ($this->Image()->exists()) {
+            return $this->Image()->CMSThumbnail();
+        }
+        return null;
     }
 }

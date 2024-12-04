@@ -8,7 +8,7 @@
     	</div>
 		<style>
 			.marquee_{$ID} {
-				 animation: marquee-move-text {$Speed}s linear infinite forwards;
+				 animation: marquee-move-text {$Speed}s linear infinite <% if $Direction = "left" %>forwards<% else %>reverse<% end_if %>;
 			}
 			
 		</style>

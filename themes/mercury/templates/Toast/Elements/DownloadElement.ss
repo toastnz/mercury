@@ -2,7 +2,7 @@
 Download element
 ----------------------------------------------------------------%>
 <% if $Items %>
-    <div class="download-element [ element {$width} ]">
+    <div class="download-element [ element {$Width} ]">
         <div class="download-element__wrap">
 
             <% loop $Items.Sort('SortOrder') %>

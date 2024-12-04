@@ -44,6 +44,21 @@ Video block
       }
     }
 
+    &.animate {
+      ~ .video-element__icon {
+        opacity: 0;
+
+        .stroke-dotted {
+          stroke-width: 4px;
+          opacity: 1;
+        }
+        .stroke-solid {
+          opacity: 0;
+          stroke-dashoffset: 300;
+        }
+      }
+    }
+
     &:before {
       position: absolute;
       display: block;
@@ -82,5 +97,41 @@ Video block
     position: absolute;
     z-index: 2;
     pointer-events: none;
+    z-index: 999999;
+    transition-delay: 1000ms;
   }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.stroke-dotted {
+  opacity: 0;
+  stroke-dasharray: 4, 5;
+  stroke-width: 1px;
+  transform-origin: 50% 50%;
+  animation: spin 4s infinite linear;
+  transition:
+    opacity 1s ease,
+    stroke-width 1s ease;
+}
+
+.stroke-solid {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 300;
+  stroke-width: 4px;
+  transition:
+    stroke-dashoffset 1s ease,
+    opacity 1s ease;
+}
+
+.video-element__svg {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
 }

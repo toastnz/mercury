@@ -10,12 +10,13 @@
     flex: 0 0 100%;
     min-width: 0;
 }
+
 .embla__prev,
 .embla__next {
     position: absolute;
     z-index: 10;
-    transform: translateY(-50%);
     top: 50%;
+    margin-top: -2.4rem;
     width: 4.8rem;
     height: 4.8rem;
     background: transparent;
@@ -24,9 +25,24 @@
     cursor: pointer;
     overflow: hidden;
     backdrop-filter: blur(2px);
+    outline: none;
+    backface-visibility: hidden;
+    transition: all var(--timing-fast);
 
     @container style(--is-max-width-md: true) {
         display: none !important;
+    }
+
+    &:focus {
+        box-shadow:
+            0 0 0 1px var(--colour-white),
+            0 0 0 3px var(--colour-primary);
+    }
+
+    &:hover {
+        box-shadow:
+            0 0 0 1px var(--colour-white),
+            0 0 0 3px var(--colour-primary);
     }
 
     &:before {

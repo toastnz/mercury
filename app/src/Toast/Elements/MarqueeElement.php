@@ -4,6 +4,7 @@ namespace Toast\Elements;
 
 use SilverStripe\Forms\TextField;
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\Forms\DropdownField;
 
 class MarqueeElement extends BaseElement
 {
@@ -22,6 +23,7 @@ class MarqueeElement extends BaseElement
     private static $db = [
         'Content' => 'Text',
         'Speed' => 'Varchar(12)',
+        'Direction' => 'Enum("left,right", "left")'
     ];
 
     private static $defaults = [
@@ -40,6 +42,7 @@ class MarqueeElement extends BaseElement
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('Content', 'Content'),
             TextField::create('Speed', 'Speed')->setDescription('Speed of the marquee in seconds'),
+            DropdownField::create('Direction', 'Direction', $this->dbObject('Direction')->enumValues())
         ]);
 
         return $fields;
