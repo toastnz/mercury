@@ -20,9 +20,11 @@ Header Search
 
     <script>
         // Close the search pane when a user presses the escape key
-        document.onkeydown = function(event) {
-            event = event || window.event;
-            if (event.keyCode == 27) document.body.classList.remove('searchActive');
-        };
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                document.body.classList.remove('searchActive');
+            }
+        });
     </script>
+    
 </section>

@@ -16,7 +16,7 @@
     Galleries
     ------------------------------------------------------------------*/
 
-    let userDefinedForm = document.querySelector('.js-userform-{$ID} form');
+    <%-- let userDefinedForm = document.querySelector('.js-userform-{$ID} form');
 
     if (userDefinedForm) {
         userDefinedForm.addEventListener('submit', function (event) {
@@ -45,7 +45,7 @@
                     userDefinedForm.classList.remove('busy');
                 });
         });
-    }
+    } --%>
 
 	</script>
 

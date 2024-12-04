@@ -1,12 +1,12 @@
 
 <header class="header<% if $TransparentHeader %> header--transparent<% end_if %>">
 
-<%-- --------------------------------------------
-Show notification
--------------------------------------------- --%>
-<% if $Siteconfig.ShowNotification %>
-     <% include Toast\Includes\Notification %>
-<% end_if %>
+    <%-- --------------------------------------------
+    Show notification
+    -------------------------------------------- --%>
+    <% if $Siteconfig.ShowNotification %>
+         <% include Toast\Includes\Notification %>
+    <% end_if %>
 
 
     <div class="header__wrap <% if $Siteconfig.MakeHeaderFullWidth %>header__wrap--full<% end_if %>">
@@ -49,9 +49,7 @@ Show notification
             <div class="header__wrap__menu__search">
                 <a href="#" class="header__wrap__menu__search__link" title="Search" onclick="showSearchPane(event)">
                     <p>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path fill-rule="evenodd" d="M9.802 19.597a9.748 9.748 0 0 0 6.042-2.092L22.34 24 24 22.34l-6.495-6.496A9.796 9.796 0 1 0 .238 7.654a9.795 9.795 0 0 0 9.564 11.942Zm0-17.24c1.974 0 3.867.784 5.263 2.182a7.438 7.438 0 0 1 0 10.526 7.438 7.438 0 0 1-10.527 0 7.438 7.438 0 0 1 0-10.526 7.438 7.438 0 0 1 5.264-2.181Z"/>
-                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="24" height="24" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.875 18.75a7.875 7.875 0 1 0 0-15.75 7.875 7.875 0 0 0 0 15.75ZM16.443 16.445 21 21.002"/></svg>
                     </p>
                 </a>
             </div>
@@ -62,29 +60,31 @@ Show notification
                 <div class="header__wrap__navburger__ring header__wrap__navburger__ring--3"></div>
             </div>
 
+        </div>
+    </div>
+
 </header>
 
+    <script>
 
-<script>
+        // Show the search pane
+        let showSearchPane = (event) => {
+        
+            //Stop the link from forcing a page jump
+            event.preventDefault();
+        
+            //Animate in the search pane
+            document.body.classList.add('searchActive');
+        
+            // Change the placeholder and focus on the input
+            if (document.getElementById('SearchForm_SearchForm_Search')) {
+                setTimeout(() => {
+                    document.getElementById('SearchForm_SearchForm_Search').focus();
+                }, 100);
+            }
+        }
 
-// Show the search pane
-function showSearchPane(event){
-
-    //Stop the link from forcing a page jump
-    event.preventDefault();
-
-    //Animate in the search pane
-    document.body.classList.add('searchActive');
-
-    // Change the placeholder and focus on the input
-    if(document.getElementById('SearchForm_SearchForm_Search')) {
-        setTimeout(function(){
-            document.getElementById('SearchForm_SearchForm_Search').focus();
-        }, 100);
-    }
-}
-
-</script>
+    </script>
 
  <% include Toast\Includes\MobileMenu %>
 

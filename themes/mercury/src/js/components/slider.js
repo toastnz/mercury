@@ -86,7 +86,7 @@ export class Slider {
         const selectedSnap = this.embla.selectedScrollSnap();
         this.dots.forEach(({ dot, progressBar }, index) => {
             dot.classList.toggle('is-selected', index === selectedSnap);
-            progressBar.style.width = '0%';
+            progressBar.style.transform = 'scaleX(0)';
         });
     }
 
@@ -117,7 +117,7 @@ export class Slider {
         const progressBar = this.dots[selectedSnap]?.progressBar;
 
         this.dots.forEach(({ progressBar }, index) => {
-            progressBar.style.width = index === selectedSnap ? '0%' : '0%';
+            progressBar.style.transform = index === selectedSnap ? 'scaleX(0)' : 'scaleX(0)';
         });
 
         let currentProgress = 0;
@@ -125,12 +125,12 @@ export class Slider {
             if (currentProgress < 100) {
                 currentProgress += 100 / (this.speed / 100);
                 if (progressBar) {
-                    progressBar.style.width = `${currentProgress}%`;
+                    progressBar.style.transform = `scaleX(${currentProgress / 100})`;
                 }
             } else {
                 clearInterval(this.progressBarInterval);
                 if (progressBar) {
-                    progressBar.style.width = '0%';
+                    progressBar.style.transform = 'scaleX(0)';
                 }
             }
         }, 100);

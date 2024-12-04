@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /*------------------------------------------------------------------
     Intersection observers for animation styles
     ------------------------------------------------------------------*/
+
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -34,7 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
         rootMargin: '-5% 0px' // Trigger when the element is in the middle of the page
     });
 
+    // Add the observer to all elements with the class `js-inview`
     setTimeout(() => $$('.js-inview').forEach(element => observer.observe(element)), 10);
+
 
     /*------------------------------------------------------------------
     Sliders
@@ -46,20 +49,20 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => console.error("Slider video component failed to load", error));
     }
 
+
     /*------------------------------------------------------------------
     Banner Video
     ------------------------------------------------------------------*/
-
 
     if ($('.js-banner-video')) {
         import('@/components/banner-video')
             .catch(error => console.error("Banner video component failed to load", error));
     }
 
+
     /*------------------------------------------------------------------
     Accordion Elements
     ------------------------------------------------------------------*/
-
 
     if ($('.js-accordion-element')) {
         import('@/components/accordion')
@@ -139,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Update the previous scroll position
         previousScrollPosition = currentScroll;
+
     };
 
     // Use requestAnimationFrame for smoother scroll event handling
@@ -148,10 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         // If not already scrolling, use requestAnimationFrame to call stickyHeader
         if (!isScrolling) {
+
             window.requestAnimationFrame(() => {
                 stickyHeader();
                 isScrolling = false;
             });
+
             isScrolling = true;
         }
     });

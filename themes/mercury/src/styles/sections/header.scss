@@ -84,6 +84,12 @@ Styles
           }
         }
       }
+
+      &__search {
+        svg {
+          margin-bottom: -6px;
+        }
+      }
     }
 
     &__logo {

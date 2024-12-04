@@ -6,9 +6,9 @@
                 <a href="$Link.LinkURL" class="link-element__item <% if not $Icon && not $image %>bordered <% end_if %>">
                     <div class="link-element__image">
                         <% if $FullSizeBackground %>
-                            <img src="$Image.FocusFill(600,700).URL" width="600" height="700" loading="lazy" alt="$Image.title">
+                            <img src="$Image.FocusFill(600,700).Convert('webp').URL" width="600" height="700" loading="lazy" alt="$Image.title">
                         <% else %>
-                            <img src="$Image.FocusFill(600,500).URL" width="600" height="500" loading="lazy" alt="$Image.title">
+                            <img src="$Image.FocusFill(600,500).Convert('webp').URL" width="600" height="500" loading="lazy" alt="$Image.title">
                         <% end_if %>
                     </div>
                     <div class="link-element__content">

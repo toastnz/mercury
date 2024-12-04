@@ -7,11 +7,11 @@ Image element
         <div class="image-element__wrap">
 
             <% if $Width = 'full' %>
-                <% include Toast/Includes/ResponsiveImage Sizes="320,480,768,1024,1280,1920" %>
+                <% include Toast/Includes/ResponsiveImage Sizes="320,480,768,984,1280,1920" %>
             <% else_if $Width = 'wide' %>
-                <% include Toast/Includes/ResponsiveImage Sizes="320,480,768,1024,1280" %>
+                <% include Toast/Includes/ResponsiveImage Sizes="320,480,768,984,1280" %>
             <% else_if $Width = 'standard' %>
-                <% include Toast/Includes/ResponsiveImage Sizes="320,480,768,1024" %>
+                <% include Toast/Includes/ResponsiveImage Sizes="320,480,768,984" %>
             <% else_if $Width = 'narrow' %>
                 <% include Toast/Includes/ResponsiveImage Sizes="320,480,768" %>
             <% else_if $Width = 'tiny' %>

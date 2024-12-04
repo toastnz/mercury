@@ -119,6 +119,7 @@
     transition: all var(--timing-fast);
     border-radius: var(--radius-full);
     opacity: 0.2;
+    transform-origin: 0 0;
 }
 
 .embla__dot {

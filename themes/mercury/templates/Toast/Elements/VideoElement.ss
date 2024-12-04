@@ -1,7 +1,7 @@
 <div class="video-element [ element {$Width} ]">
     <div class="video-element__wrap">
 
-        <a href="#" class="video-element__thumbnail [ js-video-element ]" data-video-id="{$Video.VideoID}" data-video-source="$Video.Service.LowerCase" data-id="video-element--{$ID}">
+        <a href="#" aria-label="Watch video {$Video.ID}" class="video-element__thumbnail [ js-video-element ]" data-video-id="{$Video.VideoID}" data-video-source="$Video.Service.LowerCase" data-id="video-element--{$ID}">
             <% if $Thumbnail %>
                 <img src="$Thumbnail.FocusFill(1920,1080).URL" width="1920" height="1080" loading="lazy" alt="$Thumbnail.title">
             <% else %>

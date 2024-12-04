@@ -37,6 +37,19 @@ Searchpane
     height: 4.8rem;
     border-radius: var(--radius-full);
 
+    &:focus {
+      box-shadow:
+        0 0 0 2px var(--colour-white),
+        0 0 0 4px var(--colour-primary);
+    }
+
+    &:hover {
+      box-shadow:
+        0 0 0 2px var(--colour-white),
+        0 0 0 4px var(--colour-primary);
+      rotate: 90deg;
+    }
+
     svg {
       width: 2rem;
       height: 2rem;

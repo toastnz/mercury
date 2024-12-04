@@ -11,11 +11,11 @@
 
                     <div class="grid-element__image">
                         <% if $Size = 'large' %>
-                            <img src="$Image.FocusFill(1000,600).URL" width="1000" height="600" loading="lazy" alt="$Image.title">
+                            <img src="$Image.FocusFill(1000,600).Convert('webp').URL" width="1000" height="600" loading="lazy" alt="$Image.title">
                         <% else_if $Size = 'medium' %>
-                            <img src="$Image.FocusFill(500,800).URL" width="500" height="600" loading="lazy" alt="$Image.title">
+                            <img src="$Image.FocusFill(500,800).Convert('webp').URL" width="500" height="600" loading="lazy" alt="$Image.title">
                         <% else_if $Size = 'small' %>
-                            <img src="$Image.FocusFill(500,400).URL" width="500" height="300" loading="lazy" alt="$Image.title">
+                            <img src="$Image.FocusFill(500,400).Convert('webp').URL" width="500" height="300" loading="lazy" alt="$Image.title">
                         <% end_if %>
                     </div>
 
