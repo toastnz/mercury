@@ -3,7 +3,7 @@ Image element
 ------------------------------------------------------------------%>
 <% if $Image %>
 
-    <section class="image-element [ element {$Width} ]">
+    <section class="image-element <% if $Caption %>image-element--caption<% end_if %> [ element {$Width} ]">
         <div class="image-element__wrap">
 
             <% if $Width = 'full' %>

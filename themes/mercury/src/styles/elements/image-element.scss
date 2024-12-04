@@ -5,6 +5,12 @@ body {
   .image-element {
     width: calc(100% - 4rem);
 
+    &--caption {
+      img {
+        border-radius: var(--radius-large) var(--radius-large) 0 0 !important;
+      }
+    }
+
     &__wrap {
       border-radius: var(--radius-large);
     }
