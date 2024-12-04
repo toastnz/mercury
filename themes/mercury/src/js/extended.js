@@ -6,5 +6,17 @@ Import styles
 
 import '../styles/extended.scss';
 
+/*------------------------------------------------------------------ 
+Import scripts
+------------------------------------------------------------------*/
 
 import { $, $$ } from '@/utilities/helpers';
+
+/*------------------------------------------------------------------
+Include any additional scripts here that may not be required on 
+all pages - this will help your page speed score
+------------------------------------------------------------------*/
+
+document.addEventListener('DOMContentLoaded', () => {
+
+});

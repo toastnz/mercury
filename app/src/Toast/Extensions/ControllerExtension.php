@@ -43,6 +43,8 @@ class ControllerExtension extends Extension
 
     public function getIncludeRequirements()
     {
+
+
         $manifestFile = Director::baseFolder() . '/themes/mercury/dist/build/.vite/manifest.json';
 
         if (!file_exists($manifestFile)) {
@@ -56,7 +58,12 @@ class ControllerExtension extends Extension
         }
 
         Requirements::javascript('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['file'], ['type' => 'module']);
-        Requirements::javascript('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/extended.js']['file'], ['type' => 'module']);
+
+        // Only include this script on pages that are not the home page
+        if ($this->owner->getRequest()->getURL() !== 'home') {
+            Requirements::javascript('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/extended.js']['file'], ['type' => 'module']);
+        }
+
         Requirements::css('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['css'][0]);
 
         if ($this->owner->hasMethod('getAdditionalRequirements')) {
