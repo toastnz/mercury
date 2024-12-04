@@ -19,7 +19,7 @@
     ]
   },
   "themes/mercury/src/js/components/slider.js": {
-    "file": "assets/slider-B2wzpiYi.js",
+    "file": "assets/slider-DWLjBNb0.js",
     "name": "slider",
     "src": "themes/mercury/src/js/components/slider.js",
     "isDynamicEntry": true,
@@ -43,7 +43,7 @@
     ]
   },
   "themes/mercury/src/js/main.js": {
-    "file": "assets/main-Bl1mHcBZ.js",
+    "file": "assets/main-CY41wwwk.js",
     "name": "main",
     "src": "themes/mercury/src/js/main.js",
     "isEntry": true,
@@ -57,7 +57,7 @@
       "themes/mercury/src/js/components/video.js"
     ],
     "css": [
-      "assets/main-CWKwkmwH.css"
+      "assets/main-BlrnKNOV.css"
     ]
   }
 }

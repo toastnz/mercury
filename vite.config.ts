@@ -1,23 +1,25 @@
 import { defineConfig } from 'vite';
-import path from 'path';
-
-declare const __dirname: string;
 
 export default defineConfig({
-  plugins: [],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      }
+    }
+  },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './themes/mercury/src/js'),
+      '@': '/themes/mercury/src/js',
     },
   },
   server: {
     host: true,
   },
   build: {
-    target: 'es2015',
     manifest: true,
-    emptyOutDir: false,
-    outDir: './themes/mercury/dist/build/',
+    emptyOutDir: true,
+    outDir: './themes/mercury/dist/build',
     sourcemap: true,
     copyPublicDir: false,
     rollupOptions: {
@@ -25,6 +27,10 @@ export default defineConfig({
         main: './themes/mercury/src/js/main.js',
         extended: './themes/mercury/src/js/extended.js',
       },
+      output: {
+        format: 'es',
+      },
     },
   },
+  base: '_resources/themes/mercury/dist/build/',
 });
