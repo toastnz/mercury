@@ -40,7 +40,7 @@
     ]
   },
   "themes/mercury/src/js/main.js": {
-    "file": "assets/main-CE0rGpQ1.js",
+    "file": "assets/main-BjPS3cU7.js",
     "name": "main",
     "src": "themes/mercury/src/js/main.js",
     "isEntry": true,
@@ -54,7 +54,7 @@
       "themes/mercury/src/js/components/video.js"
     ],
     "css": [
-      "assets/main-CURK0Lpp.css"
+      "assets/main-TNl8Mzvl.css"
     ]
   }
 }
