@@ -5,7 +5,6 @@
 @use "./base/reset";
 @use "./base/global";
 @use "./base/vars";
-@use "./base/media-queries";
 @use "./base/grid";
 
 // /*------------------------------------------------------------------
@@ -60,4 +59,3 @@
 @use "./pages/login.scss";
 @use "./pages/sidebar.scss";
 @use "./pages/siblings.scss";
-

@@ -1,13 +1,9 @@
-/*------------------------------------------------------------------
-Global element styles
-------------------------------------------------------------------*/
-
 .element {
   margin: 8rem auto;
   position: relative;
   width: 100%;
 
-  @container style(--is-max-width-md: true) {
+  @media (max-width: 768px) {
     margin: 4rem auto;
   }
 

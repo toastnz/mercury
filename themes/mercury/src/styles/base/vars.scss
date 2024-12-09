@@ -1,19 +1,14 @@
-/*------------------------------------------------------------------
-Base colors
-------------------------------------------------------------------*/
-
 :root {
     // Colours
     --colour-white: #ffffff;
     --colour-off-white: #f6f9ff;
-    --colour-grey-lighter: #F3EEEA;
+    --colour-grey-lighter: #f3eeea;
     --colour-grey-light: #ebebeb;
     --colour-grey-mid: #ccc;
     --colour-grey-dark: #0f1b25;
     --colour-black: #000000;
 
     // Brand design colours
-    --colour-primary: #2563eb;
     --colour-primary: #4a6f95;
     --colour-secondary: #475569;
 
@@ -51,55 +46,4 @@ Base colors
     // Shadows
     --shadow-large: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px,
         rgba(15, 23, 42, 0.1) 0px 20px 25px -5px, rgba(15, 23, 42, 0.1) 0px 8px 10px -6px;
-
-    --is-max-width-xxxs: false;
-    --is-max-width-xxs: false;
-    --is-max-width-xs: false;
-    --is-max-width-sm: false;
-    --is-max-width-md: false;
-    --is-max-width-xmd: false;
-    --is-max-width-lg: false;
-    --is-max-width-xl: false;
-    --is-max-width-xxl: false;
-    --is-max-width-xxxl: false;
-
-    @media only screen and (max-width: 375px) {
-        --is-max-width-xxxs: true;
-    }
-
-    @media only screen and (max-width: 480px) {
-        --is-max-width-xxs: true;
-    }
-
-    @media only screen and (max-width: 540px) {
-        --is-max-width-xs: true;
-    }
-
-    @media only screen and (max-width: 640px) {
-        --is-max-width-sm: true;
-    }
-
-    @media only screen and (max-width: 768px) {
-        --is-max-width-md: true;
-    }
-
-    @media only screen and (max-width: 968px) {
-        --is-max-width-xmd: true;
-    }
-
-    @media only screen and (max-width: 1024px) {
-        --is-max-width-lg: true;
-    }
-
-    @media only screen and (max-width: 1280px) {
-        --is-max-width-xl: true;
-    }
-
-    @media only screen and (max-width: 1440px) {
-        --is-max-width-xxl: true;
-    }
-
-    @media only screen and (max-width: 1920px) {
-        --is-max-width-xxxl: true;
-    }
 }

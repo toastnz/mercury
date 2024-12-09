@@ -1,13 +1,9 @@
-/* -------------------------------------------- 
-Mobile menu
--------------------------------------------- */
-
 .mobile-menu {
   position: fixed;
-  top: 0;
+  top: 8rem;
   left: 0;
   right: 0;
-  background: white;
+  background: var(--colour-primary);
   z-index: 999;
   bottom: 0;
   padding: 3rem 0;

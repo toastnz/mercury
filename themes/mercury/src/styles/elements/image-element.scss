@@ -1,9 +1,5 @@
-/*------------------------------------------------------------------
-Image Block
-------------------------------------------------------------------*/
 body {
   .image-element {
-
     &--caption {
       img {
         border-radius: var(--radius-large) var(--radius-large) 0 0 !important;

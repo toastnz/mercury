@@ -1,11 +1,5 @@
-
-
-/*------------------------------------------------------------------
-Blog post
-------------------------------------------------------------------*/
-
 .blog-post {
-    background: white;
+    background: var(--colour--white);
     box-shadow: var(--shadow-large);
     border-radius: var(--radius-small);
     position: relative;

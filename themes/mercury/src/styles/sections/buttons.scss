@@ -1,7 +1,3 @@
-/*------------------------------------------------------------------
-Buttons
-------------------------------------------------------------------*/
-
 .button {
   text-align: center;
   background: var(--colour-primary);
@@ -35,7 +31,7 @@ Buttons
 
   &--white {
     color: var(--colour-primary) !important;
-    background: white;
+    background: var(--colour--white);
   }
 
   &--outline {

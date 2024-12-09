@@ -29,7 +29,7 @@
     backface-visibility: hidden;
     transition: all var(--timing-fast);
 
-    @container style(--is-max-width-md: true) {
+    @media (max-width: 768px) {
         display: none !important;
     }
 

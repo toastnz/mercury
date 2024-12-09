@@ -1,7 +1,3 @@
-/*------------------------------------------------------------------
-Inputs
-------------------------------------------------------------------*/
-
 button,
 input,
 select,
@@ -58,7 +54,7 @@ form {
     &.half {
       width: calc(50% - 1rem);
 
-      @container style(--is-width-md: true) {
+      @media (max-width: 768px) {
         width: 100%;
       }
     }
@@ -117,7 +113,7 @@ input[type="checkbox"] {
       left: 0;
       top: 0.2rem;
       transition: all 333ms ease;
-      background: white;
+      background: var(--colour--white);
       border: 1px solid var(--colour-grey-mid);
       width: 20px;
       height: 20px;
@@ -179,7 +175,7 @@ input[type="radio"] {
       left: 0;
       top: 0.2rem;
       transition: all 222ms ease;
-      background: white;
+      background: var(--colour--white);
       border: 1px solid var(--colour-grey-mid);
       width: 20px;
       height: 20px;
@@ -194,7 +190,7 @@ input[type="radio"] {
       top: 0.2rem;
       width: 20px;
       height: 20px;
-      background: white;
+      background: var(--colour--white);
       transition: all 222ms ease;
       border-radius: 2rem;
       transform: scale(0.9);

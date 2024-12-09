@@ -32,5 +32,4 @@ export default defineConfig({
       },
     },
   },
-  base: '/_resources/themes/mercury/dist/build/',
 });

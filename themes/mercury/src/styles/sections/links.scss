@@ -1,23 +1,16 @@
-
-/*------------------------------------------------------------------
-Link hovers
-------------------------------------------------------------------*/
-
-$link: var(--colour-primary);
-
 a:not([class]) {
   text-decoration: none;
   box-shadow:
-    inset 0 -1px 0 $link,
-    0 1px 0 $link;
+    inset 0 -1px 0 var(--colour-primary),
+    0 1px 0 var(--colour-primary);
   transition: all 333ms ease;
   overflow: hidden;
   color: var(--colour-primary);
 
   &:hover {
     box-shadow:
-      inset 0 -30px 0 $link,
-      0 1px 0 $link;
+      inset 0 -30px 0 var(--colour-primary),
+      0 1px 0 var(--colour-primary);
     color: white !important;
   }
 }

@@ -1,7 +1,3 @@
-/*------------------------------------------------------------------
-Image and text block
-------------------------------------------------------------------*/
-
 .image-text-element {
   overflow: hidden;
   position: relative;
@@ -30,7 +26,7 @@ Image and text block
       object-fit: cover;
     }
 
-    @container style(--is-max-width-xmd: true) {
+    @media (max-width: 968px) {
       width: 100%;
       transform: none !important;
       order: 1 !important;
@@ -45,7 +41,7 @@ Image and text block
     flex-wrap: wrap;
     align-content: center;
 
-    @container style(--is-max-width-xmd: true) {
+    @media (max-width: 968px) {
       width: 100%;
       order: 2;
       padding: 4rem;

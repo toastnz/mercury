@@ -1,7 +1,3 @@
-/*------------------------------------------------------------------
-Searchpane
-------------------------------------------------------------------*/
-
 .search-pane {
   position: absolute;
   top: 0;
@@ -98,11 +94,11 @@ Searchpane
         padding-left: 0 !important;
         font-weight: light;
 
-        @container style(--is-max-width-md: true) {
+        @media (max-width: 768px) {
           font-size: 3rem;
         }
 
-        @container style(--is-max-width-sm: true) {
+        @media (max-width: 640px) {
           font-size: 2.4rem;
         }
 
