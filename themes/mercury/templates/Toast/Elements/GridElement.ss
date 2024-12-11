@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="grid-element__content">
-                        <h5 class="colour--white no-margin"><b>$Title.XML</b></h5>
+                        <p class="colour--white no-margin h5"><b>$Title.XML</b></p>
                         <p class="colour--white">$Summary.XML</p>
                     </div>
 

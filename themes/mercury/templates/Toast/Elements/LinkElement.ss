@@ -12,7 +12,7 @@
                         <% end_if %>
                     </div>
                     <div class="link-element__content">
-                        <h6 <% if $Top.FullSizeBackground %>class="colour--white"<% end_if %>>$Title.XML</h6>
+                        <p <% if $Top.FullSizeBackground %>class="colour--white h6"<% else %>class="h6"<% end_if %>>$Title.XML</p>
                         <p <% if $Top.FullSizeBackground %>class="colour--white"<% end_if %>>$Summary.XML</p>
                         <p class="<% if $Top.FullSizeBackground %>colour--white<% end_if %> arrow-link no-margin"><b>Read more</b></p>
                     </div>

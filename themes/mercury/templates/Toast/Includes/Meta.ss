@@ -104,7 +104,9 @@ Styles
 <% if $IsDevHot %>
 <script type="module" nonce="{$Nonce}" src="{$ViteBaseHref}/@vite/client"></script>
 <script type="module" nonce="{$Nonce}" src="{$ViteBaseHref}/themes/mercury/src/js/main.js"></script>
-<script type="module" nonce="{$Nonce}" src="{$ViteBaseHref}/themes/mercury/src/js/extended.js"></script>
+<% if $URLSegment != 'home' %>
+    <script type="module" nonce="{$Nonce}" src="{$ViteBaseHref}/themes/mercury/src/js/extended.js"></script>
+<% end_if %>
 <% else %>
 $IncludeRequirements
 <% end_if %>

@@ -1,4 +1,9 @@
 <div class="video-element [ element {$Width} ]">
+    
+    <% if $Video.Service == 'Vimeo' %>
+        <link rel="preconnect" href="https://i.vimeocdn.com" crossorigin="anonymous">
+    <% end_if %>
+
     <div class="video-element__wrap">
 
         <a href="#" aria-label="Watch video {$Video.ID}" class="video-element__thumbnail [ js-video-element ]" data-video-id="{$Video.VideoID}" data-video-source="$Video.Service.LowerCase" data-id="video-element--{$ID}">

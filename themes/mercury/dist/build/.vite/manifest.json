@@ -31,16 +31,19 @@
     "isDynamicEntry": true
   },
   "themes/mercury/src/js/extended.js": {
-    "file": "assets/extended-mQFYVGrI.js",
+    "file": "assets/extended-D-_0Ia5r.js",
     "name": "extended",
     "src": "themes/mercury/src/js/extended.js",
     "isEntry": true,
     "imports": [
       "_helpers-Cln49kCT.js"
+    ],
+    "css": [
+      "assets/extended-DkVPEKA_.css"
     ]
   },
   "themes/mercury/src/js/main.js": {
-    "file": "assets/main-BjPS3cU7.js",
+    "file": "assets/main-_u8axEw7.js",
     "name": "main",
     "src": "themes/mercury/src/js/main.js",
     "isEntry": true,
@@ -54,7 +57,7 @@
       "themes/mercury/src/js/components/video.js"
     ],
     "css": [
-      "assets/main-TNl8Mzvl.css"
+      "assets/main-CmkJVLa6.css"
     ]
   }
 }

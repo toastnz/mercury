@@ -6,15 +6,10 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
-use SilverStripe\Control\Director;
-use SilverStripe\Security\Security;
-use SilverStripe\View\Requirements;
 use SilverStripe\Control\Controller;
 use SilverStripe\Versioned\Versioned;
 use SilverStripe\ORM\FieldType\DBField;
-use SilverStripe\SiteConfig\SiteConfig;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-use SilverStripe\Core\Manifest\ModuleResourceLoader;
 
 class StyleGuideController extends Controller
 {

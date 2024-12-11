@@ -5,7 +5,7 @@
             <div class="tabbed-element__tabs">
                 <% loop $Items.Sort('SortOrder') %>
                     <a href="#" class="tabbed-element__tab [ js-tabs-link ] <% if $FirstLast = 'first' %>active<% end_if %>" onclick="event.preventDefault(); changeTabs(event.currentTarget)">
-                        <h6 class="no-margin">$Title.XML</h6>
+                        <p class="h6 no-margin">$Title.XML</p>
                     </a>
                 <% end_loop %>
             </div>
