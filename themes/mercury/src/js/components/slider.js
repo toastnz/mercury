@@ -1,18 +1,37 @@
 import EmblaCarousel from 'embla-carousel';
 
+/**
+ * Slider class
+ * 
+ * A class representing a slider component with navigation buttons, dots, autoplay functionality,
+ * and a progress bar.
+ *  
+ * @see {@link
+ *  
+ */
 export class Slider {
+    /**
+     * Constructor for the Slider class.
+     * 
+     * Initializes the slider and its components, including navigation buttons,
+     * dots, autoplay functionality, and progress bar.
+     * 
+     * @param {HTMLElement} element - The HTML element representing the slider.
+     * @param {number} speed - The speed (in milliseconds) at which the slider should autoplay.
+     */
     constructor(element, speed = 5000) {
-        this.element = element;
+
+        this.dots = [];
         this.speed = speed;
-        this.viewport = this.element.querySelector('.embla__viewport');
+        this.element = element;
+        this.autoplayInterval = null;
+        this.progressBarInterval = null;
+
         this.count = this.element.querySelector('.embla__count');
         this.dotsNode = this.element.querySelector('.embla__dots');
         this.prevButton = this.element.querySelector('.embla__prev');
         this.nextButton = this.element.querySelector('.embla__next');
-
-        this.autoplayInterval = null;
-        this.progressBarInterval = null;
-        this.dots = [];
+        this.viewport = this.element.querySelector('.embla__viewport');
 
         this.init();
     }
@@ -21,17 +40,26 @@ export class Slider {
      * Initialize the slider and its components
      */
     init() {
+
+        // Initialize the Embla carousel
         this.embla = EmblaCarousel(this.viewport, { loop: true });
 
+        // Setup navigation buttons
         this._setupNavigation();
+
+        // Add dots navigation
         this._addDots();
+
+        // Start autoplay functionality
         this._startAutoplay();
 
+        // Attach event listeners for progress bar and slide count
         this.embla.on('select', () => {
             this._updateProgressBar();
             this._updateCount();
         });
 
+        // Attach event listeners for progress bar and slide count
         this.embla.on('init', () => {
             this._updateProgressBar();
             this._updateCount();
