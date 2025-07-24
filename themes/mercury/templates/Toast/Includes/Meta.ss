@@ -107,8 +107,6 @@ Styles
 <% if $URLSegment != 'home' %>
     <script type="module" nonce="{$Nonce}" src="{$ViteBaseHref}/themes/mercury/src/js/extended.js"></script>
 <% end_if %>
-<% else %>
-$IncludeRequirements
 <% end_if %>
 
 <%-- --------------------------------------------------------------

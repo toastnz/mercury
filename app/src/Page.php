@@ -8,10 +8,12 @@ use SilverStripe\Control\Director;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\View\Requirements;
 use SilverStripe\CMS\Model\SiteTree;
+use SilverStripe\Control\Controller;
 use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\CMS\Controllers\CMSMain;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\CMS\Controllers\ContentController;
@@ -91,6 +93,17 @@ class Page extends SiteTree
 class PageController extends ContentController
 {
 
+    protected function init()
+    {
+        parent::init();
+
+        if (!$this->IsDevHot()) {
+            if (!Controller::curr() instanceof CMSMain) {
+                $this->getIncludeRequirements();
+            }
+        }
+    }
+
     public function getViewer($action)
     {
         $viewer = parent::getViewer($action);
@@ -109,5 +122,4 @@ class PageController extends ContentController
     {
         return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
     }
-
 }

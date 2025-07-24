@@ -62,6 +62,7 @@ class ControllerExtension extends Extension
         // Only include this script on pages that are not the home page
         if ($this->owner->getRequest()->getURL() !== 'home') {
             Requirements::javascript('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/extended.js']['file'], ['type' => 'module']);
+            Requirements::css('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/extended.js']['css'][0]);
         }
 
         Requirements::css('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['css'][0]);
