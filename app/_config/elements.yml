@@ -4,6 +4,22 @@ Name: sitelements
 Page:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension
+  # allowed_elements:
+  #   - Toast\Elements\AccordionElement
+  #   - Toast\Elements\CodeElement
+  #   - Toast\Elements\DownloadElement
+  #   - Toast\Elements\GridElement
+  #   - Toast\Elements\HeroElement
+  #   - Toast\Elements\ImageElement
+  #   - Toast\Elements\ImageTextElement
+  #   - Toast\Elements\LinkElement
+  #   - Toast\Elements\MarqueeElement
+  #   - Toast\Elements\SplitTextElement
+  #   - Toast\Elements\TabbedElement
+  #   - Toast\Elements\TestimonialElement
+  #   - Toast\Elements\TextElement
+  #   - Toast\Elements\UserFormElement
+  #   - Toast\Elements\VideoElement
 
 DNADesign\Elemental\Models\BaseElement:
   displays_title_in_template: false
