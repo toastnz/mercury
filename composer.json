@@ -7,7 +7,6 @@
         "silverstripe/recipe-cms": "5.3.0@stable",
         "undefinedoffset/silverstripe-nocaptcha": "^2.4",
         "symbiote/silverstripe-gridfieldextensions": "^4.0",
-        "silverstripe/googlesitemaps": "^3.0",
         "silverstripe/taxonomy": "^3.1",
         "drewm/mailchimp-api": "^2.5",
         "symbiote/silverstripe-queuedjobs": "^5.0",
@@ -32,7 +31,8 @@
         "symfony/sendgrid-mailer": "^6.3",
         "symfony/http-client": "^6.3",
         "toastnz/linkable": "^3.0",
-        "atwx/silverstripe-vitehelper": "^0.1.0"
+        "atwx/silverstripe-vitehelper": "^0.1.0",
+        "wilr/silverstripe-googlesitemaps": "^3.2"
     },
     "repositories": [
         {

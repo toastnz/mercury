@@ -22,6 +22,8 @@ class StyleGuideController extends Controller
 
     public function init()
     {
+        
+        $this->getIncludeRequirements();
 
         $image = File::find('placeholder.webp');
 
