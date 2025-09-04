@@ -188,6 +188,7 @@ class StyleGuideController extends Controller
         ]);
 
         $arrayData = new ArrayData([
+            'Width' => 'standard',
             'Items' => $Tabs
         ]);
 
@@ -309,6 +310,7 @@ class StyleGuideController extends Controller
         $arrayData = new ArrayData([
             'Speed' => '30',
             'Content' => 'A marquee element that scrolls text',
+            'Direction' => 'left'
         ]);
         return $arrayData->renderWith('Toast\Elements\MarqueeElement');
     }
@@ -390,6 +392,7 @@ class StyleGuideController extends Controller
             ])
         ]);
         $arrayData = new ArrayData([
+            'Width' => 'standard',
             'Items' => $files
         ]);
         return $arrayData->renderWith('Toast\Elements\DownloadElement   ');

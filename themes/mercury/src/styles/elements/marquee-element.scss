@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   white-space: nowrap;
   overflow: clip;
-  background-color: var(--colour-grey-lighter);
+  background-color: var(--colour-secondary);
 
   &__track {
     display: flex;
@@ -27,6 +27,7 @@
       font-size: 6rem;
       padding: 3rem 1rem;
       position: relative;
+      color: var(--colour-white);
 
       &:after {
         content: "";
@@ -34,7 +35,7 @@
         display: inline-block;
         width: 8rem;
         height: 1px;
-        background-color: var(--text-dark);
+        background-color: var(--colour-white);
         margin: 0 1rem 0 3rem;
         vertical-align: middle;
       }

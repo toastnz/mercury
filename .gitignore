@@ -17,3 +17,4 @@
 .yarn/install-state.gz
 .yarn/releases/yarn-4.4.0.cjs
 .yarn
+node_modules

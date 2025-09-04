@@ -3,8 +3,10 @@ $Banner
 $IntroElement
 $TestimonialElement
 $AccordionElement
+$DownloadElement
+$MarqueeElement
 
-    
+$TabbedElement
 <%-- 
 
 
@@ -15,9 +17,6 @@ $ImageTextElementReversed
 $MarqueeElement
 
 $TabbedElement
-
-
-$DownloadElement
 
 $HeroElement
 

@@ -12,7 +12,7 @@
         </svg>
     </button>
 
-    <b class="banner__count colour--white [ embla__count ]">-</b>
+    <b class="banner__count colour--white [ embla__count ]"></b>
 
     <div class="banner__dots [ embla__dots ]"></div>
     

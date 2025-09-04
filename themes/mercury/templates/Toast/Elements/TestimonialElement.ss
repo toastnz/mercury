@@ -7,19 +7,21 @@ Testimonial element
         
         <div class="testimonial-element__wrap">
 
-            <button class="embla__prev" name="previous" aria-label="Slide left">
-                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12.75 16.2505L6.5 10.0005L12.75 3.75049" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </button>
+            <% if $Items.Count > 1%>
+                <button class="embla__prev" name="previous" aria-label="Slide left">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.75 16.2505L6.5 10.0005L12.75 3.75049" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+    
+                <button class="embla__next" name="next" aria-label="Slide right">
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 3.74121L13.75 9.99121L7.5 16.2412" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            <% end_if %>
 
-            <button class="embla__next" name="next" aria-label="Slide right">
-                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7.5 3.74121L13.75 9.99121L7.5 16.2412" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg>
-            </button>
-
-            <b class="testimonial-element__count colour--white [ embla__count ]">-</b>
+            <b class="testimonial-element__count colour--white [ embla__count ]"></b>
 
             <div class="testimonial-element__dots [ embla__dots ]"></div>
 
