@@ -9,10 +9,17 @@
   },
   "license": "BSD-3-Clause",
   "dependencies": {
+    "@react-three/drei": "^10.7.5",
+    "@react-three/fiber": "^9.3.0",
+    "@vitejs/plugin-react": "^5.0.2",
     "embla-carousel": "^8.6.0",
     "in-view": "^0.6.1",
+    "leva": "^0.10.0",
     "path": "^0.12.7",
-    "sass-embedded": "^1.89.2",
-    "vite": "^7.0.6"
+    "r3f-perf": "^7.2.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "sass-embedded": "^1.92.1",
+    "vite": "^7.1.5"
   }
 }

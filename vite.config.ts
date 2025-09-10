@@ -1,13 +1,8 @@
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler',
-      }
-    }
-  },
+  plugins: [react()],
   resolve: {
     alias: {
       '@': '/themes/mercury/src/js',
@@ -15,6 +10,8 @@ export default defineConfig({
   },
   server: {
     host: true,
+    cors: true,
+    allowedHosts: ['.ddev.site'],
   },
   build: {
     manifest: true,
