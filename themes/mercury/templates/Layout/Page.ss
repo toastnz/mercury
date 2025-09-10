@@ -5,9 +5,10 @@
 $ElementalArea
 
 <style>
-.header{
-display:none;
-}
+    .header{
+        display:none;
+    }
+
     .app {
         width: 100%;
         height: 100vh;
@@ -17,6 +18,4 @@ display:none;
         background-color: #f0f0f0;
     }
 </style>
-<div class="app">
-    
-</div>
+<div class="app" id="root"></div>
