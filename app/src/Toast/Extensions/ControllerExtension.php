@@ -27,16 +27,16 @@ class ControllerExtension extends Extension
 
     public function IsDevHot()
     {
-        $fp = @fsockopen('localhost', 5173, $errno, $errstr, 1);
+        $fp = @fsockopen('localhost', 5171, $errno, $errstr, 1);
         return Director::isDev() && $fp !== false;
     }
 
     public function getViteBaseHref(): string
     {
         if (Director::is_https()) {
-            return rtrim(Director::absoluteBaseURL(), '/') . ':5174';
+            return rtrim(Director::absoluteBaseURL(), '/') . ':5172';
         } else {
-            return rtrim(Director::absoluteBaseURL(), '/') . ':5173';
+            return rtrim(Director::absoluteBaseURL(), '/') . ':5171';
         }
     }
 

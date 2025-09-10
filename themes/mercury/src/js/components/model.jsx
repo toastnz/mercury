@@ -4,7 +4,7 @@ import { useFrame } from '@react-three/fiber';
 
 export function Model(props) {
     const group = useRef();
-    const { nodes, materials } = useGLTF('/models/barn.glb');
+    const { nodes, materials } = useGLTF('_resources/themes/mercury/dist/models/tree.glb');
 
     useFrame(() => {
         if (group.current) {
@@ -14,74 +14,22 @@ export function Model(props) {
 
     return (
         <group ref={group} {...props} dispose={null}>
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['Small_Barn_Cube013-Mesh'].geometry}
-                material={materials.DarkRed}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['Small_Barn_Cube013-Mesh_1'].geometry}
-                material={materials.White}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['Small_Barn_Cube013-Mesh_2'].geometry}
-                material={materials.LightRed}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['Small_Barn_Cube013-Mesh_3'].geometry}
-                material={materials.RoofBlack}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['Small_Barn_Door_Cube008-Mesh'].geometry}
-                material={materials.DarkRed}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['Small_Barn_Door_Cube008-Mesh_1'].geometry}
-                material={materials.White}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['Small_Barn_Door_Cube008-Mesh_2'].geometry}
-                material={materials.LightRed}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['SmallBarn_Window_Cube023-Mesh'].geometry}
-                material={materials.LightRed}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['SmallBarn_Window_Cube023-Mesh_1'].geometry}
-                material={materials.White}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['SmallBarn_Window2_Cube022-Mesh'].geometry}
-                material={materials.LightRed}
-            />
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes['SmallBarn_Window2_Cube022-Mesh_1'].geometry}
-                material={materials.White}
-            />
+            <group rotation={[-Math.PI / 2, 0, 0]} scale={100}>
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Tree2_1.geometry}
+                    material={materials.Brown}
+                />
+                <mesh
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Tree2_2.geometry}
+                    material={materials.Green}
+                />
+            </group>
         </group>
     )
 }
 
-useGLTF.preload('/models/barn.glb')
+useGLTF.preload('_resources/themes/mercury/dist/models/tree.glb')

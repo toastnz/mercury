@@ -7,7 +7,7 @@ Import styles
 ------------------------------------------------------------------*/
 
 import '../styles/main.scss';
-
+ 
 /*------------------------------------------------------------------ 
 Import scripts
 ------------------------------------------------------------------*/
@@ -15,12 +15,12 @@ Import scripts
 import { $, $$ } from '@/utilities/helpers';
 import '@/components/root';
 
-/*------------------------------------------------------------------
+/*------------------------------------------------------------------ 
 Start the app
 ------------------------------------------------------------------*/
 
 document.addEventListener('DOMContentLoaded', () => {
-
+ 
 
     /*------------------------------------------------------------------
     Intersection observers for animation styles
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // If scrolling up and not at the bottom of the page, show the header
         else {
             if (currentScroll + window.innerHeight < document.body.clientHeight) {
-                header.classList.add('nav-down');
+                header.classList.add('nav-down'); 
                 header.classList.remove('nav-up');
             }
         }

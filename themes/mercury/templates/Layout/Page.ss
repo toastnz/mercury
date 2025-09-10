@@ -5,7 +5,8 @@
 $ElementalArea
 
 <style>
-    .header{
+    .header,
+    .footer{
         display:none;
     }
 
