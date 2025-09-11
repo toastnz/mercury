@@ -1,22 +1,24 @@
 import { Canvas } from '@react-three/fiber'
-import { CameraControls, Plane } from '@react-three/drei'
-import { Stats, SoftShadows } from '@react-three/drei'
-import { useState } from 'react'
+import { CameraControls, Plane, SoftShadows } from '@react-three/drei'
+import React, { useState } from 'react'
 import { Controls } from './controls'
-import { Model } from './model'
+import { Tree } from './tree'
 import { Perf } from 'r3f-perf'
-import { EffectComposer, Vignette } from '@react-three/postprocessing'
+import { EffectComposer, Vignette, N8AO } from '@react-three/postprocessing'
 
+
+const MemoCameraControls = React.memo((props) => <CameraControls {...props} />);
 
 export default function App(props) {
 
-    const [backColour, setBackColour] = useState();
-    const [floorColour, setFloorColour] = useState();
-    const [lightIntensity, setLightIntensity] = useState();
+    const [backColour, setBackColour] = useState('#83a07b');
+    const [floorColour, setFloorColour] = useState('#aed5a3');
+    const [lightIntensity, setLightIntensity] = useState(2);
 
     return (
-        <Canvas flat shadows camera={{ position: [10, 5, -16], fov: 50 }}>
+        <Canvas shadows camera={{ position: [10, 5, -16], fov: 50 }}>
             <SoftShadows size={15} samples={10} focus={0} />
+
 
             <color attach="background" args={[backColour]} />
             <fog attach="fog" args={[backColour, 20, 80]} />
@@ -30,28 +32,30 @@ export default function App(props) {
                 <pointLight position={[0, -10, 0]} intensity={1} />
             </group>
 
-            <Plane receiveShadow args={[1000, 1000]} rotation-x={-Math.PI / 2} position={[0, 0, 0]}>
+            <Plane receiveShadow args={[200, 200]} rotation-x={-Math.PI / 2} position={[0, 0, 0]}>
                 <meshStandardMaterial color={floorColour} />
             </Plane>
 
-            <Model position={[0, 0, 0]} />
+            <Tree position={[0, 0, 0]} />
 
-            {props.isDev && (
-                <group>
-                    <Stats />
-                    <Perf position="bottom-right" />
-                </group>
-            )}
+            <MemoCameraControls minPolarAngle={Math.PI / 4.5} maxPolarAngle={Math.PI / 2.1} />
 
-            <CameraControls minPolarAngle={Math.PI / 4.5} maxPolarAngle={Math.PI / 2.1} />
             <Controls
                 onBackColourChange={setBackColour}
-                onColorChange={setFloorColour}
+                onFloorColourChange={setFloorColour}
                 onLightIntensityChange={setLightIntensity}
             />
             <EffectComposer>
+                <N8AO aoRadius={1} intensity={2} />
                 <Vignette eskil={false} offset={0.1} darkness={0.75} />
             </EffectComposer>
+
+            {props.isDev && (
+                <group>
+                    <Perf position="top-left" minimal showGraph={false} />
+                </group>
+            )}
+
         </Canvas>
     );
 }

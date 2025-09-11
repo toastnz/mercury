@@ -2,14 +2,12 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber';
 
-export function Model(props) {
+export function Tree(props) {
     const group = useRef();
     const { nodes, materials } = useGLTF('_resources/themes/mercury/dist/models/tree.glb');
 
     useFrame(() => {
-        if (group.current) {
-            group.current.rotation.y += 0.003;
-        }
+        if (group.current) group.current.rotation.y += 0.003;
     });
 
     return (

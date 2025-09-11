@@ -1,6 +1,6 @@
 import { useControls } from 'leva'
 
-export function Controls({ onBackColourChange, onColorChange, onLightIntensityChange }) {
+export function Controls({ onBackColourChange, onFloorColourChange, onLightIntensityChange }) {
     useControls({
         backColour: {
             value: '#83a07b',
@@ -10,7 +10,7 @@ export function Controls({ onBackColourChange, onColorChange, onLightIntensityCh
         floorColour: {
             value: '#aed5a3',
             label: 'Floor Colour',
-            onChange: onColorChange
+            onChange: onFloorColourChange
         },
         lightIntensity: {
             value: 2,
@@ -21,4 +21,5 @@ export function Controls({ onBackColourChange, onColorChange, onLightIntensityCh
             onChange: onLightIntensityChange
         }
     });
+    return null;
 }

@@ -13,7 +13,7 @@ Import scripts
 ------------------------------------------------------------------*/
 
 import { $, $$ } from '@/utilities/helpers';
-import '@/components/root';
+import '@/react/index';
 
 /*------------------------------------------------------------------ 
 Start the app
