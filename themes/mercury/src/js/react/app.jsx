@@ -3,6 +3,7 @@ import { CameraControls, Plane, SoftShadows } from '@react-three/drei'
 import React, { useState } from 'react'
 import { Controls } from './controls'
 import { Tree } from './tree'
+import { Man } from './man'
 import { Perf } from 'r3f-perf'
 import { EffectComposer, Vignette, N8AO } from '@react-three/postprocessing'
 
@@ -18,7 +19,6 @@ export default function App(props) {
     return (
         <Canvas shadows camera={{ position: [10, 5, -16], fov: 50 }}>
             <SoftShadows size={15} samples={10} focus={0} />
-
 
             <color attach="background" args={[backColour]} />
             <fog attach="fog" args={[backColour, 20, 80]} />
@@ -36,7 +36,9 @@ export default function App(props) {
                 <meshStandardMaterial color={floorColour} />
             </Plane>
 
+
             <Tree position={[0, 0, 0]} />
+            <Man position={[2, 0, 1]} />
 
             <MemoCameraControls minPolarAngle={Math.PI / 4.5} maxPolarAngle={Math.PI / 2.1} />
 
@@ -45,10 +47,11 @@ export default function App(props) {
                 onFloorColourChange={setFloorColour}
                 onLightIntensityChange={setLightIntensity}
             />
-            <EffectComposer>
+
+            {/* <EffectComposer>
                 <N8AO aoRadius={1} intensity={2} />
                 <Vignette eskil={false} offset={0.1} darkness={0.75} />
-            </EffectComposer>
+            </EffectComposer> */}
 
             {props.isDev && (
                 <group>
