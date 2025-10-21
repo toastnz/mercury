@@ -3,12 +3,12 @@ import { useControls } from 'leva'
 export function Controls({ onBackColourChange, onFloorColourChange, onLightIntensityChange }) {
     useControls({
         backColour: {
-            value: '#83a07b',
+            value: '#666666',
             label: 'Back Color',
             onChange: onBackColourChange
         },
         floorColour: {
-            value: '#aed5a3',
+            value: '#888888',
             label: 'Floor Colour',
             onChange: onFloorColourChange
         },
