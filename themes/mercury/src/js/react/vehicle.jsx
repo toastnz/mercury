@@ -14,7 +14,7 @@ export const Vehicle = React.forwardRef((props, ref) => {
 
     // Animate wheels
     useFrame((state, delta) => {
-        const rotationSpeed = 2; // Adjust speed as needed
+        const rotationSpeed = 1; // Adjust speed as needed
         
         if (frontLeftWheel.current) {
             frontLeftWheel.current.rotation.x += rotationSpeed * delta;
