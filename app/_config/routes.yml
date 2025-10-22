@@ -7,3 +7,4 @@ After:
 SilverStripe\Control\Director:
   rules:
     "_styleguide": "Toast\\Controllers\\StyleGuideController"
+    'api//$Action/$ID/$Name': 'Toast\Controllers\ApiController'

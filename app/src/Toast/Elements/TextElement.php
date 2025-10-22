@@ -66,4 +66,14 @@ class TextElement extends BaseElement
             'Content'
         ]);
     }
+
+
+    public function getElementData()
+    {
+        return [
+            'width' => $this->Width,
+            'content' => $this->Content,
+            'background_colour' => $this->BackgroundColour
+        ];
+    }
 }

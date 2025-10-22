@@ -83,4 +83,21 @@ class AccordionElement extends BaseElement
     {
         return GroupedList::create($this->Items());
     }
+
+
+    public function getElementData()
+    {
+        $itemsArray = [];
+        foreach ($this->Items() as $item) {
+            $itemsArray[] = [
+                'title' => $item->Title,
+                'content' => $item->Content
+            ];
+        }
+
+        return [
+            'width' => $this->Width,
+            'items' => $itemsArray
+        ];
+    }
 }

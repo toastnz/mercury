@@ -2,6 +2,7 @@
 
 use Toast\Helpers\Helper;
 use Toast\Models\BannerSlide;
+use SilverStripe\Core\Convert;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\Control\Director;
@@ -20,6 +21,8 @@ use SilverStripe\CMS\Controllers\ContentController;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use Toast\Controllers\ApiController;
+
 
 class Page extends SiteTree
 {
@@ -121,5 +124,16 @@ class PageController extends ContentController
     public function LatestNews($limit = 12)
     {
         return BlogPost::get()->sort('PublishDate DESC')->limit($limit);
+    }
+
+    public function getPagesDataAsJSON()
+    {
+        $request = Controller::curr()->getRequest();
+
+        if ($request && $request->getVar('flush') !== null) {
+            ApiController::clearPagesCache();
+        }
+
+        return ApiController::getPagesDataAsJSON();
     }
 }

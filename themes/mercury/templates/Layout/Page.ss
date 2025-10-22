@@ -1,8 +1,7 @@
 
 <%-- <% include Toast\Banner %> --%>
 
-
-$ElementalArea
+<%-- $ElementalArea --%>
 
 <style>
     .header,
@@ -20,3 +19,7 @@ $ElementalArea
     }
 </style>
 <div class="app" id="root"></div>
+
+<script>
+    window.PRELOADED_PAGES = $getPagesDataAsJSON.RAW;
+</script>
