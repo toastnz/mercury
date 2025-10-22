@@ -19,6 +19,7 @@
     }
 </style>
 <div class="app" id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
 <script>
     window.PRELOADED_PAGES = $getPagesDataAsJSON.RAW;

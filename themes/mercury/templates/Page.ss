@@ -10,17 +10,17 @@
     <%---------------------------------------------- 
     Show popup
     -------------------------------------------- --%>
-
+<%-- 
     <% if $Siteconfig.ShowPopup %>
         <% include Toast\Includes\Popup %>
-    <% end_if %>
+    <% end_if %> --%>
 
     
-    <% include Toast\Header %>
+    <%-- <% include Toast\Header %> --%>
 
     $Layout
 
-    <% include Toast\Footer %>
+    <%-- <% include Toast\Footer %> --%>
 
     <%-- --------------------------------------------------------------
     Footer code injection
