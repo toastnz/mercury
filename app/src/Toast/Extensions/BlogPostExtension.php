@@ -2,9 +2,9 @@
 
 namespace Toast\Extensions;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 
-class BlogPostExtension extends DataExtension
+class BlogPostExtension extends Extension
 {
 
 }

@@ -16,6 +16,6 @@
         "themes/mercury/dist/scripts/main.js": true
     },
     "explorerExclude.backup": {},
-    "php.version": "8.2",
-    "intelephense.environment.phpVersion": "8.2"
+    "php.version": "8.3",
+    "intelephense.environment.phpVersion": "8.3"
 }

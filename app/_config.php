@@ -1,16 +1,9 @@
 <?php
 
-use SilverStripe\Security\Member;
-use SilverStripe\Security\Security;
-use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\SiteConfig\SiteConfig;
-use SilverStripe\Security\PasswordValidator;
+use SilverStripe\TinyMCE\TinyMCEConfig;
 use SilverStripe\View\Parsers\ShortcodeParser;
-use SilverStripe\ORM\Search\FulltextSearchable;
-use SilverStripe\Forms\HTMLEditor\TinyMCEConfig;
 
-$validator = PasswordValidator::create();
-Member::set_password_validator($validator);
+date_default_timezone_set('Pacific/Auckland');
 
 $formats = [
     [
@@ -44,6 +37,16 @@ $formats = [
             [
                 'title'    => 'Heading 6',
                 'classes'   => 'h6',
+                'inline'         => 'span',
+            ],
+            [
+                'title'    => 'Nominal',
+                'classes'   => 'nominal',
+                'inline'         => 'span',
+            ],
+            [
+                'title'    => 'Smaller',
+                'classes'   => 'smaller',
                 'inline'         => 'span',
             ],
         ]
@@ -87,45 +90,33 @@ $formats = [
     ]
 ];
 
-TinyMCEConfig::get('cms')->enablePlugins(['hr', 'anchor']);
+$primaryColour = '#2563eb';
+$secondaryColour = '#475569';
 
-try {
-    $config = SiteConfig::current_site_config();
-
-    $primaryColour = '#2563eb';
-    $secondaryColour = '#475569';
-
-    TinyMCEConfig::get('cms')
-        ->addButtonsToLine(2, 'styles')
-        ->setOptions([
-            'importcss_append' => true,
-            'style_formats' => $formats,
-            'content_style' =>
-            '.colour--primary {color: ' . $primaryColour . '; } '
-                . '.colour--secondary {color: ' . $secondaryColour . '; } '
-                . '.colour--white {color: #bbbbbb; } '
-                . '.button--rounded {padding:5px 10px !important;border-radius:100rem; color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; border-radius:100rem;} '
-                . '.button {padding:5px 10px !important;color:white;background: ' . $primaryColour . '; } '
-                . '.button--secondary {padding:5px 10px !important;color:white;background: ' . $secondaryColour . '; } '
-                . '.button--outline {padding:5px 10px !important;background:transparent;color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; } '
-                . '.text-center {text-align:center;} '
-                . '.text-right {text-align:right;} '
-                . 'h1,.h1 {font-size:2.4rem;margin-top: .2rem;margin-bottom: .2rem;} '
-                . 'h2,.h2 {font-size:2.2rem;margin-top: .2rem;margin-bottom: .2rem;} '
-                . 'h3,.h3 {font-size:2.0rem;margin-top: .2rem;margin-bottom: .2rem;} '
-                . 'h4,.h4 {font-size:1.8rem;margin-top: .2rem;margin-bottom: .2rem;} '
-                . 'h5,.h5 {font-size:1.4rem;margin-top: .2rem;margin-bottom: .2rem;} '
-                . 'h6,.h6 {font-size:1.2rem;margin-top: .2rem;margin-bottom: .2rem;} '
-                . 'p {font-size:1em;margin-top: 1rem;margin-bottom: 1rem;line-height:1.4 !important} '
-        ]);
-} catch (\Exception $e) {
-}
-
-try {
-    FulltextSearchable::enable([SiteTree::class]);
-} catch (\Exception $e) {
-    user_error($e->getMessage(), E_USER_NOTICE);
-}
-
+TinyMCEConfig::get('cms')
+    ->addButtonsToLine(2, 'styles')
+    ->setOptions([
+        'importcss_append' => true,
+        'style_formats' => $formats,
+        'content_style' =>
+        '.colour--primary {color: ' . $primaryColour . '; } '
+            . '.colour--secondary {color: ' . $secondaryColour . '; } '
+            . '.colour--white {color: #bbbbbb; } '
+            . '.button--rounded {padding:5px 10px !important;border-radius:100rem; color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; border-radius:100rem;} '
+            . '.button {padding:5px 10px !important;color:white;background: ' . $primaryColour . '; } '
+            . '.button--secondary {padding:5px 10px !important;color:white;background: ' . $secondaryColour . '; } '
+            . '.button--outline {padding:5px 10px !important;background:transparent;color:' . $primaryColour . ';border: 1px solid ' . $primaryColour . '; } '
+            . '.text-center {text-align:center;} '
+            . '.text-right {text-align:right;} '
+            . 'h1,.h1 {font-size:2.4rem;margin-top: .2rem;margin-bottom: .2rem;} '
+            . 'h2,.h2 {font-size:2.2rem;margin-top: .2rem;margin-bottom: .2rem;} '
+            . 'h3,.h3 {font-size:2.0rem;margin-top: .2rem;margin-bottom: .2rem;} '
+            . 'h4,.h4 {font-size:1.8rem;margin-top: .2rem;margin-bottom: .2rem;} '
+            . 'h5,.h5 {font-size:1.4rem;margin-top: .2rem;margin-bottom: .2rem;} '
+            . 'h6,.h6 {font-size:1.2rem;margin-top: .2rem;margin-bottom: .2rem;} '
+            . '.nominal {font-size:1.1rem;margin-top: .2rem;margin-bottom: .2rem;} '
+            . '.smaller {font-size:1.0rem;margin-top: .2rem;margin-bottom: .2rem;} '
+            . 'p {font-size:1em;margin-top: 1rem;margin-bottom: 1rem;line-height:1.4 !important} '
+    ]);
 
 ShortcodeParser::get('default')->register('element', ['Page', 'ElementShortCode']);

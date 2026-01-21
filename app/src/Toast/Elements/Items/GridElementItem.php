@@ -5,7 +5,7 @@ namespace Toast\Elements\Items;
 use SilverStripe\Assets\Image;
 use Toast\Elements\GridElement;
 use SilverStripe\Forms\TextField;
-use Sheadawson\Linkable\Models\Link;
+use SilverStripe\LinkField\Models\Link;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\RequiredFields;

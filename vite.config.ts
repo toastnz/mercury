@@ -1,37 +1,35 @@
 import { defineConfig } from 'vite';
+import { resolve } from 'path';
 
-export default defineConfig({
-  css: {
-    preprocessorOptions: {
-      scss: {
-        api: 'modern-compiler',
-      }
-    }
-  },
+export default defineConfig(({ command }) => ({
   resolve: {
     alias: {
-      '@': '/themes/mercury/src/js',
+      '@': resolve(__dirname, 'themes/mercury/src/js'),
     },
   },
   server: {
     host: true,
+    cors: true,
+    port: 5170,
+    allowedHosts: [
+      'mercury.ddev.site'
+    ],
   },
+  base: command === 'build' ? '/_resources/themes/mercury/dist/build/' : undefined,
   build: {
     manifest: true,
     emptyOutDir: true,
-    outDir: './themes/mercury/dist/build',
+    outDir: resolve(__dirname, 'themes/mercury/dist/build'),
     sourcemap: true,
     copyPublicDir: false,
     rollupOptions: {
       input: {
-        main: './themes/mercury/src/js/main.js',
-        extended: './themes/mercury/src/js/extended.js',
+        main: resolve(__dirname, 'themes/mercury/src/js/main.js'),
+        extended: resolve(__dirname, 'themes/mercury/src/js/extended.js'),
       },
       output: {
         format: 'es',
       },
     },
   },
-});
-
-
+}));

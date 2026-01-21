@@ -2,9 +2,9 @@
 
 namespace Toast\Extensions;
 
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 
-class BlogControllerExtension extends DataExtension
+class BlogControllerExtension extends Extension
 {
 
 }

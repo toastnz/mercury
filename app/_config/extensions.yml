@@ -5,9 +5,9 @@ SilverStripe\SiteConfig\SiteConfig:
   extensions:
     - Toast\Extensions\SiteConfigExtension
 
-SilverStripe\Admin\LeftAndMain:
-  extensions:
-    - Toast\Extensions\LeftAndMainExtension
+# SilverStripe\Admin\LeftAndMain:
+  # extensions:
+    # - Toast\Extensions\LeftAndMainExtension
 
 SilverStripe\Control\Controller:
   extensions:

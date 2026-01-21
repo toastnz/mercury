@@ -1,61 +1,33 @@
 {
     "name": "toastnz/mercury",
     "type": "silverstripe-project",
+    "version": "1.0.0",
     "description": "Toast NZ SilverStripe Installer",
     "require": {
-        "php": ">=8.1",
-        "silverstripe/recipe-cms": "5.3.0@stable",
-        "undefinedoffset/silverstripe-nocaptcha": "^2.4",
-        "symbiote/silverstripe-gridfieldextensions": "^4.0",
-        "silverstripe/taxonomy": "^3.1",
-        "drewm/mailchimp-api": "^2.5",
-        "symbiote/silverstripe-queuedjobs": "^5.0",
-        "silverstripe/crontask": "^3.0",
-        "silverstripe/userforms": "^6.1",
-        "silverstripe/tagfield": "^3.1",
-        "undefinedoffset/sortablegridfield": "^2.2",
-        "silverstripe/blog": "^4.1",
-        "axllent/silverstripe-form-fields": "^1.6",
-        "jonom/focuspoint": "^5.0",
-        "silverstripe/redirectedurls": "^3.0",
-        "bummzack/sortablefile": "2.x-dev",
-        "heyday/silverstripe-menumanager": "dev-main",
-        "plasticstudio/iconfield": "dev-master",
-        "unclecheese/silverstripe-image-optionset": "dev-master",
-        "unclecheese/display-logic": "^3.0",
-        "toastnz/duplicator": "^2.0",
-        "toastnz/favicon": "^2.0",
-        "stevie-mayhew/silverstripe-svg": "dev-master",
-        "permanentinc/found": "^2.0",
-        "dnadesign/silverstripe-elemental": "^5.1",
-        "symfony/sendgrid-mailer": "^6.3",
-        "symfony/http-client": "^6.3",
-        "toastnz/linkable": "^3.0",
-        "atwx/silverstripe-vitehelper": "^0.1.0",
-        "wilr/silverstripe-googlesitemaps": "^3.2"
+        "php": ">=8.3",
+        "silverstripe/recipe-cms": "^6",
+        "undefinedoffset/silverstripe-nocaptcha": "^3.0",
+        "symbiote/silverstripe-gridfieldextensions": "^5.0",
+        "wilr/silverstripe-googlesitemaps": "^4.0",
+        "silverstripe/taxonomy": "^4.0",
+        "symbiote/silverstripe-queuedjobs": "^6.0",
+        "silverstripe/crontask": "^4.0",
+        "silverstripe/userforms": "^7.0",
+        "silverstripe/tagfield": "^4.0",
+        "undefinedoffset/sortablegridfield": "^3.0",
+        "axllent/silverstripe-form-fields": "^2.0",
+        "jonom/focuspoint": "^6.0",
+        "silverstripe/redirectedurls": "^4.0",
+        "bummzack/sortablefile": "^3.0",
+        "stevie-mayhew/silverstripe-svg": "^3.0",
+        "dnadesign/silverstripe-elemental": "^6.0",
+        "symfony/sendgrid-mailer": "^7.3",
+        "symfony/http-client": "^7.3",
+        "atwx/silverstripe-vitehelper": "^1.1",
+        "toastnz/favicon": "^3.0",
+        "silverstripe/linkfield": "^5.0",
+        "silverstripe/htmleditor-tinymce": "^1.0"
     },
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https://github.com/toastnz/silverstripe-svg"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/toastnz/sortablefile"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/toastnz/silverstripe-menumanager"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/toastnz/plasticstudio-iconfield"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/toastnz/silverstripe-image-optionset"
-        }
-    ],
     "extra": {
         "resources-dir": "_resources",
         "project-files-installed": [
@@ -72,7 +44,8 @@
             "web.config"
         ],
         "expose": [
-            "themes/mercury/dist"
+            "themes/mercury/dist",
+            "app/cms/javascript"
         ]
     },
     "config": {
@@ -80,7 +53,8 @@
         "allow-plugins": {
             "composer/installers": true,
             "silverstripe/vendor-plugin": true,
-            "silverstripe/recipe-plugin": true
+            "silverstripe/recipe-plugin": true,
+            "php-http/discovery": true
         }
     },
     "prefer-stable": true,

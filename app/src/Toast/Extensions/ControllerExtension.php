@@ -27,23 +27,32 @@ class ControllerExtension extends Extension
 
     public function IsDevHot()
     {
-        $fp = @fsockopen('localhost', 5173, $errno, $errstr, 1);
-        return Director::isDev() && $fp !== false;
+        if (!Director::isDev()) {
+            return false;
+        }
+
+        $fp = @fsockopen('localhost', 5170, $errno, $errstr, 1);
+
+        if ($fp !== false) {
+            fclose($fp); 
+            return true;
+        }
+
+        return false;
     }
 
     public function getViteBaseHref(): string
     {
         if (Director::is_https()) {
-            return rtrim(Director::absoluteBaseURL(), '/') . ':5174';
+            return rtrim(Director::absoluteBaseURL(), '/') . ':5171';
         } else {
-            return rtrim(Director::absoluteBaseURL(), '/') . ':5173';
+            return rtrim(Director::absoluteBaseURL(), '/') . ':5170';
         }
     }
 
 
     public function getIncludeRequirements()
     {
-
 
         $manifestFile = Director::baseFolder() . '/themes/mercury/dist/build/.vite/manifest.json';
 
@@ -61,8 +70,11 @@ class ControllerExtension extends Extension
 
         // Only include this script on pages that are not the home page
         if ($this->owner->getRequest()->getURL() !== 'home') {
-            Requirements::javascript('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/extended.js']['file'], ['type' => 'module']);
-            Requirements::css('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/extended.js']['css'][0]);
+            if (isset($manifest['themes/mercury/src/js/extended.js'])) {
+                $extended = $manifest['themes/mercury/src/js/extended.js'];
+                Requirements::javascript('themes/mercury/dist/build/' . $extended['file'], ['type' => 'module']);
+                Requirements::css('themes/mercury/dist/build/' . $extended['css'][0]);
+            }
         }
 
         Requirements::css('themes/mercury/dist/build/' . $manifest['themes/mercury/src/js/main.js']['css'][0]);

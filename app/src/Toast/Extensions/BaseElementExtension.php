@@ -3,11 +3,11 @@
 namespace Toast\Extensions;
 
 use SilverStripe\Forms\FieldList;
-use SilverStripe\ORM\DataExtension;
+use SilverStripe\Core\Extension;
 use SilverStripe\Forms\ReadonlyField;
 use SilverStripe\Forms\RequiredFields;
 
-class BaseElementExtension extends DataExtension
+class BaseElementExtension extends Extension
 {
     public function updateCMSFields(FieldList $fields)
     {

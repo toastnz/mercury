@@ -6,7 +6,7 @@ use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use Toast\Elements\LinkElement;
 use SilverStripe\Forms\TextField;
-use Sheadawson\Linkable\Models\Link;
+use SilverStripe\LinkField\Models\Link;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\RequiredFields;
 use Sheadawson\Linkable\Forms\LinkField;

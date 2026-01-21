@@ -1,19 +1,20 @@
 .banner {
   overflow: hidden;
+  margin-top: 4rem;
   position: relative;
   background: var(--colour-black);
   user-select: none;
 
   .embla__prev,
   .embla__next {
-    display: none;
+    display: none; 
   }
 
   &--slider {
     .embla__prev,
     .embla__next {
       display: block;
-    }
+    } 
   }
 
   &__push {

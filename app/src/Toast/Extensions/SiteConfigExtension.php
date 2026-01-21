@@ -7,8 +7,9 @@ use SilverStripe\Assets\File;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HeaderField;
-use SilverStripe\ORM\DataExtension;
-use Sheadawson\Linkable\Models\Link;
+use SilverStripe\Core\Extension;
+use SilverStripe\LinkField\Models\Link;
+
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextareaField;
@@ -16,7 +17,7 @@ use Sheadawson\Linkable\Forms\LinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
-class SiteConfigExtension extends DataExtension
+class SiteConfigExtension extends Extension
 {
     private static $db = [
         'HeadCodeInjection' => 'HTMLText',
