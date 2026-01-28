@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38640a10c8a9a4b04bda91eb9f15b8b6",
+    "content-hash": "8b48012a9b99111be67b0caf0cea8795",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -7597,6 +7597,53 @@
             "time": "2025-06-12T03:26:02+00:00"
         },
         {
+            "name": "unclecheese/silverstripe-image-optionset",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/unclecheese/silverstripe-image-optionset.git",
+                "reference": "1279529356fc67a7b4e33285018385e7303fbc81"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/unclecheese/silverstripe-image-optionset/zipball/1279529356fc67a7b4e33285018385e7303fbc81",
+                "reference": "1279529356fc67a7b4e33285018385e7303fbc81",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^4 || ^5 || ^6"
+            },
+            "default-branch": true,
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "css"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Uncle Cheese",
+                    "email": "unclecheese@leftandmain.com"
+                }
+            ],
+            "description": "Provides a list of selectable items that use images as the primary label instead of text.",
+            "keywords": [
+                "image",
+                "optionsetfield",
+                "radio",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/unclecheese/silverstripe-image-optionset/issues",
+                "source": "https://github.com/unclecheese/silverstripe-image-optionset/tree/master"
+            },
+            "time": "2025-08-27T11:02:23+00:00"
+        },
+        {
             "name": "undefinedoffset/silverstripe-nocaptcha",
             "version": "3.1.0",
             "source": {
@@ -7786,7 +7833,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "unclecheese/silverstripe-image-optionset": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
