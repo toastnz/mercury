@@ -37,6 +37,7 @@ class Page extends SiteTree
     {
         $fields = parent::getCMSFields();
         $fields->removeByName(['Content']);
+        $fields->removeByName('BannerSlides');
 
         $config = GridFieldConfig_RelationEditor::create(10);
         $config->addComponent(GridFieldOrderableRows::create('SortOrder'))
