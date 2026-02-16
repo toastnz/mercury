@@ -4,12 +4,13 @@ namespace Toast\Controllers;
 
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
-use SilverStripe\ORM\ArrayList;
-use SilverStripe\View\ArrayData;
+
 use SilverStripe\Control\Controller;
-use SilverStripe\Versioned\Versioned;
+use SilverStripe\Model\ArrayData;
+use SilverStripe\Model\List\ArrayList;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
+use SilverStripe\Versioned\Versioned;
 
 class StyleGuideController extends Controller
 {
