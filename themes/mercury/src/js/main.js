@@ -44,43 +44,43 @@ document.addEventListener('DOMContentLoaded', () => {
     Sliders
     ------------------------------------------------------------------*/
 
-    // if ($('.embla')) {
-    //     import('@/components/slider')
-    //         .then(module => $$('.embla').forEach(element => new module.Slider(element)))
-    //         .catch(error => console.error("Slider video component failed to load", error));
-    // }
+    if ($('.embla')) {
+        import('@/components/slider')
+            .then(module => $$('.embla').forEach(element => new module.Slider(element)))
+            .catch(error => console.error("Slider video component failed to load", error));
+    }
 
 
     /*------------------------------------------------------------------
     Banner Video
     ------------------------------------------------------------------*/
 
-    // if ($('.js-banner-video')) {
-    //     import('@/components/banner-video')
-    //         .catch(error => console.error("Banner video component failed to load", error));
-    // }
+    if ($('.js-banner-video')) {
+        import('@/components/banner-video')
+            .catch(error => console.error("Banner video component failed to load", error));
+    }
 
 
     /*------------------------------------------------------------------
     Accordion Elements
     ------------------------------------------------------------------*/
 
-    // if ($('.js-accordion-element')) {
-    //     import('@/components/accordion')
-    //         .then(module => $$('.js-accordion-element').forEach(element => new module.Accordion(element)))
-    //         .catch(error => console.error("Accordion component failed to load", error));
-    // }
+    if ($('.js-accordion-element')) {
+        import('@/components/accordion')
+            .then(module => $$('.js-accordion-element').forEach(element => new module.Accordion(element)))
+            .catch(error => console.error("Accordion component failed to load", error));
+    }
 
 
     /*------------------------------------------------------------------
     Video Elements
     ------------------------------------------------------------------*/
 
-    // if ($('.js-video-element')) {
-    //     import('@/components/video')
-    //         .then(module => $$('.js-video-element').forEach(element => new module.Video(element)))
-    //         .catch(error => console.error("Video component failed to load", error));
-    // }
+    if ($('.js-video-element')) {
+        import('@/components/video')
+            .then(module => $$('.js-video-element').forEach(element => new module.Video(element)))
+            .catch(error => console.error("Video component failed to load", error));
+    }
 
 
     /*------------------------------------------------------------------
