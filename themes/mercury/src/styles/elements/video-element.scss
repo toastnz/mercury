@@ -1,4 +1,13 @@
 .video-element {
+  &--caption {
+    .video-element__thumbnail {
+      border-radius: var(--radius-large) var(--radius-large) 0 0 !important;
+    }
+    .video-element__icon {
+      margin-top: -2rem;
+    }
+  }
+
   &__wrap {
     position: relative;
     width: 100%;
@@ -40,14 +49,14 @@
     overflow: hidden;
 
     &.playing {
-      ~.video-element__player {
+      ~ .video-element__player {
         opacity: 1;
         visibility: visible;
       }
     }
 
     &.animate {
-      ~.video-element__icon {
+      ~ .video-element__icon {
         opacity: 0;
 
         .stroke-dotted {
@@ -105,8 +114,10 @@
   }
 
   &__caption {
-    margin-top: var(--gutter-tiny);
-    font-size: 1.4rem;
+    background: var(--colour-grey-lighter);
+    padding: 3rem 2rem 1rem;
+    margin-top: -2rem;
+    border-radius: 0 0 var(--radius-large) var(--radius-large);
   }
 }
 

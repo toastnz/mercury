@@ -43,16 +43,21 @@
       box-shadow:
         0 0 0 2px var(--colour-white),
         0 0 0 4px var(--colour-primary);
-      rotate: 90deg;
+
+      svg {
+        transform: rotate(90deg);
+      }
     }
 
     svg {
       width: 2rem;
       height: 2rem;
+      transform-origin: center center;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      display: block;
+      top: 1.3rem;
+      left: 1.3rem;
+      transition: all var(--timing-fast);
 
       path {
         fill: var(--colour-primary);

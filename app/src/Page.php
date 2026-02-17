@@ -2,11 +2,7 @@
 
 use Toast\Helpers\Helper;
 use Toast\Models\BannerSlide;
-use SilverStripe\ORM\ArrayList;
-use SilverStripe\View\ArrayData;
-use SilverStripe\Control\Director;
 use SilverStripe\Forms\FieldGroup;
-use SilverStripe\View\Requirements;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Controller;
 use SilverStripe\Blog\Model\BlogPost;

@@ -1,6 +1,7 @@
 <?php
 
 namespace Toast\Pages;
+use SilverStripe\ORM\PaginatedList;
 
 class SearchResultsPage extends \Page
 {

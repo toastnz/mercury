@@ -20,6 +20,7 @@ export class Slider {
      * @param {number} speed - The speed (in milliseconds) at which the slider should autoplay.
      */
     constructor(element, speed = 5000) {
+             
 
         this.dots = [];
         this.speed = speed;
@@ -48,7 +49,7 @@ export class Slider {
         this._setupNavigation();
 
         // Add dots navigation
-        this._addDots();
+        this.addDots();
 
         // Start autoplay functionality
         this._startAutoplay();
@@ -79,7 +80,10 @@ export class Slider {
     /**
      * Add dots navigation and attach related functionality
      */
-    _addDots() {
+    addDots() {
+        // Clear existing dots to prevent duplication
+        this.dotsNode.innerHTML = '';
+
         const snapList = this.embla.scrollSnapList();
 
         this.dots = snapList.map((_, index) => {

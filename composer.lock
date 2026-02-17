@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8b48012a9b99111be67b0caf0cea8795",
+    "content-hash": "744cd87dfa2709766eb575073d632027",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -7532,6 +7532,55 @@
                 "source": "https://github.com/toastnz/favicon/tree/3.0.1"
             },
             "time": "2025-08-19T21:58:36+00:00"
+        },
+        {
+            "name": "toastnz/indexedsearch",
+            "version": "6.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toastnz/indexedsearch.git",
+                "reference": "a9e90e8282bf322ea42aae19baf120e77e0ffa94"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toastnz/indexedsearch/zipball/a9e90e8282bf322ea42aae19baf120e77e0ffa94",
+                "reference": "a9e90e8282bf322ea42aae19baf120e77e0ffa94",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^6",
+                "silverstripe/vendor-plugin": "^2.0 || ^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Leandro Palmieri",
+                    "email": "p@beetpix.com"
+                },
+                {
+                    "name": "Jaydn de Graaf",
+                    "email": "jd@pinc.nz"
+                }
+            ],
+            "description": "A fulltext search module for SilverStripe that filters any data object and their relations, with filtering, fuzzy and boosting options.",
+            "keywords": [
+                "boosting",
+                "fulltext",
+                "fuzzy",
+                "ranking",
+                "search",
+                "silverstripe",
+                "similarity"
+            ],
+            "support": {
+                "issues": "https://github.com/toastnz/indexedsearch/issues",
+                "source": "https://github.com/toastnz/indexedsearch/tree/6.0.2"
+            },
+            "time": "2026-02-09T00:28:13+00:00"
         },
         {
             "name": "unclecheese/display-logic",
