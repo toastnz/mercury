@@ -21,7 +21,19 @@ Download element
 
                         <div class="download-element__details">
                             <p class="no-margin">
-                                <b class="h6">{$Title}</b><br>
+                                <b class="h6">
+                                    <% if $Up.Title %>
+                                        {$Up.Title}
+                                    <% else %>
+                                        {$Title}
+                                    <% end_if %>
+                                </b>
+                                <br>
+                                <% if $Up.Summary %>
+                                    {$Up.Summary}
+                                    <br>
+                                <% end_if %>
+                                
                                 {$Extension.upperCase} {$Size}
                             </p>
                         </div>
