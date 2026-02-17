@@ -34,20 +34,21 @@
     overflow: hidden;
 
     &.playing {
-      ~ .video-element__player {
+      ~.video-element__player {
         opacity: 1;
         visibility: visible;
       }
     }
 
     &.animate {
-      ~ .video-element__icon {
+      ~.video-element__icon {
         opacity: 0;
 
         .stroke-dotted {
           stroke-width: 2px;
           opacity: 1;
         }
+
         .stroke-solid {
           opacity: 0;
           stroke-dashoffset: 300;
@@ -95,6 +96,11 @@
     pointer-events: none;
     z-index: 999999;
     transition-delay: 1000ms;
+  }
+
+  &__caption {
+    margin-top: var(--gutter-tiny);
+    font-size: 1.4rem;
   }
 }
 
