@@ -1,15 +1,22 @@
 .image-text-element {
   overflow: hidden;
   position: relative;
-  background: var(--colour-grey-lighter);
-  border-radius: var(--radius-large);
   width: calc(100% - 4rem);
+
+  @media (min-width: 968px) {
+    padding: 0 2rem;
+  }
+
 
   &__wrap {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 0 !important;
+    background: var(--colour-grey-lighter);
+    border-radius: var(--radius-large);
+    overflow: hidden;
+
   }
 
   &__image {
