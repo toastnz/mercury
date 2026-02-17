@@ -62,7 +62,7 @@ class UserFormElement extends BaseElement
     {
         if ($page = $this->getParentPage()) {
             if ($page->ClassName == UserDefinedForm::class) {
-                if (Controller::has_curr()) {
+                if (Controller::curr()) {
                     $controller = Controller::curr();
                     $form = UserForm::create($controller, 'Form_' . $page->ID);
                     $form->setFormAction(Controller::join_links($page->Link(), 'Form'));
@@ -75,7 +75,7 @@ class UserFormElement extends BaseElement
 
     public function getIsFinished()
     {
-        if (Controller::has_curr()) {
+        if (Controller::curr()) {
             if ($request = Controller::curr()->getRequest()) {
                 return $request->param('Action') == 'finished';
             }
