@@ -5,10 +5,11 @@
   }
 
   &__player {
+    aspect-ratio: 1920/1080;
     transition: all var(--timing-fast);
     position: absolute;
     width: calc(100% - 4rem);
-    height: 100%;
+    height: auto;
     opacity: 0;
     top: 0;
     left: 2rem;
@@ -21,6 +22,11 @@
     iframe {
       width: 100%;
       height: 100%;
+
+      .vp-center {
+        align-items: start !important;
+        justify-content: start !important;
+      }
     }
   }
 
