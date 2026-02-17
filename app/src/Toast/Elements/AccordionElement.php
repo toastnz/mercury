@@ -49,6 +49,8 @@ class AccordionElement extends BaseElement
     {
         $fields = parent::getCMSFields();
 
+        $fields->removeByName('Items');
+
         $fields->addFieldsToTab('Root.Main', [
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
@@ -72,7 +74,7 @@ class AccordionElement extends BaseElement
                 GridFieldAddExistingAutocompleter::class
             ]);
 
-        $fields->addFieldsToTab('Root.Items',  [
+        $fields->addFieldsToTab('Root.Main',  [
             GridField::create('Items', 'Items', $this->Items(), $itemsConfig)
         ]);
 

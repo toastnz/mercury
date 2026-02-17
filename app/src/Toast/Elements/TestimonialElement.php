@@ -46,6 +46,8 @@ class TestimonialElement extends BaseElement
     {
         $fields = parent::getCMSFields();
 
+        $fields->removeByName('Items');
+
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('Heading', 'Heading'),
             ImageOptionsetField::create('Width', 'Select a Width')
@@ -70,7 +72,7 @@ class TestimonialElement extends BaseElement
                 GridFieldAddExistingAutocompleter::class
             ]);
 
-        $fields->addFieldsToTab('Root.Items', [
+        $fields->addFieldsToTab('Root.Main', [
             GridField::create('Items', 'Items', $this->Items(), $itemsConfig)
         ]);
 

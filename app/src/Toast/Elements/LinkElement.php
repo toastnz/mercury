@@ -51,6 +51,8 @@ class LinkElement extends BaseElement
     {
         $fields = parent::getCMSFields();
 
+        $fields->removeByName('Items');
+
         $fields->addFieldsToTab('Root.Main', [
             DropdownField::create('Columns', 'How many columns across', singleton(self::class)->dbObject('Columns')->enumValues()),
             CheckboxField::create('FullSizeBackground', 'Full size background images'),

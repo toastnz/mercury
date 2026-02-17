@@ -48,6 +48,8 @@ class TabbedElement extends BaseElement
     {
         $fields = parent::getCMSFields();
 
+        $fields->removeByName('Items');
+
         $fields->addFieldsToTab('Root.Main', [
             ImageOptionsetField::create('Width', 'Select a Width')
                 ->setSource([
