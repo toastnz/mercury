@@ -1,9 +1,8 @@
 import { $, $$, debounce } from '@/utilities/helpers';
 
-// TODO: BUG - For some reason the first youube video doesn't want to load but subsquent videos do.
-
 let vimeoScriptLoaded = false;
 let youtubeScriptLoaded = false;
+let youtubeAPIPromise = null;
 
 /**
  * Dynamically loads a script and executes a callback function once the script is loaded.
@@ -43,13 +42,27 @@ const loadVimeoAPI = (callback) => {
  * verifying the `youtubeScriptLoaded` flag. If the script is not loaded, it 
  * dynamically loads the YouTube IFrame Player API script and sets the 
  * `youtubeScriptLoaded` flag to true once the script is successfully loaded.
+ * 
+ * @returns {Promise<void>} A promise that resolves once the YouTube API script is loaded.
  */
 const loadYouTubeAPI = () => {
-    if (!youtubeScriptLoaded) {
-        loadScript('https://www.youtube.com/iframe_api', () => {
-            youtubeScriptLoaded = true;
-        });
+    if (youtubeAPIPromise) {
+        return youtubeAPIPromise;
     }
+
+    youtubeAPIPromise = new Promise((resolve) => {
+        if (!youtubeScriptLoaded) {
+            window.onYouTubeIframeAPIReady = () => {
+                youtubeScriptLoaded = true;
+                resolve();
+            };
+            loadScript('https://www.youtube.com/iframe_api');
+        } else {
+            resolve();
+        }
+    });
+
+    return youtubeAPIPromise;
 };
 
 
@@ -106,8 +119,7 @@ const initializeVideos = () => {
         if (!$iframe.id) $iframe.id = `video-${index}-${video_service}-${video_id}`;
 
         if (video_service === 'youtube') {
-            loadYouTubeAPI();
-            window.onYouTubeIframeAPIReady = () => {
+            loadYouTubeAPI().then(() => {
                 new YT.Player($iframe, {
                     videoId: video_id,
                     playerVars: {
@@ -122,8 +134,7 @@ const initializeVideos = () => {
                 });
 
                 $bannerVideo.style.opacity = 1;
-
-            };
+            });
         } else if (video_service === 'vimeo') {
             loadVimeoAPI(() => {
                 new Vimeo.Player($iframe, {
