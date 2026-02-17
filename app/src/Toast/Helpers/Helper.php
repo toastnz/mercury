@@ -5,10 +5,12 @@ namespace Toast\Helpers;
 use SilverStripe\Control\Director;
 use SilverStripe\Security\Security;
 
-class Helper 
+class Helper
 {
 
-    public static function getDirContents($dir, &$results = []) {
+    
+    public static function getDirContents($dir, &$results = [])
+    {
         $files = scandir($dir);
 
         foreach ($files as $key => $value) {
@@ -19,9 +21,9 @@ class Helper
                 self::getDirContents($path, $results);
                 $results[] = $path;
             }
-        }    
+        }
         return $results;
-    }    
+    }
 
 
     public static function getTemplates()
@@ -31,7 +33,7 @@ class Helper
         $themesPath = $cwd . '/' . $themeFolder . '/templates';
         $list = self::getDirContents($themesPath);
         $output = [];
-        foreach($list as $each) {
+        foreach ($list as $each) {
             if (strstr($each, '.ss')) {
                 $key = str_replace($cwd, '', $each);
                 $output[$key] = str_replace($cwd . '/', '', $each);
@@ -51,6 +53,4 @@ class Helper
         }
         return false;
     }
-
-
 }

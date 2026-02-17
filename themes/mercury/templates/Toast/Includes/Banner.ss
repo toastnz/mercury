@@ -31,6 +31,7 @@
                                 class="banner__image"
                                 alt="{$BackgroundImage.AltText}"
                                 width="400" 
+                                fetchpriority="high"
                                 height="608" 
                                 onerror="this.classList.add('broken')"  
                                 src="{$BackgroundImage.FocusFill(480,680).Convert('webp').URL}">

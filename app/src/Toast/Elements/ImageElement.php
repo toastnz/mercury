@@ -5,15 +5,15 @@
 
 namespace Toast\Elements;
 
-use SilverStripe\Assets\Image;
-use SilverStripe\ORM\ArrayList;
-use SilverStripe\View\ArrayData;
-use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\RequiredFields;
-use UncleCheese\Forms\ImageOptionsetField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\Image;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
+use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Model\ArrayData;
+use SilverStripe\Model\List\ArrayList;
+use UncleCheese\Forms\ImageOptionsetField;
 
 class ImageElement extends BaseElement
 {
@@ -83,20 +83,5 @@ class ImageElement extends BaseElement
         ]);
     }
 
-    public static function getSizes($Sizes)
-    {
-
-        $sizes = explode(',', $Sizes);
-        $sizesArray = array_map(function ($size) {
-            return new ArrayData(['Size' => $size]);
-        }, $sizes);
-
-        if (!$Sizes) {
-            $sizesArray = [
-                new ArrayData(['Size' => '1920']),
-            ];
-        }
-
-        return ArrayList::create($sizesArray);
-    }
+   
 }
