@@ -9,6 +9,7 @@ SilverStripe\Assets\File:
     - 'svg'
     - 'jpg'
     - 'png'
+    - 'webp'
     - 'jpeg'
 
 Heyday\MenuManager\MenuSet:
