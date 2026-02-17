@@ -31,12 +31,16 @@
   }
 
   &__item {
-    margin: 0 auto;
+    margin: 0 var(--gutter-base);
     text-align: center;
     background: var(--colour-secondary);
     border-radius: var(--radius-large);
     padding: 6rem;
     width: 100%;
+
+    @media (min-width: 768px) {
+      padding: 8rem;
+    }
 
     img {
       width: 4rem;
