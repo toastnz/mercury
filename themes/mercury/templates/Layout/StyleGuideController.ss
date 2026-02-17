@@ -1,34 +1,40 @@
 
 $Banner
+
 $IntroElement
-$TestimonialElement
+
 $AccordionElement
+
+<%-- $CodeElement ?? --%>
+
 $DownloadElement
-$MarqueeElement
 
-$TabbedElement
-<%-- 
-
-
-$ImageTextElement
-
-$ImageTextElementReversed
-
-$MarqueeElement
-
-$TabbedElement
+<%-- $GridElement --%>
 
 $HeroElement
 
 $ImageElement
 
+$ImageTextElement
+
+$ImageTextElementReversed
+
+<%-- $LinkElement --%>
+
+$MarqueeElement
+
+<%-- $SplitTextElement --%>
+
+$TabbedElement
+
+$TestimonialElement
+
+<%-- $TextBlock --%>
+
+<%-- $UserFormElement ?? --%>
+
 $VideoElement
 
-$LinkElement
-
-$Slider
-
-$TextBlock --%>
 <%-- 
 <section class="element text-element text-element--">
     <div class="text-element__wrap text-element__wrap--">
