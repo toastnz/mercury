@@ -85,8 +85,16 @@ export class Video {
      */
     onPlayerStateChange(event) {
         if (event.data == YT.PlayerState.ENDED) {
-            this.player.seekTo(0);
-            this.player.pauseVideo();
+            if (this.video_source === 'youtube') {
+                if (this.player && typeof this.player.seekTo === 'function') {
+                    this.player.seekTo(0);
+                    this.player.pauseVideo();
+                }
+            } else if (this.video_source === 'vimeo') {
+                this.player.setCurrentTime(0).then(() => {
+                    this.player.pause();
+                });
+            }
             this.hide();
         }
     }
@@ -134,9 +142,11 @@ export class Video {
      */
     play() {
         this.show();
-        (this.video_source === 'youtube')
-            ? this.player.playVideo()
-            : this.player.play();
+        if (this.video_source === 'youtube' && this.player && typeof this.player.playVideo === 'function') {
+            this.player.playVideo();
+        } else if (this.video_source === 'vimeo' && this.player && typeof this.player.play === 'function') {
+            this.player.play();
+        }
     }
 
     /**

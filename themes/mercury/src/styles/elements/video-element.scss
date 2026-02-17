@@ -1,5 +1,6 @@
 .video-element {
   &--caption {
+    .video-element__player,
     .video-element__thumbnail {
       border-radius: var(--radius-large) var(--radius-large) 0 0 !important;
     }
