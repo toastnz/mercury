@@ -8,12 +8,11 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HeaderField;
 use SilverStripe\Core\Extension;
-use SilverStripe\LinkField\Models\Link;
-
+use SilverStripe\LinkField\Form\LinkField;
 use SilverStripe\Forms\LiteralField;
 use SilverStripe\Forms\CheckboxField;
 use SilverStripe\Forms\TextareaField;
-// use Sheadawson\Linkable\Forms\LinkField;
+use SilverStripe\LinkField\Models\Link;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
@@ -43,9 +42,9 @@ class SiteConfigExtension extends Extension
 
     private static $has_one = [
         'Logo' => File::class,
-        // 'TermsLink' => Link::class,
-        // 'PrivacyLink' => Link::class,
-        // 'NotificationLink' => Link::class,
+        'TermsLink' => Link::class,
+        'PrivacyLink' => Link::class,
+        'NotificationLink' => Link::class,
     ];
 
     private static $owns = [
@@ -60,8 +59,8 @@ class SiteConfigExtension extends Extension
          * ----------------------------------------*/
 
         $fields->addFieldsToTab('Root.Links', [
-            // LinkField::create('TermsLinkID', 'Terms and Conditions Page'),
-            // LinkField::create('PrivacyLinkID', 'Privacy Policy Page'),
+            LinkField::create('TermsLinkID', 'Terms and Conditions Page'),
+            LinkField::create('PrivacyLinkID', 'Privacy Policy Page'),
             TextField::create('FacebookPage', 'Facebook Page'),
             TextField::create('LinkedinPage', 'Linkedin Page'),
             TextField::create('PinterestPage', 'Pinterest Page'),
@@ -124,7 +123,7 @@ class SiteConfigExtension extends Extension
             CheckboxField::create('ShowNotification', 'Show notification'),
             CheckboxField::create('NotificationCanBeClosed', 'Can this notification be closed?'),
             TextareaField::create('NotificationCopy', 'Notification content'),
-            // LinkField::create('NotificationLinkID', 'Notification link (optional)'),
+            LinkField::create('NotificationLinkID', 'Notification link (optional)'),
         ]);
 
         /** -----------------------------------------

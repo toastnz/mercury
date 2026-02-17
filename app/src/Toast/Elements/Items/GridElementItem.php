@@ -5,12 +5,12 @@ namespace Toast\Elements\Items;
 use SilverStripe\Assets\Image;
 use Toast\Elements\GridElement;
 use SilverStripe\Forms\TextField;
-// use SilverStripe\LinkField\Models\Link;
+use SilverStripe\LinkField\Form\LinkField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\TextareaField;
-use SilverStripe\Forms\RequiredFields;
-// use Sheadawson\Linkable\Forms\LinkField;
+use SilverStripe\LinkField\Models\Link;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+
 
 class GridElementItem extends ElementItem
 {
@@ -30,7 +30,7 @@ class GridElementItem extends ElementItem
     ];
 
     private static $has_one = [
-        // 'Link'   => Link::class,
+        'Link'   => Link::class,
         'Image'  => Image::class,
         'Parent' => GridElement::class
     ];
@@ -57,7 +57,7 @@ class GridElementItem extends ElementItem
             TextField::create('Title', 'Title'),
             TextareaField::create('Summary', 'Summary')
                 ->setRows(3),
-            // LinkField::create('LinkID', 'Link')
+            LinkField::create('LinkID', 'Link')
         ]);
 
         return $fields;
