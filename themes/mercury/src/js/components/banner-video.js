@@ -1,5 +1,7 @@
 import { $, $$, debounce } from '@/utilities/helpers';
 
+// TODO: BUG - For some reason the first youube video doesn't want to load but subsquent videos do.
+
 let vimeoScriptLoaded = false;
 let youtubeScriptLoaded = false;
 
