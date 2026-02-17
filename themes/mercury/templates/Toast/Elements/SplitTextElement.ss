@@ -3,6 +3,7 @@
 		<div class="text-element__left">
 			{$ContentLeft}
 		</div>
+		
 		<div class="text-element__right">
 			{$ContentRight}
 		</div>

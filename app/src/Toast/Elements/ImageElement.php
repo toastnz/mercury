@@ -1,5 +1,8 @@
 <?php
 
+// TODO: BE - Array data throwing an error when adding an image to the block
+// - [Emergency] Uncaught Error: Class "SilverStripe\View\ArrayData" not found
+
 namespace Toast\Elements;
 
 use SilverStripe\Assets\Image;

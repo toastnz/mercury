@@ -12,6 +12,16 @@
     --colour-primary: #4a6f95;
     --colour-secondary: #475569;
 
+    // gutters
+    --gutter-base: 2rem;
+    --gutter-tiny: calc(var(--gutter-base) * 0.25);
+    --gutter-smaller: calc(var(--gutter-base) * 0.33);
+    --gutter-small: calc(var(--gutter-base) * 0.5);
+    --gutter-medium: calc(var(--gutter-base) * 0.75);
+    --gutter-large: calc(var(--gutter-base) * 1.5);
+    --gutter-larger: calc(var(--gutter-base) * 2);
+    --gutter-huge: calc(var(--gutter-base) * 4);
+
     // Text colours
     --text-dark: var(--colour-black);
     --text-light: var(--colour-grey-mid);

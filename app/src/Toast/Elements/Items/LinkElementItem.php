@@ -1,15 +1,18 @@
 <?php
 
+// TODO: Replace link field with something more up to date. Tried to install Sheadawson\Linkable but
+// Get errors from it looking for packages related to ss3.
+
 namespace Toast\Elements\Items;
 
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
 use Toast\Elements\LinkElement;
 use SilverStripe\Forms\TextField;
-use SilverStripe\LinkField\Models\Link;
+// use SilverStripe\LinkField\Models\Link;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\RequiredFields;
-use Sheadawson\Linkable\Forms\LinkField;
+// use Sheadawson\Linkable\Forms\LinkField;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 
 class LinkElementItem extends ElementItem
@@ -29,7 +32,7 @@ class LinkElementItem extends ElementItem
     ];
 
     private static $has_one = [
-        'Link'   => Link::class,
+        // 'Link'   => Link::class,
         'Image'  => Image::class,
         'Parent' => LinkElement::class
     ];
@@ -60,11 +63,11 @@ class LinkElementItem extends ElementItem
         $fields->addFieldsToTab('Root.Main', [
             UploadField::create('Image', 'Thumbnail')
                 ->setAllowedFileCategories('image/supported')
-                ->setFolderName('elements/images'),                
+                ->setFolderName('elements/images'),
             TextField::create('Title', 'Title'),
             TextareaField::create('Summary', 'Summary')
                 ->setRows(6),
-            LinkField::create('LinkID', 'Link')
+            // LinkField::create('LinkID', 'Link')
         ]);
 
         return $fields;
