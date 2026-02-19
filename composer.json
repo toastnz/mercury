@@ -28,7 +28,8 @@
         "silverstripe/linkfield": "^5.1.3",
         "silverstripe/htmleditor-tinymce": "^1.0.2",
         "unclecheese/silverstripe-image-optionset": "dev-master",
-        "toastnz/simple-csp": "^3"
+        "toastnz/simple-csp": "^3",
+        "toastnz/indexedsearch": "^6"
     },
     "extra": {
         "resources-dir": "_resources",

@@ -1,0 +1,75 @@
+---
+Name: CustomIndexedSearchConfig
+After: 
+  - 'silvershop-extensions'
+  - 'IndexedSearchIndexConfig'
+---
+
+Toast\IndexedSearch\SearchIndex:
+  # The classes to be indexed (subclasses are automatically included)
+  index_classes:
+    - Page
+
+  # The fields to be indexed (apply to all classes)
+  # Use dot notation to index fields on relations:
+  # Eg. Blocks.Items.Title
+  index_fields:
+    - Title
+    - MenuTitle
+
+    # Add all the fields you want to display in the search results here
+    # to avoid having to do a second query to get the data.
+    # - The ID and ClassName fields are always included.
+    # - Fields that don't exist on a given object will return as "null".
+    # - Either fields or functions can be specified.
+    #
+  data_fields:
+    - Title
+    - MenuTitle
+    - Link
+    - AbsoluteLink
+
+  # The variable or function from the top level object that
+  # must return "true" for the object to be indexed
+  searchable_flag_check: ShowInSearch
+
+  # Allow empty queries
+  search_allow_empty_query: true
+
+  # Subsite filter
+  search_disable_subsite_filter: false
+
+  # Setting this to false will allow special characters to be included in the search term
+  search_split_special_chars: false
+
+
+---
+Name: CustomIndexedSearchFormConfig
+After: IndexedSearchFormConfig
+---
+
+# Customise the search behaviour for SearchForm
+#
+Toast\IndexedSearch\SearchForm:
+  extensions:
+    - Toast\Extensions\SearchFormExtension
+
+  search_classes:
+    - Page
+    - SilverStripe\Blog\Model\BlogPost
+
+  # Boost the score
+  # The higher the number, the higher the score
+  # The default value for all fields is zero
+  boost_fields:
+    Title: 1
+
+  # Boost classes
+  # Subclasses of indexed classes can also be specified
+  # The higher the number, the higher the score
+  # The default value for all classes is zero
+  boost_classes:
+
+  # Pagination
+  enable_pagination: true
+  results_per_page: 10
