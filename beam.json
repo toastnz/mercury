@@ -25,13 +25,12 @@
 			"/silverstripe-cache/",
 			"/_cache/",
 			"silverstripe.log",
-			".htaccess",
+			"/.htaccess",
 			"/_logs/",
 			"*.sspak",
 			"robots.txt",
 			"robots_nz.txt",
 			"/.well-known/",
-			".htaccess",
 			"/public/assets",
 			"/public/assets/",
 			"/subsites/host-map.php",
@@ -71,7 +70,7 @@
 			"required": true
 		},
 		{
-			"command": "php -d memory_limit=-1 vendor/silverstripe/framework/cli-script.php dev/build flush=1",
+			"command": "vendor/silverstripe/framework/bin/sake db:build --flush; [ -d silverstripe-cache ] && rm -rf silverstripe-cache && mkdir silverstripe-cache",
 			"location": "target",
 			"phase": "post",
 			"tag": "build"
