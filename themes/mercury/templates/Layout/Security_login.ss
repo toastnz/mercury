@@ -14,7 +14,6 @@
             <div class="login__form__wrap__copy">
             
                 <h1>Login</h1>
-                
                 <p>Welcome back! Log in to access your site.</p>
 
                 $Form

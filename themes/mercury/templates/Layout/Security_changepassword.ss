@@ -14,7 +14,6 @@
             <div class="login__form__wrap__copy">
                
                 <h1>Reset</h1>
-                
                 <p>Reset your password by using the form below</p>
 
                 $Form

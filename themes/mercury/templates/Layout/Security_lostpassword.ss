@@ -14,12 +14,11 @@
             <div class="login__form__wrap__copy">
                 
                 <h1>Lost your password?</h1>
-                
                 <p>Enter your email andress to receive a reset link.</p>
 
                 $Form
                 
-                <a href="{$BaseURL}Security/login">log in page</a>
+                <a href="{$BaseURL}Security/login">Login page</a>
 
             </div>
 
