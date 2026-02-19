@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9aad8cf94ae92e46d1458ef5cd99afe",
+    "content-hash": "94faa7d0c21fda1a667a35628d0f4f26",
     "packages": [
         {
             "name": "asyncphp/doorman",
@@ -7532,6 +7532,55 @@
                 "source": "https://github.com/toastnz/favicon/tree/3.0.1"
             },
             "time": "2025-08-19T21:58:36+00:00"
+        },
+        {
+            "name": "toastnz/indexedsearch",
+            "version": "6.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/toastnz/indexedsearch.git",
+                "reference": "ba834c03130f0ff54d988decd7562e1f49cd170e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/toastnz/indexedsearch/zipball/ba834c03130f0ff54d988decd7562e1f49cd170e",
+                "reference": "ba834c03130f0ff54d988decd7562e1f49cd170e",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^6",
+                "silverstripe/vendor-plugin": "^2.0 || ^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Leandro Palmieri",
+                    "email": "p@beetpix.com"
+                },
+                {
+                    "name": "Jaydn de Graaf",
+                    "email": "jd@pinc.nz"
+                }
+            ],
+            "description": "A fulltext search module for SilverStripe that filters any data object and their relations, with filtering, fuzzy and boosting options.",
+            "keywords": [
+                "boosting",
+                "fulltext",
+                "fuzzy",
+                "ranking",
+                "search",
+                "silverstripe",
+                "similarity"
+            ],
+            "support": {
+                "issues": "https://github.com/toastnz/indexedsearch/issues",
+                "source": "https://github.com/toastnz/indexedsearch/tree/6.0.4"
+            },
+            "time": "2026-02-19T02:28:51+00:00"
         },
         {
             "name": "toastnz/simple-csp",
