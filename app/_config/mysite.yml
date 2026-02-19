@@ -26,3 +26,9 @@ Symbiote\QueuedJobs\Jobs\CleanupJob:
     - "Broken"
     - "Complete"
     - "Cancelled"
+
+SilverStripe\Control\Controller:
+  add_trailing_slash: true
+
+SilverStripe\CMS\Model\SiteTree:
+  meta_generator: ''

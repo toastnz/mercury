@@ -2,17 +2,16 @@
 
 namespace Toast\Elements;
 
-use SilverStripe\ORM\GroupedList;
-use SilverStripe\Forms\LiteralField;
-use UncleCheese\Forms\ImageOptionsetField;
 use DNADesign\Elemental\Models\BaseElement;
-use SilverStripe\Forms\GridField\GridField;
-use Toast\Elements\Items\AccordionElementItem;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
-use SilverStripe\Forms\GridField\GridFieldDeleteAction;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\Model\List\GroupedList;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use Toast\Elements\Items\AccordionElementItem;
+use UncleCheese\Forms\ImageOptionsetField;
 
 class AccordionElement extends BaseElement
 {

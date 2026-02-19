@@ -1,7 +1,6 @@
 <?php
 
 namespace Toast\Extensions;
-use SilverStripe\ORM\PaginatedList;
 use SilverStripe\Core\Extension;
 use Toast\Pages\SearchResultsPage;
 

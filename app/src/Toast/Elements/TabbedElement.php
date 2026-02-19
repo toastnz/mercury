@@ -2,7 +2,6 @@
 
 namespace Toast\Elements;
 
-use SilverStripe\Forms\LiteralField;
 use UncleCheese\Forms\ImageOptionsetField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\GridField\GridField;

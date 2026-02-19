@@ -2,8 +2,6 @@
 
 namespace Toast\Elements;
 
-use SilverStripe\Forms\LiteralField;
-use SilverStripe\Forms\DropdownField;
 use Toast\Elements\Items\GridElementItem;
 use UncleCheese\Forms\ImageOptionsetField;
 use DNADesign\Elemental\Models\BaseElement;

@@ -6,4 +6,4 @@ After:
 ---
 SilverStripe\Control\Director:
   rules:
-    "_styleguide": "Toast\\Controllers\\StyleGuideController"
+    _styleguide: Toast\Controllers\StyleGuideController

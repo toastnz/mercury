@@ -2,12 +2,13 @@
 
 namespace Toast\Elements;
 
-use SilverStripe\Forms\DropdownField;
-use SilverStripe\Forms\RequiredFields;
-use UncleCheese\Forms\ImageOptionsetField;
 use DNADesign\Elemental\Models\BaseElement;
-use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use SilverStripe\Forms\Validation\CompositeValidator;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
+use UncleCheese\Forms\ImageOptionsetField;
 
 class TextElement extends BaseElement
 {
@@ -60,10 +61,12 @@ class TextElement extends BaseElement
         return $fields;
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return RequiredFields::create([
-            'Content'
-        ]);
+        return parent::getCMSCompositeValidator()
+            ->addValidator(RequiredFieldsValidator::create([
+                'Content'
+            ]));
     }
+    
 }

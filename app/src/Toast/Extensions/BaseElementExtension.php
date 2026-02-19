@@ -2,10 +2,11 @@
 
 namespace Toast\Extensions;
 
-use SilverStripe\Forms\FieldList;
 use SilverStripe\Core\Extension;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\ReadonlyField;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Validation\CompositeValidator;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 
 class BaseElementExtension extends Extension
 {
@@ -24,11 +25,12 @@ class BaseElementExtension extends Extension
         ]);
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return RequiredFields::create([
-            'Title'
-        ]);
+        return CompositeValidator::create()
+            ->addValidator(RequiredFieldsValidator::create([
+                'Title'
+            ]));
     }
 
 }

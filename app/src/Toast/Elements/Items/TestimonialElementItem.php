@@ -2,9 +2,10 @@
 
 namespace Toast\Elements\Items;
 
-use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\TextareaField;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\Validation\CompositeValidator;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use Toast\Elements\TestimonialElement;
 
 class TestimonialElementItem extends ElementItem
@@ -58,11 +59,12 @@ class TestimonialElementItem extends ElementItem
         }
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return RequiredFields::create([
-            'Testimonial'
-        ]);
+        return parent::getCMSCompositeValidator()
+            ->addValidator(RequiredFieldsValidator::create([
+                'Testimonial'
+            ]));
     }
 
 

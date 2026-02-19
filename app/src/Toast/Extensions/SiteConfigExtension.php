@@ -19,12 +19,9 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 class SiteConfigExtension extends Extension
 {
     private static $db = [
-        'HeadCodeInjection' => 'HTMLText',
-        'FooterCodeInjection' => 'HTMLText',
-        'GoogleAnalytics' =>  'Varchar(64)',
-        'GoogleTagManagerID' =>  'Varchar(64)',
-        'BugherdProjectKey' => 'Varchar(64)',
-        'GoogleMapsApiKey' => 'Varchar(64)',
+        'HeadCodeInjection' => 'Text',
+        'FooterCodeInjection' => 'Text',
+        'BodyCodeInjection' => 'Text',
         'MakeHeaderFullWidth' => 'Boolean',
         'FacebookPage' => 'Varchar(255)',
         'LinkedinPage' => 'Varchar(255)',
@@ -93,6 +90,8 @@ class SiteConfigExtension extends Extension
                     ->setDescription('Enter code that will be injected into the \'head\' tag on every page of your site.'),
                 TextareaField::create('FooterCodeInjection', 'Footer Code Injection')
                     ->setDescription('Enter code that will be injected into the footer on every page of your site.'),
+                TextareaField::create('BodyCodeInjection', 'Body Code Injection')
+                    ->setDescription('Enter code that will be injected into the body on every page of your site.'),
                 LiteralField::create('CodeInjectionWarning', '<div class="message warning"><strong>Note:</strong> Only <strong>Default Admin</strong> can view these settings</div>')
             ]);
 
@@ -126,28 +125,5 @@ class SiteConfigExtension extends Extension
             LinkField::create('NotificationLinkID', 'Notification link (optional)'),
         ]);
 
-        /** -----------------------------------------
-         * Keys
-         * ----------------------------------------*/
-
-        if (Helper::isSuperAdmin()) {
-
-            $fields->addFieldsToTab('Root.APIKeys', [
-                HeaderField::create('APIKeys', 'External API Keys'),
-                TextField::create('GoogleAnalytics', 'Google Analytics Account Number')
-                    ->setAttribute('placeholder', 'UA-XXXXXX-Y')
-                    ->setDescription('Enter your <a href="https://support.google.com/analytics/answer/1008080?hl=en#GAID" target="_blank">Google Analytics Account Number</a> to enable Google Analytics on your site.'),
-                TextField::create('GoogleTagManagerID', 'Google Tag Manager ID')
-                    ->setAttribute('placeholder', 'GTM-XXXXXX')
-                    ->setDescription('Enter your <a href="https://support.google.com/analytics/answer/1008080?hl=en#GAID" target="_blank">Google Tag Manager ID</a> to enable Google Tag Manager on your site.'),
-                TextField::create('BugherdProjectKey', 'Bugherd Project Key')
-                    ->setAttribute('placeholder', 'xxxxxxxxxxxxxxxxxxxxxx')
-                    ->setDescription('Enter your <a href="https://support.bugherd.com/hc/en-us/articles/204171450-Installing-the-Script" target="_blank">Bugherd Project Key</a> to enable Bugherd tracking for you site.'),
-                TextField::create('GoogleMapsApiKey', 'Google Maps API Key')
-                    ->setAttribute('placeholder', 'xxxxxxxxxxxxxxxxxxxxxx')
-                    ->setDescription('Enter your <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">Google Maps API Key</a> to be able to display maps on your site.'),
-                LiteralField::create('APIKeysWarning', '<div class="message warning"><strong>Note:</strong> Only <strong>Default Admin</strong> can view these settings</div>')
-            ]);
-        }
     }
 }

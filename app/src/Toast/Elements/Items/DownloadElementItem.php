@@ -2,12 +2,13 @@
 
 namespace Toast\Elements\Items;
 
-use SilverStripe\Assets\File;
-use SilverStripe\Forms\TextField;
-use Toast\Elements\DownloadElement;
-use SilverStripe\Forms\TextareaField;
-use SilverStripe\Forms\RequiredFields;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\File;
+use SilverStripe\Forms\TextareaField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\Validation\CompositeValidator;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
+use Toast\Elements\DownloadElement;
 
 class DownloadElementItem extends ElementItem
 {
@@ -63,11 +64,13 @@ class DownloadElementItem extends ElementItem
         }
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return RequiredFields::create([
-            'File'
-        ]);
+        return parent::getCMSCompositeValidator()
+            ->addValidator(RequiredFieldsValidator::create([
+                'File'
+            ]));
     }
+
 
 }

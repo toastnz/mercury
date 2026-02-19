@@ -2,15 +2,16 @@
 
 namespace Toast\Elements;
 
-use SilverStripe\Assets\Image;
-use SilverStripe\Forms\TextField;
-use SilverStripe\Forms\RequiredFields;
-use UncleCheese\Forms\ImageOptionsetField;
 use Axllent\FormFields\FieldType\VideoLink;
-use DNADesign\Elemental\Models\BaseElement;
 use Axllent\FormFields\Forms\VideoLinkField;
+use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\Image;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\Validation\CompositeValidator;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
+use UncleCheese\Forms\ImageOptionsetField;
 
 class VideoElement extends BaseElement
 {
@@ -75,10 +76,12 @@ class VideoElement extends BaseElement
         return $fields;
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return RequiredFields::create([
-            'Video'
-        ]);
+        return parent::getCMSCompositeValidator()
+            ->addValidator(RequiredFieldsValidator::create([
+                'Video'
+            ]));
     }
+
 }

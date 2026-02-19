@@ -5,7 +5,6 @@ namespace Toast\Elements;
 use SilverStripe\Forms\TextField;
 use UncleCheese\Forms\ImageOptionsetField;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
-use SilverStripe\Forms\LiteralField;
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\Forms\GridField\GridField;
 use Toast\Elements\Items\TestimonialElementItem;

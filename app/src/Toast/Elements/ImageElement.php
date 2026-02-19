@@ -1,18 +1,14 @@
 <?php
 
-// TODO: BE - Array data throwing an error when adding an image to the block
-// - [Emergency] Uncaught Error: Class "SilverStripe\View\ArrayData" not found
-
 namespace Toast\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
 use SilverStripe\Core\Manifest\ModuleResourceLoader;
-use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextField;
-use SilverStripe\Model\ArrayData;
-use SilverStripe\Model\List\ArrayList;
+use SilverStripe\Forms\Validation\CompositeValidator;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use UncleCheese\Forms\ImageOptionsetField;
 
 class ImageElement extends BaseElement
@@ -76,11 +72,12 @@ class ImageElement extends BaseElement
         return $fields;
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        return RequiredFields::create([
-            'Image'
-        ]);
+        return parent::getCMSCompositeValidator()
+            ->addValidator(RequiredFieldsValidator::create([
+                'Image'
+            ]));
     }
 
    

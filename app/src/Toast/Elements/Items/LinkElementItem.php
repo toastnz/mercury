@@ -4,7 +4,6 @@ namespace Toast\Elements\Items;
 
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\Image;
-use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\LinkField\Form\LinkField;

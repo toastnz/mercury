@@ -6,29 +6,32 @@
     </head>
 
     <body class="$Classname ">
+        <% if $SiteConfig.BodyCodeInjection %>
+            $SiteConfig.BodyCodeInjection.RAW
+        <% end_if %>
 
-    <%---------------------------------------------- 
-    Show popup
-    -------------------------------------------- --%>
+        <%---------------------------------------------- 
+        Show popup
+        -------------------------------------------- --%>
 
-    <% if $Siteconfig.ShowPopup %>
-        <% include Toast\Includes\Popup %>
-    <% end_if %>
+        <% if $Siteconfig.ShowPopup %>
+            <% include Toast\Includes\Popup %>
+        <% end_if %>
 
-    
-    <% include Toast\Header %>
+        
+        <% include Toast\Header %>
 
-    $Layout
+        $Layout
 
-    <% include Toast\Footer %>
+        <% include Toast\Footer %>
 
-    <%-- --------------------------------------------------------------
-    Footer code injection
-    -------------------------------------------------------------- --%>
+        <%-- --------------------------------------------------------------
+        Footer code injection
+        -------------------------------------------------------------- --%>
 
-    <% if $SiteConfig.FooterCodeInjection %>
-        $SiteConfig.FooterCodeInjection
-    <% end_if %>
+        <% if $SiteConfig.FooterCodeInjection %>
+            $SiteConfig.FooterCodeInjection.RAW
+        <% end_if %>
 
     </body>
 

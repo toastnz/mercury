@@ -2,12 +2,13 @@
 
 namespace Toast\Elements\Items;
 
+use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\Forms\TextField;
-use Toast\Elements\AccordionElement;
-use SilverStripe\Forms\RequiredFields;
+use SilverStripe\Forms\Validation\CompositeValidator;
+use SilverStripe\Forms\Validation\RequiredFieldsValidator;
 use SilverStripe\ORM\FieldType\DBField;
 use SilverStripe\ORM\FieldType\DBHTMLText;
-use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
+use Toast\Elements\AccordionElement;
 
 class AccordionElementItem extends ElementItem
 {
@@ -63,14 +64,13 @@ class AccordionElementItem extends ElementItem
         }
     }
 
-    public function getCMSValidator()
+    public function getCMSCompositeValidator(): CompositeValidator
     {
-        $required = RequiredFields::create([
-            'Heading',
-            'Content'
-        ]);
-
-        return $required;
+        return parent::getCMSCompositeValidator()
+            ->addValidator(RequiredFieldsValidator::create([
+                'Title',
+                'Content'
+            ]));
     }
 
     public function getGroupNumber()
