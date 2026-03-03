@@ -4,7 +4,7 @@
             
             <% loop $Items.Sort('SortOrder') %>
                 <% if $Link %>
-                    <a href="$Link.LinkURL" class="grid-element__item grid-element__item--{$Size}">
+                    <a href="$Link.URL" class="grid-element__item grid-element__item--{$Size}" <% if $Link.OpenInNew %>target="_blank" rel="noopener noreferrer"<% end_if %>>
                 <% else %>
                     <div class="grid-element__item grid-element__item--{$Size}">
                 <% end_if %>

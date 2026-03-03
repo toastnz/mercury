@@ -24,10 +24,10 @@ Footer
             <p class="smaller">
                 © $SiteConfig.Title {$Now.Year}. 
                 <% if $SiteConfig.PrivacyLink  %>
-                    <a $SiteConfig.PrivacyLink.TargetAttr href="$SiteConfig.PrivacyLink.LinkURL">$SiteConfig.PrivacyLink.Title.XML </a>
+                    <a href="$SiteConfig.PrivacyLink.URL" <% if $SiteConfig.PrivacyLink.OpenInNew %>target="_blank" rel="noopener noreferrer"<% end_if %>>$SiteConfig.PrivacyLink.Title</a>
                 <% end_if %>
                 <% if $SiteConfig.TermsLink  %>
-                    <a $SiteConfig.TermsLink.TargetAttr href="$SiteConfig.TermsLink.LinkURL">$SiteConfig.TermsLink.Title.XML </a>
+                    <a href="$SiteConfig.TermsLink.URL" <% if $SiteConfig.TermsLink.OpenInNew %>target="_blank" rel="noopener noreferrer"<% end_if %>>$SiteConfig.TermsLink.Title</a>
                 <% end_if %>
             </p>
             <div class="footer__wrap__copyright__social">

@@ -42,12 +42,12 @@ Notification
         <div class="notification__wrap__content">
             <p class="colour--white">
                 $Siteconfig.NotificationCopy
-                <% if $SiteConfig.NotificationLink  %>
-                <a $SiteConfig.NotificationLink.TargetAttr href="$SiteConfig.NotificationLink.LinkURL">$SiteConfig.NotificationLink.Title.XML </a>
+                <% if $SiteConfig.NotificationLink %>
+                    <a href="$SiteConfig.NotificationLink.URL" <% if $SiteConfig.NotificationLink.OpenInNew %>target="_blank" rel="noopener noreferrer"<% end_if %>>$SiteConfig.NotificationLink.Title</a>
                 <% end_if %>
             </p>
         </div>
-        <% if $$Siteconfig.NotificationCanBeClosed %>
+        <% if $Siteconfig.NotificationCanBeClosed %>
             <div class="notification__wrap__close" onclick="hideNotification()">
                 <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close icon--medium" fill="none" viewBox="0 0 24 24">
                   <path d="M18.75 5.13496L5.25 18.8544" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>

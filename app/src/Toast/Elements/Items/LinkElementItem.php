@@ -37,7 +37,8 @@ class LinkElementItem extends ElementItem
     ];
 
     private static $owns = [
-        'Image'
+        'Image',
+        'Link'
     ];
 
     public function getCMSFields()
@@ -47,7 +48,6 @@ class LinkElementItem extends ElementItem
         $fields->removeByName([
             'ParentID',
             'SortOrder',
-            'LinkID',
             'ImageID',
             'Image',
             'Title',
@@ -62,7 +62,7 @@ class LinkElementItem extends ElementItem
             TextField::create('Title', 'Title'),
             TextareaField::create('Summary', 'Summary')
                 ->setRows(6),
-            LinkField::create('LinkID', 'Link')
+            LinkField::create('Link', 'Link')
         ]);
 
         return $fields;

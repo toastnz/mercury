@@ -45,7 +45,10 @@ class SiteConfigExtension extends Extension
     ];
 
     private static $owns = [
-        'Logo'
+        'Logo',
+        'TermsLink',
+        'PrivacyLink',
+        'NotificationLink'
     ];
 
     public function updateCMSFields(FieldList $fields)
@@ -56,8 +59,8 @@ class SiteConfigExtension extends Extension
          * ----------------------------------------*/
 
         $fields->addFieldsToTab('Root.Links', [
-            LinkField::create('TermsLinkID', 'Terms and Conditions Page'),
-            LinkField::create('PrivacyLinkID', 'Privacy Policy Page'),
+            LinkField::create('TermsLink', 'Terms and Conditions Page'),
+            LinkField::create('PrivacyLink', 'Privacy Policy Page'),
             TextField::create('FacebookPage', 'Facebook Page'),
             TextField::create('LinkedinPage', 'Linkedin Page'),
             TextField::create('PinterestPage', 'Pinterest Page'),
@@ -122,7 +125,7 @@ class SiteConfigExtension extends Extension
             CheckboxField::create('ShowNotification', 'Show notification'),
             CheckboxField::create('NotificationCanBeClosed', 'Can this notification be closed?'),
             TextareaField::create('NotificationCopy', 'Notification content'),
-            LinkField::create('NotificationLinkID', 'Notification link (optional)'),
+            LinkField::create('NotificationLink', 'Notification link (optional)'),
         ]);
 
     }

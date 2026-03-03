@@ -42,7 +42,8 @@ class GridElementItem extends ElementItem
     ];
 
     private static $owns = [
-        'Image'
+        'Image',
+        'Link'
     ];
 
     public function getCMSFields()
@@ -57,7 +58,7 @@ class GridElementItem extends ElementItem
             TextField::create('Title', 'Title'),
             TextareaField::create('Summary', 'Summary')
                 ->setRows(3),
-            LinkField::create('LinkID', 'Link')
+            LinkField::create('Link', 'Link')
         ]);
 
         return $fields;

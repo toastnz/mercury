@@ -3,7 +3,7 @@
         <div class="link-element__wrap link-element__wrap--{$Columns}">
             
             <% loop $Items.Sort('SortOrder') %>
-                <a href="$Link.LinkURL" class="link-element__item <% if not $Icon && not $image %>bordered <% end_if %>">
+                <a href="$Link.URL" class="link-element__item <% if not $Icon && not $image %>bordered <% end_if %>" <% if $Link.OpenInNew %>target="_blank" rel="noopener noreferrer"<% end_if %>>
                     <div class="link-element__image">
                         <% if $FullSizeBackground %>
                             <img src="$Image.FocusFill(600,700).Convert('webp').URL" width="600" height="700" loading="lazy" alt="$Image.title">
