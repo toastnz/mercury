@@ -2,6 +2,7 @@
 
 namespace Toast\Helpers;
 
+use SilverStripe\Control\Controller;
 use SilverStripe\Control\Director;
 use SilverStripe\Security\Security;
 
@@ -30,15 +31,17 @@ class Helper
     {
         $cwd = str_replace(PUBLIC_DIR, '', getcwd());
         $themeFolder = 'themes/mercury';
-        $themesPath = $cwd . '/' . $themeFolder . '/templates';
+        $themesPath = Controller::join_links($cwd, $themeFolder . '/templates');
         $list = self::getDirContents($themesPath);
         $output = [];
+
         foreach ($list as $each) {
             if (strstr($each, '.ss')) {
-                $key = str_replace($cwd, '', $each);
-                $output[$key] = str_replace($cwd . '/', '', $each);
+                $template = str_replace([$themesPath, '.ss'], '', $each);
+                $output[$template] = $template;
             }
         }
+
         return $output;
     }
 

@@ -32,20 +32,18 @@ class Page extends SiteTree
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
-        $fields->removeByName(['Content']);
-        $fields->removeByName('BannerSlides');
+        
+        $fields->removeByName([
+            'Content',
+            'BannerSlides'
+        ]);
 
         $config = GridFieldConfig_RelationEditor::create(10);
         $config->addComponent(GridFieldOrderableRows::create('SortOrder'))
             ->removeComponentsByType(GridFieldDeleteAction::class)
             ->addComponent(new GridFieldDeleteAction(false));
 
-        $gridField = GridField::create(
-            'BannerSlides',
-            'BannerSlides',
-            $this->owner->BannerSlides(),
-            $config
-        );
+        $gridField = GridField::create('BannerSlides', 'BannerSlides', $this->owner->BannerSlides(), $config);
 
         $fields->addFieldsToTab('Root.Banner', [
             CheckboxField::create('TransparentHeader', 'Make the header transparent'),
@@ -104,9 +102,26 @@ class PageController extends ContentController
     public function getViewer($action)
     {
         $viewer = parent::getViewer($action);
+
         if ($this->CustomTemplateType && $this->CustomTemplateFile) {
-            $viewer->setTemplateFile($this->CustomTemplateType, getcwd() . $this->CustomTemplateFile);
+            $templateFile = $this->CustomTemplateFile;
+
+            if ($this->CustomTemplateType === 'Layout') {
+                $engine = $viewer->getTemplateEngine();
+                $reflection = new \ReflectionClass($engine);
+
+                if ($reflection->hasProperty('subTemplates')) {
+                    $property = $reflection->getProperty('subTemplates');
+                    $property->setAccessible(true);
+                    $subTemplates = (array)$property->getValue($engine);
+                    $subTemplates['Layout'] = [$templateFile];
+                    $property->setValue($engine, $subTemplates);
+                }
+            } else {
+                $viewer->getTemplateEngine()->setTemplate($templateFile);
+            }
         }
+
         return $viewer;
     }
 
