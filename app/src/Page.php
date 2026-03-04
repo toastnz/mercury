@@ -35,7 +35,9 @@ class Page extends SiteTree
         
         $fields->removeByName([
             'Content',
-            'BannerSlides'
+            'BannerSlides',
+            'CustomTemplateFile',
+            'CustomTemplateType'
         ]);
 
         $config = GridFieldConfig_RelationEditor::create(10);
